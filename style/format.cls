@@ -66,6 +66,7 @@
 \usepackage{multirow,arydshln,multicol,booktabs,float}
 
 % 段落------------------------------------------------------------------
+\setlength\parindent{0pt}
 \setlength{\parskip}{2.0pt}   % 段间距
 \linespread{1.3}              % 行间距
 
