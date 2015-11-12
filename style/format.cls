@@ -1,6 +1,7 @@
-% for pandoc 
+% for convert
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{inputenc,fontenc,longtable}
 
 \usepackage{amsmath,supertabular}
 
