@@ -9,4 +9,4 @@
 - 工作流程的自动化（直接从博客目录生成 tex）
 - book 模板的改善
 - 代码样式（jekyll 标签的替换和 latex 样式）
-- `kramdown -o latex some.markdown >some.tex` 直接转 tex 文件未成功
+- `kramdown -o latex some.markdown >some.tex` 直接转 tex 文件未成功（OK, 不使用 git，换用 cmd）
