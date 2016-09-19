@@ -1,21 +1,23 @@
-\documentclass[oneside]{book}
+\documentclass[12pt,a4paper]{article}
 
 \input{style/format.cls}
 
 
 \begin{document}
 
-\frontmatter
 \title{Front End Book \\ \textit{draft}}
-\author{陈磊 \\ \href{https://github.com/HereChen/front-end-book}{https://github.com/HereChen/front-end-book}}
+\author{陈磊 \\ 
+	\url{chenlei.here@qq.com} \\
+	\url{https://github.com/HereChen/Front-End-Book}
+}
 \maketitle
 
-\include{foreword/foreword}
+\input{foreword/foreword}
 
+\clearpage % in new page
 \tableofcontents
 
-\mainmatter
-\include{chapter/javascript}
+\input{sections}
 
 % \include{dedic}
 % \include{foreword}
@@ -36,8 +38,6 @@
 % \include{glossary}
 % \include{solutions}
 % \printindex
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
 

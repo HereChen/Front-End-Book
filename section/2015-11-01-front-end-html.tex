@@ -1,0 +1,106 @@
+\section{前端系列之 HTML}\hypertarget{html}{}\label{html}
+
+\subsection{HTML5 新标签}\hypertarget{html5-}{}\label{html5-}
+
+\begin{longtable}{|l|l|}   %  class="table"
+\hline
+标签 & 描述\\
+\hline
+\texttt{\textless{}article\textgreater{}} & 定义文章。\\
+\texttt{\textless{}aside\textgreater{}} & 定义页面内容之外的内容。\\
+\texttt{\textless{}audio\textgreater{}} & 定义声音内容。\\
+\texttt{\textless{}bdi\textgreater{}} & 定义文本的文本方向，使其脱离其周围文本的方向设置。\\
+\texttt{\textless{}canvas\textgreater{}} & 定义图形。\\
+\texttt{\textless{}command\textgreater{}} & 定义命令按钮。\\
+\texttt{\textless{}datalist\textgreater{}} & 定义下拉列表。\\
+\texttt{\textless{}details\textgreater{}} & 定义元素的细节。\\
+\texttt{\textless{}dialog\textgreater{}} & 定义对话框或窗口。\\
+\texttt{\textless{}embed\textgreater{}} & 定义外部交互内容或插件。\\
+\texttt{\textless{}figcaption\textgreater{}} & 定义 figure 元素的标题。\\
+\texttt{\textless{}figure\textgreater{}} & 定义媒介内容的分组，以及它们的标题。\\
+\texttt{\textless{}footer\textgreater{}} & 定义 section 或 page 的页脚。\\
+\texttt{\textless{}header\textgreater{}} & 定义 section 或 page 的页眉。\\
+\texttt{\textless{}keygen\textgreater{}} & 定义生成密钥。\\
+\texttt{\textless{}mark\textgreater{}} & 定义有记号的文本。\\
+\texttt{\textless{}meter\textgreater{}} & 定义预定义范围内的度量。\\
+\texttt{\textless{}nav\textgreater{}} & 定义导航链接。\\
+\texttt{\textless{}output\textgreater{}} & 定义输出的一些类型。\\
+\texttt{\textless{}progress\textgreater{}} & 定义任何类型的任务的进度。\\
+\texttt{\textless{}rp\textgreater{}} & 定义若浏览器不支持 ruby 元素显示的内容。\\
+\texttt{\textless{}rt\textgreater{}} & 定义 ruby 注释的解释。\\
+\texttt{\textless{}ruby\textgreater{}} & 定义 ruby 注释。\\
+\texttt{\textless{}section\textgreater{}} & 定义 section。\\
+\texttt{\textless{}source\textgreater{}} & 定义媒介源。\\
+\texttt{\textless{}summary\textgreater{}} & 为 \texttt{\textless{}details\textgreater{}} 元素定义可见的标题。\\
+\texttt{\textless{}time\textgreater{}} & 定义日期/时间。\\
+\texttt{\textless{}video\textgreater{}} & 定义视频。\\
+\texttt{\textless{}wbr\textgreater{}} & 定义视频。\\
+\hline
+\end{longtable}   %  class="table"
+
+reference: \href{http://www.w3school.com.cn/tags/index.asp}{w3school, HTML 参考手册}
+
+\subsection{内联元素和块级元素}\hypertarget{section}{}\label{section}
+
+( 1 ) 块级元素
+
+\begin{verbatim}<address> <caption> <dd> <div> <dl> <dt> <fieldset> 
+<form> <h1> <h2> <h3> <h4> <h5> <h6> <hr> <legend>  
+<li> <noframes> <noscript> <ol> <ul> <p> <pre> 
+<table> <tbody> <td> <tfoot> <th> <thead> <tr>
+\end{verbatim}
+
+( 2 ) 内联元素
+
+\begin{verbatim}<a> <abbr> <acronym> <b> <bdo> <big> <br> <cite> <code> 
+<dfn> <em> <i> <img> <input> <kbd> <label> <q> <samp> <select> 
+<small> <span> <strong> <sub> <sup> <textarea> <tt> <var> 
+\end{verbatim}
+
+( 3 ) 可变元素：根据上下文确定是块级元素还是内联元素
+
+\begin{verbatim}<applet> <button> <del> <iframe> <ins> <map> <object> <script>
+\end{verbatim}
+
+reference: \href{http://segmentfault.com/a/1190000003714074}{A1ter, 块级元素和行内元素的区别, segmentfault}
+
+\subsection{defer 和 async}\hypertarget{defer--async}{}\label{defer--async}
+
+\begin{verbatim}<script async src="script.js"></script>
+<script defer src="script.js"></script>
+\end{verbatim}
+
+\begin{quote}
+\begin{enumerate}
+\item defer 和 async 在网络读取（下载）这块儿是一样的，都是异步的（相较于 HTML 解析）
+\item 它俩的差别在于脚本下载完之后何时执行，显然 defer 是最接近我们对于应用脚本加载和执行的要求的
+\item 关于 defer，此图未尽之处在于它是按照加载顺序执行脚本的，这一点要善加利用
+\item async 则是一个乱序执行的主，反正对它来说脚本的加载和执行是紧紧挨着的，所以不管你声明的顺序如何，只要它加载完了就会立刻执行
+\item async 对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行），不过它对于那些可以不依赖任何脚本或不被任何脚本依赖的脚本来说却是非常合适的，最典型的例子：Google Analytics
+\end{enumerate}
+\end{quote}
+
+reference: \href{http://segmentfault.com/q/1010000000640869/a-1020000000641029}{nightire, defer和async的区别, segmentfault}
+
+\subsection{img 属性 alt 和 title}\hypertarget{img--alt--title}{}\label{img--alt--title}
+
+\begin{itemize}
+\item alt：当图片无法显示时，将显示 alt 指定的文字。
+\item title：鼠标滑过时，会显示 title 指定文本。
+\end{itemize}
+
+\subsection{Web 存储}\hypertarget{web-}{}\label{web-}
+
+\begin{itemize}
+\item localStorage - 没有时间限制的数据存储
+\item sessionStorage - 针对一个 session 的数据存储
+\end{itemize}
+
+\begin{quote}
+sessionStorage, in practice, is best used for temporary data storage.
+\end{quote}
+
+(Cookie 4kb, userData 64kb, Flash 100kb, SQLite, HTML5 localStorage 5MB)
+
+reference: \href{http://segmentfault.com/a/1190000003936684}{Web Storage 初探}, \href{http://segmentfault.com/a/1190000002701423}{Web 前端实现本地存储}, \href{https://html.spec.whatwg.org/multipage/webstorage.html}{Web Storage API}
+
