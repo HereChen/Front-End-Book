@@ -1,3 +1,7 @@
+# Front End Book
+
+以前端面试及复习为基础, 将博客内容直接整理成 LaTeX 文档.
+
 ## 内容
 
 以找工作为出发点，以对知识的系统了解为目的，整理了关于 Web 前端的相关内容：HTML、CSS、JavaScript、HTTP、兼容性解决方案、Web 性能优化、工具、框架、资源。挑选其中的一些典型的和重要的描述。
@@ -10,3 +14,8 @@
 - book 模板的改善
 - 代码样式（jekyll 标签的替换和 latex 样式）
 - `kramdown -o latex some.markdown >some.tex` 直接转 tex 文件未成功（OK, 不使用 git，换用 cmd）
+
+## 问题
+
+- 段落换行, 表格换行
+- 部分段落缩进有问题
