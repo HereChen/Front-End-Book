@@ -1,1 +1,1 @@
-xelatex book.tex
+xelatex main.tex
