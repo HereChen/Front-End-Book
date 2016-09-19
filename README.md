@@ -1,6 +1,12 @@
 # Front End Book
 
-以前端面试及复习为基础, 将博客内容直接整理成 LaTeX 文档.
+以前端面试及复习为基础, 将博客内容直接整理成 LaTeX 文档. 执行下面的命令编译博客内容:
+
+	node run_jekyllpostparse.js
+	xelatex main.tex
+	xelatex main.tex
+
+Windows 下在 CMD 中执行 nodejs.
 
 ## 内容
 
