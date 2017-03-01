@@ -73,10 +73,6 @@
 
 % 字体------------------------------------------------------------------
 \usepackage{xeCJK}
-\setmainfont{Times New Roman}
-\setCJKmainfont[BoldFont=SimHei]{SimSun}
-\setCJKfamilyfont{kai}{KaiTi}
-\newcommand{\kai}{\CJKfamily{kai}}
 
 % 定义注意事项notation------------------------------------------------------------------
 \usepackage{amsthm}
@@ -85,5 +81,12 @@
 \newcommand{\notation}[1]{\nota{\kai #1}}
 
 % item
+% list item space
+% refer: http://tex.stackexchange.com/questions/86054/how-to-remove-the-whitespace-before-itemize-enumerate
 \usepackage{mdwlist}          % item 压缩
 \usepackage{enumitem}
+\setlist[enumerate]{noitemsep} % {noitemsep, topsep=0pt}
+\setlist[itemize]{noitemsep}
+
+% multiple column
+\usepackage{multicol}
