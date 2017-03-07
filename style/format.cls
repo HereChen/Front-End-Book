@@ -5,42 +5,49 @@
 
 \usepackage{amsmath,supertabular}
 
-% 页面------------------------------------------------------------------
+% page layout
+% 页面
 % \usepackage[centering,paperwidth=180mm,paperheight=230mm,%
 % body={390pt,530pt},marginparsep=10pt,marginpar=50pt]{geometry}
 % body 137mmx186mm
 
-% 页眉页脚
+% header, footer
 \usepackage{fancyhdr}
 
-% 图片------------------------------------------------------------------
+% picture
+% 图片
 \usepackage{graphicx}
 % 图片表格居中
 \makeatletter
 \g@addto@macro\@floatboxreset\centering
 \makeatother
 
-% 符号------------------------------------------------------------------
+% symbolic
+% 符号
 \usepackage{trfsigns,mathabx}
 
-% 颜色------------------------------------------------------------------
+% color
+% 颜色
 \usepackage{color,xcolor}
 \definecolor{commentcolor}{RGB}{34,139,34}
 \definecolor{codecolor}{RGB}{34,139,34}
 
-% 背景------------------------------------------------------------------
+% background
+% 背景
 \usepackage{framed}
 \definecolor{shadecolor}{gray}{0.92}
 % 用于shaded的背景
 
-% 链接------------------------------------------------------------------
+% url
+% 链接
 \usepackage{url,hyperref}
 \hypersetup{pdftitle = {Chen},
     colorlinks = true,
     pdfborder = 0 0 0,
     breaklinks = false}
 
-% 代码------------------------------------------------------------------
+% code
+% 代码
 \usepackage{listings}
 \lstset{numbers = none,                       % 代码行号
   % numberstyle = \scriptsize,
@@ -63,18 +70,22 @@
 % 在对应的设置中加入 nolol=true 以不列入目录中
 % 只要不加入caption就不会录入目录
 
-% 表格------------------------------------------------------------------
+% table
+% 表格
 \usepackage{multirow,arydshln,multicol,booktabs,float}
 
-% 段落------------------------------------------------------------------
+% paragraph
+% 段落
 \setlength\parindent{0pt}
 \setlength{\parskip}{2.0pt}   % 段间距
 \linespread{1.3}              % 行间距
 
-% 字体------------------------------------------------------------------
+% font
+% 字体
 \usepackage{xeCJK}
 
-% 定义注意事项notation------------------------------------------------------------------
+% definition note
+% 定义注意事项
 \usepackage{amsthm}
 \theoremstyle{remark}
 \newtheorem{nota}{Note}[section]
@@ -89,4 +100,5 @@
 \setlist[itemize]{noitemsep}
 
 % multiple column
+% 多栏
 \usepackage{multicol}
