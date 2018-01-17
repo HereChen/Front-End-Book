@@ -1,4 +1,6 @@
-# element-ui-tips
+# Element
+
+> https://github.com/ElemeFE/element
 
 ### 自定义表单校验
 
