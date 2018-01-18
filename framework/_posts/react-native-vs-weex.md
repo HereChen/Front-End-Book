@@ -13,6 +13,7 @@ JS Engine | JavaScriptCore(iOS/Android) | JavaScriptCore(iOS) /v8(Android)
 代码写法 | JSX(JavaScript + XML) | Web 写法
 调试 | 虚拟机 | 可用 Chrome 查看效果
 社区支持 | 社区活跃, 有多个流行产品的实践 | 目前, 开发者主要在国内, 没有太多的实践案例
+优势 | 生态好, 第三方依赖多, 有可借鉴的经验 | 基于 Vue.js, 上手快, 能更好的保证三端一致
 
 以下参考都是 2016 年文章.
 
