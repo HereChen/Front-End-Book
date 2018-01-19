@@ -1,0 +1,14 @@
+sudo: required
+dist: trusty     # ubuntu 14.04
+
+# install
+before_install:
+    - sudo apt-get update
+    - sudo apt-get -y install texlive-full
+    - sudo apt-get -y install pandoc
+
+before_script:
+    - chmod +x build.sh
+
+script:
+    - ./build.sh
