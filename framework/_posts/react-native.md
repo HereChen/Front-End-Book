@@ -31,7 +31,14 @@ ANDROID_HOME, C:\Users\chenl\AppData\Local\Android\Sdk
 
 **IOS**
 
-需要安装 XCode.
+1. App Store 安装 XCode.
+2. 其他工具安装
+
+    ```bash
+    brew install node
+    brew install watchman
+    npm install -g react-native-cli
+    ```
 
 ### 编辑器
 
@@ -45,18 +52,13 @@ ANDROID_HOME, C:\Users\chenl\AppData\Local\Android\Sdk
 
 ## Android
 
-**Demo**
+### Demo
 
 ```bash
 react-native init AwesomeProject
 cd AwesomeProject
 react-native run-android
 ```
-
-**other**
-
-1. 选择物理设备 `adb devices`, 查看当前的 Android 设备.
-2. `Ctrl + M` 打开菜单 (Android Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单).
 
 ### 打包
 
@@ -137,7 +139,7 @@ android {
 cd android && ./gradlew assembleRelease
 ```
 
-打包后在 `android/app/build/outputs/apk/app-release.apk`. 
+打包后在 `android/app/build/outputs/apk/app-release.apk`.
 
 **安装方式**
 
@@ -172,15 +174,15 @@ protected String getJSMainModuleName() {
 
 IOS 版本编译需要在 Mac 上进行.
 
-```
-brew install node
-brew install watchman
-npm install -g react-native-cli
+### Demo
 
+```
 react-native init AwesomeProject
 cd AwesomeProject
 react-native run-ios
 ```
+
+### 打包
 
 ## 工具/依赖(dependencies)
 
@@ -255,6 +257,12 @@ src/             # 开发前端资源
   -- index.js    # APP 入口
 index.js         # 入口文件
 ```
+
+## Tips
+
+1. Android 查看当前的 Android 设备 `adb devices`.
+2. Android 虚拟机: `Ctrl + M` 打开菜单 (Android Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单).
+3. iPhone 虚拟机啊重新加载资源: <kbd>command</kbd> + <kbd>R</kbd>.
 
 ## 问题及解决
 
