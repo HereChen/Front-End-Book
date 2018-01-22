@@ -21,12 +21,15 @@
 2. 安装 Android Studio <http://www.android-studio.org>
 3. 通过 SDK Manager 下载 SDK, 并配置环境变量.
 
-```
-# 新建环境变量
-ANDROID_HOME, C:\Users\chenl\AppData\Local\Android\Sdk
-# 添加路径到 path
-%ANDROID_HOME%\tools
-%ANDROID_HOME%\platform-tools
+```bash
+REM set var
+set ANDROID_HOME=C:\Users\chenl\AppData\Local\Android\Sdk
+
+REM set Android home path
+setx /m ANDROID_HOME "%ANDROID_HOME%"
+
+REM set path
+setx /m path "%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;"
 ```
 
 **IOS**
