@@ -173,9 +173,9 @@ protected String getJSMainModuleName() {
 }
 ```
 
-## IOS
+## iOS
 
-IOS 版本编译需要在 Mac 上进行.
+iOS 版本编译需要在 Mac 上进行.
 
 ### Demo
 
@@ -186,6 +186,21 @@ react-native run-ios
 ```
 
 ### 打包
+
+**签名**
+
+> 没有证书.
+
+**打包**
+
+> Xcode 9 为例
+
+1. 打开工程: Xcode 打开 `ios` 文件夹下 `*.xcodeproj` 文件(工程).
+2. 选择编译机型: Xcode 虚拟机选择栏中选择 `Generic iOS Device`.
+3. 编译设置: Xcode -> Product -> Scheme -> Edit Scheme -> Run -> Info -> Build Configuration 选择 Rlease
+4. JS 改为离线(打包进APP)???
+
+TODO: 命令行打包
 
 ## 工具/依赖(dependencies)
 
