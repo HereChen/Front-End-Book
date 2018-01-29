@@ -1,5 +1,10 @@
 # Front-End-Book
 
+## requirements
+
+1. [pandoc](http://www.pandoc.org/)
+2. [TeX Live](https://tug.org/texlive/)
+
 ## 文档
 
 1. `fundamental` 基础.
