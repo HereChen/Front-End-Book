@@ -1,0 +1,192 @@
+\section{兼容性问题解决}\label{ux517cux5bb9ux6027ux95eeux9898ux89e3ux51b3}
+
+\subsection{IE: 盒模型}\label{ie-ux76d2ux6a21ux578b}
+
+IE 默认情况下长宽包含 \lstinline!padding! 和 \lstinline!border!,
+和其他浏览器的长宽存在区别, 建议添加 \lstinline!border-sizing! 属性.
+保持多个浏览器的一致性.
+
+\begin{lstlisting}
+box-sizing: border-box;
+\end{lstlisting}
+
+\subsection{IE 8: map}\label{ie-8-map}
+
+IE8 不支持 JavaScript 原生 map 函数,
+可在任意地方加入如下的代码片段\footnote{\href{http://stackoverflow.com/questions/7350912/is-the-javascript-map-function-supported-in-ie8}{Is
+  the javascript .map() function supported in IE8?}}.
+
+\begin{lstlisting}
+(function (fn) {
+    if (!fn.map) fn.map = function (f) {
+        var r = [];
+        for (var i = 0; i < this.length; i++)
+            if (this[i] !== undefined) r[i] = f(this[i]);
+        return r
+    }
+    if (!fn.filter) fn.filter = function (f) {
+        var r = [];
+        for (var i = 0; i < this.length; i++)
+            if (this[i] !== undefined && f(this[i])) r[i] = this[i];
+        return r
+    }
+})(Array.prototype);
+\end{lstlisting}
+
+或者用 jQuery 的 map 函数.
+
+\begin{lstlisting}
+// array.map(function( ) { });
+jQuery.map(array, function( ) {
+}
+\end{lstlisting}
+
+\subsection{IE 8: fontawesome
+图标显示为方块}\label{ie-8-fontawesome-ux56feux6807ux663eux793aux4e3aux65b9ux5757}
+
+对于修饰性不影响功能的图标, 可以做降级处理, 仅在非 IE 或者 IE9+
+(条件注释\footnote{\href{https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx}{About
+  conditional comments}})情况下引入 fontawesome 图标库.
+(谷歌搜索了一堆方案都没用, 最后应用这种方式来解决).
+
+\begin{lstlisting}[language=HTML]
+<!--[if (gt IE 8) | !IE]><!-->
+<link rel="stylesheet" href="font-awesome.min.css">
+<!--<![endif]-->
+\end{lstlisting}
+
+\subsection{IE 10+
+浏览器定位}\label{ie-10-ux6d4fux89c8ux5668ux5b9aux4f4d}
+
+IE 10+ 不支持条件注释, 因此需要其他方式定位这些浏览器. 如果只增加 CSS,
+可采用以下方式定位\footnote{\href{http://stackoverflow.com/questions/9900311/how-do-i-target-only-internet-explorer-10-for-certain-situations-like-internet-e/14916454\#14916454}{How
+  do I target only Internet Explorer 10 for certain situations like
+  Internet Explorer-specific CSS or Internet Explorer-specific
+  JavaScript code?}}.
+
+\begin{lstlisting}
+/*IE 9+, 以及 Chrome*/
+@media screen and (min-width:0\0) {
+}
+
+/*IE 10*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+}
+
+/*Edge*/
+@supports (-ms-accelerator:true) {
+}
+\end{lstlisting}
+
+另一种方式是 JavaScript 检测浏览器版本, 在 \lstinline!body!
+标签为特定浏览器添加 \lstinline!class! 属性标识.
+
+\subsection{IE 6-8 CSS3 媒体查询(Media
+Query)}\label{ie-6-8-css3-ux5a92ux4f53ux67e5ux8be2media-query}
+
+引入 \href{https://github.com/scottjehl/Respond}{Respond.js}.
+
+\begin{lstlisting}[language=HTML]
+<!--[if lt IE 9]>
+<script src="respond.min.js"></script>
+<![endif]-->
+\end{lstlisting}
+
+\section{HTML}\label{html}
+
+\subsection{参数(input)在 form
+之外}\label{ux53c2ux6570inputux5728-form-ux4e4bux5916}
+
+input 在 form 之外时, 在 input 元素内添加 form 属性值为 form 的
+ID\footnote{\href{http://www.dreamdealer.nl/articles/form_fields_outside_a_form.html}{PLACING
+  FORM FIELDS OUTSIDE THE FORM TAG}}. 这样 input
+仍然可以看做隶属于此表单, jQuery \lstinline!$('#formid').serialize();!
+能够获取 form 之外的输入框值. 或者在提交 (\lstinline!submit!)
+表单时会同样提交 \lstinline!outside! 这个值.
+
+\begin{lstlisting}[language=HTML]
+<form id="formid" method="get">
+
+    <label>Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label>Email:</label>
+    <input type="email" id="email" name="email">
+    <input type="submit" form="contact_form" value="send form" />
+</form>
+<input type="text" name="outside" form="formid">
+\end{lstlisting}
+
+注意: IE8 \lstinline!$('#formid').serialize();! 无法获取
+\lstinline!outside! 值.
+
+\section{SOLUTIONS/解决方案}\label{solutionsux89e3ux51b3ux65b9ux6848}
+
+\section{系统方案}\label{ux7cfbux7edfux65b9ux6848}
+
+\subsection{分角色登录}\label{ux5206ux89d2ux8272ux767bux5f55}
+
+不同角色/权限登录后所见菜单不一样. 方案如下:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  给不同的路由配置其角色/权限属性.
+\item
+  登录进入时, 记录角色/权限.
+\item
+  进入主页, 根据角色/权限构建菜单(view中包含全部菜单,非此角色菜单移除
+  Dom).
+\item
+  点击菜单进入到对应路由时,
+  根据判断路由的角色/权限属性是否和登录进入时记录的一样.
+\end{enumerate}
+
+此方案包括两部分的权限限制, 其一是将不必要的菜单移除 Dom,
+但菜单对应的路由依然可用, 只是在页面上没有对应可操作的视图,
+其二是路由和登录的角色/权限匹配. 以 AngularJS 为例,
+对应每个步骤的代码如下.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  路由属性.
+\end{enumerate}
+
+\begin{lstlisting}
+$stateProvider.state('Registration.Instructors', {
+     url: "/Instructors",
+     templateUrl: '/Scripts/App/Instructors/Templates/instructors.html',
+     controller: 'InstructorController',
+     data: { auth: "Admin"}
+})
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  登录用户权限/角色信息可记录到 \lstinline!rootScope! 中, 比如
+  \lstinline!rootScope.adminType = "Admin"!.
+\item
+  菜单保留与移除. \lstinline!ng-if="adminType==='Admin'"!\footnote{\href{http://stackoverflow.com/questions/19177732/what-is-the-difference-between-ng-if-and-ng-show-ng-hide}{what
+    is the difference between ng-if and ng-show/ng-hide}}.
+\item
+  路由和登录角色/权限匹配\footnote{\href{http://stackoverflow.com/questions/20978248/angularjs-conditional-routing-in-app-config}{angularjs:
+    conditional routing in app.config}}.
+\end{enumerate}
+
+\begin{lstlisting}
+app.run(function($rootScope){
+  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
+    if ( toState.data.auth !== $rootScope.adminType ) {
+        event.preventDefault();
+        return false;
+    }
+  })
+});
+\end{lstlisting}
+

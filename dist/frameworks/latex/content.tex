@@ -1,0 +1,799 @@
+\section{Element}\label{element}
+
+\begin{quote}
+https://github.com/ElemeFE/element
+\end{quote}
+
+\subsubsection{自定义表单校验}\label{ux81eaux5b9aux4e49ux8868ux5355ux6821ux9a8c}
+
+\begin{lstlisting}
+export default {
+  data: function () {
+    var checkVars = function (rule, value, callback) {
+      if (!value) {
+        callback(new Error('不能为空'));
+      } else {
+        callback();
+      }
+    };
+    return {
+      rules: {
+        vars: [{
+          required: true,
+          trigger: 'change',
+          validator: checkVars
+        }]
+      }
+    }
+  }
+}
+\end{lstlisting}
+
+\subsection{Compatible}\label{compatible}
+
+\subsubsection{IE 图标不显示}\label{ie-ux56feux6807ux4e0dux663eux793a}
+
+可用文字替代伪元素中的内容.
+
+\section{React Native}\label{react-native}
+
+\begin{quote}
+Demo Project:
+\href{https://github.com/HereChen/template/tree/master/react-native}{react-native}
+\end{quote}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://facebook.github.io/react-native}{React Native 主页}
+\item
+  示例项目:
+  \href{https://github.com/jiwonbest/amazing-react-projects}{amazing-react-projects}
+\end{enumerate}
+\end{quote}
+
+示例项目 python 和 node-gyp-bin 相关错误可以尝试先执行
+\lstinline!yar add node-sass! 或者 \lstinline!npm install -f node-sass!
+(\url{https://github.com/sass/node-sass/issues/1980}). \#\# 环境配置
+
+\begin{quote}
+https://facebook.github.io/react-native/docs/getting-started.html
+\end{quote}
+
+\subsubsection{系统环境}\label{ux7cfbux7edfux73afux5883}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  安装 \href{https://nodejs.org}{nodejs}.
+\item
+  \lstinline!npm install -g react-native-cli!.
+\end{enumerate}
+
+\textbf{Android}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  JDK (并配置环境变量)
+\item
+  安装 Android Studio \url{http://www.android-studio.org}
+\item
+  通过 SDK Manager 下载 SDK, 并配置环境变量.
+\end{enumerate}
+
+\begin{lstlisting}[language=bash]
+REM set var
+set ANDROID_HOME=C:\Users\chenl\AppData\Local\Android\Sdk
+
+REM set Android home path
+setx /m ANDROID_HOME "%ANDROID_HOME%"
+
+REM set path
+setx /m path "%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;"
+\end{lstlisting}
+
+\textbf{IOS}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  App Store 安装 XCode.
+\item
+  其他工具安装
+
+\begin{lstlisting}[language=bash]
+brew install node
+brew install watchman
+npm install -g react-native-cli
+\end{lstlisting}
+\end{enumerate}
+
+\subsubsection{编辑器}\label{ux7f16ux8f91ux5668}
+
+\textbf{Visual Studio Code}
+
+安装扩展 \lstinline!React Native Tools! 用于调试.
+
+\textbf{Atom}
+
+\begin{quote}
+https://atom.io/packages/nuclide
+\end{quote}
+
+\subsection{Android}\label{android}
+
+\subsubsection{Demo}\label{demo}
+
+\begin{lstlisting}[language=bash]
+react-native init AwesomeProject
+cd AwesomeProject
+react-native run-android
+\end{lstlisting}
+
+\subsubsection{打包}\label{ux6253ux5305}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  https://facebook.github.io/react-native/docs/signed-apk-android.html
+\item
+  https://reactnative.cn/docs/0.51/signed-apk-android.html
+\item
+  https://www.jianshu.com/p/1380d4c8b596
+\end{enumerate}
+\end{quote}
+
+\textbf{1. 生成签名密钥}
+
+\begin{lstlisting}[language=bash]
+$ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+Enter keystore password:
+Keystore password is too short - must be at least 6 characters
+Enter keystore password: chenlei
+Re-enter new password: chenlei
+What is your first and last name?
+  [Unknown]:  HereChen
+What is the name of your organizational unit?
+  [Unknown]:  HereChen
+What is the name of your organization?
+  [Unknown]:  HereChen
+What is the name of your City or Locality?
+  [Unknown]:  Chengdu
+What is the name of your State or Province?
+  [Unknown]:  Sichuan
+What is the two-letter country code for this unit?
+  [Unknown]:  51
+Is CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51 correct?
+  [no]:  yes
+
+Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
+        for: CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51
+Enter key password for <my-key-alias>
+        (RETURN if same as keystore password):
+[Storing my-release-key.keystore]
+\end{lstlisting}
+
+\textbf{2. gradle设置}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \lstinline!my-release-key.keystore! 文件放到工程
+  \lstinline!android/app! 文件夹下.
+\item
+  编辑 \lstinline!android/app/gradle.properties!, 添加如下信息.
+\end{enumerate}
+
+\begin{lstlisting}
+MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
+MYAPP_RELEASE_KEY_ALIAS=my-key-alias
+MYAPP_RELEASE_STORE_PASSWORD=chenlei
+MYAPP_RELEASE_KEY_PASSWORD=chenlei
+\end{lstlisting}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  编辑 \lstinline!android/app/build.gradle!, 添加如下信息.
+\end{enumerate}
+
+\begin{lstlisting}
+...
+android {
+    ...
+    defaultConfig { ... }
+    signingConfigs {
+        release {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
+    }
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.release
+        }
+    }
+}
+...
+\end{lstlisting}
+
+\textbf{3. 打包}
+
+\begin{lstlisting}[language=bash]
+cd android && ./gradlew assembleRelease
+\end{lstlisting}
+
+打包后在 \lstinline!android/app/build/outputs/apk/app-release.apk!.
+
+\textbf{安装方式}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Genymotion 可以拖拽 apk 进行安装.
+\item
+  \lstinline!adb install app-release.apk! 安装.
+\end{enumerate}
+
+如果报签名错误, 可先卸载之前的 debug 版本.
+
+\subsubsection{其他}\label{ux5176ux4ed6}
+
+\textbf{入口文件更改}
+
+\begin{quote}
+从0.49开始, 只有一个入口, 不区分 ios 和 android.
+\url{https://github.com/facebook/react-native/releases/tag/v0.49.0}
+\end{quote}
+
+React Native CLI 新建的工程, 默认入口是 \lstinline!index.js!. 在
+\lstinline!android\app\build.gradle! 中更改入口.
+
+\begin{lstlisting}
+project.ext.react = [
+    entryFile: "index.android.js"
+]
+\end{lstlisting}
+
+对应更改
+\lstinline!android\app\src\main\java\com\**\MainApplication.java!.
+
+\begin{lstlisting}[language=Java]
+protected String getJSMainModuleName() {
+  return "index.android";
+}
+\end{lstlisting}
+
+\subsection{iOS}\label{ios}
+
+iOS 版本编译需要在 Mac 上进行.
+
+\subsubsection{Demo}\label{demo-1}
+
+\begin{lstlisting}
+react-native init AwesomeProject
+cd AwesomeProject
+react-native run-ios
+\end{lstlisting}
+
+\subsubsection{打包}\label{ux6253ux5305-1}
+
+\textbf{签名}
+
+\begin{quote}
+没有证书.
+\end{quote}
+
+\textbf{打包}
+
+\begin{quote}
+Xcode 9 为例
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  打开工程: Xcode 打开 \lstinline!ios! 文件夹下 \lstinline!*.xcodeproj!
+  文件(工程).
+\item
+  选择编译机型: Xcode 虚拟机选择栏中选择 \lstinline!Generic iOS Device!.
+\item
+  编译设置: Xcode -\textgreater{} Product -\textgreater{} Scheme
+  -\textgreater{} Edit Scheme -\textgreater{} Run -\textgreater{} Info
+  -\textgreater{} Build Configuration 选择 Rlease
+\item
+  JS 改为离线(打包进APP)???
+\end{enumerate}
+
+TODO: 命令行打包
+
+\subsection{工具/依赖(dependencies)}\label{ux5de5ux5177ux4f9dux8d56dependencies}
+
+\subsubsection{导航}\label{ux5bfcux822a}
+
+\begin{quote}
+https://facebook.github.io/react-native/docs/navigation.html
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://github.com/react-navigation/react-navigation}{react-navigation}
+  提供了常用的导航方式(Stack, Tab, Drawer), 推荐.
+\item
+  \href{https://facebook.github.io/react-native/docs/navigatorios.html}{NavigatorIOS}
+  为内建的导航, 仅在 IOS 上可用.
+\end{enumerate}
+
+\subsubsection{UI}\label{ui}
+
+尚未找到两端(Web, Native)完整好用的 UI, 若后端采用 ant-design 可用
+ant-design-mobile.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://github.com/ant-design/ant-design-mobile}{ant-design-mobile}
+  每个组件是否支持 Native 有说明.
+\item
+  \href{https://github.com/react-native-training/react-native-elements}{react-native-elements}
+\item
+  \href{https://github.com/GeekyAnts/NativeBase}{NativeBase}
+\end{enumerate}
+
+\subsubsection{HTTP 请求}\label{http-ux8bf7ux6c42}
+
+\begin{quote}
+https://facebook.github.io/react-native/docs/network.html
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API}{fetch}
+  为内建接口.
+\item
+  \href{https://github.com/axios/axios}{\textbf{axios}}
+  为使用校广泛的第三方请求库, 推荐使用.
+\end{enumerate}
+
+\subsection{调试}\label{ux8c03ux8bd5}
+
+\begin{quote}
+https://facebook.github.io/react-native/docs/debugging.html
+\end{quote}
+
+根据提示, 可以菜单按钮选择重新加载或热加载. Android 可摇晃手机显示菜单.
+
+\subsubsection{虚拟机}\label{ux865aux62dfux673a}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://www.genymotion.com/download/}{Genymotion}, 需要先注册,
+  然后选择 for personal 使用. 如果系统开启了 Hyper-V, 需要先关闭.
+\item
+  Android Studio 内建虚拟机, 同样需要关闭 Hyper-V.
+\item
+  \href{https://www.visualstudio.com/vs/msft-android-emulator/}{Visual
+  Studio Emulator for Android} 需要开启 Hyper-V.
+\end{enumerate}
+
+\subsubsection{调试工具: Chrome}\label{ux8c03ux8bd5ux5de5ux5177-chrome}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \lstinline!Remote JS Debugging! 开启JS调试.
+\item
+  浏览器端进去 \lstinline!http://localhost:8081/debugger-ui/!,
+  并开启开发工具.
+\item
+  可在 Sources 中设置断点或者代码中写入 \lstinline!debugger!.
+\end{enumerate}
+
+\subsubsection{调试工具: VSCode}\label{ux8c03ux8bd5ux5de5ux5177-vscode}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  安装扩展: React Native Tools.
+\item
+  F5 生成 launch.json 文件.
+\item
+  进入调试菜单(Ctrl + Shift + D), 选择 Debug Android.
+\item
+  设置断点或者写入 \lstinline!debugger! 开始调试, 在 output 栏输出.
+\end{enumerate}
+
+\subsubsection{HTTP
+调试问题备注}\label{http-ux8c03ux8bd5ux95eeux9898ux5907ux6ce8}
+
+应用 Fiddler 调试 HTTP, 模拟器设置了代理后, APP 无法热加载 JS bundle.
+目前只有用 Chrome 或者断点的方式来调试.
+
+\subsection{工程结构}\label{ux5de5ux7a0bux7ed3ux6784}
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0}{Organizing
+  a React Native Project}
+\item
+  \href{https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792}{React
+  native project setup --- a better folder structure}
+\end{enumerate}
+\end{quote}
+
+\begin{lstlisting}
+android/         # Android 工程
+ios/             # IOS 工程
+src/             # 开发前端资源
+  -- assets/     # 静态资源
+  -- components/ # 组件
+  -- api/        # 接口
+  -- route/      # 导航(路由)
+  -- config/     # 常量配置
+  -- screens/    # 页面/功能
+  -- utils/      # 常用工具
+  -- reducers 相关
+  -- index.js    # APP 入口
+index.js         # 入口文件
+\end{lstlisting}
+
+\subsection{Tips}\label{tips}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Android 查看当前的 Android 设备 \lstinline!adb devices!.
+\item
+  Android 虚拟机: \lstinline!Ctrl + M! 打开菜单 (Android
+  Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单).
+\item
+  iPhone 虚拟机啊重新加载资源: command + R.
+\end{enumerate}
+
+\subsection{问题及解决}\label{ux95eeux9898ux53caux89e3ux51b3}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  VSCode Debug 无法加载的情况, 首先重启 VSCode 再启动项目.
+\item
+  添加\lstinline!antd-mobile!后报错, 无法解析 \lstinline!react-dom!,
+  依赖中加入\lstinline!react-dom!并安装即可.
+\item
+  集成\lstinline!react-native-navigation!需要注意Android SDK版本,
+  版本过低可能出现编译错误(\lstinline!Error:Error retrieving parent for item: No resource found!).
+\end{enumerate}
+
+\section{React Native vs Weex}\label{react-native-vs-weex}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+\begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+属性\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+\href{https://github.com/facebook/react-native}{React Native}\strut
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+\href{https://github.com/apache/incubator-weex/}{Weex}\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+开源时间\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+2015/03\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+2016/06\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+开源企业\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+Facebook\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+Alibaba\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+协议\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+BSD 3-clause\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+Apache License 2.0\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+主页标语\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+Build native mobile apps using JavaScript and React\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+A framework for building Mobile cross-paltform UIs\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+核心理念\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+Learn Once, Write Anywhere\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+Write Once, Run Everywhere\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+前端框架\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+React\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+Vue.js\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+JS Engine\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+JavaScriptCore(iOS/Android)\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+JavaScriptCore(iOS) /v8(Android)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+三端开发\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+部分组件需要区分平台开发\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+强调三端统一\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+代码写法\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+JSX(JavaScript + XML)\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+Web 写法\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+调试\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+虚拟机\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+可用 Chrome 查看效果\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+社区支持\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+社区活跃, 有多个流行产品的实践\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+目前, 开发者主要在国内, 没有太多的实践案例\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+优势\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+生态好, 第三方依赖多, 有可借鉴的经验\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+基于 Vue.js, 上手快, 能更好的保证三端一致\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+以下参考都是 2016 年文章.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://www.gitbook.com/book/xiaomaer/compare-weex-to-react-native/details}{compare
+  weex to react native}
+\item
+  \href{http://slides.com/ciyinhuang/weex\#/}{Weex 简介}
+\item
+  \href{http://zfx5130.me/blog/2016/09/15/Weex-\&-React-Native/}{Weex \&
+  React Native}
+\end{enumerate}
+
+\subsection{评论摘抄}\label{ux8bc4ux8bbaux6458ux6284}
+
+\begin{quote}
+After a few days of experimentation, I realized Weex and its
+documentation were not yet developed enough to for us to use to deliver
+top-quality apps. This was my experience with Weex.
+\href{https://www.bignerdranch.com/blog/is-vuejs-weex-a-suitable-alternative-to-react-native/}{Sam
+Landfried, 2017.10.20, Is VueJS' Weex a Suitable Alternative to React
+Native?} \# FREAMWORKS/框架
+\end{quote}
+
+\section{Vue.js}\label{vue.js}
+
+\subsection{Tips}\label{tips-1}
+
+\subsubsection{组件重新渲染}\label{ux7ec4ux4ef6ux91cdux65b0ux6e32ux67d3}
+
+通过设置 \lstinline!v-if! 实现, 从 Dom 中剔除再加入.
+
+\begin{lstlisting}[language=HTML]
+<demo-component v-if="ifShow"></demo-component>
+\end{lstlisting}
+
+\subsubsection{\texorpdfstring{\texttt{v-for}
+数值更改界面无刷新}{v-for 数值更改界面无刷新}}\label{v-for-ux6570ux503cux66f4ux6539ux754cux9762ux65e0ux5237ux65b0}
+
+如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据,
+然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.
+
+\begin{lstlisting}
+API.getSomething().then(res => {
+  // 1. 先添加属性
+  // handle 表示对数据的处理, 包括对象中属性的添加
+  const handledRes = handle(res);
+  // 2. 然后绑定到 data 中的变量
+  this.varInDate = handledRes;
+});
+\end{lstlisting}
+
+\subsubsection{全局引入 SCSS
+变量文件}\label{ux5168ux5c40ux5f15ux5165-scss-ux53d8ux91cfux6587ux4ef6}
+
+\begin{quote}
+{[}SASS/SCSS in Vue: where to store
+variables?{]}(https://www.reddit.com/r/vuejs/comments/7o663j/sassscss\_in\_vue\_where\_to\_store\_variables/?st=JC9T45PB\&sh=4f87ec9d{]}
+\end{quote}
+
+场景: 将常用的变量存储到 \lstinline!vars.scss!,
+应用变量时需要在每个需要的地方 \lstinline!import!.
+
+\textbf{参考解决方案}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \lstinline!npm install sass-resources-loader --save-dev!
+\item
+  更改 \lstinline!build/webpack.base.conf.js!, 适用于 vue-cli.
+\end{enumerate}
+
+\begin{lstlisting}
+{
+    test: /\.vue$/,
+    loader: 'vue-loader',
+    options: {
+        loaders: {
+            sass: ['vue-style-loader', 'css-loader', {
+                loader: 'sass-loader',
+                options: {
+                    indentedSyntax: true
+                }
+            }, {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }],
+            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }]
+        }
+        // other vue-loader options go here
+    }
+}
+\end{lstlisting}
+
+\subsection{Compatible}\label{compatible-1}
+
+\textbf{IE \lstinline!vuex requires a promise polyfill in this browser!}
+
+\begin{lstlisting}[language=bash]
+npm install --save-dev babel-polyfill
+\end{lstlisting}
+
+\begin{lstlisting}
+// build/webpack.base.conf.js
+entry: {
+  app: [
+    'babel-polyfill',
+    './src/main.js'
+  ]
+}
+\end{lstlisting}
+
+\href{https://github.com/vuejs-templates/webpack/issues/474}{vuex
+requires a promise polyfill in this browser}
+
+\section{Weex}\label{weex}
+
+\begin{quote}
+http://weex.apache.org
+\end{quote}
+
+问题: 入口在哪儿?
+
+\textbf{案例}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://github.com/zwwill/yanxuan-weex-demo}{网易严选}
+\item
+  \href{https://mp.weixin.qq.com/s/dowOE_QpZrtV5GH9EAgyHg}{点我达骑手Weex最佳实践}
+\item
+  \href{https://github.com/weexteam/weex-hackernews}{weexteam/weex-hackernews}
+\end{enumerate}
+
+\subsection{搭建开发环境}\label{ux642dux5efaux5f00ux53d1ux73afux5883}
+
+\begin{lstlisting}
+npm install -g weex-toolkit
+\end{lstlisting}
+
+\subsection{Demo}\label{demo-2}
+
+\textbf{web}
+
+\begin{lstlisting}
+weex create weex
+cd weex
+npm install
+npm run dev & npm run serve
+\end{lstlisting}
+
+\textbf{命令}
+
+\begin{quote}
+https://github.com/weexteam/weex-pack
+\end{quote}
+
+\begin{lstlisting}[language=bash]
+# debug
+weex debug
+
+# add platform
+weex platform add android
+weex platform add ios
+
+# run
+weex run web
+weex run android
+weex run ios
+
+# build
+weex build web
+\end{lstlisting}
+
+\subsection{问题及解决}\label{ux95eeux9898ux53caux89e3ux51b3-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \lstinline!https://maven.google.com/! 链接不上,
+  更改\lstinline!\platforms\android\build.gradle!文件, 换成
+  \lstinline!https://dl.google.com/dl/android/maven2/!。
+\item
+  \lstinline!adb: failed to stat app/build/outputs/apk/playground.apk: No such file or directory!,
+  替换 \lstinline!platforms/android/app/build.gradle! 文件中的
+  \lstinline!weex-app.apk! 为 \lstinline!playground.apk!.
+\item
+  \lstinline!weex debug! 报错可先安装
+  \lstinline!npm install -g weex-devtool!.
+\end{enumerate}
