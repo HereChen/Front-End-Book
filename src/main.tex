@@ -1,13 +1,16 @@
 \documentclass{ctexart}
 
-\input{format.cls}
+% relative path
+\usepackage{import}
+
+\subinputfrom{./}{format.cls}
 
 \begin{document}
 
-\input{title}
+\subinputfrom{./}{title.tex}
 \maketitle
 \tableofcontents
 
-\input{content}
+\subinputfrom{./}{content.tex}
 
 \end{document}
