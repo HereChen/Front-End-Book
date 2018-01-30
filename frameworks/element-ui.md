@@ -1,6 +1,8 @@
 # Element
 
-> https://github.com/ElemeFE/element
+<https://github.com/ElemeFE/element>
+
+## 组件使用
 
 ### 自定义表单校验
 
@@ -27,7 +29,7 @@ export default {
 }
 ```
 
-## Compatible
+## 兼容性
 
 ### IE 图标不显示
 
