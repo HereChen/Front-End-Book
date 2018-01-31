@@ -51,13 +51,23 @@ markdown_to_one() {
   cp -r ${temp_folder}/$1/markdown/main.md ${dist_folder}/$1/markdown/
 }
 
+markdown_to_html() {
+  # .tmp
+  mkdir -p ${temp_folder}/$1/html
+  pandoc -s ${temp_folder}/$1/markdown/main.md -o ${temp_folder}/$1/html/main.html
+
+  # dist
+  mkdir -p ${dist_folder}/$1/html
+  cp -r ${temp_folder}/$1/html/main.html ${dist_folder}/$1/html/
+}
+
 markdown_to_latex() {
   # .tmp
   mkdir -p ${temp_folder}/$1/latex
   pandoc --listings ${temp_folder}/$1/markdown/main.md -o ${temp_folder}/$1/latex/content.tex
 
+  cp ${source_folder}/${1}_title.tex ${temp_folder}/$1/latex/title.tex
   cp ${source_folder}/format.cls ${temp_folder}/$1/latex/
-  cp ${source_folder}/title.tex ${temp_folder}/$1/latex/
   cp ${source_folder}/main.tex ${temp_folder}/$1/latex/
 
   # dist
@@ -98,6 +108,9 @@ main() {
     # must
     markdown_src_tmp ${folder}
     markdown_to_one ${folder}
+
+    # option
+    markdown_to_html ${folder}
 
     # option
     markdown_to_latex ${folder}
