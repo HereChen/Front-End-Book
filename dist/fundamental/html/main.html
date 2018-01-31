@@ -1,0 +1,1382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+<h1 id="html">HTML</h1>
+<h2 id="html5-新标签">HTML5 新标签</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">标签</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&lt;article&gt;</code></td>
+<td align="left">定义文章。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;aside&gt;</code></td>
+<td align="left">定义页面内容之外的内容。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;audio&gt;</code></td>
+<td align="left">定义声音内容。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;bdi&gt;</code></td>
+<td align="left">定义文本的文本方向，使其脱离其周围文本的方向设置。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;canvas&gt;</code></td>
+<td align="left">定义图形。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;command&gt;</code></td>
+<td align="left">定义命令按钮。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;datalist&gt;</code></td>
+<td align="left">定义下拉列表。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;details&gt;</code></td>
+<td align="left">定义元素的细节。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;dialog&gt;</code></td>
+<td align="left">定义对话框或窗口。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;embed&gt;</code></td>
+<td align="left">定义外部交互内容或插件。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;figcaption&gt;</code></td>
+<td align="left">定义 figure 元素的标题。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;figure&gt;</code></td>
+<td align="left">定义媒介内容的分组，以及它们的标题。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;footer&gt;</code></td>
+<td align="left">定义 section 或 page 的页脚。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;header&gt;</code></td>
+<td align="left">定义 section 或 page 的页眉。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;keygen&gt;</code></td>
+<td align="left">定义生成密钥。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;mark&gt;</code></td>
+<td align="left">定义有记号的文本。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;meter&gt;</code></td>
+<td align="left">定义预定义范围内的度量。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;nav&gt;</code></td>
+<td align="left">定义导航链接。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;output&gt;</code></td>
+<td align="left">定义输出的一些类型。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;progress&gt;</code></td>
+<td align="left">定义任何类型的任务的进度。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;rp&gt;</code></td>
+<td align="left">定义若浏览器不支持 ruby 元素显示的内容。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;rt&gt;</code></td>
+<td align="left">定义 ruby 注释的解释。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;ruby&gt;</code></td>
+<td align="left">定义 ruby 注释。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;section&gt;</code></td>
+<td align="left">定义 section。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;source&gt;</code></td>
+<td align="left">定义媒介源。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;summary&gt;</code></td>
+<td align="left">为 <code>&lt;details&gt;</code> 元素定义可见的标题。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;time&gt;</code></td>
+<td align="left">定义日期/时间。</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;video&gt;</code></td>
+<td align="left">定义视频。</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;wbr&gt;</code></td>
+<td align="left">定义视频。</td>
+</tr>
+</tbody>
+</table>
+<p>{: class=&quot;table&quot;}</p>
+<p>reference: <a href="http://www.w3school.com.cn/tags/index.asp">w3school, HTML 参考手册</a></p>
+<h2 id="内联元素和块级元素">内联元素和块级元素</h2>
+<ol style="list-style-type: decimal">
+<li><p>块级元素</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;address&gt;</span> <span class="kw">&lt;caption&gt;</span> <span class="kw">&lt;dd&gt;</span> <span class="kw">&lt;div&gt;</span> <span class="kw">&lt;dl&gt;</span> <span class="kw">&lt;dt&gt;</span> <span class="kw">&lt;fieldset&gt;</span>
+<span class="kw">&lt;form&gt;</span> <span class="kw">&lt;h1&gt;</span> <span class="kw">&lt;h2&gt;</span> <span class="kw">&lt;h3&gt;</span> <span class="kw">&lt;h4&gt;</span> <span class="kw">&lt;h5&gt;</span> <span class="kw">&lt;h6&gt;</span> <span class="kw">&lt;hr&gt;</span> <span class="kw">&lt;legend&gt;</span>
+<span class="kw">&lt;li&gt;</span> <span class="kw">&lt;noframes&gt;</span> <span class="kw">&lt;noscript&gt;</span> <span class="kw">&lt;ol&gt;</span> <span class="kw">&lt;ul&gt;</span> <span class="kw">&lt;p&gt;</span> <span class="kw">&lt;pre&gt;</span>
+<span class="kw">&lt;table&gt;</span> <span class="kw">&lt;tbody&gt;</span> <span class="kw">&lt;td&gt;</span> <span class="kw">&lt;tfoot&gt;</span> <span class="kw">&lt;th&gt;</span> <span class="kw">&lt;thead&gt;</span> <span class="kw">&lt;tr&gt;</span></code></pre></div></li>
+<li><p>内联元素</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;a&gt;</span> <span class="kw">&lt;abbr&gt;</span> <span class="kw">&lt;acronym&gt;</span> <span class="kw">&lt;b&gt;</span> <span class="kw">&lt;bdo&gt;</span> <span class="kw">&lt;big&gt;</span> <span class="kw">&lt;br&gt;</span> <span class="kw">&lt;cite&gt;</span> <span class="kw">&lt;code&gt;</span>
+<span class="kw">&lt;dfn&gt;</span> <span class="kw">&lt;em&gt;</span> <span class="kw">&lt;i&gt;</span> <span class="kw">&lt;img&gt;</span> <span class="kw">&lt;input&gt;</span> <span class="kw">&lt;kbd&gt;</span> <span class="kw">&lt;label&gt;</span> <span class="kw">&lt;q&gt;</span> <span class="kw">&lt;samp&gt;</span> <span class="kw">&lt;select&gt;</span>
+<span class="kw">&lt;small&gt;</span> <span class="kw">&lt;span&gt;</span> <span class="kw">&lt;strong&gt;</span> <span class="kw">&lt;sub&gt;</span> <span class="kw">&lt;sup&gt;</span> <span class="kw">&lt;textarea&gt;</span> <span class="kw">&lt;tt&gt;</span> <span class="kw">&lt;var&gt;</span></code></pre></div></li>
+<li><p>可变元素：根据上下文确定是块级元素还是内联元素</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;applet&gt;</span> <span class="kw">&lt;button&gt;</span> <span class="kw">&lt;del&gt;</span> <span class="kw">&lt;iframe&gt;</span> <span class="kw">&lt;ins&gt;</span> <span class="kw">&lt;map&gt;</span> <span class="kw">&lt;object&gt;</span> <span class="kw">&lt;script&gt;</span></code></pre></div></li>
+</ol>
+<p>reference: <a href="http://segmentfault.com/a/1190000003714074">A1ter, 块级元素和行内元素的区别, segmentfault</a></p>
+<h2 id="defer-和-async">defer 和 async</h2>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;script</span><span class="ot"> async src=</span><span class="st">&quot;script.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;script</span><span class="ot"> defer src=</span><span class="st">&quot;script.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></code></pre></div>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>defer 和 async 在网络读取（下载）这块儿是一样的，都是异步的（相较于 HTML 解析）</li>
+<li>它俩的差别在于脚本下载完之后何时执行，显然 defer 是最接近我们对于应用脚本加载和执行的要求的</li>
+<li>关于 defer，此图未尽之处在于它是按照加载顺序执行脚本的，这一点要善加利用</li>
+<li>async 则是一个乱序执行的主，反正对它来说脚本的加载和执行是紧紧挨着的，所以不管你声明的顺序如何，只要它加载完了就会立刻执行</li>
+<li>async 对于应用脚本的用处不大，因为它完全不考虑依赖（哪怕是最低级的顺序执行），不过它对于那些可以不依赖任何脚本或不被任何脚本依赖的脚本来说却是非常合适的，最典型的例子：Google Analytics</li>
+</ol>
+</blockquote>
+<p>reference: <a href="http://segmentfault.com/q/1010000000640869/a-1020000000641029">nightire, defer和async的区别, segmentfault</a></p>
+<h2 id="img-属性-alt-和-title">img 属性 alt 和 title</h2>
+<ul>
+<li>alt：当图片无法显示时，将显示 alt 指定的文字。</li>
+<li>title：鼠标滑过时，会显示 title 指定文本。</li>
+</ul>
+<h2 id="web-存储">Web 存储</h2>
+<ul>
+<li>localStorage - 没有时间限制的数据存储</li>
+<li>sessionStorage - 针对一个 session 的数据存储</li>
+</ul>
+<blockquote>
+<p>sessionStorage, in practice, is best used for temporary data storage.</p>
+</blockquote>
+<p>(Cookie 4kb, userData 64kb, Flash 100kb, SQLite, HTML5 localStorage 5MB)</p>
+<p>reference: <a href="http://segmentfault.com/a/1190000003936684">Web Storage 初探</a>, <a href="http://segmentfault.com/a/1190000002701423">Web 前端实现本地存储</a>, <a href="https://html.spec.whatwg.org/multipage/webstorage.html">Web Storage API</a></p>
+<h1 id="css">CSS</h1>
+<p>定位, 盒模型, 浮动, 媒体查询(自适应布局).</p>
+<h2 id="定位">定位</h2>
+<p>CSS 有三种基本的定位机制：普通流、浮动和绝对定位。任何元素都可以定位，不过绝对或固定元素会生成一个块级框，而不论该元素本身是什么类型。</p>
+<p><strong>说明</strong></p>
+<ol style="list-style-type: decimal">
+<li>默认值: static</li>
+<li>继承性: no</li>
+<li>版本: CSS2</li>
+<li>JavaScript 语法: <code>object.style.position=&quot;absolute&quot;</code></li>
+</ol>
+<table style="width:99%;">
+<colgroup>
+<col width="52%" />
+<col width="46%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">absolute</td>
+<td align="left">生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。元素的位置通过 &quot;left&quot;, &quot;top&quot;, &quot;right&quot; 以及 &quot;bottom&quot; 属性进行规定。</td>
+</tr>
+<tr class="even">
+<td align="left">fixed</td>
+<td align="left">生成绝对定位的元素，相对于浏览器窗口进行定位。元素的位置通过 &quot;left&quot;, &quot;top&quot;, &quot;right&quot; 以及 &quot;bottom&quot; 属性进行规定。</td>
+</tr>
+<tr class="odd">
+<td align="left">relative</td>
+<td align="left">生成相对定位的元素，相对于其正常位置进行定位。因此，&quot;left:20&quot; 会向元素的 LEFT 位置添加 20 像素。</td>
+</tr>
+<tr class="even">
+<td align="left">static</td>
+<td align="left">默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。</td>
+</tr>
+<tr class="odd">
+<td align="left">inherit</td>
+<td align="left">规定应该从父元素继承 position 属性的值。</td>
+</tr>
+</tbody>
+</table>
+<p>{: class=&quot;table&quot;}</p>
+<ul>
+<li>如果一个标签的位置是绝对的，它又不在其他任何设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于浏览器窗口进行定位。</li>
+<li>如果一个标签处在另一个设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于另一个元素的边沿进行定位。</li>
+</ul>
+<p>reference: <a href="http://www.w3school.com.cn/cssref/pr_class_position.asp" class="uri">http://www.w3school.com.cn/cssref/pr_class_position.asp</a>{:target=&quot;_blank&quot;}，<a href="http://book.douban.com/subject/4861462/">CSS实战手册（第2版）</a></p>
+<h2 id="盒模型">盒模型</h2>
+<p>IE 盒模型和标准存在区别。</p>
+<h2 id="优先级">优先级</h2>
+<p>优先级<strong>从高到低</strong>，分三个层次描述。</p>
+<p>( 1 ) 作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。</p>
+<ul>
+<li>标有 <code>!important</code> 的用户样式。</li>
+<li>标有 <code>!important</code> 的作者样式。</li>
+<li>作者样式。</li>
+<li>用户样式。</li>
+<li>浏览器样式。</li>
+</ul>
+<p>( 2 ) 作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式 style 标签中声明的样式；内联样式指元素属性 style 中的样式；外部样式指通过 link 链接的外部文件中样式。</p>
+<ul>
+<li>内联样式（行内样式）</li>
+<li>内部样式</li>
+<li>外部样式</li>
+</ul>
+<p>外部样式和内部样式在优先级相同的情况下，后定义的会覆盖先定义的。</p>
+<p>( 3 ) CSS 选择器</p>
+<ul>
+<li>ID 选择器：<code>#idname</code></li>
+<li>伪类：<code>:hover</code></li>
+<li>属性选择器：<code>input[type=&quot;text&quot;]</code></li>
+<li>类选择器：<code>.classname</code></li>
+<li>元素(类型)选择器（包括伪元素）：<code>input</code>, <code>:after</code></li>
+<li>通用选择器：<code>*</code></li>
+</ul>
+<p>reference: <a href="http://book.douban.com/subject/4736167/">Cameron Moll, 精通CSS（第2版）</a>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity">优先级, mdn</a>, <a href="https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/">INLINE VS INTERNAL VS EXTERNAL CSS</a></p>
+<h2 id="link-和-import">link 和 <span class="citation">@import</span></h2>
+<ul>
+<li><code>@import</code> 和 link 混用时，可能会出现不同时下载的情况。</li>
+<li>考虑两者混合使用的浏览器实现的不一样（下载次序）。</li>
+</ul>
+<p>reference: <span class="citation">[Steve Souders, don’t use @import]</span>(http://www.stevesouders.com/blog/2009/04/09/dont-use-import/), <a href="http://www.dreamdu.com/blog/2007/05/11/css_link_import/">外部引用CSS中 link与@import的区别</a></p>
+<h2 id="浮动和文档流">浮动和文档流</h2>
+<h2 id="两栏等高布局">两栏等高布局</h2>
+<p>父元素设置 <code>overflow:hidden;</code>，子元素设置 <code>padding-bottom:10000px; margin-bottom:-10000px;</code>。 <code>overflow:hidden;</code> 截除超出的高度，<code>margin-bottom:-10000px;</code> 抵消较高内容超出的 <code>padding</code>。</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;fa&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;p&gt;</span>1231321321<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;p&gt;</span>1313213<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;p&gt;</span>1313213<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;p&gt;</span>1313213<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;p&gt;</span>1313213<span class="kw">&lt;/p&gt;</span>
+    <span class="kw">&lt;p&gt;</span>1313213<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;col&quot;</span><span class="kw">&gt;</span>45645456456<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#fa</span> <span class="kw">{</span>
+  <span class="kw">width:</span> <span class="dt">800px</span><span class="kw">;</span>
+  <span class="kw">margin:</span> <span class="dt">0</span> <span class="dt">auto</span><span class="kw">;</span>
+  <span class="kw">background-color:</span> <span class="dt">#1524e5</span><span class="kw">;</span>
+  <span class="kw">overflow:</span> <span class="dt">hidden</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">.col</span> <span class="kw">{</span>
+  <span class="kw">float:</span> <span class="dt">left</span><span class="kw">;</span>
+  <span class="kw">width:</span> <span class="dt">50%</span><span class="kw">;</span>
+  <span class="kw">padding-bottom:</span> <span class="dt">10000px</span><span class="kw">;</span>
+  <span class="kw">margin-bottom:</span> <span class="dt">-10000px</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">.col</span><span class="dv">:first-child</span> <span class="kw">{</span>
+  <span class="kw">background-color:</span> <span class="dt">#34ef34</span><span class="kw">;</span>
+<span class="kw">}</span>
+<span class="fl">.col</span><span class="dv">:last-child</span> <span class="kw">{</span>
+  <span class="kw">background-color:</span> <span class="dt">#ef34ef</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p>refernce: <a href="http://segmentfault.com/a/1190000000625584">CSS/两栏并列等高布局</a></p>
+<h2 id="动画">动画</h2>
+<p>动画的实现方式可以分为几种：CSS3 原生实现；JavaScript 实现 (操作 CSS、canavs、svg)；动画文件 (gif, flash)。</p>
+<p>CSS3 的实现可以通过 <span class="citation">@keyframes</span> 和 animation 完成，<span class="citation">@keyframes</span> 定义动画，animation 调用动画。</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* 定义 */</span>
+@keyframes changebackcolor<span class="kw">{</span>
+  <span class="er">from</span> <span class="er">{</span><span class="kw">background:</span> <span class="dt">red</span><span class="kw">;}</span>
+  to <span class="kw">{background:</span> <span class="dt">yellow</span><span class="kw">;}</span>
+}
+<span class="co">/* 调用 */</span>
+div<span class="kw">{</span>
+  <span class="kw">animation:</span> changebackcolor <span class="dt">5s</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p>reference: <a href="http://www.w3school.com.cn/css3/css3_animation.asp" class="uri">http://www.w3school.com.cn/css3/css3_animation.asp</a></p>
+<h2 id="垂直居中和水平居中">垂直居中和水平居中</h2>
+<p>( 1 ) 块元素垂直居中：transform: translateY(-50%)。此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 250px;
+height<span class="dv">:</span> 250px;
+position<span class="dv">:</span> relative;
+top<span class="dv">:</span> 50%;
+transform<span class="dv">:</span> translateY(-50%);</code></pre></div>
+<p>( 2 ) 块元素垂直居中：绝对定位(top: 50%)</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 250px;
+height<span class="dv">:</span> 250px;
+position<span class="dv">:</span> absolute;
+top<span class="dv">:</span> 50%;
+margin-top<span class="dv">:</span> -125px;</code></pre></div>
+<p>( 3 ) 内联元素垂直居中</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* 方案一: 块元素内容会居中, 需要设置高度 */</span>
+display<span class="dv">:</span> table-cell;
+vertical-align<span class="dv">:</span> middle;
+
+<span class="co">/* 方案二: 一般单行文本的上下居中 */</span>
+line-height<span class="dv">:</span> 50px;</code></pre></div>
+<p>( 4 ) 块元素的水平居中：margin: 0 auto</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 100px;
+margin-left<span class="dv">:</span> auto;
+margin-right<span class="dv">:</span> auto</code></pre></div>
+<h1 id="javascript">JavaScript</h1>
+<h2 id="javascript-组成">JavaScript 组成</h2>
+<p>一个完整的 JavaScript 实现是由以下 3 个不同部分组成的：</p>
+<ul>
+<li>核心（ECMAScipt）</li>
+<li>文档对象模型（DOM）</li>
+<li><p>浏览器对象模型（BOM）</p></li>
+<li><a href="http://www.w3school.com.cn/js/pro_js_implement.asp">JavaScript 实现</a></li>
+<li><p><a href="http://segmentfault.com/a/1190000000654274">JavaScript学习总结（三）BOM和DOM详解</a></p></li>
+</ul>
+<h2 id="类型值和变量">类型、值和变量</h2>
+<h3 id="数据类型">数据类型</h3>
+<ul>
+<li>基本数据类型：String 字符串；Number 数字；Boolean 布尔。</li>
+<li>复合数据类型：Object 对象；Array 数组。</li>
+<li><p>特殊数据类型：Null 空对象；Undefined 未定义。</p></li>
+<li><p><a href="https://msdn.microsoft.com/zh-cn/library/7wkd9z69(v=vs.94).aspx">数据类型 (JavaScript), msdn</a></p></li>
+</ul>
+<h3 id="null-nan-undefined">null, NaN, undefined</h3>
+<p>JavaScript中有 6 个值为“假”: <code>false</code>, <code>null</code>, <code>undefined</code>, <code>0</code>, <code>''</code>(空字符串), <code>NaN</code>. 其中 <code>NaN</code> 是 JavaScript 中唯一不等于自身的值, 即 <code>NaN == NaN</code> 为 <code>false</code>.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">console</span>.<span class="at">log</span>( <span class="kw">false</span> <span class="op">==</span> <span class="kw">null</span> )      <span class="co">// false</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">false</span> <span class="op">==</span> <span class="kw">undefined</span> ) <span class="co">// false</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">false</span> <span class="op">==</span> <span class="dv">0</span> )         <span class="co">// true</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">false</span> <span class="op">==</span> <span class="st">&#39;&#39;</span> )        <span class="co">// true</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">false</span> <span class="op">==</span> <span class="kw">NaN</span> )       <span class="co">// false</span>
+
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">null</span> <span class="op">==</span> <span class="kw">undefined</span> ) <span class="co">// true</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">null</span> <span class="op">==</span> <span class="dv">0</span> )         <span class="co">// false</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">null</span> <span class="op">==</span> <span class="st">&#39;&#39;</span> )        <span class="co">// false</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">null</span> <span class="op">==</span> <span class="kw">NaN</span> )       <span class="co">// false</span>
+
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">undefined</span> <span class="op">==</span> <span class="dv">0</span> )    <span class="co">// false</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">undefined</span> <span class="op">==</span> <span class="st">&#39;&#39;</span> )   <span class="co">// false</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="kw">undefined</span> <span class="op">==</span> <span class="kw">NaN</span> )  <span class="co">// false</span>
+
+<span class="va">console</span>.<span class="at">log</span>( <span class="dv">0</span> <span class="op">==</span> <span class="st">&#39;&#39;</span> )           <span class="co">// true</span>
+<span class="va">console</span>.<span class="at">log</span>( <span class="dv">0</span> <span class="op">==</span> <span class="kw">NaN</span> )          <span class="co">// false</span></code></pre></div>
+<p>对于 <code>===</code> 以上全为 <code>false</code>。对于 <code>==</code>，以下几组为 <code>true</code>：<code>null</code> 和 <code>undefined</code>；<code>false</code>、<code>0</code>、<code>''</code>。</p>
+<ul>
+<li><a href="http://www.cnblogs.com/snandy/p/3589517.html">JavaScript中奇葩的假值</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html">阮一峰, undefined与null的区别, 2014</a></li>
+</ul>
+<h2 id="函数">函数</h2>
+<h3 id="常用函数">常用函数</h3>
+<ul>
+<li><code>string.slice(start,end)</code> 复制 string 中的一部分。</li>
+<li><code>string.indexOf(searchString, position)</code> 在 string 中查找 searchString。如果被找到，返回第一个匹配字符的位置，否则返回 -1。可选参数 position 可设置从 string 的某个指定的位置开始查找。</li>
+<li><code>object.hasOwnProperty(name)</code></li>
+<li><code>array.splice(start, deleteCount, item)</code> 从 array 中移除一个或多个元素并用新的 item 替换他们。</li>
+<li><code>array.concat(item...)</code> 产生一个新数组，它包含一份 array 的前复制，并把一个或多个参数 item 附加在其后面。</li>
+<li><code>array.join(separator)</code> join 方法把一个 array 构成一个字符串。它先把 array 中的每个元素构造成一个字符串，接着用一个 separator 分隔符把它们连接在一起。</li>
+<li><code>array.pop()</code> 移除最后一个元素。</li>
+<li><code>array.push(item...)</code> 将一个或多个参数附加到数组的尾部。</li>
+<li><code>array.reverse()</code> 反转 array 元素的顺序。</li>
+<li><code>array.sort(camprefn)</code> 数组排序。</li>
+<li><code>array.shift()</code> 移除数组中的第一个元素并返回该元素。</li>
+<li><code>array.map(item =&gt; )</code> 数组映射, 依次处理数组中的每一项.</li>
+<li><p><code>array.filter(item =&gt; )</code> 数组过滤, 保存返回为真的项.</p></li>
+<li><p><a href="http://book.douban.com/subject/11874748/">Douglas Crockford, JavaScript语言精粹</a></p></li>
+</ul>
+<h3 id="date">Date</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span>
+<span class="kw">var</span> tt <span class="op">=</span> [
+    <span class="va">t</span>.<span class="at">getFullYear</span>()<span class="op">,</span> <span class="st">&#39;年&#39;</span><span class="op">,</span> <span class="co">// 不是 getYear()</span>
+    <span class="va">t</span>.<span class="at">getMonth</span>() <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> <span class="st">&#39;月&#39;</span><span class="op">,</span>
+    <span class="va">t</span>.<span class="at">getDate</span>()<span class="op">,</span> <span class="st">&#39;日&#39;</span><span class="op">,</span> <span class="st">&#39; &#39;</span><span class="op">,</span>
+    <span class="va">t</span>.<span class="at">getHours</span>()<span class="op">,</span> <span class="st">&#39;时&#39;</span><span class="op">,</span>
+    <span class="va">t</span>.<span class="at">getMinutes</span>()<span class="op">,</span> <span class="st">&#39;分&#39;</span><span class="op">,</span>
+    <span class="va">t</span>.<span class="at">getSeconds</span>()<span class="op">,</span> <span class="st">&#39;秒&#39;</span>
+].<span class="at">join</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span>
+<span class="va">console</span>.<span class="at">log</span>(tt)<span class="op">;</span> <span class="co">// 2015年10月30日 22时6分21秒</span></code></pre></div>
+<p>注意 <code>getMonth()</code> 和 <code>getDay()</code> 都是从 0 开始的，需要加 1。</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date, mdn</a></li>
+</ul>
+<h3 id="typeof-和-instanceof">typeof 和 instanceof</h3>
+<ol style="list-style-type: decimal">
+<li><p>typeof: <code>typeof operand</code></p>
+<p>typeof 操作符返回一个字符串,表示未经求值的操作数(unevaluated operand)的类型。typeof 只有一个实际应用场景，就是用来检测一个对象是否已经定义或者是否已经赋值。而这个应用却不是来检查对象的类型。除非为了检测一个变量是否已经定义，我们应尽量避免使用 typeof 操作符。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">typeof</span> foo <span class="op">==</span> <span class="st">&#39;undefined&#39;</span>  <span class="co">// 若 foo 未定义, 返回 true</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">类型</th>
+<th align="left">结构</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Undefined</td>
+<td align="left">&quot;undefined&quot;</td>
+</tr>
+<tr class="even">
+<td align="left">Null</td>
+<td align="left">&quot;object&quot;</td>
+</tr>
+<tr class="odd">
+<td align="left">布尔值</td>
+<td align="left">&quot;boolean&quot;</td>
+</tr>
+<tr class="even">
+<td align="left">数值</td>
+<td align="left">&quot;number&quot;</td>
+</tr>
+<tr class="odd">
+<td align="left">字符串</td>
+<td align="left">&quot;string&quot;</td>
+</tr>
+<tr class="even">
+<td align="left">Symbol (ECMAScript 6 新增)</td>
+<td align="left">&quot;symbol&quot;</td>
+</tr>
+<tr class="odd">
+<td align="left">宿主对象(JS环境提供的，比如浏览器)</td>
+<td align="left">Implementation-dependent</td>
+</tr>
+<tr class="even">
+<td align="left">函数对象 (implements [[Call]] in ECMA-262 terms)</td>
+<td align="left">&quot;function&quot;</td>
+</tr>
+<tr class="odd">
+<td align="left">任何其他对象</td>
+<td align="left">&quot;object&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>{: class=&quot;table&quot;}</p></li>
+<li><p>instanceof: <code>object instanceof constructor</code></p>
+<p>instanceof 运算符可以用来判断某个构造函数的 prototype 属性是否存在另外一个要检测对象的原型链上。(instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。)</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">C</span>()<span class="op">{}</span> <span class="co">// 定义一个构造函数</span>
+<span class="kw">function</span> <span class="at">D</span>()<span class="op">{}</span> <span class="co">// 定义另一个构造函数</span>
+
+<span class="kw">var</span> o <span class="op">=</span> <span class="kw">new</span> <span class="at">C</span>()<span class="op">;</span>
+o <span class="kw">instanceof</span> C<span class="op">;</span> <span class="co">// true,因为:Object.getPrototypeOf(o) === C.prototype</span>
+o <span class="kw">instanceof</span> D<span class="op">;</span> <span class="co">// false,因为D.prototype不在o的原型链上</span>
+o <span class="kw">instanceof</span> Object<span class="op">;</span> <span class="co">// true,因为Object.prototype.isPrototypeOf(o)返回true</span>
+<span class="va">C</span>.<span class="at">prototype</span> <span class="at">instanceof</span> <span class="at">Object</span> <span class="co">// true,同上</span>
+
+<span class="va">C</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{};</span>
+<span class="kw">var</span> o2 <span class="op">=</span> <span class="kw">new</span> <span class="at">C</span>()<span class="op">;</span>
+o2 <span class="kw">instanceof</span> C<span class="op">;</span> <span class="co">// true</span>
+o <span class="kw">instanceof</span> C<span class="op">;</span> <span class="co">// false,C.prototype指向了一个空对象,这个空对象不在o的原型链上.</span>
+
+<span class="va">D</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="kw">new</span> <span class="at">C</span>()<span class="op">;</span>
+<span class="kw">var</span> o3 <span class="op">=</span> <span class="kw">new</span> <span class="at">D</span>()<span class="op">;</span>
+o3 <span class="kw">instanceof</span> D<span class="op">;</span> <span class="co">// true</span>
+o3 <span class="kw">instanceof</span> C<span class="op">;</span> <span class="co">// true</span></code></pre></div></li>
+</ol>
+<ul>
+<li><a href="http://segmentfault.com/a/1190000000730982">typeof 和 instanceOf的区别</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof">instanceof</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a></li>
+</ul>
+<h3 id="setinterval-和-settimeout">setInterval 和 setTimeout</h3>
+<ul>
+<li><code>setTimeout</code> 只执行一次</li>
+<li><code>setInterval</code> 连续执行多次</li>
+</ul>
+<h3 id="call-和-apply">call 和 apply</h3>
+<p>通过 call 和 apply, 可以实现自定义函数调用的上下文.</p>
+<ol style="list-style-type: decimal">
+<li><p>call: <code>fun.call(thisArg, arg1, arg2, ...)</code></p>
+<p>call() 方法在使用一个指定的this值和若干个指定的参数值的前提下调用某个函数或方法.</p>
+<dl>
+<dt>thisArg</dt>
+<dd>在fun函数运行时指定的this值。需要注意的是，指定的 this 值并不一定是该函数执行时真正的 this 值，如果这个函数处于非严格模式下，则指定为 null 和 undefined 的 this 值会自动指向全局对象(浏览器中就是 window 对象)，同时值为原始值(数字，字符串，布尔值)的 this 会指向该原始值的自动包装对象。
+</dd>
+<dt>arg1, arg2, ...</dt>
+<dd>指定的参数列表。
+</dd>
+</dl>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">/* 将函数的参数 arguments 转换为数组 */</span>
+<span class="kw">function</span> <span class="at">listFirst</span>()<span class="op">{</span>
+    <span class="co">// this 指向 arguments</span>
+    <span class="co">// 下面的语句相当于 arguments.slice(0)，但由于 arguments 不是数组，不能直接调用 slice 方法</span>
+    <span class="kw">var</span> arr <span class="op">=</span> <span class="va">Array</span>.<span class="va">prototype</span>.<span class="va">slice</span>.<span class="at">call</span>(arguments<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span>
+    <span class="cf">for</span> (<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">arr</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)<span class="op">{</span>
+        <span class="va">console</span>.<span class="at">log</span>(arr[i])<span class="op">;</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="at">listFirst</span>(<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span>)<span class="op">;</span> <span class="co">// 调用, 输出 1,2,3</span></code></pre></div></li>
+<li><p>apply: <code>fun.apply(thisArg, [argsArray])</code></p>
+<p>apply() 方法在指定 this 值和参数（参数以数组或类数组对象的形式存在）的情况下调用某个函数。</p>
+<dl>
+<dt>thisArg</dt>
+<dd>在 fun 函数运行时指定的 this 值。需要注意的是，指定的 this 值并不一定是该函数执行时真正的 this 值，如果这个函数处于非严格模式下，则指定为 null 或 undefined 时会自动指向全局对象（浏览器中就是window对象），同时值为原始值（数字，字符串，布尔值）的 this 会指向该原始值的自动包装对象。
+</dd>
+<dt>argsArray</dt>
+<dd>一个数组或者类数组对象，其中的数组元素将作为单独的参数传给 fun 函数。如果该参数的值为null 或 undefined，则表示不需要传入任何参数。从ECMAScript 5 开始可以使用类数组对象。浏览器兼容性请参阅本文底部内容。
+</dd>
+</dl>
+<p>在调用一个存在的函数时，你可以为其指定一个 this 对象，无需此参数时第一个参数可用 null（比如对于 add）。 this 指当前对象，也就是正在调用这个函数的对象。 使用 apply， 你可以只写一次这个方法然后在另一个对象中继承它，而不用在新对象中重复写该方法。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">/* 例一: 将函数的参数 arguments 转换为数组 */</span>
+<span class="kw">function</span> <span class="at">listFirst</span>()<span class="op">{</span>
+    <span class="co">// this 指向 arguments</span>
+    <span class="kw">var</span> arr <span class="op">=</span> <span class="va">Array</span>.<span class="va">prototype</span>.<span class="va">slice</span>.<span class="at">apply</span>(arguments<span class="op">,</span> [<span class="dv">0</span>])<span class="op">;</span>
+    <span class="cf">for</span> (<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">arr</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)<span class="op">{</span>
+        <span class="va">console</span>.<span class="at">log</span>(arr[i])<span class="op">;</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="at">listFirst</span>(<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span>)<span class="op">;</span> <span class="co">// 调用, 输出 1,2,3</span>
+
+<span class="co">/* 例二: push 一个数组 */</span>
+<span class="kw">var</span> arr1<span class="op">=</span><span class="kw">new</span> <span class="at">Array</span>(<span class="st">&quot;1&quot;</span><span class="op">,</span><span class="st">&quot;2&quot;</span><span class="op">,</span><span class="st">&quot;3&quot;</span>)<span class="op">;</span>
+<span class="kw">var</span> arr2<span class="op">=</span><span class="kw">new</span> <span class="at">Array</span>(<span class="st">&quot;4&quot;</span><span class="op">,</span><span class="st">&quot;5&quot;</span><span class="op">,</span><span class="st">&quot;6&quot;</span>)<span class="op">;</span>
+<span class="va">Array</span>.<span class="va">prototype</span>.<span class="va">push</span>.<span class="at">apply</span>(arr1<span class="op">,</span>arr2)<span class="op">;</span></code></pre></div></li>
+</ol>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply">Function.prototype.apply()</a></li>
+<li><a href="http://segmentfault.com/a/1190000000725712">apply 和call的用法</a></li>
+</ul>
+<h3 id="new构造函数">new/构造函数</h3>
+<p>构造函数只是一些使用 new 操作符时被调用的普通函数。使用 new 来调用函数，或者说发生构造函数调用时，会自动执行下面的操作。</p>
+<ol style="list-style-type: decimal">
+<li>创建（或者说构造）一个全新的对象。</li>
+<li>这个新对象会被执行 [[prototype]] 链接。</li>
+<li>这个对象会绑定到函数调用的 this。</li>
+<li>如果函数没有返回其他对象，那么 new 表达式中的函数调用会自动返回这个新对象。</li>
+</ol>
+<h3 id="函数调用模式">函数调用模式</h3>
+<p>除了声明时定义的形式参数, 每个函数还接收两个附加的参数: this 和 arguments. 在 JavaScript 中一共有 4 种调用模式: 方法调用模式、函数调用模式、构造器调用模式和 apply 调用模式. 函数调用的模式不同, 对应的 this 值也会不同。</p>
+<ol style="list-style-type: decimal">
+<li><p>方法调用模式</p>
+<p>当一个函数被保存为对象的一个属性时，我们称它为一个方法。当一个方法被调用时，this 被绑定到该对象。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// print 作为 obj 属性被保存，当 print 被调用时，this 指向 obj</span>
+<span class="kw">var</span> obj <span class="op">=</span> <span class="op">{</span>
+    <span class="dt">value</span><span class="op">:</span> <span class="st">&#39;I am a string.&#39;</span><span class="op">,</span>
+    <span class="dt">print</span><span class="op">:</span> <span class="kw">function</span> ()<span class="op">{</span>
+        <span class="va">console</span>.<span class="at">log</span>(<span class="kw">this</span>.<span class="at">value</span>)<span class="op">;</span>
+    <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="va">obj</span>.<span class="at">print</span>()<span class="op">;</span> <span class="co">// 调用</span></code></pre></div></li>
+<li><p>函数调用模式</p>
+<p>当一个函数并非一个对象的属性时, 那么它就是被当做一个函数来调用。以此模式调用函数时，this 被绑定到全局对象。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> func <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Hello here.&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="at">func</span>()<span class="op">;</span> <span class="co">// 调用</span></code></pre></div></li>
+<li><p>构造器调用模式</p>
+<p>如果在一个函数前面带上 new 来调用，那么背地里将会创建一个连接到该函数的 prototype 成员的新对象，同时 this 会绑定到那个新对象上。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> Quo <span class="op">=</span> <span class="kw">function</span>(string)<span class="op">{</span>
+    <span class="kw">this</span>.<span class="at">status</span> <span class="op">=</span> string<span class="op">;</span>
+<span class="op">}</span>
+<span class="va">Quo</span>.<span class="va">prototype</span>.<span class="at">get_status</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span>
+    <span class="cf">return</span> <span class="kw">this</span>.<span class="at">status</span><span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">var</span> myQuo <span class="op">=</span> <span class="kw">new</span> <span class="at">Quo</span>(<span class="st">&#39;new Quo.&#39;</span>) <span class="co">// 调用</span>
+<span class="va">myQuo</span>.<span class="at">get_status</span>()<span class="op">;</span> <span class="co">// &quot;new Quo.&quot;</span></code></pre></div></li>
+<li><p>apply 调用模式</p>
+<p>apply 方法让我们构建一个参数数组传递给调用函数。它允许我们选择 this 的值。apply 方法接收两个参数，第 1 个是要绑定给 this 的值，第 2 个就是一个参数数组.</p></li>
+</ol>
+<ul>
+<li><a href="http://book.douban.com/subject/3590768/">《JavaScript语言精粹(修订版)》，第4章 函数</a></li>
+</ul>
+<h3 id="this">this</h3>
+<p>this 在运行时绑定，它的上下文取决于函数调用时的各种条件。this 的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。</p>
+<p>判断 this 的优先级，可以按照下面的顺序进行判断：</p>
+<ol style="list-style-type: decimal">
+<li><p>函数是否在 new 中调用 (new 绑定)？如果是的话 this 绑定的是新创建的对象。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> bar <span class="op">=</span> <span class="kw">new</span> <span class="at">foo</span>()<span class="op">;</span> <span class="co">// 绑定 bar</span></code></pre></div></li>
+<li><p>函数是否通过 call、apply (显示绑定) 或者硬绑定调用？如果是的话，this 绑定的是指定的对象。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> bar <span class="op">=</span> <span class="va">foo</span>.<span class="at">call</span>(obj2)<span class="op">;</span> <span class="co">// 绑定 obj2</span></code></pre></div></li>
+<li><p>函数是否在某个上下文对象中调用 (隐式调用)？如果是的话，this 绑定的是那个上下文对象。(调用时是否被某个对象拥有或包含，对象属性引用链中只有最顶层或者最后一层会影响调用位置 <code>obj1.obj2.foo(); // 绑定 obj2</code>)</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> bar <span class="op">=</span> <span class="va">obj1</span>.<span class="at">foo</span>()<span class="op">;</span> <span class="co">// 绑定 obj1</span></code></pre></div></li>
+<li><p>如果都不是的话，使用默认绑定。如果在严格模式下，就绑定到 undefined，否则绑定到全局对象 (window)。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> bar <span class="op">=</span> <span class="at">foo</span>()<span class="op">;</span> <span class="co">// 绑定 undefined 或 window</span></code></pre></div></li>
+</ol>
+<p>可总结为:</p>
+<ol style="list-style-type: decimal">
+<li>作为方法调用, 上下文为方法的拥有者.</li>
+<li>作为全局函数调用, 上下文为 window.</li>
+<li>作为构造函数调用, 上下文为新创建的实例对象.</li>
+<li>call 和 apply 可以自定义上下文.</li>
+<li>箭头函数的上下文为其所在作用域的上下文.</li>
+</ol>
+<ul>
+<li><a href="http://book.douban.com/subject/26351021/">你不知道的JavaScript（上卷）</a></li>
+<li><a href="https://book.douban.com/subject/26638316/">JavaScript忍者秘籍, p52</a></li>
+</ul>
+<h3 id="闭包">闭包</h3>
+<p>当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行。(闭包是发生在定义时的。)</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// foo() 定义的中括号内就是 bar 的词法作用域</span>
+<span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+  <span class="kw">var</span> a <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
+  <span class="kw">function</span> <span class="at">bar</span>() <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span>
+  <span class="op">}</span>
+  <span class="cf">return</span> bar<span class="op">;</span>
+<span class="op">}</span>
+<span class="kw">var</span> baz <span class="op">=</span> <span class="at">foo</span>()<span class="op">;</span>
+<span class="at">baz</span>()<span class="op">;</span> <span class="co">// 2, 这就是闭包, 用到变量 a</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> fn<span class="op">;</span>
+<span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
+  <span class="kw">var</span> a <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
+  <span class="kw">function</span> <span class="at">baz</span>() <span class="op">{</span>
+    <span class="va">console</span>.<span class="at">log</span>( a )<span class="op">;</span> <span class="co">// 2</span>
+  <span class="op">}</span>
+  fn <span class="op">=</span> baz<span class="op">;</span> <span class="co">// 将 baz 赋值给全局变量</span>
+  <span class="co">// 调用 fn 相当于执行的 baz, 而其词法作用域在 foo() 定义函数内.</span>
+<span class="op">}</span>
+
+<span class="kw">function</span> <span class="at">bar</span>(fn) <span class="op">{</span>
+  <span class="at">fn</span>()<span class="op">;</span> <span class="co">// 这就是闭包, 用到变量 a</span>
+<span class="op">}</span>
+
+<span class="at">foo</span>()<span class="op">;</span>
+<span class="at">bar</span>()<span class="op">;</span> <span class="co">// 2</span></code></pre></div>
+<ul>
+<li><a href="http://book.douban.com/subject/26351021/">你不知道的JavaScript（上卷）</a></li>
+</ul>
+<h2 id="继承方法">继承方法</h2>
+<ul>
+<li>原型链继承</li>
+<li>构造继承</li>
+<li>实例继承</li>
+<li><p>拷贝继承</p></li>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">继承与原型链, mdn</a>, <a href="http://raychase.iteye.com/blog/1337415">RayChase, JavaScript实现继承的几种方式</a></p></li>
+</ul>
+<h2 id="正则表达式">正则表达式</h2>
+<p><strong>参数</strong></p>
+<ul>
+<li><code>i</code>, 忽略大小写.</li>
+<li><code>g</code>, 全局匹配, 找到所有匹配，而不是在第一个匹配后停止.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// 替换所有 a 字符, 不区分大小写</span>
+<span class="st">&quot;aAopa&quot;</span>.<span class="at">replace</span>(<span class="ss">/a/gi</span><span class="op">,</span> <span class="st">&#39;&#39;</span>)</code></pre></div>
+<p><strong>特殊字符</strong></p>
+<ul>
+<li><code>\d</code> 任意一个数字，等价于 <code>[0-9]</code></li>
+<li><code>\D</code> 任意一个非数字，等价于 <code>[^0-9]</code></li>
+<li><code>\w</code> 任意一个字母、数字或下划线字符，等价于 <code>[a-zA-Z_]</code></li>
+<li><code>\W</code> 任意一个非字母、数字和下划线字符，等价于 <code>[^a-zA-Z_]</code></li>
+<li><code>\s</code> 任意一个空白字符，包括换页符、换行符、回车符、制表符和垂直制表符，等价于 <code>[\f\n\r\t\v]</code></li>
+<li><code>\S</code> 任意一个非空白符，等价于 <code>[^\f\n\r\t\v]</code></li>
+<li><code>.</code> 换行和回车以外的任意一个字符，等价于 <code>[^\n\r]</code></li>
+</ul>
+<p><strong>次数匹配</strong></p>
+<ul>
+<li><code>?</code> 最多一次 (零次或一次)</li>
+<li><code>+</code> 至少一次</li>
+<li><code>*</code> 任意次</li>
+<li><code>{n}</code> 只能出现 n 次</li>
+<li><code>{n,m}</code> 至少 n 次，最多 m 次</li>
+</ul>
+<p><strong>reference</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></li>
+<li><a href="http://www.nowamagic.net/librarys/veda/detail/1283">正则总结：JavaScript中的正则表达式</a></li>
+</ul>
+<h2 id="es5">ES5</h2>
+<blockquote>
+<p>新功能包括：原生 JSON 对象、继承的方法、高级属性的定义以及引入严格模式。</p>
+</blockquote>
+<ul>
+<li><a href="http://segmentfault.com/a/1190000003493604">梦禅, ECMAScript各版本简介及特性, segmentfault</a></li>
+</ul>
+<h2 id="es6">ES6</h2>
+<p>模块，类，块级作用域，Promise，生成器...</p>
+<h3 id="箭头函数">箭头函数</h3>
+<ol style="list-style-type: decimal">
+<li><p>优点:箭头函数可省略 <code>function</code>, 单行的情况下可省略 <code>return</code>, 单个参数的情况括号也可省略.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">func1</span>(a) <span class="op">{</span>
+  <span class="cf">return</span> a <span class="op">+</span> <span class="dv">1</span><span class="op">;</span>
+<span class="op">}</span>
+
+<span class="kw">var</span> func1 <span class="op">=</span> a <span class="op">=&gt;</span> a <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></code></pre></div></li>
+<li><p>优点:箭头函数不会创建自己的上下文(context), 意味着函数内 <code>this</code> 和箭头函数所定义的上下文一样.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> _this <span class="op">=</span> <span class="kw">this</span><span class="op">;</span>
+<span class="va">axios</span>.<span class="at">get</span>(api).<span class="at">then</span>(<span class="kw">function</span>(res)<span class="op">{</span>
+  <span class="va">_this</span>.<span class="at">model</span> <span class="op">=</span> <span class="va">res</span>.<span class="at">data</span><span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span>
+
+<span class="co">// 无需 _this 或者 bind 传递 this</span>
+<span class="va">axios</span>.<span class="at">get</span>(api).<span class="at">then</span>(res <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="kw">this</span>.<span class="at">model</span> <span class="op">=</span> <span class="va">res</span>.<span class="at">data</span><span class="op">;</span>
+<span class="op">}</span>)</code></pre></div></li>
+<li><p>技巧: 返回对象, 需要在对象外层加括号 (对象大括号会被解析为函数体).</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// 错误</span>
+<span class="kw">var</span> func1 <span class="op">=</span> a <span class="op">=&gt;</span> <span class="op">{</span><span class="dt">a</span><span class="op">:</span> a<span class="op">};</span>
+<span class="va">console</span>.<span class="at">log</span>(<span class="at">func1</span>(a))<span class="op">;</span>
+
+<span class="co">// 正确</span>
+<span class="kw">var</span> func1 <span class="op">=</span> a <span class="op">=&gt;</span> (<span class="op">{</span><span class="dt">a</span><span class="op">:</span> a<span class="op">}</span>)<span class="op">;</span>
+<span class="va">console</span>.<span class="at">log</span>(<span class="at">func1</span>(a))<span class="op">;</span></code></pre></div></li>
+<li><p>技巧: 通过 <code>||</code> 添加日志, 而不用单独一行输出日志.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">a <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="va">console</span>.<span class="at">log</span>(a)<span class="op">;</span>
+  <span class="cf">return</span> <span class="op">{</span>
+    <span class="dt">a</span><span class="op">:</span> a
+  <span class="op">}</span>
+<span class="op">}</span>
+
+a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at">log</span>(a) <span class="op">||</span> (<span class="op">{</span>
+  <span class="dt">a</span><span class="op">:</span> a
+<span class="op">}</span>)<span class="op">;</span></code></pre></div></li>
+</ol>
+<ul>
+<li><a href="https://tylermcginnis.com/arrow-functions/">Arrow Functions in JavaScript</a></li>
+</ul>
+<h2 id="异步请求">异步请求</h2>
+<h3 id="ajax-asynchronous-javascript-and-xml">Ajax (Asynchronous Javascript And XML)</h3>
+<p><strong>Ajax 实现</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>原生 Ajax 实现: GET</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> xmlhttp <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span>
+<span class="va">xmlhttp</span>.<span class="at">open</span>(<span class="st">&quot;GET&quot;</span><span class="op">,</span><span class="st">&quot;test1.txt&quot;</span><span class="op">,</span><span class="kw">true</span>)<span class="op">;</span>
+<span class="va">xmlhttp</span>.<span class="at">send</span>()<span class="op">;</span></code></pre></div></li>
+<li><p>原生 Ajax 实现: POST</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> xmlhttp <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span>
+<span class="va">xmlhttp</span>.<span class="at">onreadystatechange</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span>
+  <span class="cf">if</span> (<span class="va">xmlhttp</span>.<span class="at">readyState</span><span class="op">==</span><span class="dv">4</span> <span class="op">&amp;&amp;</span> <span class="va">xmlhttp</span>.<span class="at">status</span><span class="op">==</span><span class="dv">200</span>)<span class="op">{</span>
+    <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&quot;myDiv&quot;</span>).<span class="at">innerHTML</span><span class="op">=</span><span class="va">xmlhttp</span>.<span class="at">responseText</span><span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span>
+<span class="va">xmlhttp</span>.<span class="at">open</span>(<span class="st">&quot;POST&quot;</span><span class="op">,</span><span class="st">&quot;ajax_test.asp&quot;</span><span class="op">,</span><span class="kw">true</span>)<span class="op">;</span>
+<span class="va">xmlhttp</span>.<span class="at">setRequestHeader</span>(<span class="st">&quot;Content-type&quot;</span><span class="op">,</span><span class="st">&quot;application/x-www-form-urlencoded&quot;</span>)<span class="op">;</span>
+<span class="va">xmlhttp</span>.<span class="at">send</span>(<span class="st">&quot;fname=Bill&amp;lname=Gates&quot;</span>)<span class="op">;</span></code></pre></div></li>
+</ol>
+<ul>
+<li><a href="http://segmentfault.com/a/1190000003096293">原生JS与jQuery对AJAX的实现</a></li>
+<li><a href="http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp">AJAX - 向服务器发送请求</a></li>
+</ul>
+<p><strong>Ajax 的 5 个状态</strong></p>
+<p>新建对象 -&gt; 建立连接 -&gt; 接收响应原始数据 -&gt; 解析原始数据 -&gt; 响应就绪(待后续处理)</p>
+<ol style="list-style-type: decimal">
+<li><p>0: 请求未初始化</p>
+<p>此阶段确认 XMLHttpRequest 对象是否创建，并为调用 open() 方法进行未初始化作好准备。值为 0 表示对象已经存在，否则浏览器会报错－－对象不存在。</p></li>
+<li><p>1: 服务器连接已建立</p>
+<p>此阶段对 XMLHttpRequest 对象进行初始化，即调用 open() 方法，根据参数 (method,url,true)完成对象状态的设置。并调用 send() 方法开始向服务端发送请求。值为 1 表示正在向服务端发送请求。</p></li>
+<li><p>2: 请求已接收</p>
+<p>此阶段接收服务器端的响应数据。但获得的还只是服务端响应的原始数据，并不能直接在客户端使用。值为2表示已经接收完全部响应数据。并为下一阶段对数据解析作好准备。</p></li>
+<li><p>3: 请求处理中</p>
+<p>此阶段解析接收到的服务器端响应数据。即根据服务器端响应头部返回的MIME类型把数据转换成能通过 responseBody、responseText 或 responseXML 属性存取的格式，为在客户端调用作好准备。状态 3 表示正在解析数据。</p></li>
+<li><p>4: 请求已完成，且响应已就绪</p>
+<p>此阶段确认全部数据都已经解析为客户端可用的格式，解析已经完成。值为 4 表示数据解析完毕，可以通过 XMLHttpRequest 对象的相应属性取得数据。</p></li>
+</ol>
+<ul>
+<li><a href="http://blog.163.com/freestyle_le/blog/static/183279448201269112527311/">Panda, Ajax readyState的五种状态, LOFTER</a></li>
+</ul>
+<h3 id="fetch">Fetch</h3>
+<p><strong>fetch 和 Ajax (<code>jQuery.ajax()</code>)的区别</strong></p>
+<blockquote>
+<ul>
+<li>The Promise returned from <code>fetch()</code> <strong>won’t reject on HTTP error status</strong> even if the response is an HTTP 404 or 500. Instead, it will resolve normally (with ok status set to false), and it will only reject on network failure or if anything prevented the request from completing.</li>
+<li>By default, <code>fetch</code> <strong>won't send or receive any cookies</strong> from the server, resulting in unauthenticated requests if the site relies on maintaining a user session (to send cookies, the credentials init option must be set).</li>
+</ul>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="at">fetch</span>(api<span class="op">,</span> config)
+.<span class="at">then</span>(response <span class="op">=&gt;</span> <span class="va">response</span>.<span class="at">json</span>())
+.<span class="at">then</span>(data <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="co">// handle</span>
+<span class="op">}</span>)
+.<span class="at">catch</span>(err <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at">error</span>(err))<span class="op">;</span></code></pre></div>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">Using Fetch, MDN web docs</a></li>
+</ul>
+<h2 id="异步">异步</h2>
+<ol style="list-style-type: decimal">
+<li><p>回调, 适应于异步处理较少的情况</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="at">get</span>(url<span class="op">,</span> callback)<span class="op">;</span></code></pre></div></li>
+<li><p>Promise, 链式方式写异步处理</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="at">promise</span>(somthing).<span class="at">then</span>(res <span class="op">=&gt;</span> handle)</code></pre></div></li>
+<li><p>async 和 await, 同步的方式写异步, 可适用于异步处理之间存在依赖的情况.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">const</span> promiseFunc <span class="op">=</span> <span class="at">async</span> () <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="kw">const</span> result1 <span class="op">=</span> await <span class="at">getSomething</span>()<span class="op">;</span>
+  <span class="kw">const</span> result2 <span class="op">=</span> await <span class="at">dependOnResult1</span>(result1)<span class="op">;</span>
+  <span class="cf">return</span> result2<span class="op">;</span>
+<span class="op">};</span>
+<span class="at">promiseFunc</span>().<span class="at">then</span>(result <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="va">console</span>.<span class="at">log</span>(result)<span class="op">;</span>
+<span class="op">}</span>)</code></pre></div></li>
+</ol>
+<h3 id="async-和-await">async 和 await</h3>
+<blockquote>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await">await</a></p>
+</blockquote>
+<h4 id="扩展">扩展</h4>
+<ol style="list-style-type: decimal">
+<li><a href="https://segmentfault.com/a/1190000007535316">理解 JavaScript 的 async/await, 边城, 2016/11/19</a></li>
+</ol>
+<h2 id="文档对象-dom">文档对象 DOM</h2>
+<h3 id="浏览器事件冒泡和捕获">浏览器事件冒泡和捕获</h3>
+<p>事件分为三个阶段:</p>
+<ul>
+<li>捕获阶段</li>
+<li>目标阶段</li>
+<li>冒泡阶段</li>
+</ul>
+<p>TODO：IE 和 w3c 标准的区别；阻止事件传播(捕获，冒泡) <code>e.stopPropagation()</code>；阻止事件默认行为 <code>e.preventDefault()</code>。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">registerEventHandler</span>(node<span class="op">,</span> event<span class="op">,</span> handler) <span class="op">{</span>
+  <span class="cf">if</span> (<span class="kw">typeof</span> <span class="va">node</span>.<span class="at">addEventListener</span> <span class="op">==</span> <span class="st">&quot;function&quot;</span>)
+    <span class="va">node</span>.<span class="at">addEventListener</span>(event<span class="op">,</span> handler<span class="op">,</span> <span class="kw">false</span>)<span class="op">;</span>
+  <span class="cf">else</span>
+    <span class="va">node</span>.<span class="at">attachEvent</span>(<span class="st">&quot;on&quot;</span> <span class="op">+</span> event<span class="op">,</span> handler)<span class="op">;</span>
+<span class="op">}</span>
+
+<span class="at">registerEventHandler</span>(button<span class="op">,</span> <span class="st">&quot;click&quot;</span><span class="op">,</span> <span class="kw">function</span>()<span class="op">{</span><span class="at">print</span>(<span class="st">&quot;Click (2)&quot;</span>)<span class="op">;}</span>)<span class="op">;</span></code></pre></div>
+<ul>
+<li><a href="http://segmentfault.com/a/1190000003482372">本期节目, 浏览器事件模型中捕获阶段、目标阶段、冒泡阶段实例详解, segmentfault, 2015.8</a></li>
+</ul>
+<h2 id="浏览器对象-bom">浏览器对象 BOM</h2>
+<h3 id="弹框">弹框</h3>
+<ul>
+<li><code>prompt(text,defaultText)</code> 提示用户输入的对话框。<code>text</code> 对话框中显示的纯文本，<code>defaultText</code> 默认的输入文本。返回值为输入文本。</li>
+<li><code>alert(message)</code> 警告框。<code>message</code> 对话框中要实现的纯文本。</li>
+<li><p><code>confirm(message)</code> 显示一个带有指定消息和 OK 及取消按钮的对话框。<code>message</code> 对话框中显示的纯文本。点击确认返回 true，点击取消返回 false。</p></li>
+<li><p><a href="http://www.w3school.com.cn/jsref/met_win_prompt.asp" class="uri">http://www.w3school.com.cn/jsref/met_win_prompt.asp</a></p></li>
+</ul>
+<h3 id="localstorage">localStorage</h3>
+<blockquote>
+<p>存储在浏览器中的数据，如 localStorage 和 IndexedDB，以源进行分割。每个源都拥有自己单独的存储空间，一个源中的Javascript脚本不能对属于其它源的数据进行读写操作。</p>
+</blockquote>
+<p>localStorage 在当前源下设置的值，只能在当前源下查看。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">localStorage</span>.<span class="at">setItem</span>(<span class="st">&#39;key&#39;</span><span class="op">,</span>value)   <span class="co">// 设置值, 或 localStorage.key = value</span>
+<span class="va">localStorage</span>.<span class="at">getItem</span>(<span class="st">&#39;key&#39;</span>)         <span class="co">// 获取值, 或 localStorage.key</span>
+<span class="va">localStorage</span>.<span class="at">removeItem</span>(<span class="st">&#39;key&#39;</span>)      <span class="co">// 删除值</span>
+<span class="va">localStorage</span>.<span class="at">clear</span>()                <span class="co">// 清空 localStorage</span></code></pre></div>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">JavaScript 的同源策略, MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">localStorage, MDN</a></li>
+<li><a href="http://wikieswan.github.io/javascript/2015/04/03/html5-api-localstorage/">杜若, localStorage 介绍</a></li>
+</ul>
+<h2 id="jquery">jQuery</h2>
+<h3 id="jquery-知识结构">jQuery 知识结构</h3>
+<ul>
+<li>jQuery 基础: 选择器</li>
+<li>jQuery 效果: hide, show, toggle, fadeIn, fadeOut, animate</li>
+<li>jQuery 操作 HTML: text, html, val, attr, append, after, prepend, before, remove, empty</li>
+<li>jQuery 遍历 Dom: parent, parents, children, find</li>
+</ul>
+<h3 id="jquery-和-dom-对象相互转换">jQuery 和 Dom 对象相互转换</h3>
+<ol style="list-style-type: decimal">
+<li><p>jQuery 对象转换成 Dom 对象: 下标和 get 方法</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">/* 方法一: 下标 */</span>
+<span class="kw">var</span> $v <span class="op">=</span> <span class="at">$</span>(<span class="st">&quot;#v&quot;</span>) <span class="op">;</span> <span class="co">//jQuery对象</span>
+<span class="kw">var</span> v  <span class="op">=</span> $v[<span class="dv">0</span>]<span class="op">;</span>    <span class="co">//DOM对象</span>
+
+<span class="co">/* 方法二: get */</span>
+<span class="kw">var</span> $v <span class="op">=</span> <span class="at">$</span>(<span class="st">&quot;#v&quot;</span>)<span class="op">;</span>   <span class="co">//jQuery对象</span>
+<span class="kw">var</span> v  <span class="op">=</span> <span class="va">$v</span>.<span class="at">get</span>(<span class="dv">0</span>)<span class="op">;</span> <span class="co">//DOM对象</span></code></pre></div></li>
+<li><p>Dom 对象转 jQuery 对象: 通过 <code>$()</code> 把 Dom 对象包装起来实现</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> v  <span class="op">=</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&quot;v&quot;</span>)<span class="op">;</span> <span class="co">//DOM对象</span>
+<span class="kw">var</span> $v <span class="op">=</span> <span class="at">$</span>(v)<span class="op">;</span> <span class="co">//jQuery对象</span></code></pre></div></li>
+</ol>
+<ul>
+<li><a href="http://segmentfault.com/a/1190000003710344">jQuery对象与dom对象的区别与相互转换</a></li>
+</ul>
+<h3 id="jquery-命名冲突解决">jQuery 命名冲突解决</h3>
+<ol style="list-style-type: decimal">
+<li>使用 <code>jQuery.noConflict()</code></li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="at">noConflict</span>()<span class="op">;</span>
+<span class="co">// 之后使用 jQuery 调用, jQuery(&quot;#id&quot;).methodname()</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>自定义别名</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> $j <span class="op">=</span> <span class="va">jQuery</span>.<span class="at">noConflict</span>()<span class="op">;</span>
+<span class="co">// $j(&quot;#id&quot;).methodname();</span></code></pre></div></li>
+<li><p>传入参数，继续使用 <code>$</code></p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="at">noConflict</span>()<span class="op">;</span>
+(<span class="kw">function</span>($)<span class="op">{</span>
+    <span class="at">$</span>(<span class="st">&quot;#id&quot;</span>).<span class="at">methodname</span>()<span class="op">;</span>
+<span class="op">}</span>)(jQuery)</code></pre></div></li>
+</ol>
+<ul>
+<li><a href="http://ued.taobao.org/blog/2013/03/jquery-noconflict/">邦彦, 谈谈 jQuery 中的防冲突（noConflict）机制, TaoBaoUED</a></li>
+<li><a href="http://www.cnblogs.com/RascallySnake/archive/2010/05/07/1729417.html">RascallySnake, Jquery的$命名冲突, cnblogs</a></li>
+<li><a href="http://www.cnblogs.com/ForEvErNoME/archive/2012/03/15/2398659.html">TerryChen, Jquery命名冲突解决的五种方案, cnblogs</a></li>
+</ul>
+<h2 id="解决方案">解决方案</h2>
+<p>跨域，客户端存储</p>
+<h3 id="跨域">跨域</h3>
+<ul>
+<li><a href="http://www.alloyteam.com/2013/11/the-second-version-universal-solution-iframe-cross-domain-communication/">TAT.Johnny, iframe跨域通信的通用解决方案, alloyteam</a></li>
+<li><a href="http://segmentfault.com/a/1190000003642057">JasonKidd,「JavaScript」四种跨域方式详解, segmentfault</a></li>
+</ul>
+<h2 id="其他">其他</h2>
+<ol style="list-style-type: decimal">
+<li>switch 以 <code>===</code> 匹配。</li>
+<li>函数会首先被提升，然后才是变量。</li>
+</ol>
+<h1 id="浏览器">浏览器</h1>
+<h2 id="浏览器兼容性">浏览器兼容性</h2>
+<h3 id="ie-支持-css">IE 支持 CSS</h3>
+<p>使用条件语句判断 IE，并用 CSS 表达式解决 (一般情况下不推荐采用表达式，效率低)。在 IE8 标准模式中，不支持 CSS Expression。</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.classname</span> <span class="kw">{</span>
+  <span class="co">/* 正常 IE6/IE7/IE8 不支持*/</span>
+  <span class="kw">min-height:</span><span class="dt">50px</span><span class="kw">;</span>
+  <span class="co">/* 表达式 */</span>
+<span class="co">  _height:expression((parseInt(this.currentStyle.height) &lt; 50) ? 50 : this.clientHeight)</span>
+<span class="co">}</span></code></pre></div>
+<h3 id="ie6ie7ie8-支持-html5-新标签">IE6/IE7/IE8 支持 html5 新标签</h3>
+<p><strong>创建标签</strong></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">document.createElement(&#39;section&#39;); // 其他标签一样处理</code></pre></div>
+<p><strong>使用方案</strong></p>
+<ul>
+<li>html5shiv：<a href="https://github.com/aFarkas/html5shiv/" class="uri">https://github.com/aFarkas/html5shiv/</a> (用的也是 createElement())</li>
+<li>modernizr：<a href="https://github.com/modernizr/modernizr/" class="uri">https://github.com/modernizr/modernizr/</a> (这个功能要多一点，还兼顾 CSS3，<a href="http://www.osmn00.com/translation/221.html">更多</a>)</li>
+</ul>
+<h3 id="ie-兼容性测试">IE 兼容性测试</h3>
+<p>采用 <a href="https://dev.modern.ie/">Modern.IE</a> 提供的<a href="https://dev.modern.ie/tools/vms/windows/">虚拟机</a>测试。下载 <a href="https://www.virtualbox.org/">virtualbox</a> (免费) 或者 <a href="http://www.vmware.com/">VMware</a> (收费)，然后导入对应的下载包(不同系统 IE 版本不同)。</p>
+<h3 id="不支持-javascript">不支持 JavaScript</h3>
+<p>noscript 元素用来定义在脚本未被执行时的替代内容（文本）。此标签可被用于可识别 <code>&lt;script&gt;</code> 标签但无法支持其中的脚本的浏览器。</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;noscript&gt;</span>Your browser does not support JavaScript!<span class="kw">&lt;/noscript&gt;</span></code></pre></div>
+<p>reference: <a href="http://www.w3school.com.cn/tags/tag_noscript.asp">HTML noscript 标签, w3school</a></p>
+<h3 id="浏览器-hack">浏览器 hack</h3>
+<p>以 IE 为例，展示几个 CSS hack 方法，更多的见参考链接。</p>
+<p><strong>IE6</strong></p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.selector</span> <span class="kw">{</span> <span class="kw">_property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="kw">-property:</span> value<span class="kw">;</span> <span class="kw">}</span></code></pre></div>
+<p><strong>IE &lt;= 7</strong> ( <code>! $ &amp; * ( ) = % + @ , . / ` [ ] # ~ ? : &lt; &gt; |</code> )</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.selector</span> <span class="kw">{</span> <span class="er">!</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">$</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">&amp;</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">*</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">)</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">=</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">%</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">+</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">@</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">,</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">.</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">/</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">`</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">]</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">#</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">~</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">?</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">:</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">|</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span></code></pre></div>
+<p><strong>IE 6-8</strong></p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.selector</span> <span class="kw">{</span> <span class="kw">property:</span> value\<span class="dt">9</span><span class="kw">;</span> <span class="kw">}</span>
+<span class="fl">.selector</span> <span class="kw">{</span> <span class="er">property</span><span class="co">/*\**/</span><span class="er">:</span> <span class="er">value\9;</span> <span class="kw">}</span></code></pre></div>
+<p>reference: <a href="http://browserhacks.com/" class="uri">http://browserhacks.com/</a></p>
+<h3 id="css3-前缀">CSS3 前缀</h3>
+<p>虽然目前 CSS3 得到广泛支持，但各个浏览器厂商对标准实现并不完全一样，可以对 CSS3 使用前缀。建议把特殊的 CSS 语句放在前面，一般的语句放置在后面。可以使用 <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=Autoprefixer">Autoprefixer</a> 自动添加前缀。</p>
+<ul>
+<li><code>-moz-</code> Firefox,</li>
+<li><code>-webkit-</code> Safari, Chrome</li>
+<li><code>-o-</code> Opera (不过, Opera 和 Chrome 现在都采用 Blink 内核)</li>
+<li><code>-ms-</code> Internet Explorer</li>
+</ul>
+<h3 id="浏览器设备检测">浏览器/设备检测</h3>
+<p>通过 js 检测浏览器方法包括：条件语句检测, 依靠浏览器各自的特性检测；通过 <code>userAgent</code> 检测。</p>
+<h4 id="ie-条件语句">IE 条件语句</h4>
+<p>可以添加条件语句检测浏览器，针对性的编写样式。</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="co">&lt;!--[if IE 8]&gt;</span>
+<span class="co">&lt;body class=&quot;ie8&quot;&gt;</span>
+<span class="co">&lt;![endif]--&gt;</span>
+<span class="co">&lt;!--[if !IE]&gt;</span>
+<span class="co">&lt;body class=&quot;notie&quot;&gt;</span>
+<span class="co">&lt;![endif]--&gt;</span></code></pre></div>
+<p>reference: <a href="https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx">About conditional comments, msdn</a></p>
+<h4 id="useragent">userAgent</h4>
+<p><strong>userAgent 示例</strong></p>
+<pre><code>Chrome 60
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+
+360 安全浏览器/极速模式
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36 QIHU 360SE
+
+360 安全浏览器/IE 兼容模式
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
+
+IE 11
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
+
+Edge 40
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063</code></pre>
+<p><strong>userAgent 判别浏览器</strong></p>
+<p>可直接查看此插件的 js 代码：<a href="https://github.com/gabceb/jquery-browser-plugin">jquery-browser-plugin</a>。实测了 IE、Firefox、Opera、Chrome，输出结果都是对的。</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Document<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;jquery.browser.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+<span class="kw">&lt;script&gt;</span>
+    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;jQBrowser.webkit: &quot;</span> <span class="op">+</span> <span class="va">jQBrowser</span>.<span class="at">webkit</span>)<span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;jQBrowser.mozilla: &quot;</span> <span class="op">+</span> <span class="va">jQBrowser</span>.<span class="at">mozilla</span>)<span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;jQBrowser.msie: &quot;</span> <span class="op">+</span> <span class="va">jQBrowser</span>.<span class="at">msie</span>)<span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;jQBrowser.version: &quot;</span> <span class="op">+</span> <span class="va">jQBrowser</span>.<span class="at">version</span>)<span class="op">;</span>
+<span class="kw">&lt;/script&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<p><strong>userAgent 判别设备</strong></p>
+<p>通过检测设备, 可以针对不同设备提供不同功能, 并处理不同设备的兼容需求.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// 检测 IOS</span>
+ios <span class="op">=</span> <span class="ss">/iphone</span><span class="sc">|</span><span class="ss">ipod</span><span class="sc">|</span><span class="ss">ipad/i</span>.<span class="at">test</span>(<span class="va">window</span>.<span class="va">navigator</span>.<span class="at">userAgent</span>)<span class="op">;</span>
+<span class="co">// 检测 Android</span>
+android <span class="op">=</span> <span class="ss">/android/i</span>.<span class="at">test</span>(<span class="va">window</span>.<span class="va">navigator</span>.<span class="at">userAgent</span>)<span class="op">;</span></code></pre></div>
+<h4 id="通过特性检测判断">通过特性检测判断</h4>
+<p>reference: <a href="http://www.ludou.org/2-way-to-detect-browser.html">露兜博客, 检测访客浏览器的2种方法, 2009</a></p>
+<h3 id="ie-图标字体未加载降级处理-ie-icon">IE 图标字体未加载降级处理 (IE icon)</h3>
+<p>IE 下图标字体未加载, 导致图标无法显示, <code>element-ui</code> 就存在这个情况. 可以判断浏览器是否是 IE, 若果是则加载覆盖的样式, 用文本或其他字符代替图标. 例如通过下面的方式, 修复表格中操作图标无法展示.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.el-table</span> <span class="fl">.el-icon-delete</span><span class="dv">:before</span> <span class="kw">{</span>
+  <span class="kw">content:</span> <span class="st">&#39;删除&#39;</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">const</span> ua <span class="op">=</span> <span class="va">window</span>.<span class="va">navigator</span>.<span class="va">userAgent</span>.<span class="at">toLowerCase</span>()
+<span class="co">// 不包含 Edge</span>
+<span class="kw">let</span> ifIE <span class="op">=</span> <span class="va">ua</span>.<span class="at">indexOf</span>(<span class="st">&#39;msie&#39;</span>) <span class="op">&gt;</span> <span class="op">-</span><span class="dv">1</span> <span class="op">||</span> <span class="va">ua</span>.<span class="at">indexOf</span>(<span class="st">&#39;trident&#39;</span>) <span class="op">&gt;</span> <span class="op">-</span><span class="dv">1</span>
+<span class="cf">if</span> (ifIE) <span class="op">{</span>
+  <span class="co">// 依赖 loadjs</span>
+  <span class="at">loadjs</span>(<span class="st">&#39;/static/css/iefix.css&#39;</span>)
+<span class="op">}</span></code></pre></div>
+<h2 id="本地缓存">本地缓存</h2>
+<ul>
+<li><a href="http://jerryzou.com/posts/cookie-and-web-storage/">详说 Cookie, LocalStorage 与 SessionStorage</a></li>
+</ul>
+<h1 id="http">HTTP</h1>
+<ul>
+<li>http 中 get 和 post；</li>
+<li>HTTP 格式: 方案://服务器位置/路径, <code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</code></li>
+</ul>
+<h2 id="同源">同源</h2>
+<blockquote>
+<p>如果两个页面拥有相同的<strong>协议</strong>（protocol），<strong>端口</strong>（如果指定），和<strong>主机</strong>，那么这两个页面就属于同一个源（origin）。</p>
+</blockquote>
+<blockquote>
+<p>来自about:blank，javascript:和data:URLs中的内容，继承了将其载入的文档所指定的源，因为它们的URL本身未指定任何关于自身源的信息。</p>
+</blockquote>
+<p>注意 IE 的区别（比如：IE未将端口号加入到同源策略的组成部分之中）。</p>
+<p>reference: <a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">JavaScript 的同源策略, MDN</a></p>
+<h2 id="从输入url到页面加载完成的过程">从输入URL到页面加载完成的过程</h2>
+<ol style="list-style-type: decimal">
+<li>输入地址</li>
+<li>浏览器查找域名的 IP 地址。这一步包括 DNS 具体的查找过程，包括：浏览器缓存-&gt;系统缓存-&gt;路由器缓存...</li>
+<li>浏览器向 web 服务器发送一个 HTTP 请求</li>
+<li>服务器的永久重定向响应（从 http://example.com 到 http://www.example.com）</li>
+<li>浏览器跟踪重定向地址</li>
+<li>服务器处理请求</li>
+<li>服务器返回一个 HTTP 响应</li>
+<li>浏览器显示 HTML</li>
+<li>浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）</li>
+<li>浏览器发送异步请求</li>
+</ol>
+<p>reference: <a href="http://segmentfault.com/q/1010000000489803/a-1020000000489830">从输入URL到页面加载完成的过程中都发生了什么事情？, segmentfault</a></p>
+<h2 id="状态码">状态码</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="center">整体范围</th>
+<th align="center">已定义范围</th>
+<th align="left">分类</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">100 ~ 199</td>
+<td align="center">100 ~ 101</td>
+<td align="left">信息提示</td>
+</tr>
+<tr class="even">
+<td align="center">200 ~ 299</td>
+<td align="center">200 ~ 206</td>
+<td align="left">成功</td>
+</tr>
+<tr class="odd">
+<td align="center">300 ~ 399</td>
+<td align="center">300 ~ 305</td>
+<td align="left">重定向</td>
+</tr>
+<tr class="even">
+<td align="center">400 ~ 499</td>
+<td align="center">400 ~ 415</td>
+<td align="left">客户端错误</td>
+</tr>
+<tr class="odd">
+<td align="center">500 ~ 599</td>
+<td align="center">500 ~ 505</td>
+<td align="left">服务器错误</td>
+</tr>
+</tbody>
+</table>
+<p>{:class=&quot;table&quot;}</p>
+<table style="width:100%;">
+<colgroup>
+<col width="34%" />
+<col width="32%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">状态码</th>
+<th align="left">原因短语</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">100</td>
+<td align="left">Continue</td>
+<td align="left">说明收到了请求的初始部分, 轻客户端继续. 发送了这个状态码之后，服务器在收到请求之后必须进行响应。</td>
+</tr>
+<tr class="even">
+<td align="center">101</td>
+<td align="left">Switching Protocols</td>
+<td align="left">说明服务器正在根据客户端的指定，将协议切换成 Update 首部所列的协议</td>
+</tr>
+<tr class="odd">
+<td align="center">200</td>
+<td align="left">OK</td>
+<td align="left">请求没问题，实体的主体部分包含了所请求的资源</td>
+</tr>
+<tr class="even">
+<td align="center">201</td>
+<td align="left">Created</td>
+<td align="left">用于创建服务器对象的请求(比如, PUT)。响应的实体主体部分中应该包含各种引用了已创建的资源 URL, Location 首部包含的则是最具体的引用。</td>
+</tr>
+<tr class="odd">
+<td align="center">202</td>
+<td align="left">Accepted</td>
+<td align="left">请求已被接受，但服务器还未对其执行任何动作。不能保证服务器会完成这个请求; 这只是意味着接收请求时, 他看起来是有效的，服务器应该在实体的主体中包含对请求状态的描述，或许还应该有队请求完成时间的估计</td>
+</tr>
+<tr class="even">
+<td align="center">203</td>
+<td align="left">Non-Authoritative Information</td>
+<td align="left">实体首部包含的信息不是来自于源服务器，二是来自资源的一份副本。如果中间节点上有一份资源副本，但无法或者没有对它所发送的与资源有关的元星系进行验证，就会出现这种情况。</td>
+</tr>
+<tr class="odd">
+<td align="center">204</td>
+<td align="left">No Content</td>
+<td align="left">响应报文中包含若干首部和一个状态行，但没有实体的主体部分。主要用于在浏览器不转为显示新文档的情况下，对其进行更新</td>
+</tr>
+<tr class="even">
+<td align="center">205</td>
+<td align="left">Reset Content</td>
+<td align="left">另一个主要用于浏览器的代码。负责告知浏览器清除当前页面中的所有 HTML 表单元素</td>
+</tr>
+<tr class="odd">
+<td align="center">206</td>
+<td align="left">Partial Content</td>
+<td align="left">成功执行了一个部分或 Range 请求。</td>
+</tr>
+<tr class="even">
+<td align="center">300</td>
+<td align="left">Multiple Choices</td>
+<td align="left">客户端请求一个实际指向多个资源的 URL 时会返回这个状态码，比如服务器上有某个 HTML 文档的英语和法语版本。</td>
+</tr>
+<tr class="odd">
+<td align="center">301</td>
+<td align="left">Moved Permanently</td>
+<td align="left">在请求的 URL 已被移除时使用。响应的 Location 首部中应该包含资源现在所处的 URL</td>
+</tr>
+<tr class="even">
+<td align="center">302</td>
+<td align="left">Found</td>
+<td align="left">与 301 状态码类似; 但是，客户端应该使用 Location 首部给出的 URL 来临时定位资源。将来的请求仍使用老的 URL</td>
+</tr>
+<tr class="odd">
+<td align="center">303</td>
+<td align="left">See Other</td>
+<td align="left">告知客户端应该用另外一个 URL 来获取资源。新的 URL 位于响应报文的 Location 首部。其主要目的是允许 POST 请求的响应将客户端丁香到某个资源上去</td>
+</tr>
+<tr class="even">
+<td align="center">304</td>
+<td align="left">Not Modified</td>
+<td align="left">客户端可以通过所包含的请求首部，使其请求变成有条件的。如果客户端发起了一个GET请求，而最近资源未被修改的话，就可以用这个状态码来说明资源未被修改。带有这个状态码的响应不应该包含实体的主体部分。</td>
+</tr>
+<tr class="odd">
+<td align="center">305</td>
+<td align="left">Use Proxy</td>
+<td align="left">用来说明必须通过一个代理来访问资源; 代理的位置有location首部给出。很重要的一点是，客户端是相对某一个特定的资源来解析这条响应的，不能假定所有请求，甚至所有持有所请求资源的服务器的请求都通过这个代理进行。如果客户端错误的让代理介入了某条请求，可能会引发破坏性的行为，而且会造成安全漏洞。</td>
+</tr>
+<tr class="even">
+<td align="center">306</td>
+<td align="left">(未使用)</td>
+<td align="left">当前未使用</td>
+</tr>
+<tr class="odd">
+<td align="center">307</td>
+<td align="left">Temporary Redirect</td>
+<td align="left">与 301 状态码类似; 但客户端应该使用 Location 首部给出 URL 来临时定位资源。将来的请求应该使用老的 URL</td>
+</tr>
+<tr class="even">
+<td align="center">400</td>
+<td align="left">Bad Request</td>
+<td align="left">用于告知客户端它发送了一个错误的请求</td>
+</tr>
+<tr class="odd">
+<td align="center">401</td>
+<td align="left">Unauthorized</td>
+<td align="left">与适当的首部一起返回，在这些首部中请求客户端在获取对资源的访问权之前，对自己进行认证。</td>
+</tr>
+<tr class="even">
+<td align="center">402</td>
+<td align="left">Payment Required</td>
+<td align="left">现在这个状态码还未使用，但已经被保留，一做未来之用</td>
+</tr>
+<tr class="odd">
+<td align="center">403</td>
+<td align="left">Forbidden</td>
+<td align="left">用于说明请求被服务器拒绝了。如果服务器想说明为什么拒绝请求，可以包含实体的主体部分来对原因进行描述。但这个状态码通常是在服务器不想说明拒绝原因的使用使用的。</td>
+</tr>
+<tr class="even">
+<td align="center">404</td>
+<td align="left">Not Found</td>
+<td align="left">用于说明服务器无法找到所请求的url。通常会包含一个实体一般客户端应用程序显示给用户看。</td>
+</tr>
+<tr class="odd">
+<td align="center">405</td>
+<td align="left">Mehtod Not Allowed</td>
+<td align="left">发起的请求中带有所请求的url不支持的方法时，使用此状态码。应该在响应中包含Allow首部，已告知客户端对所请求的的资源可以使用哪些方法。</td>
+</tr>
+<tr class="even">
+<td align="center">406</td>
+<td align="left">Not Acceptable</td>
+<td align="left">客户端可以指定参数来说明他们愿意接收什么类型的实体。服务器没有与客户端可以接受的url相匹配的资源时，使用此代码。通常服务器会包含一些首部，以便客户端弄清楚为什么请求无法得到满足。</td>
+</tr>
+<tr class="odd">
+<td align="center">407</td>
+<td align="left">Proxy Authentication Required</td>
+<td align="left">与401类似，但用于要求对资源进行认证的代理服务器。</td>
+</tr>
+<tr class="even">
+<td align="center">408</td>
+<td align="left">Request Timeout</td>
+<td align="left">如果客户端完成请求所化的时间太长，服务器可以回送此状态码，并关闭连接。超时时常随服务器的设置不同而不同，但通常对所有的合法请求来说，都是够长的。</td>
+</tr>
+<tr class="odd">
+<td align="center">409</td>
+<td align="left">Confict</td>
+<td align="left">用于说明请求可能在资源上引发一些冲突。服务器担心会引发一些冲突时，可以发送此状态码。响应中应该包含描述冲突的主体。</td>
+</tr>
+<tr class="even">
+<td align="center">410</td>
+<td align="left">Gone</td>
+<td align="left">与 404 类似，只是服务器曾经拥有过此资源。主要用于 Web 站点的维护，这样服务器的管理者就可以在资源被移除的情况下通知客户端了。</td>
+</tr>
+<tr class="odd">
+<td align="center">411</td>
+<td align="left">Length Required</td>
+<td align="left">服务器要求在请求报文中包含Content-Length首部时使用。</td>
+</tr>
+<tr class="even">
+<td align="center">412</td>
+<td align="left">Precondition Failed</td>
+<td align="left">客户端发起了条件请求，且其中一个条件失败了的时候使用。</td>
+</tr>
+<tr class="odd">
+<td align="center">413</td>
+<td align="left">Request Entity Too Large</td>
+<td align="left">客户端所发送请求中的请求url比服务器能够或者希望处理的要大时，使用此状态码。</td>
+</tr>
+<tr class="even">
+<td align="center">414</td>
+<td align="left">Request Uri Too Long</td>
+<td align="left">客户端所发送请求中的请求url比服务器能够或者希望处理的要长时，使用此状态码。</td>
+</tr>
+<tr class="odd">
+<td align="center">415</td>
+<td align="left">Unsupported Media Type</td>
+<td align="left">服务器无法理解或无法支持客户端所发实体的内容类型时，使用此状态码。</td>
+</tr>
+<tr class="even">
+<td align="center">416</td>
+<td align="left">Requested Range Not Satisfiable</td>
+<td align="left">请求报文所请求的是指定资源的某个范围，而此范围无效或无法满足时，使用此状态码</td>
+</tr>
+<tr class="odd">
+<td align="center">417</td>
+<td align="left">Expectation Failed</td>
+<td align="left">请求的Expect请求首部包含了一个期望，但服务器无法满足此期望时，使用此状态码</td>
+</tr>
+<tr class="even">
+<td align="center">500</td>
+<td align="left">Internal Server Error</td>
+<td align="left">服务器遇到了一个妨碍它为请求提供服务的错误时，使用此状态码</td>
+</tr>
+<tr class="odd">
+<td align="center">501</td>
+<td align="left">Not Implemented</td>
+<td align="left">客户端发起的请求超出服务器的能力范围时比如使用了服务器不支持的请求方法)，使用此状态码</td>
+</tr>
+<tr class="even">
+<td align="center">502</td>
+<td align="left">Bad Gateway</td>
+<td align="left">作为代理或网关使用的服务器从请求响应链的链路上收到了一条伪响应(比如，它无法连接到其父网关)时，使用此状态码</td>
+</tr>
+<tr class="odd">
+<td align="center">503</td>
+<td align="left">Service Unavailable</td>
+<td align="left">用来说明服务器现在无法为请求提供服务，当将来可以。如果服务器知道什么时候资源会变为可使用的，可以在响应中包含一个Retry-After首部。</td>
+</tr>
+<tr class="even">
+<td align="center">504</td>
+<td align="left">Gateway Timeout</td>
+<td align="left">与状态码408类似，只是这里的响应来自一个网关或代理，他们在等待另一个服务器对其请求进行相应是超时了</td>
+</tr>
+<tr class="odd">
+<td align="center">505</td>
+<td align="left">http Version Not Supported</td>
+<td align="left">服务器收到的请求使用了它无法或不愿支持的协议版本时，使用此状态码。有些服务器应用程序会选择不支持协议的早期版本</td>
+</tr>
+</tbody>
+</table>
+<p>{:class=&quot;table&quot;}</p>
+</body>
+</html>

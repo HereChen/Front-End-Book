@@ -50,10 +50,6 @@ export default {
   \href{https://github.com/HereChen/template/tree/master/react-native}{react-native}
 \end{enumerate}
 
-示例项目 python 和 node-gyp-bin 相关错误可以尝试先执行
-\lstinline!yar add node-sass! 或者 \lstinline!npm install -f node-sass!
-(\url{https://github.com/sass/node-sass/issues/1980}).
-
 \subsection{环境配置}\label{ux73afux5883ux914dux7f6e}
 
 \subsubsection{系统环境}\label{ux7cfbux7edfux73afux5883}
@@ -127,32 +123,29 @@ npm install -g react-native-cli
   \url{https://facebook.github.io/react-native/docs/getting-started.html}
 \end{enumerate}
 
-\subsection{Android}\label{android}
+\subsection{基本命令}\label{ux57faux672cux547dux4ee4}
 
-\subsubsection{Demo}\label{demo}
-
-\begin{lstlisting}[language=bash]
-react-native init AwesomeProject
-cd AwesomeProject
-react-native run-android
-\end{lstlisting}
-
-\subsubsection{打包}\label{ux6253ux5305}
-
-\begin{quote}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  https://facebook.github.io/react-native/docs/signed-apk-android.html
+  新建工程: \lstinline!react-native init demo-project!.
 \item
-  https://reactnative.cn/docs/0.51/signed-apk-android.html
+  Android 运行: \lstinline!react-native run-android!.
 \item
-  https://www.jianshu.com/p/1380d4c8b596
+  iOS 运行: \lstinline!react-native run-ios!.
 \end{enumerate}
-\end{quote}
 
-\textbf{1. 生成签名密钥}
+新建工程后首先 \lstinline!npm install! 安装依赖. 示例项目 python 和
+node-gyp-bin 相关错误可以尝试先执行 \lstinline!yarn add node-sass! 或者
+\lstinline!npm install -f node-sass!
+(\url{https://github.com/sass/node-sass/issues/1980}).
+
+\subsection{打包}\label{ux6253ux5305}
+
+\subsubsection{Android 打包}\label{android-ux6253ux5305}
+
+\paragraph{生成签名密钥}\label{ux751fux6210ux7b7eux540dux5bc6ux94a5}
 
 \begin{lstlisting}[language=bash]
 $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
@@ -182,7 +175,7 @@ Enter key password for <my-key-alias>
 [Storing my-release-key.keystore]
 \end{lstlisting}
 
-\textbf{2. gradle设置}
+\paragraph{gradle设置}\label{gradleux8bbeux7f6e}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -232,7 +225,7 @@ android {
 ...
 \end{lstlisting}
 
-\textbf{3. 打包}
+\paragraph{生成 apk}\label{ux751fux6210-apk}
 
 \begin{lstlisting}[language=bash]
 cd android && ./gradlew assembleRelease
@@ -240,7 +233,7 @@ cd android && ./gradlew assembleRelease
 
 打包后在 \lstinline!android/app/build/outputs/apk/app-release.apk!.
 
-\textbf{安装方式}
+\paragraph{安装 apk 方式}\label{ux5b89ux88c5-apk-ux65b9ux5f0f}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -253,9 +246,53 @@ cd android && ./gradlew assembleRelease
 
 如果报签名错误, 可先卸载之前的 debug 版本.
 
-\subsubsection{其他}\label{ux5176ux4ed6}
+\subsubsection{iOS 打包}\label{ios-ux6253ux5305}
 
-\textbf{入口文件更改}
+iOS 版本编译需要在 Mac 上进行.
+
+\paragraph{签名}\label{ux7b7eux540d}
+
+没有证书\ldots{}.
+
+\paragraph{生成 ipa}\label{ux751fux6210-ipa}
+
+以下流程以 Xcode 9 为例.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  打开工程: Xcode 打开 \lstinline!ios! 文件夹下 \lstinline!*.xcodeproj!
+  文件(工程).
+\item
+  选择编译机型: Xcode 虚拟机选择栏中选择 \lstinline!Generic iOS Device!.
+\item
+  编译设置: Xcode -\textgreater{} Product -\textgreater{} Scheme
+  -\textgreater{} Edit Scheme -\textgreater{} Run -\textgreater{} Info
+  -\textgreater{} Build Configuration 选择 Rlease
+\item
+  JS 改为离线(打包进APP)???
+\end{enumerate}
+
+TODO: 命令行打包
+
+\subsubsection{参考}\label{ux53c2ux8003-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://facebook.github.io/react-native/docs/signed-apk-android.html}{Generating
+  Signed APK, Facebook Open Source}
+\item
+  \href{https://reactnative.cn/docs/0.51/signed-apk-android.html}{打包APK,
+  React Native中文网}
+\item
+  \href{https://www.jianshu.com/p/1380d4c8b596}{ReactNative之Android打包APK方法（趟坑过程）,
+  ZPengs, 2017.02.09, 简书}
+\end{enumerate}
+
+\subsection{入口文件更改}\label{ux5165ux53e3ux6587ux4ef6ux66f4ux6539}
 
 \begin{quote}
 从0.49开始, 只有一个入口, 不区分 ios 和 android.
@@ -279,50 +316,6 @@ protected String getJSMainModuleName() {
   return "index.android";
 }
 \end{lstlisting}
-
-\subsection{iOS}\label{ios}
-
-iOS 版本编译需要在 Mac 上进行.
-
-\subsubsection{Demo}\label{demo-1}
-
-\begin{lstlisting}
-react-native init AwesomeProject
-cd AwesomeProject
-react-native run-ios
-\end{lstlisting}
-
-\subsubsection{打包}\label{ux6253ux5305-1}
-
-\textbf{签名}
-
-\begin{quote}
-没有证书.
-\end{quote}
-
-\textbf{打包}
-
-\begin{quote}
-Xcode 9 为例
-\end{quote}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  打开工程: Xcode 打开 \lstinline!ios! 文件夹下 \lstinline!*.xcodeproj!
-  文件(工程).
-\item
-  选择编译机型: Xcode 虚拟机选择栏中选择 \lstinline!Generic iOS Device!.
-\item
-  编译设置: Xcode -\textgreater{} Product -\textgreater{} Scheme
-  -\textgreater{} Edit Scheme -\textgreater{} Run -\textgreater{} Info
-  -\textgreater{} Build Configuration 选择 Rlease
-\item
-  JS 改为离线(打包进APP)???
-\end{enumerate}
-
-TODO: 命令行打包
 
 \subsection{工具/依赖(dependencies)}\label{ux5de5ux5177ux4f9dux8d56dependencies}
 
@@ -437,18 +430,7 @@ https://facebook.github.io/react-native/docs/debugging.html
 
 \subsection{工程结构}\label{ux5de5ux7a0bux7ed3ux6784}
 
-\begin{quote}
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \href{https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0}{Organizing
-  a React Native Project}
-\item
-  \href{https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792}{React
-  native project setup --- a better folder structure}
-\end{enumerate}
-\end{quote}
+\subsubsection{结构}\label{ux7ed3ux6784}
 
 \begin{lstlisting}
 android/         # Android 工程
@@ -459,12 +441,25 @@ src/             # 开发前端资源
   -- api/        # 接口
   -- route/      # 导航(路由)
   -- config/     # 常量配置
-  -- screens/    # 页面/功能
+  -- pages/      # 页面/功能
   -- utils/      # 常用工具
   -- reducers 相关
   -- index.js    # APP 入口
 index.js         # 入口文件
 \end{lstlisting}
+
+\subsubsection{参考}\label{ux53c2ux8003-2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0}{Organizing
+  a React Native Project}
+\item
+  \href{https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792}{React
+  native project setup --- a better folder structure}
+\end{enumerate}
 
 \subsection{Tips}\label{tips}
 
@@ -497,99 +492,101 @@ index.js         # 入口文件
 
 \section{React Native vs Weex}\label{react-native-vs-weex}
 
+\subsection{对比表格}\label{ux5bf9ux6bd4ux8868ux683c}
+
 \begin{longtable}[]{@{}lll@{}}
 \toprule
-\begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[b]{0.30\columnwidth}\raggedright\strut
 属性\strut
-\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright\strut
 \href{https://github.com/facebook/react-native}{React Native}\strut
-\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[b]{0.30\columnwidth}\raggedright\strut
 \href{https://github.com/apache/incubator-weex/}{Weex}\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 开源时间\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 2015/03\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 2016/06\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 开源企业\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 Facebook\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 Alibaba\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 协议\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 BSD 3-clause\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 Apache License 2.0\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 主页标语\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 Build native mobile apps using JavaScript and React\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 A framework for building Mobile cross-paltform UIs\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 核心理念\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 Learn Once, Write Anywhere\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 Write Once, Run Everywhere\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 前端框架\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 React\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 Vue.js\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 JS Engine\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 JavaScriptCore(iOS/Android)\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 JavaScriptCore(iOS) /v8(Android)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 三端开发\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 部分组件需要区分平台开发\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 强调三端统一\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 代码写法\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 JSX(JavaScript + XML)\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 Web 写法\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 调试\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 虚拟机\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 可用 Chrome 查看效果\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 社区支持\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 社区活跃, 有多个流行产品的实践\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 目前, 开发者主要在国内, 没有太多的实践案例\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 优势\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 生态好, 第三方依赖多, 有可借鉴的经验\strut
-\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright\strut
+\end{minipage} & \begin{minipage}[t]{0.30\columnwidth}\raggedright\strut
 基于 Vue.js, 上手快, 能更好的保证三端一致\strut
 \end{minipage}\tabularnewline
 \bottomrule
@@ -618,8 +615,10 @@ documentation were not yet developed enough to for us to use to deliver
 top-quality apps. This was my experience with Weex.
 \href{https://www.bignerdranch.com/blog/is-vuejs-weex-a-suitable-alternative-to-react-native/}{Sam
 Landfried, 2017.10.20, Is VueJS' Weex a Suitable Alternative to React
-Native?} \# Vue.js
+Native?}
 \end{quote}
+
+\section{Vue.js}\label{vue.js}
 
 \subsection{Tips}\label{tips-1}
 
@@ -631,8 +630,7 @@ Native?} \# Vue.js
 <demo-component v-if="ifShow"></demo-component>
 \end{lstlisting}
 
-\subsubsection{\texorpdfstring{\texttt{v-for}
-数值更改界面无刷新}{v-for 数值更改界面无刷新}}\label{v-for-ux6570ux503cux66f4ux6539ux754cux9762ux65e0ux5237ux65b0}
+\subsubsection{绑定数据后添加属性视图未重新渲染}\label{ux7ed1ux5b9aux6570ux636eux540eux6dfbux52a0ux5c5eux6027ux89c6ux56feux672aux91cdux65b0ux6e32ux67d3}
 
 如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据,
 然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.
@@ -746,7 +744,7 @@ http://weex.apache.org
 npm install -g weex-toolkit
 \end{lstlisting}
 
-\subsection{Demo}\label{demo-2}
+\subsection{Demo}\label{demo}
 
 \textbf{web}
 

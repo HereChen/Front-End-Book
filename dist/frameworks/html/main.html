@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+<h1 id="element">Element</h1>
+<p><a href="https://github.com/ElemeFE/element" class="uri">https://github.com/ElemeFE/element</a></p>
+<h2 id="组件使用">组件使用</h2>
+<h3 id="自定义表单校验">自定义表单校验</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">export</span> <span class="im">default</span> <span class="op">{</span>
+  <span class="dt">data</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span>
+    <span class="kw">var</span> checkVars <span class="op">=</span> <span class="kw">function</span> (rule<span class="op">,</span> value<span class="op">,</span> callback) <span class="op">{</span>
+      <span class="cf">if</span> (<span class="op">!</span>value) <span class="op">{</span>
+        <span class="at">callback</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;不能为空&#39;</span>))<span class="op">;</span>
+      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
+        <span class="at">callback</span>()<span class="op">;</span>
+      <span class="op">}</span>
+    <span class="op">};</span>
+    <span class="cf">return</span> <span class="op">{</span>
+      <span class="dt">rules</span><span class="op">:</span> <span class="op">{</span>
+        <span class="dt">vars</span><span class="op">:</span> [<span class="op">{</span>
+          <span class="dt">required</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>
+          <span class="dt">trigger</span><span class="op">:</span> <span class="st">&#39;change&#39;</span><span class="op">,</span>
+          <span class="dt">validator</span><span class="op">:</span> checkVars
+        <span class="op">}</span>]
+      <span class="op">}</span>
+    <span class="op">}</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<h2 id="兼容性">兼容性</h2>
+<h3 id="ie-图标不显示">IE 图标不显示</h3>
+<p>可用文字替代伪元素中的内容.</p>
+<h1 id="react-native">React Native</h1>
+<ol style="list-style-type: decimal">
+<li><a href="https://facebook.github.io/react-native">React Native 主页</a></li>
+<li>示例项目: <a href="https://github.com/jiwonbest/amazing-react-projects">amazing-react-projects</a></li>
+<li>Demo Project: <a href="https://github.com/HereChen/template/tree/master/react-native">react-native</a></li>
+</ol>
+<h2 id="环境配置">环境配置</h2>
+<h3 id="系统环境">系统环境</h3>
+<ol style="list-style-type: decimal">
+<li>安装 <a href="https://nodejs.org">nodejs</a>.</li>
+<li><code>npm install -g react-native-cli</code>.</li>
+</ol>
+<p><strong>Android</strong></p>
+<ol style="list-style-type: decimal">
+<li>JDK (并配置环境变量)</li>
+<li>安装 Android Studio <a href="http://www.android-studio.org" class="uri">http://www.android-studio.org</a></li>
+<li>通过 SDK Manager 下载 SDK, 并配置环境变量.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">REM</span> set var
+<span class="kw">set</span> <span class="va">ANDROID_HOME=</span>C:\<span class="ex">Users</span>\chenl\AppData\Local\Android\Sdk
+
+<span class="ex">REM</span> set Android home path
+<span class="ex">setx</span> /m ANDROID_HOME <span class="st">&quot;%ANDROID_HOME%&quot;</span>
+
+<span class="ex">REM</span> set path
+<span class="ex">setx</span> /m path <span class="st">&quot;%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;&quot;</span></code></pre></div>
+<p><strong>IOS</strong></p>
+<ol style="list-style-type: decimal">
+<li>App Store 安装 XCode.</li>
+<li><p>其他工具安装</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">brew</span> install node
+<span class="ex">brew</span> install watchman
+<span class="ex">npm</span> install -g react-native-cli</code></pre></div></li>
+</ol>
+<h3 id="编辑器">编辑器</h3>
+<ol style="list-style-type: decimal">
+<li>Visual Studio Code. 安装扩展 <code>React Native Tools</code> 用于调试.</li>
+<li>Atom. 安装<a href="https://atom.io/packages/nuclide">nuclide</a>.</li>
+</ol>
+<h3 id="参考">参考</h3>
+<ol style="list-style-type: decimal">
+<li><a href="https://facebook.github.io/react-native/docs/getting-started.html" class="uri">https://facebook.github.io/react-native/docs/getting-started.html</a></li>
+</ol>
+<h2 id="基本命令">基本命令</h2>
+<ol style="list-style-type: decimal">
+<li>新建工程: <code>react-native init demo-project</code>.</li>
+<li>Android 运行: <code>react-native run-android</code>.</li>
+<li>iOS 运行: <code>react-native run-ios</code>.</li>
+</ol>
+<p>新建工程后首先 <code>npm install</code> 安装依赖. 示例项目 python 和 node-gyp-bin 相关错误可以尝试先执行 <code>yarn add node-sass</code> 或者 <code>npm install -f node-sass</code> (<a href="https://github.com/sass/node-sass/issues/1980" class="uri">https://github.com/sass/node-sass/issues/1980</a>).</p>
+<h2 id="打包">打包</h2>
+<h3 id="android-打包">Android 打包</h3>
+<h4 id="生成签名密钥">生成签名密钥</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">keytool</span> -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+<span class="ex">Enter</span> keystore password:
+<span class="ex">Keystore</span> password is too short - must be at least 6 characters
+<span class="ex">Enter</span> keystore password: chenlei
+<span class="ex">Re-enter</span> new password: chenlei
+<span class="ex">What</span> is your first and last name?
+  [<span class="ex">Unknown</span>]:  HereChen
+<span class="ex">What</span> is the name of your organizational unit?
+  [<span class="ex">Unknown</span>]:  HereChen
+<span class="ex">What</span> is the name of your organization?
+  [<span class="ex">Unknown</span>]:  HereChen
+<span class="ex">What</span> is the name of your City or Locality?
+  [<span class="ex">Unknown</span>]:  Chengdu
+<span class="ex">What</span> is the name of your State or Province?
+  [<span class="ex">Unknown</span>]:  Sichuan
+<span class="ex">What</span> is the two-letter country code for this unit?
+  [<span class="ex">Unknown</span>]:  51
+<span class="ex">Is</span> CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51 correct?
+  [<span class="ex">no</span>]:  yes
+
+<span class="ex">Generating</span> 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) <span class="ex">with</span> a validity of 10,000 days
+        <span class="ex">for</span>: CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51
+<span class="ex">Enter</span> key password for <span class="op">&lt;</span>my-key-alias<span class="op">&gt;</span>
+        <span class="kw">(</span><span class="ex">RETURN</span> if same as keystore password<span class="kw">)</span><span class="bu">:</span>
+[<span class="ex">Storing</span> my-release-key.keystore]</code></pre></div>
+<h4 id="gradle设置">gradle设置</h4>
+<ol style="list-style-type: decimal">
+<li><code>my-release-key.keystore</code> 文件放到工程 <code>android/app</code> 文件夹下.</li>
+<li>编辑 <code>android/app/gradle.properties</code>, 添加如下信息.</li>
+</ol>
+<!-- -->
+<pre><code>MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
+MYAPP_RELEASE_KEY_ALIAS=my-key-alias
+MYAPP_RELEASE_STORE_PASSWORD=chenlei
+MYAPP_RELEASE_KEY_PASSWORD=chenlei</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>编辑 <code>android/app/build.gradle</code>, 添加如下信息.</li>
+</ol>
+<!-- -->
+<pre><code>...
+android {
+    ...
+    defaultConfig { ... }
+    signingConfigs {
+        release {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
+    }
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.release
+        }
+    }
+}
+...</code></pre>
+<h4 id="生成-apk">生成 apk</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> android <span class="kw">&amp;&amp;</span> <span class="ex">./gradlew</span> assembleRelease</code></pre></div>
+<p>打包后在 <code>android/app/build/outputs/apk/app-release.apk</code>.</p>
+<h4 id="安装-apk-方式">安装 apk 方式</h4>
+<ol style="list-style-type: decimal">
+<li>Genymotion 可以拖拽 apk 进行安装.</li>
+<li><code>adb install app-release.apk</code> 安装.</li>
+</ol>
+<p>如果报签名错误, 可先卸载之前的 debug 版本.</p>
+<h3 id="ios-打包">iOS 打包</h3>
+<p>iOS 版本编译需要在 Mac 上进行.</p>
+<h4 id="签名">签名</h4>
+<p>没有证书....</p>
+<h4 id="生成-ipa">生成 ipa</h4>
+<p>以下流程以 Xcode 9 为例.</p>
+<ol style="list-style-type: decimal">
+<li>打开工程: Xcode 打开 <code>ios</code> 文件夹下 <code>*.xcodeproj</code> 文件(工程).</li>
+<li>选择编译机型: Xcode 虚拟机选择栏中选择 <code>Generic iOS Device</code>.</li>
+<li>编译设置: Xcode -&gt; Product -&gt; Scheme -&gt; Edit Scheme -&gt; Run -&gt; Info -&gt; Build Configuration 选择 Rlease</li>
+<li>JS 改为离线(打包进APP)???</li>
+</ol>
+<p>TODO: 命令行打包</p>
+<h3 id="参考-1">参考</h3>
+<ol style="list-style-type: decimal">
+<li><a href="https://facebook.github.io/react-native/docs/signed-apk-android.html">Generating Signed APK, Facebook Open Source</a></li>
+<li><a href="https://reactnative.cn/docs/0.51/signed-apk-android.html">打包APK, React Native中文网</a></li>
+<li><a href="https://www.jianshu.com/p/1380d4c8b596">ReactNative之Android打包APK方法（趟坑过程）, ZPengs, 2017.02.09, 简书</a></li>
+</ol>
+<h2 id="入口文件更改">入口文件更改</h2>
+<blockquote>
+<p>从0.49开始, 只有一个入口, 不区分 ios 和 android. <a href="https://github.com/facebook/react-native/releases/tag/v0.49.0" class="uri">https://github.com/facebook/react-native/releases/tag/v0.49.0</a></p>
+</blockquote>
+<p>React Native CLI 新建的工程, 默认入口是 <code>index.js</code>. 在 <code>android\app\build.gradle</code> 中更改入口.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">project</span>.<span class="va">ext</span>.<span class="at">react</span> <span class="op">=</span> [
+    entryFile<span class="op">:</span> <span class="st">&quot;index.android.js&quot;</span>
+]</code></pre></div>
+<p>对应更改 <code>android\app\src\main\java\com\**\MainApplication.java</code>.</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">protected</span> <span class="bu">String</span> <span class="fu">getJSMainModuleName</span>() {
+  <span class="kw">return</span> <span class="st">&quot;index.android&quot;</span>;
+}</code></pre></div>
+<h2 id="工具依赖dependencies">工具/依赖(dependencies)</h2>
+<h3 id="导航">导航</h3>
+<blockquote>
+<p>https://facebook.github.io/react-native/docs/navigation.html</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/react-navigation/react-navigation">react-navigation</a> 提供了常用的导航方式(Stack, Tab, Drawer), 推荐.</li>
+<li><a href="https://facebook.github.io/react-native/docs/navigatorios.html">NavigatorIOS</a> 为内建的导航, 仅在 IOS 上可用.</li>
+</ol>
+<h3 id="ui">UI</h3>
+<p>尚未找到两端(Web, Native)完整好用的 UI, 若后端采用 ant-design 可用 ant-design-mobile.</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/ant-design/ant-design-mobile">ant-design-mobile</a> 每个组件是否支持 Native 有说明.</li>
+<li><a href="https://github.com/react-native-training/react-native-elements">react-native-elements</a></li>
+<li><a href="https://github.com/GeekyAnts/NativeBase">NativeBase</a></li>
+</ol>
+<h3 id="http-请求">HTTP 请求</h3>
+<blockquote>
+<p>https://facebook.github.io/react-native/docs/network.html</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a> 为内建接口.</li>
+<li><a href="https://github.com/axios/axios"><strong>axios</strong></a> 为使用校广泛的第三方请求库, 推荐使用.</li>
+</ol>
+<h2 id="调试">调试</h2>
+<blockquote>
+<p>https://facebook.github.io/react-native/docs/debugging.html</p>
+</blockquote>
+<p>根据提示, 可以菜单按钮选择重新加载或热加载. Android 可摇晃手机显示菜单.</p>
+<h3 id="虚拟机">虚拟机</h3>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.genymotion.com/download/">Genymotion</a>, 需要先注册, 然后选择 for personal 使用. 如果系统开启了 Hyper-V, 需要先关闭.</li>
+<li>Android Studio 内建虚拟机, 同样需要关闭 Hyper-V.</li>
+<li><a href="https://www.visualstudio.com/vs/msft-android-emulator/">Visual Studio Emulator for Android</a> 需要开启 Hyper-V.</li>
+</ol>
+<h3 id="调试工具-chrome">调试工具: Chrome</h3>
+<ol style="list-style-type: decimal">
+<li><code>Remote JS Debugging</code> 开启JS调试.</li>
+<li>浏览器端进去 <code>http://localhost:8081/debugger-ui/</code>, 并开启开发工具.</li>
+<li>可在 Sources 中设置断点或者代码中写入 <code>debugger</code>.</li>
+</ol>
+<h3 id="调试工具-vscode">调试工具: VSCode</h3>
+<ol style="list-style-type: decimal">
+<li>安装扩展: React Native Tools.</li>
+<li>F5 生成 launch.json 文件.</li>
+<li>进入调试菜单(Ctrl + Shift + D), 选择 Debug Android.</li>
+<li>设置断点或者写入 <code>debugger</code> 开始调试, 在 output 栏输出.</li>
+</ol>
+<h3 id="http-调试问题备注">HTTP 调试问题备注</h3>
+<p>应用 Fiddler 调试 HTTP, 模拟器设置了代理后, APP 无法热加载 JS bundle. 目前只有用 Chrome 或者断点的方式来调试.</p>
+<h2 id="工程结构">工程结构</h2>
+<h3 id="结构">结构</h3>
+<pre><code>android/         # Android 工程
+ios/             # IOS 工程
+src/             # 开发前端资源
+  -- assets/     # 静态资源
+  -- components/ # 组件
+  -- api/        # 接口
+  -- route/      # 导航(路由)
+  -- config/     # 常量配置
+  -- pages/      # 页面/功能
+  -- utils/      # 常用工具
+  -- reducers 相关
+  -- index.js    # APP 入口
+index.js         # 入口文件</code></pre>
+<h3 id="参考-2">参考</h3>
+<ol style="list-style-type: decimal">
+<li><a href="https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0">Organizing a React Native Project</a></li>
+<li><a href="https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792">React native project setup — a better folder structure</a></li>
+</ol>
+<h2 id="tips">Tips</h2>
+<ol style="list-style-type: decimal">
+<li>Android 查看当前的 Android 设备 <code>adb devices</code>.</li>
+<li>Android 虚拟机: <code>Ctrl + M</code> 打开菜单 (Android Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单).</li>
+<li>iPhone 虚拟机啊重新加载资源: <kbd>command</kbd> + <kbd>R</kbd>.</li>
+</ol>
+<h2 id="问题及解决">问题及解决</h2>
+<ol style="list-style-type: decimal">
+<li>VSCode Debug 无法加载的情况, 首先重启 VSCode 再启动项目.</li>
+<li>添加<code>antd-mobile</code>后报错, 无法解析 <code>react-dom</code>, 依赖中加入<code>react-dom</code>并安装即可.</li>
+<li>集成<code>react-native-navigation</code>需要注意Android SDK版本, 版本过低可能出现编译错误(<code>Error:Error retrieving parent for item: No resource found</code>).</li>
+</ol>
+<h1 id="react-native-vs-weex">React Native vs Weex</h1>
+<h2 id="对比表格">对比表格</h2>
+<table style="width:99%;">
+<colgroup>
+<col width="32%" />
+<col width="32%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">属性</th>
+<th align="left"><a href="https://github.com/facebook/react-native">React Native</a></th>
+<th align="left"><a href="https://github.com/apache/incubator-weex/">Weex</a></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">开源时间</td>
+<td align="left">2015/03</td>
+<td align="left">2016/06</td>
+</tr>
+<tr class="even">
+<td align="left">开源企业</td>
+<td align="left">Facebook</td>
+<td align="left">Alibaba</td>
+</tr>
+<tr class="odd">
+<td align="left">协议</td>
+<td align="left">BSD 3-clause</td>
+<td align="left">Apache License 2.0</td>
+</tr>
+<tr class="even">
+<td align="left">主页标语</td>
+<td align="left">Build native mobile apps using JavaScript and React</td>
+<td align="left">A framework for building Mobile cross-paltform UIs</td>
+</tr>
+<tr class="odd">
+<td align="left">核心理念</td>
+<td align="left">Learn Once, Write Anywhere</td>
+<td align="left">Write Once, Run Everywhere</td>
+</tr>
+<tr class="even">
+<td align="left">前端框架</td>
+<td align="left">React</td>
+<td align="left">Vue.js</td>
+</tr>
+<tr class="odd">
+<td align="left">JS Engine</td>
+<td align="left">JavaScriptCore(iOS/Android)</td>
+<td align="left">JavaScriptCore(iOS) /v8(Android)</td>
+</tr>
+<tr class="even">
+<td align="left">三端开发</td>
+<td align="left">部分组件需要区分平台开发</td>
+<td align="left">强调三端统一</td>
+</tr>
+<tr class="odd">
+<td align="left">代码写法</td>
+<td align="left">JSX(JavaScript + XML)</td>
+<td align="left">Web 写法</td>
+</tr>
+<tr class="even">
+<td align="left">调试</td>
+<td align="left">虚拟机</td>
+<td align="left">可用 Chrome 查看效果</td>
+</tr>
+<tr class="odd">
+<td align="left">社区支持</td>
+<td align="left">社区活跃, 有多个流行产品的实践</td>
+<td align="left">目前, 开发者主要在国内, 没有太多的实践案例</td>
+</tr>
+<tr class="even">
+<td align="left">优势</td>
+<td align="left">生态好, 第三方依赖多, 有可借鉴的经验</td>
+<td align="left">基于 Vue.js, 上手快, 能更好的保证三端一致</td>
+</tr>
+</tbody>
+</table>
+<p>以下参考都是 2016 年文章.</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://www.gitbook.com/book/xiaomaer/compare-weex-to-react-native/details">compare weex to react native</a></li>
+<li><a href="http://slides.com/ciyinhuang/weex#/">Weex 简介</a></li>
+<li><a href="http://zfx5130.me/blog/2016/09/15/Weex-&amp;-React-Native/">Weex &amp; React Native</a></li>
+</ol>
+<h2 id="评论摘抄">评论摘抄</h2>
+<blockquote>
+<p>After a few days of experimentation, I realized Weex and its documentation were not yet developed enough to for us to use to deliver top-quality apps. This was my experience with Weex. <a href="https://www.bignerdranch.com/blog/is-vuejs-weex-a-suitable-alternative-to-react-native/">Sam Landfried, 2017.10.20, Is VueJS' Weex a Suitable Alternative to React Native?</a></p>
+</blockquote>
+<h1 id="vue.js">Vue.js</h1>
+<h2 id="tips-1">Tips</h2>
+<h3 id="组件重新渲染">组件重新渲染</h3>
+<p>通过设置 <code>v-if</code> 实现, 从 Dom 中剔除再加入.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;demo-component</span><span class="ot"> v-if=</span><span class="st">&quot;ifShow&quot;</span><span class="kw">&gt;&lt;/demo-component&gt;</span></code></pre></div>
+<h3 id="绑定数据后添加属性视图未重新渲染">绑定数据后添加属性视图未重新渲染</h3>
+<p>如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据, 然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">API</span>.<span class="at">getSomething</span>().<span class="at">then</span>(res <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="co">// 1. 先添加属性</span>
+  <span class="co">// handle 表示对数据的处理, 包括对象中属性的添加</span>
+  <span class="kw">const</span> handledRes <span class="op">=</span> <span class="at">handle</span>(res)<span class="op">;</span>
+  <span class="co">// 2. 然后绑定到 data 中的变量</span>
+  <span class="kw">this</span>.<span class="at">varInDate</span> <span class="op">=</span> handledRes<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<h3 id="全局引入-scss-变量文件">全局引入 SCSS 变量文件</h3>
+<blockquote>
+<p>[SASS/SCSS in Vue: where to store variables?](https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d]</p>
+</blockquote>
+<p>场景: 将常用的变量存储到 <code>vars.scss</code>, 应用变量时需要在每个需要的地方 <code>import</code>.</p>
+<p><strong>参考解决方案</strong></p>
+<ol style="list-style-type: decimal">
+<li><code>npm install sass-resources-loader --save-dev</code></li>
+<li>更改 <code>build/webpack.base.conf.js</code>, 适用于 vue-cli.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="er">test</span><span class="fu">:</span> <span class="er">/\.vue$/</span><span class="fu">,</span>
+    <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;vue-loader&#39;</span><span class="fu">,</span>
+    <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="er">loaders</span><span class="fu">:</span> <span class="fu">{</span>
+            <span class="er">sass</span><span class="fu">:</span> <span class="ot">[</span><span class="er">&#39;vue-style-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;css-loader&#39;</span><span class="ot">,</span> <span class="fu">{</span>
+                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-loader&#39;</span><span class="fu">,</span>
+                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="er">indentedSyntax</span><span class="fu">:</span> <span class="kw">true</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span><span class="ot">,</span> <span class="fu">{</span>
+                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-resources-loader&#39;</span><span class="fu">,</span>
+                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="er">resources</span><span class="fu">:</span> <span class="er">path.resolve(__dirname</span><span class="fu">,</span> <span class="dt">&quot;./styles/vars.scss&quot;</span><span class="er">)</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span><span class="ot">]</span><span class="fu">,</span>
+            <span class="er">scss</span><span class="fu">:</span> <span class="ot">[</span><span class="er">&#39;vue-style-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;css-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;sass-loader&#39;</span><span class="ot">,</span> <span class="fu">{</span>
+                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-resources-loader&#39;</span><span class="fu">,</span>
+                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="er">resources</span><span class="fu">:</span> <span class="er">path.resolve(__dirname</span><span class="fu">,</span> <span class="dt">&quot;./styles/vars.scss&quot;</span><span class="er">)</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span><span class="ot">]</span>
+        <span class="fu">}</span>
+        <span class="er">//</span> <span class="er">other</span> <span class="er">vue-loader</span> <span class="er">options</span> <span class="er">go</span> <span class="er">here</span>
+    <span class="fu">}</span>
+<span class="fu">}</span></code></pre></div>
+<h2 id="compatible">Compatible</h2>
+<p><strong>IE <code>vuex requires a promise polyfill in this browser</code></strong></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> install --save-dev babel-polyfill</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// build/webpack.base.conf.js</span>
+entry<span class="op">:</span> <span class="op">{</span>
+  <span class="dt">app</span><span class="op">:</span> [
+    <span class="st">&#39;babel-polyfill&#39;</span><span class="op">,</span>
+    <span class="st">&#39;./src/main.js&#39;</span>
+  ]
+<span class="op">}</span></code></pre></div>
+<p><a href="https://github.com/vuejs-templates/webpack/issues/474">vuex requires a promise polyfill in this browser</a></p>
+<h1 id="weex">Weex</h1>
+<blockquote>
+<p>http://weex.apache.org</p>
+</blockquote>
+<p>问题: 入口在哪儿?</p>
+<p><strong>案例</strong></p>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/zwwill/yanxuan-weex-demo">网易严选</a></li>
+<li><a href="https://mp.weixin.qq.com/s/dowOE_QpZrtV5GH9EAgyHg">点我达骑手Weex最佳实践</a></li>
+<li><a href="https://github.com/weexteam/weex-hackernews">weexteam/weex-hackernews</a></li>
+</ol>
+<h2 id="搭建开发环境">搭建开发环境</h2>
+<pre><code>npm install -g weex-toolkit</code></pre>
+<h2 id="demo">Demo</h2>
+<p><strong>web</strong></p>
+<pre><code>weex create weex
+cd weex
+npm install
+npm run dev &amp; npm run serve</code></pre>
+<p><strong>命令</strong></p>
+<blockquote>
+<p>https://github.com/weexteam/weex-pack</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># debug</span>
+<span class="ex">weex</span> debug
+
+<span class="co"># add platform</span>
+<span class="ex">weex</span> platform add android
+<span class="ex">weex</span> platform add ios
+
+<span class="co"># run</span>
+<span class="ex">weex</span> run web
+<span class="ex">weex</span> run android
+<span class="ex">weex</span> run ios
+
+<span class="co"># build</span>
+<span class="ex">weex</span> build web</code></pre></div>
+<h2 id="问题及解决-1">问题及解决</h2>
+<ol style="list-style-type: decimal">
+<li><code>https://maven.google.com/</code> 链接不上, 更改<code>\platforms\android\build.gradle</code>文件, 换成 <code>https://dl.google.com/dl/android/maven2/</code>。</li>
+<li><code>adb: failed to stat app/build/outputs/apk/playground.apk: No such file or directory</code>, 替换 <code>platforms/android/app/build.gradle</code> 文件中的 <code>weex-app.apk</code> 为 <code>playground.apk</code>.</li>
+<li><code>weex debug</code> 报错可先安装 <code>npm install -g weex-devtool</code>.</li>
+</ol>
+</body>
+</html>
