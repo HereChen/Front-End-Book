@@ -4,8 +4,6 @@
 2. 示例项目: [amazing-react-projects](https://github.com/jiwonbest/amazing-react-projects)
 3. Demo Project: [react-native](https://github.com/HereChen/template/tree/master/react-native)
 
-示例项目 python 和 node-gyp-bin 相关错误可以尝试先执行 `yar add node-sass` 或者 `npm install -f node-sass` (<https://github.com/sass/node-sass/issues/1980>).
-
 ## 环境配置
 
 ### 系统环境
@@ -50,23 +48,19 @@ setx /m path "%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;"
 
 1. <https://facebook.github.io/react-native/docs/getting-started.html>
 
-## Android
+## 基本命令
 
-### Demo
+1. 新建工程: `react-native init demo-project`.
+2. Android 运行: `react-native run-android`.
+3. iOS 运行: `react-native run-ios`.
 
-```bash
-react-native init AwesomeProject
-cd AwesomeProject
-react-native run-android
-```
+新建工程后首先 `npm install` 安装依赖. 示例项目 python 和 node-gyp-bin 相关错误可以尝试先执行 `yarn add node-sass` 或者 `npm install -f node-sass` (<https://github.com/sass/node-sass/issues/1980>).
 
-### 打包
+## 打包
 
-> 1. https://facebook.github.io/react-native/docs/signed-apk-android.html
-> 2. https://reactnative.cn/docs/0.51/signed-apk-android.html
-> 3. https://www.jianshu.com/p/1380d4c8b596
+### Android 打包
 
-**1. 生成签名密钥**
+#### 生成签名密钥
 
 ```bash
 $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
@@ -96,7 +90,7 @@ Enter key password for <my-key-alias>
 [Storing my-release-key.keystore]
 ```
 
-**2. gradle设置**
+#### gradle设置
 
 1. `my-release-key.keystore` 文件放到工程 `android/app` 文件夹下.
 2. 编辑 `android/app/gradle.properties`, 添加如下信息.
@@ -133,7 +127,7 @@ android {
 ...
 ```
 
-**3. 打包**
+#### 生成 apk
 
 ```bash
 cd android && ./gradlew assembleRelease
@@ -141,16 +135,39 @@ cd android && ./gradlew assembleRelease
 
 打包后在 `android/app/build/outputs/apk/app-release.apk`.
 
-**安装方式**
+#### 安装 apk 方式
 
 1. Genymotion 可以拖拽 apk 进行安装.
 2. `adb install app-release.apk` 安装.
 
 如果报签名错误, 可先卸载之前的 debug 版本.
 
-### 其他
+### iOS 打包
 
-**入口文件更改**
+iOS 版本编译需要在 Mac 上进行.
+
+#### 签名
+
+没有证书....
+
+#### 生成 ipa
+
+以下流程以 Xcode 9 为例.
+
+1. 打开工程: Xcode 打开 `ios` 文件夹下 `*.xcodeproj` 文件(工程).
+2. 选择编译机型: Xcode 虚拟机选择栏中选择 `Generic iOS Device`.
+3. 编译设置: Xcode -> Product -> Scheme -> Edit Scheme -> Run -> Info -> Build Configuration 选择 Rlease
+4. JS 改为离线(打包进APP)???
+
+TODO: 命令行打包
+
+### 参考
+
+1. [Generating Signed APK, Facebook Open Source](https://facebook.github.io/react-native/docs/signed-apk-android.html)
+2. [打包APK, React Native中文网](https://reactnative.cn/docs/0.51/signed-apk-android.html)
+3. [ReactNative之Android打包APK方法（趟坑过程）, ZPengs, 2017.02.09, 简书](https://www.jianshu.com/p/1380d4c8b596)
+
+## 入口文件更改
 
 > 从0.49开始, 只有一个入口, 不区分 ios 和 android. <https://github.com/facebook/react-native/releases/tag/v0.49.0>
 
@@ -169,35 +186,6 @@ protected String getJSMainModuleName() {
   return "index.android";
 }
 ```
-
-## iOS
-
-iOS 版本编译需要在 Mac 上进行.
-
-### Demo
-
-```
-react-native init AwesomeProject
-cd AwesomeProject
-react-native run-ios
-```
-
-### 打包
-
-**签名**
-
-> 没有证书.
-
-**打包**
-
-> Xcode 9 为例
-
-1. 打开工程: Xcode 打开 `ios` 文件夹下 `*.xcodeproj` 文件(工程).
-2. 选择编译机型: Xcode 虚拟机选择栏中选择 `Generic iOS Device`.
-3. 编译设置: Xcode -> Product -> Scheme -> Edit Scheme -> Run -> Info -> Build Configuration 选择 Rlease
-4. JS 改为离线(打包进APP)???
-
-TODO: 命令行打包
 
 ## 工具/依赖(dependencies)
 
@@ -254,8 +242,7 @@ TODO: 命令行打包
 
 ## 工程结构
 
-> 1. [Organizing a React Native Project](https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0)
-> 2. [React native project setup — a better folder structure](https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792)
+### 结构
 
 ```
 android/         # Android 工程
@@ -266,12 +253,17 @@ src/             # 开发前端资源
   -- api/        # 接口
   -- route/      # 导航(路由)
   -- config/     # 常量配置
-  -- screens/    # 页面/功能
+  -- pages/      # 页面/功能
   -- utils/      # 常用工具
   -- reducers 相关
   -- index.js    # APP 入口
 index.js         # 入口文件
 ```
+
+### 参考
+
+1. [Organizing a React Native Project](https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0)
+2. [React native project setup — a better folder structure](https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792)
 
 ## Tips
 
