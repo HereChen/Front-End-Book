@@ -29,8 +29,8 @@ clean() {
 
 markdown_src_tmp() {
   # .tmp
-  mkdir -p ${temp_folder}/$1/markdown;
-  cp -r $1/*.md ${temp_folder}/$1/markdown;
+  mkdir -p ${temp_folder}/$1/markdown
+  cp -r $1/*.md ${temp_folder}/$1/markdown
 
   # delete ignore files, if exist
   for file in ${ignore_files[@]}
@@ -40,43 +40,70 @@ markdown_src_tmp() {
   done
 }
 
+# convert to single file
+markdown_to_one() {
+  # .tmp
+  mkdir -p ${temp_folder}/$1/markdown
+  pandoc -s ${temp_folder}/$1/markdown/*.md -o ${temp_folder}/$1/markdown/main.md
+
+  # dist
+  mkdir -p ${dist_folder}/$1/markdown
+  cp -r ${temp_folder}/$1/markdown/main.md ${dist_folder}/$1/markdown/
+}
+
 markdown_to_latex() {
-  pandoc --listings ${temp_folder}/$1/markdown/*.md -o ${temp_folder}/$1/content.tex
+  # .tmp
+  mkdir -p ${temp_folder}/$1/latex
+  pandoc --listings ${temp_folder}/$1/markdown/main.md -o ${temp_folder}/$1/latex/content.tex
 
-  cp ${source_folder}/format.cls ${temp_folder}/$1/
-  cp ${source_folder}/title.tex ${temp_folder}/$1/
-  cp ${source_folder}/main.tex ${temp_folder}/$1/
+  cp ${source_folder}/format.cls ${temp_folder}/$1/latex/
+  cp ${source_folder}/title.tex ${temp_folder}/$1/latex/
+  cp ${source_folder}/main.tex ${temp_folder}/$1/latex/
 
-  # ${dist_folder}/*/latex
+  # dist
   mkdir -p ${dist_folder}/$1/latex
-  cp -r ${temp_folder}/$1/* ${dist_folder}/$1/latex/
+  cp -r ${temp_folder}/$1/latex/* ${dist_folder}/$1/latex/
 }
 
 latex_to_pdf(){
-  cd ${temp_folder}/$1/
+  # .tmp
+  cd ${temp_folder}/$1/latex/
   pwd
   xelatex main.tex
   xelatex main.tex
-  cd ../../
+  cd ../../../
   pwd
 
+  # dist
   mkdir -p ${dist_folder}/$1/pdf
-  cp ${temp_folder}/$1/*.pdf ${dist_folder}/$1/pdf/
+  cp ${temp_folder}/$1/latex/*.pdf ${dist_folder}/$1/pdf/
 }
 
 markdown_to_docx() {
+  # .tmp
+  mkdir -p ${temp_folder}/$1/docx
+  pandoc -s ${temp_folder}/$1/markdown/main.md -o ${temp_folder}/$1/docx/main.docx
+
+  # dist
   mkdir -p ${dist_folder}/$1/docx
-  pandoc -s $1/*.md -o ${dist_folder}/$1/docx/main.docx
+  cp ${temp_folder}/$1/docx/main.docx ${dist_folder}/$1/docx/
 }
 
 main() {
   clean
   for folder in ${markdown_section_folders[@]}
   do
+    rm ${dist_folder}/${folder}
     echo ====== build ${folder} ======
+    # must
     markdown_src_tmp ${folder}
+    markdown_to_one ${folder}
+
+    # option
     markdown_to_latex ${folder}
     latex_to_pdf ${folder}
+
+    # option
     markdown_to_docx ${folder}
     echo ====== FINISHED build ${folder} ======
   done
