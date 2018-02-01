@@ -2,10 +2,11 @@
 
 - [ ] 合成(book)一起编译(公用 latex 需分离部分参数)
 - [ ] 并行编译[parallel](http://www.gnu.org/software/parallel/)
-- [ ] pdf 复制代码时去除行号.
-- [x] 单个文件夹编译, 标题定制
-- [x] 表格英文换行, 导致的显示正确
-- [x] 排除 README.md 文件
-- [x] 文件夹结构统一
-- [x] 公用 latex
-- [x] 可单个(article)类别编译
+- [ ] 根据目录 git 状态确定是否需要编译
+- [x] pdf 复制代码时去除行号. 只支持 Adobe.
+- [x] 单个文件夹编译, 标题定制.
+- [x] 表格英文换行, 导致的显示正确.
+- [x] 排除 README.md 文件.
+- [x] 文件夹结构统一.
+- [x] 公用 latex.
+- [x] 可单个(article)类别编译.
