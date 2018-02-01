@@ -1,5 +1,8 @@
 %% settings
 
+% layout
+% \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
+
 \usepackage{url}
 \usepackage{xcolor}
 
