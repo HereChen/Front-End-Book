@@ -22,7 +22,7 @@
 ## 编译结果说明
 
 1. 输出格式: pdf, markdown, docx, html
-2. PDF 代码复制不包含行号, 支持的阅览器: Adobe Acrobat Reader DC; 不支持的阅览器: Sumatra PDF, Foxit Reader.
+2. PDF 代码复制不包含行号, 支持的阅览器: Adobe Acrobat Reader DC; 不支持的阅览器: Sumatra PDF, Foxit Reader. [Does the trick that prevents to copy the line numbers work anymore?](https://tex.stackexchange.com/questions/123638/does-the-trick-that-prevents-to-copy-the-line-numbers-work-anymore)
 
 ## pandoc markdown 转换的几个问题
 
