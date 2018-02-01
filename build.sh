@@ -99,9 +99,15 @@ markdown_to_docx() {
   cp ${temp_folder}/$1/docx/main.docx ${dist_folder}/$1/docx/
 }
 
-# build_all() {
-#   mkdir
-# }
+# build_all
+build_all() {
+  mkdir -p ${temp_folder}/all/latex
+  cp ${source_folder}/all_title.tex ${temp_folder}/all/latex/title.tex
+  cp ${source_folder}/all_main.tex ${temp_folder}/all/latex/main.tex
+  cp ${source_folder}/format.cls ${temp_folder}/all/latex/
+
+  latex_to_pdf all
+}
 
 main() {
   clean
@@ -123,6 +129,9 @@ main() {
     markdown_to_docx ${folder}
     echo ====== FINISHED build ${folder} ======
   done
+
+  build_all
+  echo ====== FINISHED ======
 
   rm -rf ${temp_folder}
 }
