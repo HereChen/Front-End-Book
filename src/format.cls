@@ -5,6 +5,7 @@
 
 \usepackage{url}
 \usepackage{xcolor}
+\usepackage{multicol}
 
 % Chinese
 % \usepackage{xeCJK}
