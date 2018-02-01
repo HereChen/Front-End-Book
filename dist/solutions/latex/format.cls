@@ -1,5 +1,8 @@
 %% settings
 
+% layout
+% \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
+
 \usepackage{url}
 \usepackage{xcolor}
 
@@ -46,7 +49,7 @@
 % http://tex.stackexchange.com/questions/179926/pandoc-markdown-to-pdf-without-cutting-off-code-block-lines-that-are-too-long
 % http://tex.stackexchange.com/questions/174569/code-not-wrapping-in-listings-even-though-breaklines-true
 % http://tex.stackexchange.com/questions/116534/lstlisting-line-wrapping
-% not copy line numbers: https://tex.stackexchange.com/questions/122256/only-select-code-without-line-numbers
+% not copy line numbers: https://tex.stackexchange.com/questions/57141/is-there-a-latex-trick-to-prevent-a-pdf-viewer-from-copying-the-line-number
 \usepackage{listings}
 \usepackage{accsupp}
 \newcommand{\noncopynumber}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
