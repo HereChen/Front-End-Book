@@ -2,37 +2,24 @@
 
 ## 浏览器兼容性
 
-### IE 支持 CSS
-
-使用条件语句判断 IE，并用 CSS 表达式解决 (一般情况下不推荐采用表达式，效率低)。在 IE8 标准模式中，不支持 CSS Expression。
-
-```css
-.classname {
-  /* 正常 IE6/IE7/IE8 不支持*/
-  min-height:50px;
-  /* 表达式 */
-  _height:expression((parseInt(this.currentStyle.height) < 50) ? 50 : this.clientHeight)
-}
-```
-
 ### IE6/IE7/IE8 支持 html5 新标签
 
-**创建标签**
+#### 创建标签
 
 ```html
 document.createElement('section'); // 其他标签一样处理
 ```
 
-**使用方案**
+#### 使用JS方案
 
-- html5shiv：<https://github.com/aFarkas/html5shiv/> (用的也是 createElement())
-- modernizr：<https://github.com/modernizr/modernizr/> (这个功能要多一点，还兼顾 CSS3，[更多](http://www.osmn00.com/translation/221.html))
+1. html5shiv：<https://github.com/aFarkas/html5shiv/> (用的也是 createElement())
+2. modernizr：<https://github.com/modernizr/modernizr/> (这个功能要多一点，还兼顾 CSS3，[更多](http://www.osmn00.com/translation/221.html))
 
 ### IE 兼容性测试
 
-采用 [Modern.IE](https://dev.modern.ie/) 提供的[虚拟机](https://dev.modern.ie/tools/vms/windows/)测试。下载 [virtualbox](https://www.virtualbox.org/) (免费) 或者 [VMware](http://www.vmware.com/) (收费)，然后导入对应的下载包(不同系统 IE 版本不同)。
+[Modern.IE](https://dev.modern.ie/) 提供的[虚拟机](https://dev.modern.ie/tools/vms/windows/)测试。下载 [virtualbox](https://www.virtualbox.org/) (免费) 或者 [VMware](http://www.vmware.com/) (收费)，然后导入对应的下载包(不同系统 IE 版本不同)。如果是 Windows 10, 虚拟机可启用 Hyper-V.
 
-### 不支持 JavaScript
+### 提示不支持 JavaScript
 
 noscript 元素用来定义在脚本未被执行时的替代内容（文本）。此标签可被用于可识别 `<script>` 标签但无法支持其中的脚本的浏览器。
 
