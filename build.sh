@@ -1,6 +1,5 @@
 # global
-# markdown_section_folders=("fundamental" "frameworks" "solutions" "optimization" "tools")
-markdown_section_folders=("fundamental" "frameworks" "solutions" "optimization")
+markdown_section_folders=("ch1_fundamental" "ch2_frameworks" "ch3_tools" "ch4_optimization" "ch5_solutions")
 ignore_files=("README.md")
 temp_folder=.tmp
 source_folder=src
@@ -17,6 +16,7 @@ clean() {
   build_extensions=("*.aux" "*.bak" "*.log" "*.bbl" "*.dvi" "*.blg" "*.thm" "*.toc" "*.out" "*.lof" "*.lol" "*.lot" "*.fdb_latexmk" "*.synctex.gz" "*.bcf" "*.nav" "*.snm" "*.xdv" "*.vrb" "*.fls")
 
   rm -rf ${temp_folder}
+  rm -rf ${dist_folder}
 
   # clean latex build
   for ext in ${build_extensions[@]}
@@ -99,11 +99,14 @@ markdown_to_docx() {
   cp ${temp_folder}/$1/docx/main.docx ${dist_folder}/$1/docx/
 }
 
+# build_all() {
+#   mkdir
+# }
+
 main() {
   clean
   for folder in ${markdown_section_folders[@]}
   do
-    rm ${dist_folder}/${folder}
     echo ====== build ${folder} ======
     # must
     markdown_src_tmp ${folder}
