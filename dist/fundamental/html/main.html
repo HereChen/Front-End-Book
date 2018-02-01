@@ -963,25 +963,17 @@ a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at"
 </ol>
 <h1 id="浏览器">浏览器</h1>
 <h2 id="浏览器兼容性">浏览器兼容性</h2>
-<h3 id="ie-支持-css">IE 支持 CSS</h3>
-<p>使用条件语句判断 IE，并用 CSS 表达式解决 (一般情况下不推荐采用表达式，效率低)。在 IE8 标准模式中，不支持 CSS Expression。</p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.classname</span> <span class="kw">{</span>
-  <span class="co">/* 正常 IE6/IE7/IE8 不支持*/</span>
-  <span class="kw">min-height:</span><span class="dt">50px</span><span class="kw">;</span>
-  <span class="co">/* 表达式 */</span>
-<span class="co">  _height:expression((parseInt(this.currentStyle.height) &lt; 50) ? 50 : this.clientHeight)</span>
-<span class="co">}</span></code></pre></div>
 <h3 id="ie6ie7ie8-支持-html5-新标签">IE6/IE7/IE8 支持 html5 新标签</h3>
-<p><strong>创建标签</strong></p>
+<h4 id="创建标签">创建标签</h4>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">document.createElement(&#39;section&#39;); // 其他标签一样处理</code></pre></div>
-<p><strong>使用方案</strong></p>
-<ul>
+<h4 id="使用js方案">使用JS方案</h4>
+<ol style="list-style-type: decimal">
 <li>html5shiv：<a href="https://github.com/aFarkas/html5shiv/" class="uri">https://github.com/aFarkas/html5shiv/</a> (用的也是 createElement())</li>
 <li>modernizr：<a href="https://github.com/modernizr/modernizr/" class="uri">https://github.com/modernizr/modernizr/</a> (这个功能要多一点，还兼顾 CSS3，<a href="http://www.osmn00.com/translation/221.html">更多</a>)</li>
-</ul>
+</ol>
 <h3 id="ie-兼容性测试">IE 兼容性测试</h3>
-<p>采用 <a href="https://dev.modern.ie/">Modern.IE</a> 提供的<a href="https://dev.modern.ie/tools/vms/windows/">虚拟机</a>测试。下载 <a href="https://www.virtualbox.org/">virtualbox</a> (免费) 或者 <a href="http://www.vmware.com/">VMware</a> (收费)，然后导入对应的下载包(不同系统 IE 版本不同)。</p>
-<h3 id="不支持-javascript">不支持 JavaScript</h3>
+<p><a href="https://dev.modern.ie/">Modern.IE</a> 提供的<a href="https://dev.modern.ie/tools/vms/windows/">虚拟机</a>测试。下载 <a href="https://www.virtualbox.org/">virtualbox</a> (免费) 或者 <a href="http://www.vmware.com/">VMware</a> (收费)，然后导入对应的下载包(不同系统 IE 版本不同)。如果是 Windows 10, 虚拟机可启用 Hyper-V.</p>
+<h3 id="提示不支持-javascript">提示不支持 JavaScript</h3>
 <p>noscript 元素用来定义在脚本未被执行时的替代内容（文本）。此标签可被用于可识别 <code>&lt;script&gt;</code> 标签但无法支持其中的脚本的浏览器。</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;noscript&gt;</span>Your browser does not support JavaScript!<span class="kw">&lt;/noscript&gt;</span></code></pre></div>
 <p>reference: <a href="http://www.w3school.com.cn/tags/tag_noscript.asp">HTML noscript 标签, w3school</a></p>
@@ -1155,7 +1147,6 @@ android <span class="op">=</span> <span class="ss">/android/i</span>.<span class
 </tr>
 </tbody>
 </table>
-<p>{:class=&quot;table&quot;}</p>
 <table style="width:100%;">
 <colgroup>
 <col width="34%" />
@@ -1377,6 +1368,5 @@ android <span class="op">=</span> <span class="ss">/android/i</span>.<span class
 </tr>
 </tbody>
 </table>
-<p>{:class=&quot;table&quot;}</p>
 </body>
 </html>

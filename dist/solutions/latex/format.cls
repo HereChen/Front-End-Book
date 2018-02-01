@@ -46,25 +46,34 @@
 % http://tex.stackexchange.com/questions/179926/pandoc-markdown-to-pdf-without-cutting-off-code-block-lines-that-are-too-long
 % http://tex.stackexchange.com/questions/174569/code-not-wrapping-in-listings-even-though-breaklines-true
 % http://tex.stackexchange.com/questions/116534/lstlisting-line-wrapping
+% not copy line numbers: https://tex.stackexchange.com/questions/122256/only-select-code-without-line-numbers
 \usepackage{listings}
+\usepackage{accsupp}
+\newcommand{\noncopynumber}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
 \lstset{
-    basicstyle=\ttfamily\small,
-    columns=flexible, % code copy
-    numbers=left,
-    numberstyle=\tiny,
-    stepnumber=1,
-    numbersep=5pt,
-    backgroundcolor=\color{black!10},
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=2,
-    captionpos=b,
-    breaklines=true,
-    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
+    basicstyle       = \ttfamily\small,
+    columns          = flexible, % code copy
+    numbers          = left,
+    backgroundcolor  = \color[HTML]{F6F6F6},
+    numberstyle      = \color[HTML]{B3B2B3}\noncopynumber,
+    commentstyle     = \color[HTML]{8E8E8E},
+    % identifierstyle  = \color[HTML]{435489},
+    % keywordstyle     = \color[HTML]{C7254E}\bfseries,
+    % morecomment      = [s][\color[HTML]{006CA9}]{/**}{*/},
+    xleftmargin      = 2.5em,
+    framexleftmargin = 2.3em,
+    stepnumber       = 1,
+    numbersep        = 5pt,
+    showspaces       = false,
+    showstringspaces = false,
+    showtabs         = false,
+    tabsize          = 2,
+    captionpos       = b,
+    breaklines       = true,
+    postbreak        = \raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
     breakatwhitespace=false,
-    breakautoindent=true,
-    linewidth=\textwidth
+    breakautoindent  = true,
+    linewidth        = \textwidth
 }
 
 % bibliography

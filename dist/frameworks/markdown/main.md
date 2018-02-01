@@ -338,7 +338,7 @@ Tips
 ----
 
 1.  Android 查看当前的 Android 设备 `adb devices`.
-2.  Android 虚拟机: `Ctrl + M` 打开菜单 (Android
+2.  Android 虚拟机: <kbd>Ctrl</kbd> + <kbd>M</kbd> 打开菜单 (Android
     Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单).
 3.  iPhone 虚拟机啊重新加载资源: <kbd>command</kbd> + <kbd>R</kbd>.
 
