@@ -3,6 +3,11 @@
 % layout
 % \usepackage[margin=2.5cm,includehead=true,includefoot=true,centering]{geometry}
 
+% toc
+% toc with \subsubsection
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{multicol}
