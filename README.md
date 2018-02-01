@@ -30,6 +30,7 @@
 2. md 文件顶部含 yaml meta 信息的, pandoc 处理时不会显示正在正文中, 可不用去除, 例如 jekyll 博客文件. 具体参考: [etadata-blocks](http://pandoc.org/MANUAL.html#metadata-blocks).
 3. md -> latex, 代码默认转换成 `verbatim`, 如果要转换成 `listings` 则需要在命令行加参数: `pandoc --listings`.
 4. md -> latex, 其他转换后编译时出现的问题, 可见 `format.cls`.
+5. 多个文件转换顺序的排序, 根据对文件名命名实现.
 
 ## 扩展
 
