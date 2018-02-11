@@ -424,17 +424,26 @@ margin-right<span class="dv">:</span> auto</code></pre></div>
 <li><code>string.slice(start,end)</code> 复制 string 中的一部分。</li>
 <li><code>string.indexOf(searchString, position)</code> 在 string 中查找 searchString。如果被找到，返回第一个匹配字符的位置，否则返回 -1。可选参数 position 可设置从 string 的某个指定的位置开始查找。</li>
 <li><code>object.hasOwnProperty(name)</code></li>
-<li><code>array.splice(start, deleteCount, item)</code> 从 array 中移除一个或多个元素并用新的 item 替换他们。</li>
-<li><code>array.concat(item...)</code> 产生一个新数组，它包含一份 array 的前复制，并把一个或多个参数 item 附加在其后面。</li>
-<li><code>array.join(separator)</code> join 方法把一个 array 构成一个字符串。它先把 array 中的每个元素构造成一个字符串，接着用一个 separator 分隔符把它们连接在一起。</li>
+</ul>
+<h3 id="array">Array</h3>
+<h4 id="改变原数组">改变原数组</h4>
+<ul>
 <li><code>array.pop()</code> 移除最后一个元素。</li>
 <li><code>array.push(item...)</code> 将一个或多个参数附加到数组的尾部。</li>
 <li><code>array.reverse()</code> 反转 array 元素的顺序。</li>
 <li><code>array.sort(camprefn)</code> 数组排序。</li>
 <li><code>array.shift()</code> 移除数组中的第一个元素并返回该元素。</li>
+<li><code>array.splice(start, deleteCount, item)</code> 从 array 中移除一个或多个元素并用新的 item 替换他们。</li>
+</ul>
+<h4 id="不改变原数组">不改变原数组</h4>
+<ul>
+<li><code>array.concat(item...)</code> 产生一个新数组，它包含一份 array 的前复制，并把一个或多个参数 item 附加在其后面。</li>
+<li><code>array.join(separator)</code> join 方法把一个 array 构成一个字符串。它先把 array 中的每个元素构造成一个字符串，接着用一个 separator 分隔符把它们连接在一起。</li>
 <li><code>array.map(item =&gt; )</code> 数组映射, 依次处理数组中的每一项.</li>
-<li><p><code>array.filter(item =&gt; )</code> 数组过滤, 保存返回为真的项.</p></li>
-<li><p><a href="http://book.douban.com/subject/11874748/">Douglas Crockford, JavaScript语言精粹</a></p></li>
+<li><code>array.filter(item =&gt; )</code> 数组过滤, 保存返回为真的项.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">forEach(callback(currentValue[, index[, array]]){})</a>, 循环.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">some</a>, 是否有某个元素满足条件(回掉返回true).</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every">every</a>, 是否全部元素满足条件.</li>
 </ul>
 <h3 id="date">Date</h3>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> t <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span>

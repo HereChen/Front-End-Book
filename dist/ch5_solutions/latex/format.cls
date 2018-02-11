@@ -5,6 +5,8 @@
 
 % toc
 % toc with \subsubsection
+% https://tex.stackexchange.com/questions/291307/how-to-hide-show-section-levels-in-the-table-of-contents
+% https://tex.stackexchange.com/questions/61033/setting-toc-depth-not-working
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 

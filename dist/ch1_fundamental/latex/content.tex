@@ -505,6 +505,7 @@ console.log( 0 == NaN )          // false
 \subsubsection{常用函数}\label{ux5e38ux7528ux51fdux6570}
 
 \begin{itemize}
+\tightlist
 \item
   \lstinline!string.slice(start,end)! 复制 string 中的一部分。
 \item
@@ -513,16 +514,14 @@ console.log( 0 == NaN )          // false
   -1。可选参数 position 可设置从 string 的某个指定的位置开始查找。
 \item
   \lstinline!object.hasOwnProperty(name)!
-\item
-  \lstinline!array.splice(start, deleteCount, item)! 从 array
-  中移除一个或多个元素并用新的 item 替换他们。
-\item
-  \lstinline!array.concat(item...)! 产生一个新数组，它包含一份 array
-  的前复制，并把一个或多个参数 item 附加在其后面。
-\item
-  \lstinline!array.join(separator)! join 方法把一个 array
-  构成一个字符串。它先把 array 中的每个元素构造成一个字符串，接着用一个
-  separator 分隔符把它们连接在一起。
+\end{itemize}
+
+\subsubsection{Array}\label{array}
+
+\paragraph{改变原数组}\label{ux6539ux53d8ux539fux6570ux7ec4}
+
+\begin{itemize}
+\tightlist
 \item
   \lstinline!array.pop()! 移除最后一个元素。
 \item
@@ -534,12 +533,34 @@ console.log( 0 == NaN )          // false
 \item
   \lstinline!array.shift()! 移除数组中的第一个元素并返回该元素。
 \item
+  \lstinline!array.splice(start, deleteCount, item)! 从 array
+  中移除一个或多个元素并用新的 item 替换他们。
+\end{itemize}
+
+\paragraph{不改变原数组}\label{ux4e0dux6539ux53d8ux539fux6570ux7ec4}
+
+\begin{itemize}
+\tightlist
+\item
+  \lstinline!array.concat(item...)! 产生一个新数组，它包含一份 array
+  的前复制，并把一个或多个参数 item 附加在其后面。
+\item
+  \lstinline!array.join(separator)! join 方法把一个 array
+  构成一个字符串。它先把 array 中的每个元素构造成一个字符串，接着用一个
+  separator 分隔符把它们连接在一起。
+\item
   \lstinline!array.map(item => )! 数组映射, 依次处理数组中的每一项.
 \item
   \lstinline!array.filter(item => )! 数组过滤, 保存返回为真的项.
 \item
-  \href{http://book.douban.com/subject/11874748/}{Douglas Crockford,
-  JavaScript语言精粹}
+  \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach}{forEach(callback(currentValue{[},
+  index{[}, array{]}{]})\{\})}, 循环.
+\item
+  \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some}{some},
+  是否有某个元素满足条件(回掉返回true).
+\item
+  \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every}{every},
+  是否全部元素满足条件.
 \end{itemize}
 
 \subsubsection{Date}\label{date}

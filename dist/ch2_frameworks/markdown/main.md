@@ -376,6 +376,18 @@ Tips
 3.  集成`react-native-navigation`需要注意Android SDK版本,
     版本过低可能出现编译错误(`Error:Error retrieving parent for item: No resource found`).
 
+原理
+----
+
+> 1.  React
+>     Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用
+>     ReactReconciler对他们进行渲染。
+> 2.  UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI。
+> 3.  UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终
+>     得以渲染在屏幕上。
+
+1.  [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+
 React Native vs Weex
 ====================
 

@@ -88,6 +88,12 @@ IE 6-8 CSS3 媒体查询(Media Query)
 <![endif]-->
 ```
 
+跨域资源共享/CORS (Cross-origin resource sharing)
+=================================================
+
+跨站请求伪造/CSRF (Cross-site request forgery)
+==============================================
+
 HTML
 ====
 
@@ -133,23 +139,11 @@ input 在 form 之外时, 在 input 元素内添加 form 属性值为 form 的 I
 
 关键是如何暴露接口, 方便外部复用.
 
-Vue.js 权限管理
-===============
-
--   [基于Vue实现后台系统权限控制](http://refined-x.com/2017/08/29/%E5%9F%BA%E4%BA%8EVue%E5%AE%9E%E7%8E%B0%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/)
--   [用addRoutes实现动态路由](http://refined-x.com/2017/09/01/%E7%94%A8addRoutes%E5%AE%9E%E7%8E%B0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/)
--   [手摸手，带你用vue撸后台
-    系列二(登录权限篇)](https://juejin.im/post/591aa14f570c35006961acac)
--   [Vue
-    后台管理控制用户权限的解决方案？](https://www.zhihu.com/question/58991978)
--   [自定义指令](https://cn.vuejs.org/v2/guide/custom-directive.html)
--   <https://codepen.io/diemah77/pen/GZGxPK>
-
-系统方案
+权限管理
 ========
 
-分角色登录
-----------
+AngularJS 分角色登录
+--------------------
 
 不同角色/权限登录后所见菜单不一样. 方案如下:
 
@@ -192,6 +186,65 @@ app.run(function($rootScope){
 });
 ```
 
+Vue.js 权限管理
+---------------
+
+-   [基于Vue实现后台系统权限控制](http://refined-x.com/2017/08/29/%E5%9F%BA%E4%BA%8EVue%E5%AE%9E%E7%8E%B0%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/)
+-   [用addRoutes实现动态路由](http://refined-x.com/2017/09/01/%E7%94%A8addRoutes%E5%AE%9E%E7%8E%B0%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/)
+-   [手摸手，带你用vue撸后台
+    系列二(登录权限篇)](https://juejin.im/post/591aa14f570c35006961acac)
+-   [Vue
+    后台管理控制用户权限的解决方案？](https://www.zhihu.com/question/58991978)
+-   [自定义指令](https://cn.vuejs.org/v2/guide/custom-directive.html)
+-   <https://codepen.io/diemah77/pen/GZGxPK>
+
+前后端分离
+==========
+
+历史
+----
+
+1.  前后端耦合. 例如, ASP.NET Webform 和 jsp 的标记语言的写法,
+    每次请求由后端返回, 且后端的语言变量混在 HTML 标签中.
+2.  前后端半分离. 例如, ASP.NET MVC 和 Spring MVC 视图由后端控制, V
+    (视图) 由前端人员开发. 开发新的页面需要后端新建接口,
+    编程语言通常在一个工程中, and so on.
+3.  前后端完全分离. 前后端通过接口联系. 前后端会有部分逻辑重合,
+    比如用户输入的校验, 通常后端接口也会处理一次.
+    前端获取数据后渲染视图, SEO 困难.
+
+目标/方法
+---------
+
+1.  后端: 数据处理; 前端: 用户交互[^7].
+2.  前端向后扩展(服务端nodejs): 解决
+    SEO、首屏优化、部分业务逻辑复用等问题; 前端向前扩展:
+    实现跨终端(iOS和Android, H5, PC)代码复用.
+
+解决的问题:
+
+0.  core: 优化交互体验, 提高编码效率.
+1.  SEO.
+2.  性能优化.
+3.  首屏优化.
+4.  代码复用(业务逻辑, 路由, 模板).
+
+应用
+----
+
+1.  框架支持: nuxt.js(可用 Koa 替换 Express).
+2.  路由用 history mode (Vue.js), 如果后端不配置, 直接进入页面无法访问.
+    可复用模板, 直接访问时后端渲染, 路由访问时前端渲染[^8].
+3.  服务端, 浏览器端及Native端都可应用的第三方库: axios, moment.js.
+
+扩展
+----
+
+1.  [美团点评点餐, 美团点评点餐 Nuxt.js 实战,
+    2017-08-09](https://juejin.im/post/598aabe96fb9a03c335a8dde)
+2.  [Jason Strimpel, Maxime Najim, 同构JavaScript应用开发,
+    2017](https://book.douban.com/subject/27183584/)
+
 [^1]: [Is the javascript .map() function supported in
     IE8?](http://stackoverflow.com/questions/7350912/is-the-javascript-map-function-supported-in-ie8)
 
@@ -211,3 +264,9 @@ app.run(function($rootScope){
 
 [^6]: [angularjs: conditional routing in
     app.config](http://stackoverflow.com/questions/20978248/angularjs-conditional-routing-in-app-config)
+
+[^7]: [Balint Sera, On the separation of front-end and backend,
+    2016-06-15](https://medium.com/@balint_sera/on-the-separation-of-front-end-and-backend-7a0809b42820)
+
+[^8]: [赫门, 淘宝前后端分离实践,
+    2014](http://2014.jsconf.cn/slides/herman-taobaoweb/#/)
