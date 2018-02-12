@@ -119,7 +119,6 @@ console.log(tt); // 2015年10月30日 22时6分21秒
     宿主对象(JS环境提供的，比如浏览器) | Implementation-dependent
     函数对象 (implements [[Call]] in ECMA-262 terms)  |  "function"
     任何其他对象 | "object"
-    {: class="table"}
 
 2. instanceof: `object instanceof constructor`
 
@@ -322,7 +321,7 @@ this 在运行时绑定，它的上下文取决于函数调用时的各种条件
 
 ### 闭包
 
-当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行。(闭包是发生在定义时的。)
+当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行[^jsYouDonotKnowJs]。(闭包是发生在定义时的。)
 
 ```javascript
 // foo() 定义的中括号内就是 bar 的词法作用域
@@ -356,7 +355,7 @@ foo();
 bar(); // 2
 ```
 
-- [你不知道的JavaScript（上卷）](http://book.douban.com/subject/26351021/)
+[^jsYouDonotKnowJs]: [你不知道的JavaScript（上卷）](http://book.douban.com/subject/26351021/)
 
 ## 继承方法
 
@@ -399,7 +398,7 @@ bar(); // 2
 
 **reference**
 
-- [RegExp](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+- [mozilla, RegExp](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
 - [正则总结：JavaScript中的正则表达式](http://www.nowamagic.net/librarys/veda/detail/1283)
 
 ## ES5
@@ -689,15 +688,6 @@ jQuery.noConflict();
 - [邦彦, 谈谈 jQuery 中的防冲突（noConflict）机制, TaoBaoUED](http://ued.taobao.org/blog/2013/03/jquery-noconflict/)
 - [RascallySnake, Jquery的$命名冲突, cnblogs](http://www.cnblogs.com/RascallySnake/archive/2010/05/07/1729417.html)
 - [TerryChen, Jquery命名冲突解决的五种方案, cnblogs](http://www.cnblogs.com/ForEvErNoME/archive/2012/03/15/2398659.html)
-
-## 解决方案
-
-跨域，客户端存储
-
-### 跨域
-
-- [ TAT.Johnny, iframe跨域通信的通用解决方案, alloyteam](http://www.alloyteam.com/2013/11/the-second-version-universal-solution-iframe-cross-domain-communication/)
-- [JasonKidd,「JavaScript」四种跨域方式详解, segmentfault](http://segmentfault.com/a/1190000003642057)
 
 ## 其他
 

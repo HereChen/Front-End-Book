@@ -33,7 +33,6 @@
 `<time>` |    定义日期/时间。
 `<video>` |   定义视频。
 `<wbr>` | 定义视频。
-{: class="table"}
 
 reference: [w3school, HTML 参考手册](http://www.w3school.com.cn/tags/index.asp)
 

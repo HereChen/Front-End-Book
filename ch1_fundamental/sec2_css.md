@@ -21,12 +21,11 @@ CSS 有三种基本的定位机制：普通流、浮动和绝对定位。任何�
 | relative |    生成相对定位的元素，相对于其正常位置进行定位。因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。|
 | static   |    默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。|
 | inherit  |    规定应该从父元素继承 position 属性的值。|
-{: class="table"}
 
 - 如果一个标签的位置是绝对的，它又不在其他任何设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于浏览器窗口进行定位。
 - 如果一个标签处在另一个设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于另一个元素的边沿进行定位。
 
-reference: <http://www.w3school.com.cn/cssref/pr_class_position.asp>{:target="_blank"}，[CSS实战手册（第2版）](http://book.douban.com/subject/4861462/)
+reference: <http://www.w3school.com.cn/cssref/pr_class_position.asp>，[CSS实战手册（第2版）](http://book.douban.com/subject/4861462/)
 
 ## 盒模型
 
@@ -36,30 +35,30 @@ IE 盒模型和标准存在区别。
 
 优先级**从高到低**，分三个层次描述。
 
-( 1 ) 作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。
+1. 作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。
 
-- 标有 `!important` 的用户样式。
-- 标有 `!important` 的作者样式。
-- 作者样式。
-- 用户样式。
-- 浏览器样式。
+  - 标有 `!important` 的用户样式。
+  - 标有 `!important` 的作者样式。
+  - 作者样式。
+  - 用户样式。
+  - 浏览器样式。
 
-( 2 ) 作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式 style 标签中声明的样式；内联样式指元素属性 style 中的样式；外部样式指通过 link 链接的外部文件中样式。
+2. 作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式 style 标签中声明的样式；内联样式指元素属性 style 中的样式；外部样式指通过 link 链接的外部文件中样式。
 
-- 内联样式（行内样式）
-- 内部样式
-- 外部样式
+  - 内联样式（行内样式）
+  - 内部样式
+  - 外部样式
 
 外部样式和内部样式在优先级相同的情况下，后定义的会覆盖先定义的。
 
-( 3 ) CSS 选择器
+3. CSS 选择器
 
-- ID 选择器：`#idname`
-- 伪类：`:hover`
-- 属性选择器：`input[type="text"]`
-- 类选择器：`.classname`
-- 元素(类型)选择器（包括伪元素）：`input`, `:after`
-- 通用选择器：`*`
+  - ID 选择器：`#idname`
+  - 伪类：`:hover`
+  - 属性选择器：`input[type="text"]`
+  - 类选择器：`.classname`
+  - 元素(类型)选择器（包括伪元素）：`input`, `:after`
+  - 通用选择器：`*`
 
 reference: [Cameron Moll, 精通CSS（第2版）](http://book.douban.com/subject/4736167/)，[优先级, mdn](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity), [INLINE VS INTERNAL VS EXTERNAL CSS](https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/)
 
@@ -138,7 +137,9 @@ reference: <http://www.w3school.com.cn/css3/css3_animation.asp>
 
 ## 垂直居中和水平居中
 
-( 1 ) 块元素垂直居中：transform: translateY(-50%)。此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)
+### 块元素垂直居中(transform)
+
+此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)
 
 ```css
 width: 250px;
@@ -148,7 +149,7 @@ top: 50%;
 transform: translateY(-50%);
 ```
 
-( 2 ) 块元素垂直居中：绝对定位(top: 50%)
+### 块元素垂直居中(绝对定位)
 
 ```css
 width: 250px;
@@ -158,7 +159,7 @@ top: 50%;
 margin-top: -125px;
 ```
 
-( 3 ) 内联元素垂直居中
+### 内联元素垂直居中
 
 ```css
 /* 方案一: 块元素内容会居中, 需要设置高度 */
@@ -169,10 +170,10 @@ vertical-align: middle;
 line-height: 50px;
 ```
 
-( 4 ) 块元素的水平居中：margin: 0 auto
+### 块元素的水平居中
 
 ```css
 width: 100px;
 margin-left: auto;
-margin-right: auto
+margin-right: auto;
 ```
