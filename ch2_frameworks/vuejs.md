@@ -2,6 +2,46 @@
 
 ## Tips
 
+### ES6
+
+以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^vueES6], 特别是对于无需构建工具的情况.
+
+1. 箭头函数: 让 this 始终指向到 Vue 实例上.
+2. 模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接. 也可以应用于变量套入到字符串中.
+
+    ```javascript
+    Vue.component({
+      template: `<div>
+                  <h1></h1>
+                  <p></p>
+                </div>`
+      data: {
+        time: `time: ${Date.now()}`
+      }
+    });
+    ```
+
+3. 模块(Modules): 应用于声明式的组件 `Vue.component`, 甚至不需要 webpack 的支持.
+
+    ```javascript
+    import component1 from './component1.js';
+    Vue.component('component1', component1);
+    ```
+
+4. 解构赋值: 可应用于只获取需要的值, 减少不必要的赋值, 比如只获取 Vuex 中的 commit 而不需要 store.
+
+    ```javascript
+    actions: {
+      increment ({ commit }) {
+        commit(...);
+      }
+    }
+    ```
+
+5. 扩展运算符: 数组和对象等批量导出, 而不需要用循环语句. 比如, 将路由根据功能划分为多个文件, 再用扩展展运算符在 index 中合在一起.
+
+[^vueES6]: [ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22](https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/)
+
 ### 组件重新渲染
 
 通过设置 `v-if` 实现, 从 Dom 中剔除再加入.
