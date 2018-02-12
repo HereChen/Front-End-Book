@@ -426,6 +426,31 @@ index.js         # 入口文件</code></pre>
 </blockquote>
 <h1 id="vue.js">Vue.js</h1>
 <h2 id="tips-1">Tips</h2>
+<h3 id="es6">ES6</h3>
+<p>以下几个 ES6 功能应用于 Vue.js 将获得不错的收益<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, 特别是对于无需构建工具的情况.</p>
+<ol style="list-style-type: decimal">
+<li>箭头函数: 让 this 始终指向到 Vue 实例上.</li>
+<li><p>模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接. 也可以应用于变量套入到字符串中.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Vue</span>.<span class="at">component</span>(<span class="op">{</span>
+  <span class="dt">template</span><span class="op">:</span> <span class="vs">`&lt;div&gt;</span>
+<span class="vs">              &lt;h1&gt;&lt;/h1&gt;</span>
+<span class="vs">              &lt;p&gt;&lt;/p&gt;</span>
+<span class="vs">            &lt;/div&gt;`</span>
+  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span>
+    <span class="dt">time</span><span class="op">:</span> <span class="vs">`time: </span><span class="sc">${</span><span class="va">Date</span>.<span class="at">now</span>()<span class="sc">}</span><span class="vs">`</span>
+  <span class="op">}</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div></li>
+<li><p>模块(Modules): 应用于声明式的组件 <code>Vue.component</code>, 甚至不需要 webpack 的支持.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">import</span> component1 <span class="im">from</span> <span class="st">&#39;./component1.js&#39;</span><span class="op">;</span>
+<span class="va">Vue</span>.<span class="at">component</span>(<span class="st">&#39;component1&#39;</span><span class="op">,</span> component1)<span class="op">;</span></code></pre></div></li>
+<li><p>解构赋值: 可应用于只获取需要的值, 减少不必要的赋值, 比如只获取 Vuex 中的 commit 而不需要 store.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">actions<span class="op">:</span> <span class="op">{</span>
+  <span class="at">increment</span> (<span class="op">{</span> commit <span class="op">}</span>) <span class="op">{</span>
+    <span class="at">commit</span>(...)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div></li>
+<li><p>扩展运算符: 数组和对象等批量导出, 而不需要用循环语句. 比如, 将路由根据功能划分为多个文件, 再用扩展展运算符在 index 中合在一起.</p></li>
+</ol>
 <h3 id="组件重新渲染">组件重新渲染</h3>
 <p>通过设置 <code>v-if</code> 实现, 从 Dom 中剔除再加入.</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;demo-component</span><span class="ot"> v-if=</span><span class="st">&quot;ifShow&quot;</span><span class="kw">&gt;&lt;/demo-component&gt;</span></code></pre></div>
@@ -528,5 +553,11 @@ npm run dev &amp; npm run serve</code></pre>
 <li><code>adb: failed to stat app/build/outputs/apk/playground.apk: No such file or directory</code>, 替换 <code>platforms/android/app/build.gradle</code> 文件中的 <code>weex-app.apk</code> 为 <code>playground.apk</code>.</li>
 <li><code>weex debug</code> 报错可先安装 <code>npm install -g weex-devtool</code>.</li>
 </ol>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/">ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
 </body>
 </html>
