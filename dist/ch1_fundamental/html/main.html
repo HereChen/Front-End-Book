@@ -173,7 +173,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>{: class=&quot;table&quot;}</p>
 <p>reference: <a href="http://www.w3school.com.cn/tags/index.asp">w3school, HTML 参考手册</a></p>
 <h2 id="内联元素和块级元素">内联元素和块级元素</h2>
 <ol style="list-style-type: decimal">
@@ -263,17 +262,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p>{: class=&quot;table&quot;}</p>
 <ul>
 <li>如果一个标签的位置是绝对的，它又不在其他任何设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于浏览器窗口进行定位。</li>
 <li>如果一个标签处在另一个设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于另一个元素的边沿进行定位。</li>
 </ul>
-<p>reference: <a href="http://www.w3school.com.cn/cssref/pr_class_position.asp" class="uri">http://www.w3school.com.cn/cssref/pr_class_position.asp</a>{:target=&quot;_blank&quot;}，<a href="http://book.douban.com/subject/4861462/">CSS实战手册（第2版）</a></p>
+<p>reference: <a href="http://www.w3school.com.cn/cssref/pr_class_position.asp" class="uri">http://www.w3school.com.cn/cssref/pr_class_position.asp</a>，<a href="http://book.douban.com/subject/4861462/">CSS实战手册（第2版）</a></p>
 <h2 id="盒模型">盒模型</h2>
 <p>IE 盒模型和标准存在区别。</p>
 <h2 id="优先级">优先级</h2>
 <p>优先级<strong>从高到低</strong>，分三个层次描述。</p>
-<p>( 1 ) 作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。</p>
+<ol style="list-style-type: decimal">
+<li>作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。</li>
+</ol>
 <ul>
 <li>标有 <code>!important</code> 的用户样式。</li>
 <li>标有 <code>!important</code> 的作者样式。</li>
@@ -281,14 +281,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>用户样式。</li>
 <li>浏览器样式。</li>
 </ul>
-<p>( 2 ) 作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式 style 标签中声明的样式；内联样式指元素属性 style 中的样式；外部样式指通过 link 链接的外部文件中样式。</p>
+<ol start="2" style="list-style-type: decimal">
+<li>作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式 style 标签中声明的样式；内联样式指元素属性 style 中的样式；外部样式指通过 link 链接的外部文件中样式。</li>
+</ol>
 <ul>
 <li>内联样式（行内样式）</li>
 <li>内部样式</li>
 <li>外部样式</li>
 </ul>
 <p>外部样式和内部样式在优先级相同的情况下，后定义的会覆盖先定义的。</p>
-<p>( 3 ) CSS 选择器</p>
+<ol start="3" style="list-style-type: decimal">
+<li>CSS 选择器</li>
+</ol>
 <ul>
 <li>ID 选择器：<code>#idname</code></li>
 <li>伪类：<code>:hover</code></li>
@@ -353,29 +357,30 @@ div<span class="kw">{</span>
 <span class="kw">}</span></code></pre></div>
 <p>reference: <a href="http://www.w3school.com.cn/css3/css3_animation.asp" class="uri">http://www.w3school.com.cn/css3/css3_animation.asp</a></p>
 <h2 id="垂直居中和水平居中">垂直居中和水平居中</h2>
-<p>( 1 ) 块元素垂直居中：transform: translateY(-50%)。此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)</p>
+<h3 id="块元素垂直居中transform">块元素垂直居中(transform)</h3>
+<p>此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)</p>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 250px;
 height<span class="dv">:</span> 250px;
 position<span class="dv">:</span> relative;
 top<span class="dv">:</span> 50%;
 transform<span class="dv">:</span> translateY(-50%);</code></pre></div>
-<p>( 2 ) 块元素垂直居中：绝对定位(top: 50%)</p>
+<h3 id="块元素垂直居中绝对定位">块元素垂直居中(绝对定位)</h3>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 250px;
 height<span class="dv">:</span> 250px;
 position<span class="dv">:</span> absolute;
 top<span class="dv">:</span> 50%;
 margin-top<span class="dv">:</span> -125px;</code></pre></div>
-<p>( 3 ) 内联元素垂直居中</p>
+<h3 id="内联元素垂直居中">内联元素垂直居中</h3>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* 方案一: 块元素内容会居中, 需要设置高度 */</span>
 display<span class="dv">:</span> table-cell;
 vertical-align<span class="dv">:</span> middle;
 
 <span class="co">/* 方案二: 一般单行文本的上下居中 */</span>
 line-height<span class="dv">:</span> 50px;</code></pre></div>
-<p>( 4 ) 块元素的水平居中：margin: 0 auto</p>
+<h3 id="块元素的水平居中">块元素的水平居中</h3>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 100px;
 margin-left<span class="dv">:</span> auto;
-margin-right<span class="dv">:</span> auto</code></pre></div>
+margin-right<span class="dv">:</span> auto;</code></pre></div>
 <h1 id="javascript">JavaScript</h1>
 <h2 id="javascript-组成">JavaScript 组成</h2>
 <p>一个完整的 JavaScript 实现是由以下 3 个不同部分组成的：</p>
@@ -510,8 +515,7 @@ margin-right<span class="dv">:</span> auto</code></pre></div>
 <td align="left">&quot;object&quot;</td>
 </tr>
 </tbody>
-</table>
-<p>{: class=&quot;table&quot;}</p></li>
+</table></li>
 <li><p>instanceof: <code>object instanceof constructor</code></p>
 <p>instanceof 运算符可以用来判断某个构造函数的 prototype 属性是否存在另外一个要检测对象的原型链上。(instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。)</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">C</span>()<span class="op">{}</span> <span class="co">// 定义一个构造函数</span>
@@ -670,7 +674,7 @@ o3 <span class="kw">instanceof</span> C<span class="op">;</span> <span class="co
 <li><a href="https://book.douban.com/subject/26638316/">JavaScript忍者秘籍, p52</a></li>
 </ul>
 <h3 id="闭包">闭包</h3>
-<p>当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行。(闭包是发生在定义时的。)</p>
+<p>当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。(闭包是发生在定义时的。)</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// foo() 定义的中括号内就是 bar 的词法作用域</span>
 <span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span>
   <span class="kw">var</span> a <span class="op">=</span> <span class="dv">2</span><span class="op">;</span>
@@ -697,9 +701,6 @@ o3 <span class="kw">instanceof</span> C<span class="op">;</span> <span class="co
 
 <span class="at">foo</span>()<span class="op">;</span>
 <span class="at">bar</span>()<span class="op">;</span> <span class="co">// 2</span></code></pre></div>
-<ul>
-<li><a href="http://book.douban.com/subject/26351021/">你不知道的JavaScript（上卷）</a></li>
-</ul>
 <h2 id="继承方法">继承方法</h2>
 <ul>
 <li>原型链继承</li>
@@ -736,7 +737,7 @@ o3 <span class="kw">instanceof</span> C<span class="op">;</span> <span class="co
 </ul>
 <p><strong>reference</strong></p>
 <ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp">mozilla, RegExp</a></li>
 <li><a href="http://www.nowamagic.net/librarys/veda/detail/1283">正则总结：JavaScript中的正则表达式</a></li>
 </ul>
 <h2 id="es5">ES5</h2>
@@ -957,13 +958,6 @@ a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at"
 <li><a href="http://ued.taobao.org/blog/2013/03/jquery-noconflict/">邦彦, 谈谈 jQuery 中的防冲突（noConflict）机制, TaoBaoUED</a></li>
 <li><a href="http://www.cnblogs.com/RascallySnake/archive/2010/05/07/1729417.html">RascallySnake, Jquery的$命名冲突, cnblogs</a></li>
 <li><a href="http://www.cnblogs.com/ForEvErNoME/archive/2012/03/15/2398659.html">TerryChen, Jquery命名冲突解决的五种方案, cnblogs</a></li>
-</ul>
-<h2 id="解决方案">解决方案</h2>
-<p>跨域，客户端存储</p>
-<h3 id="跨域">跨域</h3>
-<ul>
-<li><a href="http://www.alloyteam.com/2013/11/the-second-version-universal-solution-iframe-cross-domain-communication/">TAT.Johnny, iframe跨域通信的通用解决方案, alloyteam</a></li>
-<li><a href="http://segmentfault.com/a/1190000003642057">JasonKidd,「JavaScript」四种跨域方式详解, segmentfault</a></li>
 </ul>
 <h2 id="其他">其他</h2>
 <ol style="list-style-type: decimal">
@@ -1377,5 +1371,11 @@ android <span class="op">=</span> <span class="ss">/android/i</span>.<span class
 </tr>
 </tbody>
 </table>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://book.douban.com/subject/26351021/">你不知道的JavaScript（上卷）</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
 </body>
 </html>

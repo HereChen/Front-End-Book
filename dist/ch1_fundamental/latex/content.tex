@@ -43,8 +43,6 @@
 \bottomrule
 \end{longtable}
 
-\{: class=``table''\}
-
 reference: \href{http://www.w3school.com.cn/tags/index.asp}{w3school,
 HTML 参考手册}
 
@@ -213,8 +211,6 @@ inherit\strut
 \bottomrule
 \end{longtable}
 
-\{: class=``table''\}
-
 \begin{itemize}
 \tightlist
 \item
@@ -226,7 +222,7 @@ inherit\strut
 \end{itemize}
 
 reference:
-\url{http://www.w3school.com.cn/cssref/pr_class_position.asp}\{:target=``\_blank''\}，\href{http://book.douban.com/subject/4861462/}{CSS实战手册（第2版）}
+\url{http://www.w3school.com.cn/cssref/pr_class_position.asp}，\href{http://book.douban.com/subject/4861462/}{CSS实战手册（第2版）}
 
 \subsection{盒模型}\label{ux76d2ux6a21ux578b}
 
@@ -236,8 +232,12 @@ IE 盒模型和标准存在区别。
 
 优先级\textbf{从高到低}，分三个层次描述。
 
-( 1 )
-作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。
+\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -253,10 +253,15 @@ IE 盒模型和标准存在区别。
   浏览器样式。
 \end{itemize}
 
-( 2 )
-作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式
-style 标签中声明的样式；内联样式指元素属性 style
-中的样式；外部样式指通过 link 链接的外部文件中样式。
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式
+  style 标签中声明的样式；内联样式指元素属性 style
+  中的样式；外部样式指通过 link 链接的外部文件中样式。
+\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -270,7 +275,13 @@ style 标签中声明的样式；内联样式指元素属性 style
 
 外部样式和内部样式在优先级相同的情况下，后定义的会覆盖先定义的。
 
-( 3 ) CSS 选择器
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  CSS 选择器
+\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -383,9 +394,9 @@ reference: \url{http://www.w3school.com.cn/css3/css3_animation.asp}
 
 \subsection{垂直居中和水平居中}\label{ux5782ux76f4ux5c45ux4e2dux548cux6c34ux5e73ux5c45ux4e2d}
 
-( 1 ) 块元素垂直居中：transform:
-translateY(-50\%)。此方案存在兼容性问题(Firefox 43 不支持, Chrome 46
-支持)
+\subsubsection{块元素垂直居中(transform)}\label{ux5757ux5143ux7d20ux5782ux76f4ux5c45ux4e2dtransform}
+
+此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)
 
 \begin{lstlisting}
 width: 250px;
@@ -395,7 +406,7 @@ top: 50%;
 transform: translateY(-50%);
 \end{lstlisting}
 
-( 2 ) 块元素垂直居中：绝对定位(top: 50\%)
+\subsubsection{块元素垂直居中(绝对定位)}\label{ux5757ux5143ux7d20ux5782ux76f4ux5c45ux4e2dux7eddux5bf9ux5b9aux4f4d}
 
 \begin{lstlisting}
 width: 250px;
@@ -405,7 +416,7 @@ top: 50%;
 margin-top: -125px;
 \end{lstlisting}
 
-( 3 ) 内联元素垂直居中
+\subsubsection{内联元素垂直居中}\label{ux5185ux8054ux5143ux7d20ux5782ux76f4ux5c45ux4e2d}
 
 \begin{lstlisting}
 /* 方案一: 块元素内容会居中, 需要设置高度 */
@@ -416,12 +427,12 @@ vertical-align: middle;
 line-height: 50px;
 \end{lstlisting}
 
-( 4 ) 块元素的水平居中：margin: 0 auto
+\subsubsection{块元素的水平居中}\label{ux5757ux5143ux7d20ux7684ux6c34ux5e73ux5c45ux4e2d}
 
 \begin{lstlisting}
 width: 100px;
 margin-left: auto;
-margin-right: auto
+margin-right: auto;
 \end{lstlisting}
 
 \section{JavaScript}\label{javascript}
@@ -622,8 +633,6 @@ typeof foo == 'undefined'  // 若 foo 未定义, 返回 true
   任何其他对象 & ``object''\tabularnewline
   \bottomrule
   \end{longtable}
-
-  \{: class=``table''\}
 \item
   instanceof: \lstinline!object instanceof constructor!
 
@@ -926,7 +935,7 @@ var bar = foo(); // 绑定 undefined 或 window
 
 \subsubsection{闭包}\label{ux95edux5305}
 
-当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行。(闭包是发生在定义时的。)
+当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行\footnote{\href{http://book.douban.com/subject/26351021/}{你不知道的JavaScript（上卷）}}。(闭包是发生在定义时的。)
 
 \begin{lstlisting}
 // foo() 定义的中括号内就是 bar 的词法作用域
@@ -959,12 +968,6 @@ function bar(fn) {
 foo();
 bar(); // 2
 \end{lstlisting}
-
-\begin{itemize}
-\tightlist
-\item
-  \href{http://book.douban.com/subject/26351021/}{你不知道的JavaScript（上卷）}
-\end{itemize}
 
 \subsection{继承方法}\label{ux7ee7ux627fux65b9ux6cd5}
 
@@ -1045,7 +1048,8 @@ bar(); // 2
 \begin{itemize}
 \tightlist
 \item
-  \href{https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp}{RegExp}
+  \href{https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp}{mozilla,
+  RegExp}
 \item
   \href{http://www.nowamagic.net/librarys/veda/detail/1283}{正则总结：JavaScript中的正则表达式}
 \end{itemize}
@@ -1488,22 +1492,6 @@ jQuery.noConflict();
 \item
   \href{http://www.cnblogs.com/ForEvErNoME/archive/2012/03/15/2398659.html}{TerryChen,
   Jquery命名冲突解决的五种方案, cnblogs}
-\end{itemize}
-
-\subsection{解决方案}\label{ux89e3ux51b3ux65b9ux6848}
-
-跨域，客户端存储
-
-\subsubsection{跨域}\label{ux8de8ux57df}
-
-\begin{itemize}
-\tightlist
-\item
-  \href{http://www.alloyteam.com/2013/11/the-second-version-universal-solution-iframe-cross-domain-communication/}{TAT.Johnny,
-  iframe跨域通信的通用解决方案, alloyteam}
-\item
-  \href{http://segmentfault.com/a/1190000003642057}{JasonKidd,「JavaScript」四种跨域方式详解,
-  segmentfault}
 \end{itemize}
 
 \subsection{其他}\label{ux5176ux4ed6}

@@ -36,8 +36,6 @@ HTML5 新标签
   `<video>`        定义视频。
   `<wbr>`          定义视频。
 
-{: class="table"}
-
 reference: [w3school, HTML
 参考手册](http://www.w3school.com.cn/tags/index.asp)
 
@@ -151,8 +149,6 @@ CSS
   inherit                                                                规定应该从父元素继承 position 属性的值。
   --------------------------------------------------------------------------------------------------------------------------------------
 
-{: class="table"}
-
 -   如果一个标签的位置是绝对的，它又不在其他任何设定了
     absolute、relative 或 fixed
     定位的标签里面，那它就是相对于浏览器窗口进行定位。
@@ -160,7 +156,7 @@ CSS
     定位的标签里面，那它就是相对于另一个元素的边沿进行定位。
 
 reference:
-<http://www.w3school.com.cn/cssref/pr_class_position.asp>{:target="\_blank"}，[CSS实战手册（第2版）](http://book.douban.com/subject/4861462/)
+<http://www.w3school.com.cn/cssref/pr_class_position.asp>，[CSS实战手册（第2版）](http://book.douban.com/subject/4861462/)
 
 盒模型
 ------
@@ -172,8 +168,7 @@ IE 盒模型和标准存在区别。
 
 优先级**从高到低**，分三个层次描述。
 
-( 1 )
-作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。
+1.  作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。
 
 -   标有 `!important` 的用户样式。
 -   标有 `!important` 的作者样式。
@@ -181,10 +176,9 @@ IE 盒模型和标准存在区别。
 -   用户样式。
 -   浏览器样式。
 
-( 2 )
-作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式
-style 标签中声明的样式；内联样式指元素属性 style
-中的样式；外部样式指通过 link 链接的外部文件中样式。
+2.  作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式
+    style 标签中声明的样式；内联样式指元素属性 style
+    中的样式；外部样式指通过 link 链接的外部文件中样式。
 
 -   内联样式（行内样式）
 -   内部样式
@@ -192,7 +186,7 @@ style 标签中声明的样式；内联样式指元素属性 style
 
 外部样式和内部样式在优先级相同的情况下，后定义的会覆盖先定义的。
 
-( 3 ) CSS 选择器
+3.  CSS 选择器
 
 -   ID 选择器：`#idname`
 -   伪类：`:hover`
@@ -294,9 +288,9 @@ reference: <http://www.w3school.com.cn/css3/css3_animation.asp>
 垂直居中和水平居中
 ------------------
 
-( 1 ) 块元素垂直居中：transform:
-translateY(-50%)。此方案存在兼容性问题(Firefox 43 不支持, Chrome 46
-支持)
+### 块元素垂直居中(transform)
+
+此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)
 
 ``` {.css}
 width: 250px;
@@ -306,7 +300,7 @@ top: 50%;
 transform: translateY(-50%);
 ```
 
-( 2 ) 块元素垂直居中：绝对定位(top: 50%)
+### 块元素垂直居中(绝对定位)
 
 ``` {.css}
 width: 250px;
@@ -316,7 +310,7 @@ top: 50%;
 margin-top: -125px;
 ```
 
-( 3 ) 内联元素垂直居中
+### 内联元素垂直居中
 
 ``` {.css}
 /* 方案一: 块元素内容会居中, 需要设置高度 */
@@ -327,12 +321,12 @@ vertical-align: middle;
 line-height: 50px;
 ```
 
-( 4 ) 块元素的水平居中：margin: 0 auto
+### 块元素的水平居中
 
 ``` {.css}
 width: 100px;
 margin-left: auto;
-margin-right: auto
+margin-right: auto;
 ```
 
 JavaScript
@@ -480,8 +474,6 @@ console.log(tt); // 2015年10月30日 22时6分21秒
       宿主对象(JS环境提供的，比如浏览器)                     Implementation-dependent
       函数对象 (implements \[\[Call\]\] in ECMA-262 terms)   "function"
       任何其他对象                                           "object"
-
-    {: class="table"}
 
 2.  instanceof: `object instanceof constructor`
 
@@ -723,7 +715,7 @@ this 在运行时绑定，它的上下文取决于函数调用时的各种条件
 
 ### 闭包
 
-当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行。(闭包是发生在定义时的。)
+当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行[^1]。(闭包是发生在定义时的。)
 
 ``` {.javascript}
 // foo() 定义的中括号内就是 bar 的词法作用域
@@ -756,8 +748,6 @@ function bar(fn) {
 foo();
 bar(); // 2
 ```
-
--   [你不知道的JavaScript（上卷）](http://book.douban.com/subject/26351021/)
 
 继承方法
 --------
@@ -807,7 +797,8 @@ bar(); // 2
 
 **reference**
 
--   [RegExp](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+-   [mozilla,
+    RegExp](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
 -   [正则总结：JavaScript中的正则表达式](http://www.nowamagic.net/librarys/veda/detail/1283)
 
 ES5
@@ -1144,18 +1135,6 @@ jQuery.noConflict();
     cnblogs](http://www.cnblogs.com/RascallySnake/archive/2010/05/07/1729417.html)
 -   [TerryChen, Jquery命名冲突解决的五种方案,
     cnblogs](http://www.cnblogs.com/ForEvErNoME/archive/2012/03/15/2398659.html)
-
-解决方案
---------
-
-跨域，客户端存储
-
-### 跨域
-
--   [TAT.Johnny, iframe跨域通信的通用解决方案,
-    alloyteam](http://www.alloyteam.com/2013/11/the-second-version-universal-solution-iframe-cross-domain-communication/)
--   [JasonKidd,「JavaScript」四种跨域方式详解,
-    segmentfault](http://segmentfault.com/a/1190000003642057)
 
 其他
 ----
@@ -1508,3 +1487,5 @@ segmentfault](http://segmentfault.com/q/1010000000489803/a-1020000000489830)
 
                                                                                                                                      505                                                                                                                                     http Version Not Supported                                                                                                                                                                                                                                 服务器收到的请求使用了它无法或不愿支持的协议版本时，使用此状态码。有些服务器应用程序会选择不支持协议的早期版本
   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[^1]: [你不知道的JavaScript（上卷）](http://book.douban.com/subject/26351021/)
