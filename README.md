@@ -1,13 +1,13 @@
 # Front-End-Book
 
+内容主要是整理, 存在引用不规范的地方.
+
 ## requirements
 
-1. [pandoc](http://www.pandoc.org/)
-2. [TeX Live](https://tug.org/texlive/)
+1. [pandoc](http://www.pandoc.org/): pandoc 1.19.2.1 (2.1.1编译通不过).
+2. [TeX Live](https://tug.org/texlive/): TeX Live 2017 可编译通过, 其他版本未测试.
 
 ## 编译
-
-pandoc 1.19.2.1 (2.1.1编译通不过), TeX Live 2017.
 
 1. `src` 编译公共资源及脚本.
 2. `dist` 编译输出.
