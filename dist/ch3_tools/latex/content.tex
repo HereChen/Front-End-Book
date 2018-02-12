@@ -1,1 +1,89 @@
-\section{none content}\label{none-content}
+\section{Visual Studio Code}\label{visual-studio-code}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  主页: \url{https://code.visualstudio.com/}
+\item
+  快捷键:
+  \url{https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf}
+\end{enumerate}
+
+\subsection{基本用法}\label{ux57faux672cux7528ux6cd5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  命令搜索工具: \lstinline!F1!.
+\item
+  扩展安装: \lstinline!ext install extensionname!
+\end{enumerate}
+
+\subsection{Vue.js 配置}\label{vue.js-ux914dux7f6e}
+
+\subsubsection{代码高亮}\label{ux4ee3ux7801ux9ad8ux4eae}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  安装 Vetur 扩展.
+\end{enumerate}
+
+\subsubsection{ESLint
+问题自动修复}\label{eslint-ux95eeux9898ux81eaux52a8ux4feeux590d}
+
+\begin{lstlisting}
+{
+  "eslint.enable": true,
+  "eslint.options": {
+    "extensions": [
+      ".html",
+      ".js",
+      ".vue"
+    ]
+  },
+  "eslint.validate": [{
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    }
+  ]
+}
+\end{lstlisting}
+
+\section{Vue-CLI}\label{vue-cli}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  GitHub: \url{https://github.com/vuejs/vue-cli}
+\end{enumerate}
+
+\subsection{代理}\label{ux4ee3ux7406}
+
+配置代理可解决跨域问题, 需要服务端配置跨域.
+
+\begin{lstlisting}
+// config/index.js
+proxyTable: {
+  '/api': {
+      target: 'http://stage.xxxx.com',
+      changeOrigin: true,
+      pathRewrite: {
+      '^/api': '/api'
+      }
+  }
+}
+\end{lstlisting}
+
