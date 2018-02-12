@@ -29,6 +29,7 @@
 
 1. [美团点评点餐, 美团点评点餐 Nuxt.js 实战, 2017-08-09](https://juejin.im/post/598aabe96fb9a03c335a8dde)
 2. [Jason Strimpel, Maxime Najim, 同构JavaScript应用开发, 2017](https://book.douban.com/subject/27183584/)
+3. [Nicholas C. Zakas, Node.js and the new web front-end, 2013-10-07](https://www.nczonline.net/blog/2013/10/07/node-js-and-the-new-web-front-end/)
 
 
 [^slBalint2016Separation]: [Balint Sera, On the separation of front-end and backend, 2016-06-15](https://medium.com/@balint_sera/on-the-separation-of-front-end-and-backend-7a0809b42820)
