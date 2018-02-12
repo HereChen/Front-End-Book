@@ -93,7 +93,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <h1 id="react-native">React Native</h1>
 <ol style="list-style-type: decimal">
-<li><a href="https://facebook.github.io/react-native">React Native 主页</a></li>
+<li>主页: <a href="https://facebook.github.io/react-native" class="uri">https://facebook.github.io/react-native</a></li>
+<li>GitHub: <a href="https://github.com/facebook/react-native" class="uri">https://github.com/facebook/react-native</a></li>
 <li>示例项目: <a href="https://github.com/jiwonbest/amazing-react-projects">amazing-react-projects</a></li>
 <li>Demo Project: <a href="https://github.com/HereChen/template/tree/master/react-native">react-native</a></li>
 </ol>
@@ -463,12 +464,8 @@ index.js         # 入口文件</code></pre>
   <span class="co">// 2. 然后绑定到 data 中的变量</span>
   <span class="kw">this</span>.<span class="at">varInDate</span> <span class="op">=</span> handledRes<span class="op">;</span>
 <span class="op">}</span>)<span class="op">;</span></code></pre></div>
-<h3 id="全局引入-scss-变量文件">全局引入 SCSS 变量文件</h3>
-<blockquote>
-<p>[SASS/SCSS in Vue: where to store variables?](https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d]</p>
-</blockquote>
+<h3 id="全局引入-scss-变量文件vueglobalimportvariablesfile">全局引入 SCSS 变量文件<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h3>
 <p>场景: 将常用的变量存储到 <code>vars.scss</code>, 应用变量时需要在每个需要的地方 <code>import</code>.</p>
-<p><strong>参考解决方案</strong></p>
 <ol style="list-style-type: decimal">
 <li><code>npm install sass-resources-loader --save-dev</code></li>
 <li>更改 <code>build/webpack.base.conf.js</code>, 适用于 vue-cli.</li>
@@ -500,7 +497,7 @@ index.js         # 入口文件</code></pre>
     <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
 <h2 id="compatible">Compatible</h2>
-<p><strong>IE <code>vuex requires a promise polyfill in this browser</code></strong></p>
+<h3 id="ie-vuex-requires-a-promise-polyfill-in-this-browser">IE <code>vuex requires a promise polyfill in this browser</code></h3>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> install --save-dev babel-polyfill</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// build/webpack.base.conf.js</span>
 entry<span class="op">:</span> <span class="op">{</span>
@@ -511,9 +508,10 @@ entry<span class="op">:</span> <span class="op">{</span>
 <span class="op">}</span></code></pre></div>
 <p><a href="https://github.com/vuejs-templates/webpack/issues/474">vuex requires a promise polyfill in this browser</a></p>
 <h1 id="weex">Weex</h1>
-<blockquote>
-<p>http://weex.apache.org</p>
-</blockquote>
+<ol style="list-style-type: decimal">
+<li>主页: <a href="http://weex.apache.org" class="uri">http://weex.apache.org</a></li>
+<li>GitHub: <a href="https://github.com/apache/incubator-weex/" class="uri">https://github.com/apache/incubator-weex/</a></li>
+</ol>
 <p>问题: 入口在哪儿?</p>
 <p><strong>案例</strong></p>
 <ol style="list-style-type: decimal">
@@ -557,6 +555,7 @@ npm run dev &amp; npm run serve</code></pre>
 <hr />
 <ol>
 <li id="fn1"><p><a href="https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/">ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d" class="uri">https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d</a><a href="#fnref2">↩</a></p></li>
 </ol>
 </div>
 </body>

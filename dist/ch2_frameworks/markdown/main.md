@@ -66,10 +66,11 @@ create-react-app my-app
 React Native
 ============
 
-1.  [React Native 主页](https://facebook.github.io/react-native)
-2.  示例项目:
+1.  主页: <https://facebook.github.io/react-native>
+2.  GitHub: <https://github.com/facebook/react-native>
+3.  示例项目:
     [amazing-react-projects](https://github.com/jiwonbest/amazing-react-projects)
-3.  Demo Project:
+4.  Demo Project:
     [react-native](https://github.com/HereChen/template/tree/master/react-native)
 
 环境配置
@@ -512,15 +513,10 @@ API.getSomething().then(res => {
 });
 ```
 
-### 全局引入 SCSS 变量文件
-
-> \[SASS/SCSS in Vue: where to store
-> variables?\](https://www.reddit.com/r/vuejs/comments/7o663j/sassscss\_in\_vue\_where\_to\_store\_variables/?st=JC9T45PB&sh=4f87ec9d\]
+### 全局引入 SCSS 变量文件[^2] {#全局引入-scss-变量文件vueglobalimportvariablesfile}
 
 场景: 将常用的变量存储到 `vars.scss`, 应用变量时需要在每个需要的地方
 `import`.
-
-**参考解决方案**
 
 1.  `npm install sass-resources-loader --save-dev`
 2.  更改 `build/webpack.base.conf.js`, 适用于 vue-cli.
@@ -557,7 +553,7 @@ API.getSomething().then(res => {
 Compatible
 ----------
 
-**IE `vuex requires a promise polyfill in this browser`**
+### IE `vuex requires a promise polyfill in this browser`
 
 ``` {.bash}
 npm install --save-dev babel-polyfill
@@ -579,7 +575,8 @@ browser](https://github.com/vuejs-templates/webpack/issues/474)
 Weex
 ====
 
-> http://weex.apache.org
+1.  主页: <http://weex.apache.org>
+2.  GitHub: <https://github.com/apache/incubator-weex/>
 
 问题: 入口在哪儿?
 
@@ -638,3 +635,5 @@ weex build web
 
 [^1]: [ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development,
     2018-01-22](https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/)
+
+[^2]: <https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&sh=4f87ec9d>

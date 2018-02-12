@@ -82,7 +82,9 @@ create-react-app my-app
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{https://facebook.github.io/react-native}{React Native 主页}
+  主页: \url{https://facebook.github.io/react-native}
+\item
+  GitHub: \url{https://github.com/facebook/react-native}
 \item
   示例项目:
   \href{https://github.com/jiwonbest/amazing-react-projects}{amazing-react-projects}
@@ -760,18 +762,11 @@ API.getSomething().then(res => {
 });
 \end{lstlisting}
 
-\subsubsection{全局引入 SCSS
-变量文件}\label{ux5168ux5c40ux5f15ux5165-scss-ux53d8ux91cfux6587ux4ef6}
-
-\begin{quote}
-{[}SASS/SCSS in Vue: where to store
-variables?{]}(https://www.reddit.com/r/vuejs/comments/7o663j/sassscss\_in\_vue\_where\_to\_store\_variables/?st=JC9T45PB\&sh=4f87ec9d{]}
-\end{quote}
+\subsubsection[全局引入 SCSS 变量文件]{\texorpdfstring{全局引入 SCSS
+变量文件\footnote{\url{https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB\&sh=4f87ec9d}}}{全局引入 SCSS 变量文件}}\label{ux5168ux5c40ux5f15ux5165-scss-ux53d8ux91cfux6587ux4ef6vueglobalimportvariablesfile}
 
 场景: 将常用的变量存储到 \lstinline!vars.scss!,
 应用变量时需要在每个需要的地方 \lstinline!import!.
-
-\textbf{参考解决方案}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -813,7 +808,8 @@ variables?{]}(https://www.reddit.com/r/vuejs/comments/7o663j/sassscss\_in\_vue\_
 
 \subsection{Compatible}\label{compatible}
 
-\textbf{IE \lstinline!vuex requires a promise polyfill in this browser!}
+\subsubsection{\texorpdfstring{IE
+\texttt{vuex\ requires\ a\ promise\ polyfill\ in\ this\ browser}}{IE vuex requires a promise polyfill in this browser}}\label{ie-vuex-requires-a-promise-polyfill-in-this-browser}
 
 \begin{lstlisting}[language=bash]
 npm install --save-dev babel-polyfill
@@ -834,9 +830,14 @@ requires a promise polyfill in this browser}
 
 \section{Weex}\label{weex}
 
-\begin{quote}
-http://weex.apache.org
-\end{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  主页: \url{http://weex.apache.org}
+\item
+  GitHub: \url{https://github.com/apache/incubator-weex/}
+\end{enumerate}
 
 问题: 入口在哪儿?
 
