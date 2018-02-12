@@ -1,6 +1,7 @@
 # React Native
 
-1. [React Native 主页](https://facebook.github.io/react-native)
+1. 主页: <https://facebook.github.io/react-native>
+2. GitHub: <https://github.com/facebook/react-native>
 2. 示例项目: [amazing-react-projects](https://github.com/jiwonbest/amazing-react-projects)
 3. Demo Project: [react-native](https://github.com/HereChen/template/tree/master/react-native)
 

@@ -1,6 +1,7 @@
 # Weex
 
-> http://weex.apache.org
+1. 主页: <http://weex.apache.org>
+2. GitHub: <https://github.com/apache/incubator-weex/>
 
 问题: 入口在哪儿?
 
