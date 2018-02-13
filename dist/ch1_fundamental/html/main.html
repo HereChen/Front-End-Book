@@ -272,35 +272,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2 id="优先级">优先级</h2>
 <p>优先级<strong>从高到低</strong>，分三个层次描述。</p>
 <ol style="list-style-type: decimal">
-<li>作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。</li>
-</ol>
-<ul>
+<li>作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。
+<ol style="list-style-type: decimal">
 <li>标有 <code>!important</code> 的用户样式。</li>
 <li>标有 <code>!important</code> 的作者样式。</li>
 <li>作者样式。</li>
 <li>用户样式。</li>
 <li>浏览器样式。</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式 style 标签中声明的样式；内联样式指元素属性 style 中的样式；外部样式指通过 link 链接的外部文件中样式。</li>
-</ol>
-<ul>
+</ol></li>
+<li>作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式 style 标签中声明的样式；内联样式指元素属性 style 中的样式；外部样式指通过 link 链接的外部文件中样式。
+<ol style="list-style-type: decimal">
 <li>内联样式（行内样式）</li>
 <li>内部样式</li>
 <li>外部样式</li>
-</ul>
+</ol></li>
+</ol>
 <p>外部样式和内部样式在优先级相同的情况下，后定义的会覆盖先定义的。</p>
 <ol start="3" style="list-style-type: decimal">
-<li>CSS 选择器</li>
-</ol>
-<ul>
+<li>CSS 选择器
+<ol style="list-style-type: decimal">
 <li>ID 选择器：<code>#idname</code></li>
 <li>伪类：<code>:hover</code></li>
 <li>属性选择器：<code>input[type=&quot;text&quot;]</code></li>
 <li>类选择器：<code>.classname</code></li>
 <li>元素(类型)选择器（包括伪元素）：<code>input</code>, <code>:after</code></li>
 <li>通用选择器：<code>*</code></li>
-</ul>
+</ol></li>
+</ol>
 <p>reference: <a href="http://book.douban.com/subject/4736167/">Cameron Moll, 精通CSS（第2版）</a>，<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity">优先级, mdn</a>, <a href="https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/">INLINE VS INTERNAL VS EXTERNAL CSS</a></p>
 <h2 id="link-和-import">link 和 <span class="citation">@import</span></h2>
 <ul>

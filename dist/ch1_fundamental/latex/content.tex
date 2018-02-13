@@ -237,41 +237,37 @@ IE 盒模型和标准存在区别。
 \tightlist
 \item
   作者/用户/浏览器样式。作者样式指网页本身的样式，或者开发者编写的样式；用户样式指浏览网页的用户自己添加的样式表(通过浏览器设置)；浏览器样式指浏览器提供的默认样式。
-\end{enumerate}
 
-\begin{itemize}
-\tightlist
-\item
-  标有 \lstinline"!important" 的用户样式。
-\item
-  标有 \lstinline"!important" 的作者样式。
-\item
-  作者样式。
-\item
-  用户样式。
-\item
-  浏览器样式。
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    标有 \lstinline"!important" 的用户样式。
+  \item
+    标有 \lstinline"!important" 的作者样式。
+  \item
+    作者样式。
+  \item
+    用户样式。
+  \item
+    浏览器样式。
+  \end{enumerate}
 \item
   作者样式：内部样式（internal）、内联样式（inline）、外部样式（external）。内部样式
   style 标签中声明的样式；内联样式指元素属性 style
   中的样式；外部样式指通过 link 链接的外部文件中样式。
-\end{enumerate}
 
-\begin{itemize}
-\tightlist
-\item
-  内联样式（行内样式）
-\item
-  内部样式
-\item
-  外部样式
-\end{itemize}
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    内联样式（行内样式）
+  \item
+    内部样式
+  \item
+    外部样式
+  \end{enumerate}
+\end{enumerate}
 
 外部样式和内部样式在优先级相同的情况下，后定义的会覆盖先定义的。
 
@@ -281,23 +277,25 @@ IE 盒模型和标准存在区别。
 \tightlist
 \item
   CSS 选择器
-\end{enumerate}
 
-\begin{itemize}
-\tightlist
-\item
-  ID 选择器：\lstinline!#idname!
-\item
-  伪类：\lstinline!:hover!
-\item
-  属性选择器：\lstinline!input[type="text"]!
-\item
-  类选择器：\lstinline!.classname!
-\item
-  元素(类型)选择器（包括伪元素）：\lstinline!input!, \lstinline!:after!
-\item
-  通用选择器：\lstinline!*!
-\end{itemize}
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    ID 选择器：\lstinline!#idname!
+  \item
+    伪类：\lstinline!:hover!
+  \item
+    属性选择器：\lstinline!input[type="text"]!
+  \item
+    类选择器：\lstinline!.classname!
+  \item
+    元素(类型)选择器（包括伪元素）：\lstinline!input!,
+    \lstinline!:after!
+  \item
+    通用选择器：\lstinline!*!
+  \end{enumerate}
+\end{enumerate}
 
 reference: \href{http://book.douban.com/subject/4736167/}{Cameron Moll,
 精通CSS（第2版）}，\href{https://developer.mozilla.org/zh-CN/docs/Web/CSS/Specificity}{优先级,
