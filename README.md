@@ -7,7 +7,7 @@
 1. [pandoc](http://www.pandoc.org/): pandoc 1.19.2.1 (2.1.1编译通不过).
 2. [TeX Live](https://tug.org/texlive/): TeX Live 2017 可编译通过, 其他版本未测试.
 
-## 编译
+## build
 
 1. `src` 编译公共资源及脚本.
 2. `dist` 编译输出.
@@ -15,13 +15,13 @@
 
 ![structure](./docs/github_front-end-book.svg)
 
-## 文档
+## files
 
-1. `fundamental` 基础.
-2. `frameworks` 框架.
-3. `tools` 工具.
-4. `solutions` 方案.
-5. `optimization` 优化.
+1. `ch1_fundamental` 基础.
+2. `ch2_frameworks` 框架.
+3. `ch3_tools` 工具.
+3. `ch4_optimization` 优化.
+5. `ch5_solutions` 方案.
 
 ## 编译结果说明
 
