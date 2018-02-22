@@ -13,6 +13,8 @@
 2. `dist` 编译输出.
 3. `bash build.sh` 编译.
 
+![structure](./docs/github_front-end-book.svg)
+
 ## 文档
 
 1. `fundamental` 基础.
