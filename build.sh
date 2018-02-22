@@ -66,7 +66,7 @@ markdown_to_latex() {
   mkdir -p ${temp_folder}/$1/latex
   pandoc --listings ${temp_folder}/$1/markdown/main.md -o ${temp_folder}/$1/latex/content.tex
 
-  cp ${source_folder}/${1}_title.tex ${temp_folder}/$1/latex/title.tex
+  cp ${1}/title.tex ${temp_folder}/$1/latex/title.tex
   cp ${source_folder}/format.cls ${temp_folder}/$1/latex/
   cp ${source_folder}/main.tex ${temp_folder}/$1/latex/
 
