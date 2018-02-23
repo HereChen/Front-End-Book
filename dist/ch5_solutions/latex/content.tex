@@ -1,3 +1,58 @@
+\section{代码规范}\label{ux4ee3ux7801ux89c4ux8303}
+
+\subsection{编辑器文本规范}\label{ux7f16ux8f91ux5668ux6587ux672cux89c4ux8303}
+
+规范文件采用的换行符、缩进方式以及编码等等.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  EditorConfig: \url{http://editorconfig.org/}
+\item
+  VSCode 插件:
+  \href{https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig}{EditorConfig
+  for VS Code}, 可生成配置样本.
+\end{enumerate}
+
+\lstinline!.editorconfig!配置样例
+
+\begin{lstlisting}
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 80
+\end{lstlisting}
+
+\subsection{命名规范}\label{ux547dux540dux89c4ux8303}
+
+\subsubsection{CSS 命名}\label{css-ux547dux540d}
+
+BEM, SMACSS, OOCSS
+
+\subsection{代码检查}\label{ux4ee3ux7801ux68c0ux67e5}
+
+\subsubsection{CSS 格式化}\label{css-ux683cux5f0fux5316}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  CSScomb: \url{http://csscomb.com}
+\item
+  配置文件\lstinline!.csscomb.json!
+  示例:\url{https://github.com/htmlacademy/codeguide/blob/master/csscomb.json}
+\item
+  VSCode 插件:
+  \href{https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-csscomb}{CSScomb}
+\end{enumerate}
+
 \section{兼容性问题解决}\label{ux517cux5bb9ux6027ux95eeux9898ux89e3ux51b3}
 
 \subsection{IE: 盒模型}\label{ie-ux76d2ux6a21ux578b}
@@ -153,12 +208,6 @@ ID\footnote{\href{http://www.dreamdealer.nl/articles/form_fields_outside_a_form.
 \subsection{实现组件化}\label{ux5b9eux73b0ux7ec4ux4ef6ux5316}
 
 关键是如何暴露接口, 方便外部复用.
-
-\section{命名规则}\label{ux547dux540dux89c4ux5219}
-
-\subsection{CSS 命名}\label{css-ux547dux540d}
-
-BEM, SMACSS, OOCSS
 
 \section{权限管理}\label{ux6743ux9650ux7ba1ux7406}
 

@@ -45,6 +45,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </style>
 </head>
 <body>
+<h1 id="代码规范">代码规范</h1>
+<h2 id="编辑器文本规范">编辑器文本规范</h2>
+<p>规范文件采用的换行符、缩进方式以及编码等等.</p>
+<ol style="list-style-type: decimal">
+<li>EditorConfig: <a href="http://editorconfig.org/" class="uri">http://editorconfig.org/</a></li>
+<li>VSCode 插件: <a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a>, 可生成配置样本.</li>
+</ol>
+<p><code>.editorconfig</code>配置样例</p>
+<pre><code>root = true
+
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 80</code></pre>
+<h2 id="命名规范">命名规范</h2>
+<h3 id="css-命名">CSS 命名</h3>
+<p>BEM, SMACSS, OOCSS</p>
+<h2 id="代码检查">代码检查</h2>
+<h3 id="css-格式化">CSS 格式化</h3>
+<ol style="list-style-type: decimal">
+<li>CSScomb: <a href="http://csscomb.com" class="uri">http://csscomb.com</a></li>
+<li>配置文件<code>.csscomb.json</code> 示例:<a href="https://github.com/htmlacademy/codeguide/blob/master/csscomb.json" class="uri">https://github.com/htmlacademy/codeguide/blob/master/csscomb.json</a></li>
+<li>VSCode 插件: <a href="https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-csscomb">CSScomb</a></li>
+</ol>
 <h1 id="兼容性问题解决">兼容性问题解决</h1>
 <h2 id="ie-盒模型">IE: 盒模型</h2>
 <p>IE 默认情况下长宽包含 <code>padding</code> 和 <code>border</code>, 和其他浏览器的长宽存在区别, 建议添加 <code>border-sizing</code> 属性. 保持多个浏览器的一致性.</p>
@@ -122,9 +150,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>业务相关的特殊性都应包含在同一个模块内, 具体到前端, 这些特性包括与业务相关的接口、状态、路由等.</p>
 <h2 id="实现组件化">实现组件化</h2>
 <p>关键是如何暴露接口, 方便外部复用.</p>
-<h1 id="命名规则">命名规则</h1>
-<h2 id="css-命名">CSS 命名</h2>
-<p>BEM, SMACSS, OOCSS</p>
 <h1 id="权限管理">权限管理</h1>
 <h2 id="angularjs-分角色登录">AngularJS 分角色登录</h2>
 <p>不同角色/权限登录后所见菜单不一样. 方案如下:</p>
