@@ -8,8 +8,9 @@ create-react-app my-app
 ## 依赖
 
 1. react
-2. [react-redux](https://github.com/reactjs/react-redux) 存储
-3. [react-router](https://github.com/ReactTraining/react-router) 路由
+2. 路由: [react-router](https://github.com/ReactTraining/react-router)
+3. 类型检查: [prop-types](https://github.com/facebook/prop-types)
+4. 数据管理: [react-redux](https://github.com/reactjs/react-redux)
 
 ### UI
 

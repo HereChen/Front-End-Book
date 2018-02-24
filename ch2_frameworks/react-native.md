@@ -2,8 +2,8 @@
 
 1. 主页: <https://facebook.github.io/react-native>
 2. GitHub: <https://github.com/facebook/react-native>
-2. 示例项目: [amazing-react-projects](https://github.com/jiwonbest/amazing-react-projects)
-3. Demo Project: [react-native](https://github.com/HereChen/template/tree/master/react-native)
+3. 示例项目: [amazing-react-projects](https://github.com/jiwonbest/amazing-react-projects)
+4. Demo Project: [react-native](https://github.com/HereChen/template/tree/master/react-native)
 
 ## 环境配置
 
@@ -12,7 +12,7 @@
 1. 安装 [nodejs](https://nodejs.org).
 2. `npm install -g react-native-cli`.
 
-**Android**
+#### Android
 
 1. JDK (并配置环境变量)
 2. 安装 Android Studio <http://www.android-studio.org>
@@ -29,7 +29,7 @@ REM set path
 setx /m path "%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;"
 ```
 
-**IOS**
+#### iOS
 
 1. App Store 安装 XCode.
 2. 其他工具安装
@@ -192,7 +192,7 @@ protected String getJSMainModuleName() {
 
 ### 导航
 
-> https://facebook.github.io/react-native/docs/navigation.html
+> <https://facebook.github.io/react-native/docs/navigation.html>
 
 1. [react-navigation](https://github.com/react-navigation/react-navigation) 提供了常用的导航方式(Stack, Tab, Drawer), 推荐.
 2. [NavigatorIOS](https://facebook.github.io/react-native/docs/navigatorios.html) 为内建的导航, 仅在 IOS 上可用.
@@ -207,14 +207,14 @@ protected String getJSMainModuleName() {
 
 ### HTTP 请求
 
-> https://facebook.github.io/react-native/docs/network.html
+> <https://facebook.github.io/react-native/docs/network.html>
 
 1. [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 为内建接口.
 2. [**axios**](https://github.com/axios/axios) 为使用校广泛的第三方请求库, 推荐使用.
 
 ## 调试
 
-> https://facebook.github.io/react-native/docs/debugging.html
+> <https://facebook.github.io/react-native/docs/debugging.html>
 
 根据提示, 可以菜单按钮选择重新加载或热加载. Android 可摇晃手机显示菜单.
 
@@ -280,8 +280,8 @@ index.js         # 入口文件
 
 ## 原理
 
-> 1. React Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用 ReactReconciler对他们进行渲染。
-> 2. UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI。
-> 3. UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终 得以渲染在屏幕上。
+1. React Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用 ReactReconciler对他们进行渲染[^rnSourceRender]。
+2. UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI[^rnSourceRender]。
+3. UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终 得以渲染在屏幕上[^rnSourceRender]。
 
-1. [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+[^rnSourceRender]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
