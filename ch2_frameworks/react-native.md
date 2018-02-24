@@ -96,37 +96,37 @@ Enter key password for <my-key-alias>
 1. `my-release-key.keystore` 文件放到工程 `android/app` 文件夹下.
 2. 编辑 `android/app/gradle.properties`, 添加如下信息.
 
-```
-MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
-MYAPP_RELEASE_KEY_ALIAS=my-key-alias
-MYAPP_RELEASE_STORE_PASSWORD=chenlei
-MYAPP_RELEASE_KEY_PASSWORD=chenlei
-```
+    ```
+    MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
+    MYAPP_RELEASE_KEY_ALIAS=my-key-alias
+    MYAPP_RELEASE_STORE_PASSWORD=chenlei
+    MYAPP_RELEASE_KEY_PASSWORD=chenlei
+    ```
 
 3. 编辑 `android/app/build.gradle`, 添加如下信息.
 
-```
-...
-android {
+    ```
     ...
-    defaultConfig { ... }
-    signingConfigs {
-        release {
-            storeFile file(MYAPP_RELEASE_STORE_FILE)
-            storePassword MYAPP_RELEASE_STORE_PASSWORD
-            keyAlias MYAPP_RELEASE_KEY_ALIAS
-            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+    android {
+        ...
+        defaultConfig { ... }
+        signingConfigs {
+            release {
+                storeFile file(MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+        buildTypes {
+            release {
+                ...
+                signingConfig signingConfigs.release
+            }
         }
     }
-    buildTypes {
-        release {
-            ...
-            signingConfig signingConfigs.release
-        }
-    }
-}
-...
-```
+    ...
+    ```
 
 #### 生成 apk
 
