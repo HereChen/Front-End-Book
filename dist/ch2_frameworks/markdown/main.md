@@ -50,8 +50,9 @@ create-react-app my-app
 ----
 
 1.  react
-2.  [react-redux](https://github.com/reactjs/react-redux) 存储
-3.  [react-router](https://github.com/ReactTraining/react-router) 路由
+2.  路由: [react-router](https://github.com/ReactTraining/react-router)
+3.  类型检查: [prop-types](https://github.com/facebook/prop-types)
+4.  数据管理: [react-redux](https://github.com/reactjs/react-redux)
 
 ### UI
 
@@ -81,7 +82,7 @@ React Native
 1.  安装 [nodejs](https://nodejs.org).
 2.  `npm install -g react-native-cli`.
 
-**Android**
+#### Android
 
 1.  JDK (并配置环境变量)
 2.  安装 Android Studio <http://www.android-studio.org>
@@ -98,7 +99,7 @@ REM set path
 setx /m path "%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;"
 ```
 
-**IOS**
+#### iOS
 
 1.  App Store 安装 XCode.
 2.  其他工具安装
@@ -274,7 +275,7 @@ protected String getJSMainModuleName() {
 
 ### 导航
 
-> https://facebook.github.io/react-native/docs/navigation.html
+> <https://facebook.github.io/react-native/docs/navigation.html>
 
 1.  [react-navigation](https://github.com/react-navigation/react-navigation)
     提供了常用的导航方式(Stack, Tab, Drawer), 推荐.
@@ -293,7 +294,7 @@ ant-design-mobile.
 
 ### HTTP 请求
 
-> https://facebook.github.io/react-native/docs/network.html
+> <https://facebook.github.io/react-native/docs/network.html>
 
 1.  [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
     为内建接口.
@@ -303,7 +304,7 @@ ant-design-mobile.
 调试
 ----
 
-> https://facebook.github.io/react-native/docs/debugging.html
+> <https://facebook.github.io/react-native/docs/debugging.html>
 
 根据提示, 可以菜单按钮选择重新加载或热加载. Android 可摇晃手机显示菜单.
 
@@ -380,14 +381,12 @@ Tips
 原理
 ----
 
-> 1.  React
->     Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用
->     ReactReconciler对他们进行渲染。
-> 2.  UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI。
-> 3.  UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终
->     得以渲染在屏幕上。
-
-1.  [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+1.  React
+    Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用
+    ReactReconciler对他们进行渲染[^1]。
+2.  UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI[^2]。
+3.  UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终
+    得以渲染在屏幕上[^3]。
 
 React Native vs Weex
 ====================
@@ -449,7 +448,7 @@ Tips
 
 ### ES6
 
-以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^1],
+以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^4],
 特别是对于无需构建工具的情况.
 
 1.  箭头函数: 让 this 始终指向到 Vue 实例上.
@@ -513,7 +512,7 @@ API.getSomething().then(res => {
 });
 ```
 
-### 全局引入 SCSS 变量文件[^2] {#全局引入-scss-变量文件vueglobalimportvariablesfile}
+### 全局引入 SCSS 变量文件[^5] {#全局引入-scss-变量文件vueglobalimportvariablesfile}
 
 场景: 将常用的变量存储到 `vars.scss`, 应用变量时需要在每个需要的地方
 `import`.
@@ -633,7 +632,13 @@ weex build web
     `playground.apk`.
 3.  `weex debug` 报错可先安装 `npm install -g weex-devtool`.
 
-[^1]: [ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development,
+[^1]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+
+[^2]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+
+[^3]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+
+[^4]: [ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development,
     2018-01-22](https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/)
 
-[^2]: <https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&sh=4f87ec9d>
+[^5]: <https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&sh=4f87ec9d>

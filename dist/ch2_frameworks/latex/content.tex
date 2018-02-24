@@ -50,10 +50,12 @@ create-react-app my-app
 \item
   react
 \item
-  \href{https://github.com/reactjs/react-redux}{react-redux} 存储
-\item
+  路由:
   \href{https://github.com/ReactTraining/react-router}{react-router}
-  路由
+\item
+  类型检查: \href{https://github.com/facebook/prop-types}{prop-types}
+\item
+  数据管理: \href{https://github.com/reactjs/react-redux}{react-redux}
 \end{enumerate}
 
 \subsubsection{UI}\label{ui}
@@ -106,7 +108,7 @@ create-react-app my-app
   \lstinline!npm install -g react-native-cli!.
 \end{enumerate}
 
-\textbf{Android}
+\paragraph{Android}\label{android}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -130,7 +132,7 @@ REM set path
 setx /m path "%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;"
 \end{lstlisting}
 
-\textbf{IOS}
+\paragraph{iOS}\label{ios}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -365,7 +367,7 @@ protected String getJSMainModuleName() {
 \subsubsection{导航}\label{ux5bfcux822a}
 
 \begin{quote}
-https://facebook.github.io/react-native/docs/navigation.html
+\url{https://facebook.github.io/react-native/docs/navigation.html}
 \end{quote}
 
 \begin{enumerate}
@@ -399,7 +401,7 @@ ant-design-mobile.
 \subsubsection{HTTP 请求}\label{http-ux8bf7ux6c42}
 
 \begin{quote}
-https://facebook.github.io/react-native/docs/network.html
+\url{https://facebook.github.io/react-native/docs/network.html}
 \end{quote}
 
 \begin{enumerate}
@@ -416,7 +418,7 @@ https://facebook.github.io/react-native/docs/network.html
 \subsection{调试}\label{ux8c03ux8bd5}
 
 \begin{quote}
-https://facebook.github.io/react-native/docs/debugging.html
+\url{https://facebook.github.io/react-native/docs/debugging.html}
 \end{quote}
 
 根据提示, 可以菜单按钮选择重新加载或热加载. Android 可摇晃手机显示菜单.
@@ -535,27 +537,18 @@ index.js         # 入口文件
 
 \subsection{原理}\label{ux539fux7406}
 
-\begin{quote}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   React
   Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用
-  ReactReconciler对他们进行渲染。
+  ReactReconciler对他们进行渲染\footnote{\href{https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87/4ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87\%EF\%BC\%9A\%E6\%B8\%B2\%E6\%9F\%93\%E5\%8E\%9F\%E7\%90\%86.md}{ReactNative源码篇：渲染原理}}。
 \item
-  UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI。
+  UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI\footnote{\href{https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87/4ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87\%EF\%BC\%9A\%E6\%B8\%B2\%E6\%9F\%93\%E5\%8E\%9F\%E7\%90\%86.md}{ReactNative源码篇：渲染原理}}。
 \item
   UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终
-  得以渲染在屏幕上。
-\end{enumerate}
-\end{quote}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \href{https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87/4ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87\%EF\%BC\%9A\%E6\%B8\%B2\%E6\%9F\%93\%E5\%8E\%9F\%E7\%90\%86.md}{ReactNative源码篇：渲染原理}
+  得以渲染在屏幕上\footnote{\href{https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87/4ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87\%EF\%BC\%9A\%E6\%B8\%B2\%E6\%9F\%93\%E5\%8E\%9F\%E7\%90\%86.md}{ReactNative源码篇：渲染原理}}。
 \end{enumerate}
 
 \section{React Native vs Weex}\label{react-native-vs-weex}

@@ -78,8 +78,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2 id="依赖">依赖</h2>
 <ol style="list-style-type: decimal">
 <li>react</li>
-<li><a href="https://github.com/reactjs/react-redux">react-redux</a> 存储</li>
-<li><a href="https://github.com/ReactTraining/react-router">react-router</a> 路由</li>
+<li>路由: <a href="https://github.com/ReactTraining/react-router">react-router</a></li>
+<li>类型检查: <a href="https://github.com/facebook/prop-types">prop-types</a></li>
+<li>数据管理: <a href="https://github.com/reactjs/react-redux">react-redux</a></li>
 </ol>
 <h3 id="ui">UI</h3>
 <ul>
@@ -104,7 +105,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>安装 <a href="https://nodejs.org">nodejs</a>.</li>
 <li><code>npm install -g react-native-cli</code>.</li>
 </ol>
-<p><strong>Android</strong></p>
+<h4 id="android">Android</h4>
 <ol style="list-style-type: decimal">
 <li>JDK (并配置环境变量)</li>
 <li>安装 Android Studio <a href="http://www.android-studio.org" class="uri">http://www.android-studio.org</a></li>
@@ -118,7 +119,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="ex">REM</span> set path
 <span class="ex">setx</span> /m path <span class="st">&quot;%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;&quot;</span></code></pre></div>
-<p><strong>IOS</strong></p>
+<h4 id="ios">iOS</h4>
 <ol style="list-style-type: decimal">
 <li>App Store 安装 XCode.</li>
 <li><p>其他工具安装</p>
@@ -247,7 +248,7 @@ android {
 <h2 id="工具依赖dependencies">工具/依赖(dependencies)</h2>
 <h3 id="导航">导航</h3>
 <blockquote>
-<p>https://facebook.github.io/react-native/docs/navigation.html</p>
+<p><a href="https://facebook.github.io/react-native/docs/navigation.html" class="uri">https://facebook.github.io/react-native/docs/navigation.html</a></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li><a href="https://github.com/react-navigation/react-navigation">react-navigation</a> 提供了常用的导航方式(Stack, Tab, Drawer), 推荐.</li>
@@ -262,7 +263,7 @@ android {
 </ol>
 <h3 id="http-请求">HTTP 请求</h3>
 <blockquote>
-<p>https://facebook.github.io/react-native/docs/network.html</p>
+<p><a href="https://facebook.github.io/react-native/docs/network.html" class="uri">https://facebook.github.io/react-native/docs/network.html</a></p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a> 为内建接口.</li>
@@ -270,7 +271,7 @@ android {
 </ol>
 <h2 id="调试">调试</h2>
 <blockquote>
-<p>https://facebook.github.io/react-native/docs/debugging.html</p>
+<p><a href="https://facebook.github.io/react-native/docs/debugging.html" class="uri">https://facebook.github.io/react-native/docs/debugging.html</a></p>
 </blockquote>
 <p>根据提示, 可以菜单按钮选择重新加载或热加载. Android 可摇晃手机显示菜单.</p>
 <h3 id="虚拟机">虚拟机</h3>
@@ -327,15 +328,10 @@ index.js         # 入口文件</code></pre>
 <li>集成<code>react-native-navigation</code>需要注意Android SDK版本, 版本过低可能出现编译错误(<code>Error:Error retrieving parent for item: No resource found</code>).</li>
 </ol>
 <h2 id="原理">原理</h2>
-<blockquote>
 <ol style="list-style-type: decimal">
-<li>React Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用 ReactReconciler对他们进行渲染。</li>
-<li>UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI。</li>
-<li>UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终 得以渲染在屏幕上。</li>
-</ol>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a></li>
+<li>React Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用 ReactReconciler对他们进行渲染<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。</li>
+<li>UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。</li>
+<li>UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终 得以渲染在屏幕上<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>。</li>
 </ol>
 <h1 id="react-native-vs-weex">React Native vs Weex</h1>
 <h2 id="对比表格">对比表格</h2>
@@ -428,7 +424,7 @@ index.js         # 入口文件</code></pre>
 <h1 id="vue.js">Vue.js</h1>
 <h2 id="tips-1">Tips</h2>
 <h3 id="es6">ES6</h3>
-<p>以下几个 ES6 功能应用于 Vue.js 将获得不错的收益<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, 特别是对于无需构建工具的情况.</p>
+<p>以下几个 ES6 功能应用于 Vue.js 将获得不错的收益<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, 特别是对于无需构建工具的情况.</p>
 <ol style="list-style-type: decimal">
 <li>箭头函数: 让 this 始终指向到 Vue 实例上.</li>
 <li><p>模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接. 也可以应用于变量套入到字符串中.</p>
@@ -464,7 +460,7 @@ index.js         # 入口文件</code></pre>
   <span class="co">// 2. 然后绑定到 data 中的变量</span>
   <span class="kw">this</span>.<span class="at">varInDate</span> <span class="op">=</span> handledRes<span class="op">;</span>
 <span class="op">}</span>)<span class="op">;</span></code></pre></div>
-<h3 id="全局引入-scss-变量文件vueglobalimportvariablesfile">全局引入 SCSS 变量文件<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h3>
+<h3 id="全局引入-scss-变量文件vueglobalimportvariablesfile">全局引入 SCSS 变量文件<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></h3>
 <p>场景: 将常用的变量存储到 <code>vars.scss</code>, 应用变量时需要在每个需要的地方 <code>import</code>.</p>
 <ol style="list-style-type: decimal">
 <li><code>npm install sass-resources-loader --save-dev</code></li>
@@ -554,8 +550,11 @@ npm run dev &amp; npm run serve</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/">ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d" class="uri">https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d</a><a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/">ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22</a><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d" class="uri">https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d</a><a href="#fnref5">↩</a></p></li>
 </ol>
 </div>
 </body>
