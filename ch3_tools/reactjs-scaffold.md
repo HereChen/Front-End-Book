@@ -29,3 +29,34 @@
       "start": "parcel src/index.html"
     }
     ```
+
+`src/index.js`
+
+```javascript
+import React from "react";
+import ReactDOM from "react-dom";
+
+const App = () => {
+  return <h1>Hello World! HOT</h1>;
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
+```
+
+`src/index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>APP</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="./index.js"></script>
+</body>
+</html>
+```
