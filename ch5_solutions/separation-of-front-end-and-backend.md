@@ -13,17 +13,24 @@
 
 解决的问题:
 
-0. core: 优化交互体验, 提高编码效率.
-1. SEO.
-2. 性能优化.
-3. 首屏优化.
-4. 代码复用(业务逻辑, 路由, 模板).
+1. core: 优化交互体验, 提高编码效率.
+2. SEO.
+3. 性能优化.
+4. 首屏优化.
+5. 代码复用(业务逻辑, 路由, 模板).
 
 ## 应用
 
-1. 框架支持: nuxt.js(可用 Koa 替换 Express).
-2. 路由用 history mode (Vue.js), 如果后端不配置, 直接进入页面无法访问. 可复用模板, 直接访问时后端渲染, 路由访问时前端渲染[^slHerman2016Separation].
-3. 服务端, 浏览器端及Native端都可应用的第三方库: axios, moment.js.
+1. 服务端框架: [Koa](https://github.com/koajs/koa), [Express](https://github.com/expressjs/express).
+2. 同构框架支持: nuxt.js(可用 Koa 替换 Express).
+3. 路由用 history mode (Vue.js), 如果后端不配置, 直接进入页面无法访问. 可复用模板, 直接访问时后端渲染, 路由访问时前端渲染[^slHerman2016Separation].
+4. 服务端, 浏览器端及Native端都可应用的第三方库: axios, moment.js.
+
+## 引入 nodejs 层的应用场景
+
+除了上面所述的性能和SEO等问题, 还可以作为中间件, 抹平同类型系统的差异, 构建统一的平台.
+
+比如, 对于多个定制化的产品, 每个产品都对应有运营平台, 用于观测用户使用情况. 由于历史上造成的差异, 每个运营平台都需要重新构建一套运行于浏览器端的前端工程. 对于这种业务相似度较高的情况, 就可以在服务端引入 nodejs, 构建统一的平台, 抹平已有系统之前的差异(比如接口有不同的风格), 只需要实现一套 Web APP. 同时也方便了后期其他定制产品的扩展.
 
 ## 扩展
 
@@ -31,7 +38,5 @@
 2. [Jason Strimpel, Maxime Najim, 同构JavaScript应用开发, 2017](https://book.douban.com/subject/27183584/)
 3. [Nicholas C. Zakas, Node.js and the new web front-end, 2013-10-07](https://www.nczonline.net/blog/2013/10/07/node-js-and-the-new-web-front-end/)
 
-
 [^slBalint2016Separation]: [Balint Sera, On the separation of front-end and backend, 2016-06-15](https://medium.com/@balint_sera/on-the-separation-of-front-end-and-backend-7a0809b42820)
 [^slHerman2016Separation]: [赫门, 淘宝前后端分离实践, 2014](http://2014.jsconf.cn/slides/herman-taobaoweb/#/)
-
