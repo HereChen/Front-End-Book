@@ -336,7 +336,6 @@ app.run(function($rootScope){
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{-1}
 \tightlist
 \item
   core: 优化交互体验, 提高编码效率.
@@ -356,7 +355,10 @@ app.run(function($rootScope){
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  框架支持: nuxt.js(可用 Koa 替换 Express).
+  服务端框架: \href{https://github.com/koajs/koa}{Koa},
+  \href{https://github.com/expressjs/express}{Express}.
+\item
+  同构框架支持: nuxt.js(可用 Koa 替换 Express).
 \item
   路由用 history mode (Vue.js), 如果后端不配置, 直接进入页面无法访问.
   可复用模板, 直接访问时后端渲染, 路由访问时前端渲染\footnote{\href{http://2014.jsconf.cn/slides/herman-taobaoweb/\#/}{赫门,
@@ -364,6 +366,19 @@ app.run(function($rootScope){
 \item
   服务端, 浏览器端及Native端都可应用的第三方库: axios, moment.js.
 \end{enumerate}
+
+\subsection{引入 nodejs
+层的应用场景}\label{ux5f15ux5165-nodejs-ux5c42ux7684ux5e94ux7528ux573aux666f}
+
+除了上面所述的性能和SEO等问题, 还可以作为中间件, 抹平同类型系统的差异,
+构建统一的平台.
+
+比如, 对于多个定制化的产品, 每个产品都对应有运营平台,
+用于观测用户使用情况. 由于历史上造成的差异,
+每个运营平台都需要重新构建一套运行于浏览器端的前端工程.
+对于这种业务相似度较高的情况, 就可以在服务端引入 nodejs, 构建统一的平台,
+抹平已有系统之前的差异(比如接口有不同的风格), 只需要实现一套 Web APP.
+同时也方便了后期其他定制产品的扩展.
 
 \subsection{扩展}\label{ux6269ux5c55}
 
