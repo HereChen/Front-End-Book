@@ -174,17 +174,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4 id="gradle设置">gradle设置</h4>
 <ol style="list-style-type: decimal">
 <li><code>my-release-key.keystore</code> 文件放到工程 <code>android/app</code> 文件夹下.</li>
-<li>编辑 <code>android/app/gradle.properties</code>, 添加如下信息.</li>
-</ol>
-<!-- -->
+<li><p>编辑 <code>android/app/gradle.properties</code>, 添加如下信息.</p>
 <pre><code>MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
 MYAPP_RELEASE_KEY_ALIAS=my-key-alias
 MYAPP_RELEASE_STORE_PASSWORD=chenlei
-MYAPP_RELEASE_KEY_PASSWORD=chenlei</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>编辑 <code>android/app/build.gradle</code>, 添加如下信息.</li>
-</ol>
-<!-- -->
+MYAPP_RELEASE_KEY_PASSWORD=chenlei</code></pre></li>
+<li><p>编辑 <code>android/app/build.gradle</code>, 添加如下信息.</p>
 <pre><code>...
 android {
     ...
@@ -204,7 +199,8 @@ android {
         }
     }
 }
-...</code></pre>
+...</code></pre></li>
+</ol>
 <h4 id="生成-apk">生成 apk</h4>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> android <span class="kw">&amp;&amp;</span> <span class="ex">./gradlew</span> assembleRelease</code></pre></div>
 <p>打包后在 <code>android/app/build/outputs/apk/app-release.apk</code>.</p>

@@ -45,6 +45,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </style>
 </head>
 <body>
+<h1 id="parcel-与-react-搭建项目">parcel 与 React 搭建项目</h1>
+<p><a href="https://github.com/parcel-bundler/parcel">parcel</a> 支持热加载、source map、code split (需要按既定格式书写代码).</p>
+<h2 id="基础">基础</h2>
+<ol style="list-style-type: decimal">
+<li><p>初始化项目</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> init -y</code></pre></div></li>
+<li><p>安装资源依赖: react 相关依赖</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> i --save react react-dom</code></pre></div></li>
+<li><p>安装工具依赖: parcel</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> i --save-dev parcel-bundler</code></pre></div></li>
+<li><p>启动命令: <code>npm run start</code></p>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="er">&quot;scripts&quot;:</span> <span class="fu">{</span>
+  <span class="dt">&quot;start&quot;</span><span class="fu">:</span> <span class="st">&quot;parcel src/index.html&quot;</span>
+<span class="fu">}</span></code></pre></div></li>
+</ol>
+<p><code>src/index.js</code></p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">import</span> React <span class="im">from</span> <span class="st">&quot;react&quot;</span><span class="op">;</span>
+<span class="im">import</span> ReactDOM <span class="im">from</span> <span class="st">&quot;react-dom&quot;</span><span class="op">;</span>
+
+<span class="kw">const</span> App <span class="op">=</span> () <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span>Hello World<span class="op">!</span> HOT<span class="op">&lt;</span><span class="ss">/h1&gt;;</span>
+<span class="ss">};</span>
+
+<span class="ss">ReactDOM.render</span><span class="sc">(</span><span class="ss">&lt;App /</span><span class="op">&gt;,</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&quot;root&quot;</span>))<span class="op">;</span></code></pre></div>
+<p><code>src/index.html</code></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html</span><span class="ot"> lang=</span><span class="st">&quot;zh&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> charset=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> name=</span><span class="st">&quot;viewport&quot;</span><span class="ot"> content=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> http-equiv=</span><span class="st">&quot;X-UA-Compatible&quot;</span><span class="ot"> content=</span><span class="st">&quot;ie=edge&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title&gt;</span>APP<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;root&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
+    <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;./index.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
 <h1 id="visual-studio-code">Visual Studio Code</h1>
 <ol style="list-style-type: decimal">
 <li>主页: <a href="https://code.visualstudio.com/" class="uri">https://code.visualstudio.com/</a></li>

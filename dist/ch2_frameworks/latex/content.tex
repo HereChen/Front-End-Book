@@ -224,13 +224,11 @@ Enter key password for <my-key-alias>
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \lstinline!my-release-key.keystore! 文件放到工程
   \lstinline!android/app! 文件夹下.
 \item
   编辑 \lstinline!android/app/gradle.properties!, 添加如下信息.
-\end{enumerate}
 
 \begin{lstlisting}
 MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
@@ -238,14 +236,8 @@ MYAPP_RELEASE_KEY_ALIAS=my-key-alias
 MYAPP_RELEASE_STORE_PASSWORD=chenlei
 MYAPP_RELEASE_KEY_PASSWORD=chenlei
 \end{lstlisting}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
 \item
   编辑 \lstinline!android/app/build.gradle!, 添加如下信息.
-\end{enumerate}
 
 \begin{lstlisting}
 ...
@@ -269,6 +261,7 @@ android {
 }
 ...
 \end{lstlisting}
+\end{enumerate}
 
 \paragraph{生成 apk}\label{ux751fux6210-apk}
 
