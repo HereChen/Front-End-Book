@@ -350,6 +350,24 @@ npm 的包都是公开的,
   sinopia: \url{https://github.com/rlidwka/sinopia}
 \end{enumerate}
 
+两者的对比(\href{https://www.jianshu.com/p/659fb418c9e3}{企业私有 npm
+服务器}):
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+-- & cnpm & sinopia\tabularnewline
+\midrule
+\endhead
+系统支持 & 非windows & 全系统\tabularnewline
+安装 & 复杂 & 简单\tabularnewline
+配置 & 较多，适合个性化需求较多的 & 较少\tabularnewline
+配置------修改默认镜像 & 不支持 & 支持\tabularnewline
+存储 & mysql & 文件格式，直观\tabularnewline
+服务托管 & 默认后台运行 & pm2, doker, forever\tabularnewline
+文档资料 & 较多 & 较少\tabularnewline
+\bottomrule
+\end{longtable}
+
 \section{前后端分离}\label{ux524dux540eux7aefux5206ux79bb}
 
 内容简述: 简单描述前后端分离的历史状况, 明确前后端划分的原则:

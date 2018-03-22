@@ -289,6 +289,19 @@ npm 的包都是公开的,
 1.  cnpm: <https://github.com/cnpm/cnpmjs.org>
 2.  sinopia: <https://github.com/rlidwka/sinopia>
 
+两者的对比([企业私有 npm
+服务器](https://www.jianshu.com/p/659fb418c9e3)):
+
+  --                   cnpm                         sinopia
+  -------------------- ---------------------------- ---------------------
+  系统支持             非windows                    全系统
+  安装                 复杂                         简单
+  配置                 较多，适合个性化需求较多的   较少
+  配置——修改默认镜像   不支持                       支持
+  存储                 mysql                        文件格式，直观
+  服务托管             默认后台运行                 pm2, doker, forever
+  文档资料             较多                         较少
+
 前后端分离
 ==========
 
