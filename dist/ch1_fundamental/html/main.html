@@ -357,28 +357,40 @@ div<span class="kw">{</span>
 <h2 id="垂直居中和水平居中">垂直居中和水平居中</h2>
 <h3 id="块元素垂直居中transform">块元素垂直居中(transform)</h3>
 <p>此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)</p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 250px;
-height<span class="dv">:</span> 250px;
-position<span class="dv">:</span> relative;
-top<span class="dv">:</span> 50%;
-transform<span class="dv">:</span> translateY(-50%);</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="kw">{</span>
+  <span class="kw">width:</span> <span class="dt">250px</span><span class="kw">;</span>
+  <span class="kw">height:</span> <span class="dt">250px</span><span class="kw">;</span>
+  <span class="kw">position:</span> <span class="dt">relative</span><span class="kw">;</span>
+  <span class="kw">top:</span> <span class="dt">50%</span><span class="kw">;</span>
+  <span class="kw">transform:</span> translateY(<span class="dt">-50%</span>)<span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
 <h3 id="块元素垂直居中绝对定位">块元素垂直居中(绝对定位)</h3>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 250px;
-height<span class="dv">:</span> 250px;
-position<span class="dv">:</span> absolute;
-top<span class="dv">:</span> 50%;
-margin-top<span class="dv">:</span> -125px;</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="kw">{</span>
+  <span class="kw">width:</span> <span class="dt">250px</span><span class="kw">;</span>
+  <span class="kw">height:</span> <span class="dt">250px</span><span class="kw">;</span>
+  <span class="kw">position:</span> <span class="dt">absolute</span><span class="kw">;</span>
+  <span class="kw">top:</span> <span class="dt">50%</span><span class="kw">;</span>
+  <span class="kw">margin-top:</span> <span class="dt">-125px</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
 <h3 id="内联元素垂直居中">内联元素垂直居中</h3>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/* 方案一: 块元素内容会居中, 需要设置高度 */</span>
-display<span class="dv">:</span> table-cell;
-vertical-align<span class="dv">:</span> middle;
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="kw">{</span>
+  <span class="co">/* 方案一: 块元素内容会居中, 需要设置高度 */</span>
+  <span class="kw">display:</span> <span class="dt">table-cell</span><span class="kw">;</span>
+  <span class="kw">vertical-align:</span> <span class="dt">middle</span><span class="kw">;</span>
 
-<span class="co">/* 方案二: 一般单行文本的上下居中 */</span>
-line-height<span class="dv">:</span> 50px;</code></pre></div>
+  <span class="co">/* 方案二: 一般单行文本的上下居中 */</span>
+  <span class="kw">line-height:</span> <span class="dt">50px</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
 <h3 id="块元素的水平居中">块元素的水平居中</h3>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">width<span class="dv">:</span> 100px;
-margin-left<span class="dv">:</span> auto;
-margin-right<span class="dv">:</span> auto;</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="kw">{</span>
+  <span class="kw">width:</span> <span class="dt">100px</span><span class="kw">;</span>
+  <span class="kw">margin-left:</span> <span class="dt">auto</span><span class="kw">;</span>
+  <span class="kw">margin-right:</span> <span class="dt">auto</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<h2 id="扩展">扩展</h2>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/atomiks/30-seconds-of-css">atomiks/30-seconds-of-css</a>: 一些实用的代码片段收集.</li>
+</ol>
 <h1 id="javascript">JavaScript</h1>
 <h2 id="javascript-组成">JavaScript 组成</h2>
 <p>一个完整的 JavaScript 实现是由以下 3 个不同部分组成的：</p>
@@ -865,7 +877,7 @@ a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at"
 <blockquote>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await">await</a></p>
 </blockquote>
-<h4 id="扩展">扩展</h4>
+<h4 id="扩展-1">扩展</h4>
 <ol style="list-style-type: decimal">
 <li><a href="https://segmentfault.com/a/1190000007535316">理解 JavaScript 的 async/await, 边城, 2016/11/19</a></li>
 </ol>
