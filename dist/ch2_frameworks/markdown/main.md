@@ -61,8 +61,18 @@ create-react-app my-app
 
 ### 优化
 
+-   [reselector](https://github.com/reactjs/reselect)
 -   [immutable.js](https://github.com/facebook/immutable-js)
 -   [seamless-immutable.js](https://github.com/rtfeldman/seamless-immutable)
+
+文件组织
+--------
+
+扩展
+----
+
+1.  [GitHub,
+    erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
 
 React Native
 ============

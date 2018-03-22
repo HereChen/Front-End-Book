@@ -191,6 +191,30 @@ max_line_length = 80</code></pre>
 <li><a href="https://cn.vuejs.org/v2/guide/custom-directive.html">自定义指令</a></li>
 <li><a href="https://codepen.io/diemah77/pen/GZGxPK" class="uri">https://codepen.io/diemah77/pen/GZGxPK</a></li>
 </ul>
+<h1 id="npm包及私有库">npm包及私有库</h1>
+<h2 id="npm-包编写">npm 包编写</h2>
+<p>npm 包通常会兼容不同的应用场景: nodejs、require.js 和浏览器. 所以会包含一段用于判断运行环境的代码, 如下.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// from Vue.js</span>
+(<span class="kw">function</span> (global<span class="op">,</span> factory) <span class="op">{</span>
+  <span class="kw">typeof</span> exports <span class="op">===</span> <span class="st">&#39;object&#39;</span> <span class="op">&amp;&amp;</span> <span class="kw">typeof</span> module <span class="op">!==</span> <span class="st">&#39;undefined&#39;</span> <span class="op">?</span> <span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="at">factory</span>() :
+  <span class="kw">typeof</span> define <span class="op">===</span> <span class="st">&#39;function&#39;</span> <span class="op">&amp;&amp;</span> <span class="va">define</span>.<span class="at">amd</span> <span class="op">?</span> <span class="at">define</span>(factory) : (<span class="va">global</span>.<span class="at">NPM_THING</span> <span class="op">=</span> <span class="at">factory</span>())<span class="op">;</span>
+<span class="op">}</span>(<span class="kw">this</span><span class="op">,</span> (<span class="kw">function</span> () <span class="op">{</span>
+  <span class="st">&#39;use strict&#39;</span><span class="op">;</span>
+  <span class="co">// code</span>
+  <span class="co">// return NPM_THING;</span>
+<span class="op">}</span>)))<span class="op">;</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>判断是否是 nodejs 环境: <code>typeof exports === 'object' &amp;&amp; typeof module !== 'undefined'</code>.</li>
+<li>判断是否是 require.js: <code>typeof define === 'function' &amp;&amp; define.amd</code></li>
+</ol>
+<p>其中的 <code>this</code> 指向全局变量, nodejs <code>this</code> 为 <code>global</code>, 浏览器中 <code>this</code> 为 <code>window</code>.</p>
+<h2 id="私有库方案">私有库方案</h2>
+<p>为了避免重复造轮子, 提供编码效率, 同时又可以避免企业内部的业务逻辑暴露, 于是对私有库有需求. 期望, 如果私有库中有, 则从私有库中下载, 否则从公开的库中下载.</p>
+<p>npm 的包都是公开的, 提供的<a href="https://www.npmjs.com/enterprise">企业私有化方案</a>是收费的. 开源方案有:</p>
+<ol style="list-style-type: decimal">
+<li>cnpm: <a href="https://github.com/cnpm/cnpmjs.org" class="uri">https://github.com/cnpm/cnpmjs.org</a></li>
+<li>sinopia: <a href="https://github.com/rlidwka/sinopia" class="uri">https://github.com/rlidwka/sinopia</a></li>
+</ol>
 <h1 id="前后端分离">前后端分离</h1>
 <p>内容简述: 简单描述前后端分离的历史状况, 明确前后端划分的原则: 后端面向数据, 前端面向用户, 在服务端引入 nodejs 可以解决的问题(应用的场景).</p>
 <h2 id="历史">历史</h2>
