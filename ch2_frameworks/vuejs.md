@@ -1,5 +1,12 @@
 # Vue.js
 
+[Vue.js](https://github.com/vuejs/vue) 开发简单直观, 简单实用的东西通常寿命会比较长.
+
+## 周边配套
+
+1. 开发小程序: [Meituan-Dianping/mpvue](https://github.com/Meituan-Dianping/mpvue)
+2. 开发原生APP: [weex](https://weex.apache.org/)
+
 ## Tips
 
 ### ES6
