@@ -5,6 +5,7 @@
 - [ ] HTML 格式添加 CSS (类似 LaTeX 的 format.cls)
 - [ ] forword
 - [ ] cover
+- [ ] 代码 title 或文件名添加
 - [ ] pandoc 2.1.1 编译出错.
 - [x] 增加合成 pdf 标题需要显示层级
 - [x] 合成(book)一起编译(公用 latex 需分离部分参数)
