@@ -34,3 +34,13 @@ BEM, SMACSS, OOCSS
 1. CSScomb: <http://csscomb.com>
 2. 配置文件`.csscomb.json` 示例:<https://github.com/htmlacademy/codeguide/blob/master/csscomb.json>
 3. VSCode 插件: [CSScomb](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-csscomb)
+
+### JS 静态代码检查工具
+
+1. ESLint: <https://github.com/eslint/eslint>
+2. JSLint: <https://github.com/jshint/jshint/>
+
+### JS 语法规范
+
+1. airbnb: <https://github.com/airbnb/javascript>
+2. standard: <https://github.com/standard/standard>
