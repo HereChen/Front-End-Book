@@ -1,42 +1,150 @@
-Element
-=======
+介绍
+====
 
-<https://github.com/ElemeFE/element>
+1.  [jQuery](https://github.com/jquery/jquery): Dom 工具.
+2.  [lodash](https://github.com/lodash/lodash): A modern JavaScript
+    utility library delivering modularity, performance, & extras.
 
-组件使用
+Vue.js
+======
+
+[Vue.js](https://github.com/vuejs/vue) 开发简单直观,
+简单实用的东西通常寿命会比较长.
+
+周边配套
 --------
 
-### 自定义表单校验
+1.  开发小程序:
+    [Meituan-Dianping/mpvue](https://github.com/Meituan-Dianping/mpvue)
+2.  开发原生APP: [weex](https://weex.apache.org/)
 
-``` {.javascript}
-export default {
-  data: function () {
-    var checkVars = function (rule, value, callback) {
-      if (!value) {
-        callback(new Error('不能为空'));
-      } else {
-        callback();
+Tips
+----
+
+### ES6
+
+以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^1],
+特别是对于无需构建工具的情况.
+
+1.  箭头函数: 让 this 始终指向到 Vue 实例上.
+2.  模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接.
+    也可以应用于变量套入到字符串中.
+
+    ``` {.javascript}
+    Vue.component({
+      template: `<div>
+                  <h1></h1>
+                  <p></p>
+                </div>`
+      data: {
+        time: `time: ${Date.now()}`
       }
-    };
-    return {
-      rules: {
-        vars: [{
-          required: true,
-          trigger: 'change',
-          validator: checkVars
-        }]
+    });
+    ```
+
+3.  模块(Modules): 应用于声明式的组件 `Vue.component`, 甚至不需要
+    webpack 的支持.
+
+    ``` {.javascript}
+    import component1 from './component1.js';
+    Vue.component('component1', component1);
+    ```
+
+4.  解构赋值: 可应用于只获取需要的值, 减少不必要的赋值, 比如只获取 Vuex
+    中的 commit 而不需要 store.
+
+    ``` {.javascript}
+    actions: {
+      increment ({ commit }) {
+        commit(...);
       }
     }
-  }
+    ```
+
+5.  扩展运算符: 数组和对象等批量导出, 而不需要用循环语句. 比如,
+    将路由根据功能划分为多个文件, 再用扩展展运算符在 index 中合在一起.
+
+### 组件重新渲染
+
+通过设置 `v-if` 实现, 从 Dom 中剔除再加入.
+
+``` {.html}
+<demo-component v-if="ifShow"></demo-component>
+```
+
+### 绑定数据后添加属性视图未重新渲染
+
+如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据,
+然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.
+
+``` {.javascript}
+API.getSomething().then(res => {
+  // 1. 先添加属性
+  // handle 表示对数据的处理, 包括对象中属性的添加
+  const handledRes = handle(res);
+  // 2. 然后绑定到 data 中的变量
+  this.varInDate = handledRes;
+});
+```
+
+### 全局引入 SCSS 变量文件[^2] {#全局引入-scss-变量文件vueglobalimportvariablesfile}
+
+场景: 将常用的变量存储到 `vars.scss`, 应用变量时需要在每个需要的地方
+`import`.
+
+1.  `npm install sass-resources-loader --save-dev`
+2.  更改 `build/webpack.base.conf.js`, 适用于 vue-cli.
+
+``` {.json}
+{
+    test: /\.vue$/,
+    loader: 'vue-loader',
+    options: {
+        loaders: {
+            sass: ['vue-style-loader', 'css-loader', {
+                loader: 'sass-loader',
+                options: {
+                    indentedSyntax: true
+                }
+            }, {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }],
+            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }]
+        }
+        // other vue-loader options go here
+    }
 }
 ```
 
-兼容性
-------
+Compatible
+----------
 
-### IE 图标不显示
+### IE `vuex requires a promise polyfill in this browser`
 
-可用文字替代伪元素中的内容.
+``` {.bash}
+npm install --save-dev babel-polyfill
+```
+
+``` {.javascript}
+// build/webpack.base.conf.js
+entry: {
+  app: [
+    'babel-polyfill',
+    './src/main.js'
+  ]
+}
+```
+
+[vuex requires a promise polyfill in this
+browser](https://github.com/vuejs-templates/webpack/issues/474)
 
 React
 =====
@@ -389,203 +497,10 @@ Tips
 
 1.  React
     Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用
-    ReactReconciler对他们进行渲染[^1]。
-2.  UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI[^2]。
+    ReactReconciler对他们进行渲染[^3]。
+2.  UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI[^4]。
 3.  UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终
-    得以渲染在屏幕上[^3]。
-
-React Native vs Weex
-====================
-
-对比表格
---------
-
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------
-  属性                                                [React                                              [Weex](https://github.com/apache/incubator-weex/)
-                                                      Native](https://github.com/facebook/react-native)   
-  --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------
-  开源时间                                            2015/03                                             2016/06
-
-  开源企业                                            Facebook                                            Alibaba
-
-  协议                                                BSD 3-clause                                        Apache License 2.0
-
-  主页标语                                            Build native mobile apps using JavaScript and React A framework for building Mobile cross-paltform UIs
-
-  核心理念                                            Learn Once, Write Anywhere                          Write Once, Run Everywhere
-
-  前端框架                                            React                                               Vue.js
-
-  JS Engine                                           JavaScriptCore(iOS/Android)                         JavaScriptCore(iOS) /v8(Android)
-
-  三端开发                                            部分组件需要区分平台开发                            强调三端统一
-
-  代码写法                                            JSX(JavaScript + XML)                               Web 写法
-
-  调试                                                虚拟机                                              可用 Chrome 查看效果
-
-  社区支持                                            社区活跃, 有多个流行产品的实践                      目前, 开发者主要在国内, 没有太多的实践案例
-
-  优势                                                生态好, 第三方依赖多, 有可借鉴的经验                基于 Vue.js, 上手快, 能更好的保证三端一致
-  -----------------------------------------------------------------------------------------------------------------------------------------------------------
-
-以下参考都是 2016 年文章.
-
-1.  [compare weex to react
-    native](https://www.gitbook.com/book/xiaomaer/compare-weex-to-react-native/details)
-2.  [Weex 简介](http://slides.com/ciyinhuang/weex#/)
-3.  [Weex & React
-    Native](http://zfx5130.me/blog/2016/09/15/Weex-&-React-Native/)
-
-评论摘抄
---------
-
-> After a few days of experimentation, I realized Weex and its
-> documentation were not yet developed enough to for us to use to
-> deliver top-quality apps. This was my experience with Weex. [Sam
-> Landfried, 2017.10.20, Is VueJS' Weex a Suitable Alternative to React
-> Native?](https://www.bignerdranch.com/blog/is-vuejs-weex-a-suitable-alternative-to-react-native/)
-
-Vue.js
-======
-
-[Vue.js](https://github.com/vuejs/vue) 开发简单直观,
-简单实用的东西通常寿命会比较长.
-
-周边配套
---------
-
-1.  开发小程序:
-    [Meituan-Dianping/mpvue](https://github.com/Meituan-Dianping/mpvue)
-2.  开发原生APP: [weex](https://weex.apache.org/)
-
-Tips
-----
-
-### ES6
-
-以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^4],
-特别是对于无需构建工具的情况.
-
-1.  箭头函数: 让 this 始终指向到 Vue 实例上.
-2.  模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接.
-    也可以应用于变量套入到字符串中.
-
-    ``` {.javascript}
-    Vue.component({
-      template: `<div>
-                  <h1></h1>
-                  <p></p>
-                </div>`
-      data: {
-        time: `time: ${Date.now()}`
-      }
-    });
-    ```
-
-3.  模块(Modules): 应用于声明式的组件 `Vue.component`, 甚至不需要
-    webpack 的支持.
-
-    ``` {.javascript}
-    import component1 from './component1.js';
-    Vue.component('component1', component1);
-    ```
-
-4.  解构赋值: 可应用于只获取需要的值, 减少不必要的赋值, 比如只获取 Vuex
-    中的 commit 而不需要 store.
-
-    ``` {.javascript}
-    actions: {
-      increment ({ commit }) {
-        commit(...);
-      }
-    }
-    ```
-
-5.  扩展运算符: 数组和对象等批量导出, 而不需要用循环语句. 比如,
-    将路由根据功能划分为多个文件, 再用扩展展运算符在 index 中合在一起.
-
-### 组件重新渲染
-
-通过设置 `v-if` 实现, 从 Dom 中剔除再加入.
-
-``` {.html}
-<demo-component v-if="ifShow"></demo-component>
-```
-
-### 绑定数据后添加属性视图未重新渲染
-
-如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据,
-然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.
-
-``` {.javascript}
-API.getSomething().then(res => {
-  // 1. 先添加属性
-  // handle 表示对数据的处理, 包括对象中属性的添加
-  const handledRes = handle(res);
-  // 2. 然后绑定到 data 中的变量
-  this.varInDate = handledRes;
-});
-```
-
-### 全局引入 SCSS 变量文件[^5] {#全局引入-scss-变量文件vueglobalimportvariablesfile}
-
-场景: 将常用的变量存储到 `vars.scss`, 应用变量时需要在每个需要的地方
-`import`.
-
-1.  `npm install sass-resources-loader --save-dev`
-2.  更改 `build/webpack.base.conf.js`, 适用于 vue-cli.
-
-``` {.json}
-{
-    test: /\.vue$/,
-    loader: 'vue-loader',
-    options: {
-        loaders: {
-            sass: ['vue-style-loader', 'css-loader', {
-                loader: 'sass-loader',
-                options: {
-                    indentedSyntax: true
-                }
-            }, {
-                loader: 'sass-resources-loader',
-                options: {
-                    resources: path.resolve(__dirname, "./styles/vars.scss")
-                }
-            }],
-            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
-                loader: 'sass-resources-loader',
-                options: {
-                    resources: path.resolve(__dirname, "./styles/vars.scss")
-                }
-            }]
-        }
-        // other vue-loader options go here
-    }
-}
-```
-
-Compatible
-----------
-
-### IE `vuex requires a promise polyfill in this browser`
-
-``` {.bash}
-npm install --save-dev babel-polyfill
-```
-
-``` {.javascript}
-// build/webpack.base.conf.js
-entry: {
-  app: [
-    'babel-polyfill',
-    './src/main.js'
-  ]
-}
-```
-
-[vuex requires a promise polyfill in this
-browser](https://github.com/vuejs-templates/webpack/issues/474)
+    得以渲染在屏幕上[^5]。
 
 Weex
 ====
@@ -648,13 +563,105 @@ weex build web
     `playground.apk`.
 3.  `weex debug` 报错可先安装 `npm install -g weex-devtool`.
 
-[^1]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+React Native vs Weex
+====================
 
-[^2]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+对比表格
+--------
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+  属性                                                [React                                              [Weex](https://github.com/apache/incubator-weex/)
+                                                      Native](https://github.com/facebook/react-native)   
+  --------------------------------------------------- --------------------------------------------------- ---------------------------------------------------
+  开源时间                                            2015/03                                             2016/06
+
+  开源企业                                            Facebook                                            Alibaba
+
+  协议                                                BSD 3-clause                                        Apache License 2.0
+
+  主页标语                                            Build native mobile apps using JavaScript and React A framework for building Mobile cross-paltform UIs
+
+  核心理念                                            Learn Once, Write Anywhere                          Write Once, Run Everywhere
+
+  前端框架                                            React                                               Vue.js
+
+  JS Engine                                           JavaScriptCore(iOS/Android)                         JavaScriptCore(iOS) /v8(Android)
+
+  三端开发                                            部分组件需要区分平台开发                            强调三端统一
+
+  代码写法                                            JSX(JavaScript + XML)                               Web 写法
+
+  调试                                                虚拟机                                              可用 Chrome 查看效果
+
+  社区支持                                            社区活跃, 有多个流行产品的实践                      目前, 开发者主要在国内, 没有太多的实践案例
+
+  优势                                                生态好, 第三方依赖多, 有可借鉴的经验                基于 Vue.js, 上手快, 能更好的保证三端一致
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+以下参考都是 2016 年文章.
+
+1.  [compare weex to react
+    native](https://www.gitbook.com/book/xiaomaer/compare-weex-to-react-native/details)
+2.  [Weex 简介](http://slides.com/ciyinhuang/weex#/)
+3.  [Weex & React
+    Native](http://zfx5130.me/blog/2016/09/15/Weex-&-React-Native/)
+
+评论摘抄
+--------
+
+> After a few days of experimentation, I realized Weex and its
+> documentation were not yet developed enough to for us to use to
+> deliver top-quality apps. This was my experience with Weex. [Sam
+> Landfried, 2017.10.20, Is VueJS' Weex a Suitable Alternative to React
+> Native?](https://www.bignerdranch.com/blog/is-vuejs-weex-a-suitable-alternative-to-react-native/)
+
+Element
+=======
+
+<https://github.com/ElemeFE/element>
+
+组件使用
+--------
+
+### 自定义表单校验
+
+``` {.javascript}
+export default {
+  data: function () {
+    var checkVars = function (rule, value, callback) {
+      if (!value) {
+        callback(new Error('不能为空'));
+      } else {
+        callback();
+      }
+    };
+    return {
+      rules: {
+        vars: [{
+          required: true,
+          trigger: 'change',
+          validator: checkVars
+        }]
+      }
+    }
+  }
+}
+```
+
+兼容性
+------
+
+### IE 图标不显示
+
+可用文字替代伪元素中的内容.
+
+[^1]: [ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development,
+    2018-01-22](https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/)
+
+[^2]: <https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&sh=4f87ec9d>
 
 [^3]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
 
-[^4]: [ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development,
-    2018-01-22](https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/)
+[^4]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
 
-[^5]: <https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&sh=4f87ec9d>
+[^5]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)

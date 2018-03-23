@@ -1,39 +1,171 @@
-\section{Element}\label{element}
+\section{介绍}\label{ux4ecbux7ecd}
 
-\url{https://github.com/ElemeFE/element}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://github.com/jquery/jquery}{jQuery}: Dom 工具.
+\item
+  \href{https://github.com/lodash/lodash}{lodash}: A modern JavaScript
+  utility library delivering modularity, performance, \& extras.
+\end{enumerate}
 
-\subsection{组件使用}\label{ux7ec4ux4ef6ux4f7fux7528}
+\section{Vue.js}\label{vue.js}
 
-\subsubsection{自定义表单校验}\label{ux81eaux5b9aux4e49ux8868ux5355ux6821ux9a8c}
+\href{https://github.com/vuejs/vue}{Vue.js} 开发简单直观,
+简单实用的东西通常寿命会比较长.
+
+\subsection{周边配套}\label{ux5468ux8fb9ux914dux5957}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  开发小程序:
+  \href{https://github.com/Meituan-Dianping/mpvue}{Meituan-Dianping/mpvue}
+\item
+  开发原生APP: \href{https://weex.apache.org/}{weex}
+\end{enumerate}
+
+\subsection{Tips}\label{tips}
+
+\subsubsection{ES6}\label{es6}
+
+以下几个 ES6 功能应用于 Vue.js 将获得不错的收益\footnote{\href{https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/}{ANTHONY
+  GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22}},
+特别是对于无需构建工具的情况.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  箭头函数: 让 this 始终指向到 Vue 实例上.
+\item
+  模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接.
+  也可以应用于变量套入到字符串中.
 
 \begin{lstlisting}
-export default {
-  data: function () {
-    var checkVars = function (rule, value, callback) {
-      if (!value) {
-        callback(new Error('不能为空'));
-      } else {
-        callback();
-      }
-    };
-    return {
-      rules: {
-        vars: [{
-          required: true,
-          trigger: 'change',
-          validator: checkVars
-        }]
-      }
-    }
+Vue.component({
+  template: `<div>
+              <h1></h1>
+              <p></p>
+            </div>`
+  data: {
+    time: `time: ${Date.now()}`
+  }
+});
+\end{lstlisting}
+\item
+  模块(Modules): 应用于声明式的组件 \lstinline!Vue.component!,
+  甚至不需要 webpack 的支持.
+
+\begin{lstlisting}
+import component1 from './component1.js';
+Vue.component('component1', component1);
+\end{lstlisting}
+\item
+  解构赋值: 可应用于只获取需要的值, 减少不必要的赋值, 比如只获取 Vuex
+  中的 commit 而不需要 store.
+
+\begin{lstlisting}
+actions: {
+  increment ({ commit }) {
+    commit(...);
   }
 }
 \end{lstlisting}
+\item
+  扩展运算符: 数组和对象等批量导出, 而不需要用循环语句. 比如,
+  将路由根据功能划分为多个文件, 再用扩展展运算符在 index 中合在一起.
+\end{enumerate}
 
-\subsection{兼容性}\label{ux517cux5bb9ux6027}
+\subsubsection{组件重新渲染}\label{ux7ec4ux4ef6ux91cdux65b0ux6e32ux67d3}
 
-\subsubsection{IE 图标不显示}\label{ie-ux56feux6807ux4e0dux663eux793a}
+通过设置 \lstinline!v-if! 实现, 从 Dom 中剔除再加入.
 
-可用文字替代伪元素中的内容.
+\begin{lstlisting}[language=HTML]
+<demo-component v-if="ifShow"></demo-component>
+\end{lstlisting}
+
+\subsubsection{绑定数据后添加属性视图未重新渲染}\label{ux7ed1ux5b9aux6570ux636eux540eux6dfbux52a0ux5c5eux6027ux89c6ux56feux672aux91cdux65b0ux6e32ux67d3}
+
+如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据,
+然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.
+
+\begin{lstlisting}
+API.getSomething().then(res => {
+  // 1. 先添加属性
+  // handle 表示对数据的处理, 包括对象中属性的添加
+  const handledRes = handle(res);
+  // 2. 然后绑定到 data 中的变量
+  this.varInDate = handledRes;
+});
+\end{lstlisting}
+
+\subsubsection[全局引入 SCSS 变量文件]{\texorpdfstring{全局引入 SCSS
+变量文件\footnote{\url{https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB\&sh=4f87ec9d}}}{全局引入 SCSS 变量文件}}\label{ux5168ux5c40ux5f15ux5165-scss-ux53d8ux91cfux6587ux4ef6vueglobalimportvariablesfile}
+
+场景: 将常用的变量存储到 \lstinline!vars.scss!,
+应用变量时需要在每个需要的地方 \lstinline!import!.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \lstinline!npm install sass-resources-loader --save-dev!
+\item
+  更改 \lstinline!build/webpack.base.conf.js!, 适用于 vue-cli.
+\end{enumerate}
+
+\begin{lstlisting}
+{
+    test: /\.vue$/,
+    loader: 'vue-loader',
+    options: {
+        loaders: {
+            sass: ['vue-style-loader', 'css-loader', {
+                loader: 'sass-loader',
+                options: {
+                    indentedSyntax: true
+                }
+            }, {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }],
+            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }]
+        }
+        // other vue-loader options go here
+    }
+}
+\end{lstlisting}
+
+\subsection{Compatible}\label{compatible}
+
+\subsubsection{\texorpdfstring{IE
+\texttt{vuex\ requires\ a\ promise\ polyfill\ in\ this\ browser}}{IE vuex requires a promise polyfill in this browser}}\label{ie-vuex-requires-a-promise-polyfill-in-this-browser}
+
+\begin{lstlisting}[language=bash]
+npm install --save-dev babel-polyfill
+\end{lstlisting}
+
+\begin{lstlisting}
+// build/webpack.base.conf.js
+entry: {
+  app: [
+    'babel-polyfill',
+    './src/main.js'
+  ]
+}
+\end{lstlisting}
+
+\href{https://github.com/vuejs-templates/webpack/issues/474}{vuex
+requires a promise polyfill in this browser}
 
 \section{React}\label{react}
 
@@ -513,7 +645,7 @@ index.js         # 入口文件
   native project setup --- a better folder structure}
 \end{enumerate}
 
-\subsection{Tips}\label{tips}
+\subsection{Tips}\label{tips-1}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -556,6 +688,90 @@ index.js         # 入口文件
 \item
   UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终
   得以渲染在屏幕上\footnote{\href{https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87/4ReactNative\%E6\%BA\%90\%E7\%A0\%81\%E7\%AF\%87\%EF\%BC\%9A\%E6\%B8\%B2\%E6\%9F\%93\%E5\%8E\%9F\%E7\%90\%86.md}{ReactNative源码篇：渲染原理}}。
+\end{enumerate}
+
+\section{Weex}\label{weex}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  主页: \url{http://weex.apache.org}
+\item
+  GitHub: \url{https://github.com/apache/incubator-weex/}
+\end{enumerate}
+
+问题: 入口在哪儿?
+
+\textbf{案例}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://github.com/zwwill/yanxuan-weex-demo}{网易严选}
+\item
+  \href{https://mp.weixin.qq.com/s/dowOE_QpZrtV5GH9EAgyHg}{点我达骑手Weex最佳实践}
+\item
+  \href{https://github.com/weexteam/weex-hackernews}{weexteam/weex-hackernews}
+\end{enumerate}
+
+\subsection{搭建开发环境}\label{ux642dux5efaux5f00ux53d1ux73afux5883}
+
+\begin{lstlisting}
+npm install -g weex-toolkit
+\end{lstlisting}
+
+\subsection{Demo}\label{demo}
+
+\textbf{web}
+
+\begin{lstlisting}
+weex create weex
+cd weex
+npm install
+npm run dev & npm run serve
+\end{lstlisting}
+
+\textbf{命令}
+
+\begin{quote}
+https://github.com/weexteam/weex-pack
+\end{quote}
+
+\begin{lstlisting}[language=bash]
+# debug
+weex debug
+
+# add platform
+weex platform add android
+weex platform add ios
+
+# run
+weex run web
+weex run android
+weex run ios
+
+# build
+weex build web
+\end{lstlisting}
+
+\subsection{问题及解决}\label{ux95eeux9898ux53caux89e3ux51b3-1}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \lstinline!https://maven.google.com/! 链接不上,
+  更改\lstinline!\platforms\android\build.gradle!文件, 换成
+  \lstinline!https://dl.google.com/dl/android/maven2/!。
+\item
+  \lstinline!adb: failed to stat app/build/outputs/apk/playground.apk: No such file or directory!,
+  替换 \lstinline!platforms/android/app/build.gradle! 文件中的
+  \lstinline!weex-app.apk! 为 \lstinline!playground.apk!.
+\item
+  \lstinline!weex debug! 报错可先安装
+  \lstinline!npm install -g weex-devtool!.
 \end{enumerate}
 
 \section{React Native vs Weex}\label{react-native-vs-weex}
@@ -686,243 +902,39 @@ Landfried, 2017.10.20, Is VueJS' Weex a Suitable Alternative to React
 Native?}
 \end{quote}
 
-\section{Vue.js}\label{vue.js}
+\section{Element}\label{element}
 
-\href{https://github.com/vuejs/vue}{Vue.js} 开发简单直观,
-简单实用的东西通常寿命会比较长.
+\url{https://github.com/ElemeFE/element}
 
-\subsection{周边配套}\label{ux5468ux8fb9ux914dux5957}
+\subsection{组件使用}\label{ux7ec4ux4ef6ux4f7fux7528}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  开发小程序:
-  \href{https://github.com/Meituan-Dianping/mpvue}{Meituan-Dianping/mpvue}
-\item
-  开发原生APP: \href{https://weex.apache.org/}{weex}
-\end{enumerate}
-
-\subsection{Tips}\label{tips-1}
-
-\subsubsection{ES6}\label{es6}
-
-以下几个 ES6 功能应用于 Vue.js 将获得不错的收益\footnote{\href{https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/}{ANTHONY
-  GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22}},
-特别是对于无需构建工具的情况.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  箭头函数: 让 this 始终指向到 Vue 实例上.
-\item
-  模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接.
-  也可以应用于变量套入到字符串中.
+\subsubsection{自定义表单校验}\label{ux81eaux5b9aux4e49ux8868ux5355ux6821ux9a8c}
 
 \begin{lstlisting}
-Vue.component({
-  template: `<div>
-              <h1></h1>
-              <p></p>
-            </div>`
-  data: {
-    time: `time: ${Date.now()}`
-  }
-});
-\end{lstlisting}
-\item
-  模块(Modules): 应用于声明式的组件 \lstinline!Vue.component!,
-  甚至不需要 webpack 的支持.
-
-\begin{lstlisting}
-import component1 from './component1.js';
-Vue.component('component1', component1);
-\end{lstlisting}
-\item
-  解构赋值: 可应用于只获取需要的值, 减少不必要的赋值, 比如只获取 Vuex
-  中的 commit 而不需要 store.
-
-\begin{lstlisting}
-actions: {
-  increment ({ commit }) {
-    commit(...);
-  }
-}
-\end{lstlisting}
-\item
-  扩展运算符: 数组和对象等批量导出, 而不需要用循环语句. 比如,
-  将路由根据功能划分为多个文件, 再用扩展展运算符在 index 中合在一起.
-\end{enumerate}
-
-\subsubsection{组件重新渲染}\label{ux7ec4ux4ef6ux91cdux65b0ux6e32ux67d3}
-
-通过设置 \lstinline!v-if! 实现, 从 Dom 中剔除再加入.
-
-\begin{lstlisting}[language=HTML]
-<demo-component v-if="ifShow"></demo-component>
-\end{lstlisting}
-
-\subsubsection{绑定数据后添加属性视图未重新渲染}\label{ux7ed1ux5b9aux6570ux636eux540eux6dfbux52a0ux5c5eux6027ux89c6ux56feux672aux91cdux65b0ux6e32ux67d3}
-
-如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据,
-然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.
-
-\begin{lstlisting}
-API.getSomething().then(res => {
-  // 1. 先添加属性
-  // handle 表示对数据的处理, 包括对象中属性的添加
-  const handledRes = handle(res);
-  // 2. 然后绑定到 data 中的变量
-  this.varInDate = handledRes;
-});
-\end{lstlisting}
-
-\subsubsection[全局引入 SCSS 变量文件]{\texorpdfstring{全局引入 SCSS
-变量文件\footnote{\url{https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB\&sh=4f87ec9d}}}{全局引入 SCSS 变量文件}}\label{ux5168ux5c40ux5f15ux5165-scss-ux53d8ux91cfux6587ux4ef6vueglobalimportvariablesfile}
-
-场景: 将常用的变量存储到 \lstinline!vars.scss!,
-应用变量时需要在每个需要的地方 \lstinline!import!.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \lstinline!npm install sass-resources-loader --save-dev!
-\item
-  更改 \lstinline!build/webpack.base.conf.js!, 适用于 vue-cli.
-\end{enumerate}
-
-\begin{lstlisting}
-{
-    test: /\.vue$/,
-    loader: 'vue-loader',
-    options: {
-        loaders: {
-            sass: ['vue-style-loader', 'css-loader', {
-                loader: 'sass-loader',
-                options: {
-                    indentedSyntax: true
-                }
-            }, {
-                loader: 'sass-resources-loader',
-                options: {
-                    resources: path.resolve(__dirname, "./styles/vars.scss")
-                }
-            }],
-            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
-                loader: 'sass-resources-loader',
-                options: {
-                    resources: path.resolve(__dirname, "./styles/vars.scss")
-                }
-            }]
-        }
-        // other vue-loader options go here
+export default {
+  data: function () {
+    var checkVars = function (rule, value, callback) {
+      if (!value) {
+        callback(new Error('不能为空'));
+      } else {
+        callback();
+      }
+    };
+    return {
+      rules: {
+        vars: [{
+          required: true,
+          trigger: 'change',
+          validator: checkVars
+        }]
+      }
     }
+  }
 }
 \end{lstlisting}
 
-\subsection{Compatible}\label{compatible}
+\subsection{兼容性}\label{ux517cux5bb9ux6027}
 
-\subsubsection{\texorpdfstring{IE
-\texttt{vuex\ requires\ a\ promise\ polyfill\ in\ this\ browser}}{IE vuex requires a promise polyfill in this browser}}\label{ie-vuex-requires-a-promise-polyfill-in-this-browser}
+\subsubsection{IE 图标不显示}\label{ie-ux56feux6807ux4e0dux663eux793a}
 
-\begin{lstlisting}[language=bash]
-npm install --save-dev babel-polyfill
-\end{lstlisting}
-
-\begin{lstlisting}
-// build/webpack.base.conf.js
-entry: {
-  app: [
-    'babel-polyfill',
-    './src/main.js'
-  ]
-}
-\end{lstlisting}
-
-\href{https://github.com/vuejs-templates/webpack/issues/474}{vuex
-requires a promise polyfill in this browser}
-
-\section{Weex}\label{weex}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  主页: \url{http://weex.apache.org}
-\item
-  GitHub: \url{https://github.com/apache/incubator-weex/}
-\end{enumerate}
-
-问题: 入口在哪儿?
-
-\textbf{案例}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \href{https://github.com/zwwill/yanxuan-weex-demo}{网易严选}
-\item
-  \href{https://mp.weixin.qq.com/s/dowOE_QpZrtV5GH9EAgyHg}{点我达骑手Weex最佳实践}
-\item
-  \href{https://github.com/weexteam/weex-hackernews}{weexteam/weex-hackernews}
-\end{enumerate}
-
-\subsection{搭建开发环境}\label{ux642dux5efaux5f00ux53d1ux73afux5883}
-
-\begin{lstlisting}
-npm install -g weex-toolkit
-\end{lstlisting}
-
-\subsection{Demo}\label{demo}
-
-\textbf{web}
-
-\begin{lstlisting}
-weex create weex
-cd weex
-npm install
-npm run dev & npm run serve
-\end{lstlisting}
-
-\textbf{命令}
-
-\begin{quote}
-https://github.com/weexteam/weex-pack
-\end{quote}
-
-\begin{lstlisting}[language=bash]
-# debug
-weex debug
-
-# add platform
-weex platform add android
-weex platform add ios
-
-# run
-weex run web
-weex run android
-weex run ios
-
-# build
-weex build web
-\end{lstlisting}
-
-\subsection{问题及解决}\label{ux95eeux9898ux53caux89e3ux51b3-1}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \lstinline!https://maven.google.com/! 链接不上,
-  更改\lstinline!\platforms\android\build.gradle!文件, 换成
-  \lstinline!https://dl.google.com/dl/android/maven2/!。
-\item
-  \lstinline!adb: failed to stat app/build/outputs/apk/playground.apk: No such file or directory!,
-  替换 \lstinline!platforms/android/app/build.gradle! 文件中的
-  \lstinline!weex-app.apk! 为 \lstinline!playground.apk!.
-\item
-  \lstinline!weex debug! 报错可先安装
-  \lstinline!npm install -g weex-devtool!.
-\end{enumerate}
+可用文字替代伪元素中的内容.

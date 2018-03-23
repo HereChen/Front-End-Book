@@ -45,33 +45,99 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </style>
 </head>
 <body>
-<h1 id="element">Element</h1>
-<p><a href="https://github.com/ElemeFE/element" class="uri">https://github.com/ElemeFE/element</a></p>
-<h2 id="组件使用">组件使用</h2>
-<h3 id="自定义表单校验">自定义表单校验</h3>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">export</span> <span class="im">default</span> <span class="op">{</span>
-  <span class="dt">data</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span>
-    <span class="kw">var</span> checkVars <span class="op">=</span> <span class="kw">function</span> (rule<span class="op">,</span> value<span class="op">,</span> callback) <span class="op">{</span>
-      <span class="cf">if</span> (<span class="op">!</span>value) <span class="op">{</span>
-        <span class="at">callback</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;不能为空&#39;</span>))<span class="op">;</span>
-      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
-        <span class="at">callback</span>()<span class="op">;</span>
-      <span class="op">}</span>
-    <span class="op">};</span>
-    <span class="cf">return</span> <span class="op">{</span>
-      <span class="dt">rules</span><span class="op">:</span> <span class="op">{</span>
-        <span class="dt">vars</span><span class="op">:</span> [<span class="op">{</span>
-          <span class="dt">required</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>
-          <span class="dt">trigger</span><span class="op">:</span> <span class="st">&#39;change&#39;</span><span class="op">,</span>
-          <span class="dt">validator</span><span class="op">:</span> checkVars
-        <span class="op">}</span>]
-      <span class="op">}</span>
-    <span class="op">}</span>
+<h1 id="介绍">介绍</h1>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/jquery/jquery">jQuery</a>: Dom 工具.</li>
+<li><a href="https://github.com/lodash/lodash">lodash</a>: A modern JavaScript utility library delivering modularity, performance, &amp; extras.</li>
+</ol>
+<h1 id="vue.js">Vue.js</h1>
+<p><a href="https://github.com/vuejs/vue">Vue.js</a> 开发简单直观, 简单实用的东西通常寿命会比较长.</p>
+<h2 id="周边配套">周边配套</h2>
+<ol style="list-style-type: decimal">
+<li>开发小程序: <a href="https://github.com/Meituan-Dianping/mpvue">Meituan-Dianping/mpvue</a></li>
+<li>开发原生APP: <a href="https://weex.apache.org/">weex</a></li>
+</ol>
+<h2 id="tips">Tips</h2>
+<h3 id="es6">ES6</h3>
+<p>以下几个 ES6 功能应用于 Vue.js 将获得不错的收益<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, 特别是对于无需构建工具的情况.</p>
+<ol style="list-style-type: decimal">
+<li>箭头函数: 让 this 始终指向到 Vue 实例上.</li>
+<li><p>模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接. 也可以应用于变量套入到字符串中.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Vue</span>.<span class="at">component</span>(<span class="op">{</span>
+  <span class="dt">template</span><span class="op">:</span> <span class="vs">`&lt;div&gt;</span>
+<span class="vs">              &lt;h1&gt;&lt;/h1&gt;</span>
+<span class="vs">              &lt;p&gt;&lt;/p&gt;</span>
+<span class="vs">            &lt;/div&gt;`</span>
+  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span>
+    <span class="dt">time</span><span class="op">:</span> <span class="vs">`time: </span><span class="sc">${</span><span class="va">Date</span>.<span class="at">now</span>()<span class="sc">}</span><span class="vs">`</span>
   <span class="op">}</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div></li>
+<li><p>模块(Modules): 应用于声明式的组件 <code>Vue.component</code>, 甚至不需要 webpack 的支持.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">import</span> component1 <span class="im">from</span> <span class="st">&#39;./component1.js&#39;</span><span class="op">;</span>
+<span class="va">Vue</span>.<span class="at">component</span>(<span class="st">&#39;component1&#39;</span><span class="op">,</span> component1)<span class="op">;</span></code></pre></div></li>
+<li><p>解构赋值: 可应用于只获取需要的值, 减少不必要的赋值, 比如只获取 Vuex 中的 commit 而不需要 store.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">actions<span class="op">:</span> <span class="op">{</span>
+  <span class="at">increment</span> (<span class="op">{</span> commit <span class="op">}</span>) <span class="op">{</span>
+    <span class="at">commit</span>(...)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div></li>
+<li><p>扩展运算符: 数组和对象等批量导出, 而不需要用循环语句. 比如, 将路由根据功能划分为多个文件, 再用扩展展运算符在 index 中合在一起.</p></li>
+</ol>
+<h3 id="组件重新渲染">组件重新渲染</h3>
+<p>通过设置 <code>v-if</code> 实现, 从 Dom 中剔除再加入.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;demo-component</span><span class="ot"> v-if=</span><span class="st">&quot;ifShow&quot;</span><span class="kw">&gt;&lt;/demo-component&gt;</span></code></pre></div>
+<h3 id="绑定数据后添加属性视图未重新渲染">绑定数据后添加属性视图未重新渲染</h3>
+<p>如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据, 然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">API</span>.<span class="at">getSomething</span>().<span class="at">then</span>(res <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="co">// 1. 先添加属性</span>
+  <span class="co">// handle 表示对数据的处理, 包括对象中属性的添加</span>
+  <span class="kw">const</span> handledRes <span class="op">=</span> <span class="at">handle</span>(res)<span class="op">;</span>
+  <span class="co">// 2. 然后绑定到 data 中的变量</span>
+  <span class="kw">this</span>.<span class="at">varInDate</span> <span class="op">=</span> handledRes<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<h3 id="全局引入-scss-变量文件vueglobalimportvariablesfile">全局引入 SCSS 变量文件<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h3>
+<p>场景: 将常用的变量存储到 <code>vars.scss</code>, 应用变量时需要在每个需要的地方 <code>import</code>.</p>
+<ol style="list-style-type: decimal">
+<li><code>npm install sass-resources-loader --save-dev</code></li>
+<li>更改 <code>build/webpack.base.conf.js</code>, 适用于 vue-cli.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="er">test</span><span class="fu">:</span> <span class="er">/\.vue$/</span><span class="fu">,</span>
+    <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;vue-loader&#39;</span><span class="fu">,</span>
+    <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="er">loaders</span><span class="fu">:</span> <span class="fu">{</span>
+            <span class="er">sass</span><span class="fu">:</span> <span class="ot">[</span><span class="er">&#39;vue-style-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;css-loader&#39;</span><span class="ot">,</span> <span class="fu">{</span>
+                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-loader&#39;</span><span class="fu">,</span>
+                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="er">indentedSyntax</span><span class="fu">:</span> <span class="kw">true</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span><span class="ot">,</span> <span class="fu">{</span>
+                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-resources-loader&#39;</span><span class="fu">,</span>
+                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="er">resources</span><span class="fu">:</span> <span class="er">path.resolve(__dirname</span><span class="fu">,</span> <span class="dt">&quot;./styles/vars.scss&quot;</span><span class="er">)</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span><span class="ot">]</span><span class="fu">,</span>
+            <span class="er">scss</span><span class="fu">:</span> <span class="ot">[</span><span class="er">&#39;vue-style-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;css-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;sass-loader&#39;</span><span class="ot">,</span> <span class="fu">{</span>
+                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-resources-loader&#39;</span><span class="fu">,</span>
+                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
+                    <span class="er">resources</span><span class="fu">:</span> <span class="er">path.resolve(__dirname</span><span class="fu">,</span> <span class="dt">&quot;./styles/vars.scss&quot;</span><span class="er">)</span>
+                <span class="fu">}</span>
+            <span class="fu">}</span><span class="ot">]</span>
+        <span class="fu">}</span>
+        <span class="er">//</span> <span class="er">other</span> <span class="er">vue-loader</span> <span class="er">options</span> <span class="er">go</span> <span class="er">here</span>
+    <span class="fu">}</span>
+<span class="fu">}</span></code></pre></div>
+<h2 id="compatible">Compatible</h2>
+<h3 id="ie-vuex-requires-a-promise-polyfill-in-this-browser">IE <code>vuex requires a promise polyfill in this browser</code></h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> install --save-dev babel-polyfill</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// build/webpack.base.conf.js</span>
+entry<span class="op">:</span> <span class="op">{</span>
+  <span class="dt">app</span><span class="op">:</span> [
+    <span class="st">&#39;babel-polyfill&#39;</span><span class="op">,</span>
+    <span class="st">&#39;./src/main.js&#39;</span>
+  ]
 <span class="op">}</span></code></pre></div>
-<h2 id="兼容性">兼容性</h2>
-<h3 id="ie-图标不显示">IE 图标不显示</h3>
-<p>可用文字替代伪元素中的内容.</p>
+<p><a href="https://github.com/vuejs-templates/webpack/issues/474">vuex requires a promise polyfill in this browser</a></p>
 <h1 id="react">React</h1>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> install -g create-react-app
 <span class="ex">create-react-app</span> my-app</code></pre></div>
@@ -317,7 +383,7 @@ index.js         # 入口文件</code></pre>
 <li><a href="https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0">Organizing a React Native Project</a></li>
 <li><a href="https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792">React native project setup — a better folder structure</a></li>
 </ol>
-<h2 id="tips">Tips</h2>
+<h2 id="tips-1">Tips</h2>
 <ol style="list-style-type: decimal">
 <li>Android 查看当前的 Android 设备 <code>adb devices</code>.</li>
 <li>Android 虚拟机: <kbd>Ctrl</kbd> + <kbd>M</kbd> 打开菜单 (Android Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单).</li>
@@ -331,9 +397,53 @@ index.js         # 入口文件</code></pre>
 </ol>
 <h2 id="原理">原理</h2>
 <ol style="list-style-type: decimal">
-<li>React Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用 ReactReconciler对他们进行渲染<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。</li>
-<li>UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。</li>
-<li>UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终 得以渲染在屏幕上<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>。</li>
+<li>React Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用 ReactReconciler对他们进行渲染<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>。</li>
+<li>UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>。</li>
+<li>UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终 得以渲染在屏幕上<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>。</li>
+</ol>
+<h1 id="weex">Weex</h1>
+<ol style="list-style-type: decimal">
+<li>主页: <a href="http://weex.apache.org" class="uri">http://weex.apache.org</a></li>
+<li>GitHub: <a href="https://github.com/apache/incubator-weex/" class="uri">https://github.com/apache/incubator-weex/</a></li>
+</ol>
+<p>问题: 入口在哪儿?</p>
+<p><strong>案例</strong></p>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/zwwill/yanxuan-weex-demo">网易严选</a></li>
+<li><a href="https://mp.weixin.qq.com/s/dowOE_QpZrtV5GH9EAgyHg">点我达骑手Weex最佳实践</a></li>
+<li><a href="https://github.com/weexteam/weex-hackernews">weexteam/weex-hackernews</a></li>
+</ol>
+<h2 id="搭建开发环境">搭建开发环境</h2>
+<pre><code>npm install -g weex-toolkit</code></pre>
+<h2 id="demo">Demo</h2>
+<p><strong>web</strong></p>
+<pre><code>weex create weex
+cd weex
+npm install
+npm run dev &amp; npm run serve</code></pre>
+<p><strong>命令</strong></p>
+<blockquote>
+<p>https://github.com/weexteam/weex-pack</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># debug</span>
+<span class="ex">weex</span> debug
+
+<span class="co"># add platform</span>
+<span class="ex">weex</span> platform add android
+<span class="ex">weex</span> platform add ios
+
+<span class="co"># run</span>
+<span class="ex">weex</span> run web
+<span class="ex">weex</span> run android
+<span class="ex">weex</span> run ios
+
+<span class="co"># build</span>
+<span class="ex">weex</span> build web</code></pre></div>
+<h2 id="问题及解决-1">问题及解决</h2>
+<ol style="list-style-type: decimal">
+<li><code>https://maven.google.com/</code> 链接不上, 更改<code>\platforms\android\build.gradle</code>文件, 换成 <code>https://dl.google.com/dl/android/maven2/</code>。</li>
+<li><code>adb: failed to stat app/build/outputs/apk/playground.apk: No such file or directory</code>, 替换 <code>platforms/android/app/build.gradle</code> 文件中的 <code>weex-app.apk</code> 为 <code>playground.apk</code>.</li>
+<li><code>weex debug</code> 报错可先安装 <code>npm install -g weex-devtool</code>.</li>
 </ol>
 <h1 id="react-native-vs-weex">React Native vs Weex</h1>
 <h2 id="对比表格">对比表格</h2>
@@ -423,146 +533,41 @@ index.js         # 入口文件</code></pre>
 <blockquote>
 <p>After a few days of experimentation, I realized Weex and its documentation were not yet developed enough to for us to use to deliver top-quality apps. This was my experience with Weex. <a href="https://www.bignerdranch.com/blog/is-vuejs-weex-a-suitable-alternative-to-react-native/">Sam Landfried, 2017.10.20, Is VueJS' Weex a Suitable Alternative to React Native?</a></p>
 </blockquote>
-<h1 id="vue.js">Vue.js</h1>
-<p><a href="https://github.com/vuejs/vue">Vue.js</a> 开发简单直观, 简单实用的东西通常寿命会比较长.</p>
-<h2 id="周边配套">周边配套</h2>
-<ol style="list-style-type: decimal">
-<li>开发小程序: <a href="https://github.com/Meituan-Dianping/mpvue">Meituan-Dianping/mpvue</a></li>
-<li>开发原生APP: <a href="https://weex.apache.org/">weex</a></li>
-</ol>
-<h2 id="tips-1">Tips</h2>
-<h3 id="es6">ES6</h3>
-<p>以下几个 ES6 功能应用于 Vue.js 将获得不错的收益<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>, 特别是对于无需构建工具的情况.</p>
-<ol style="list-style-type: decimal">
-<li>箭头函数: 让 this 始终指向到 Vue 实例上.</li>
-<li><p>模板字符串: 应用于 Vue 行内模板, 可以方便换行, 无需用加号链接. 也可以应用于变量套入到字符串中.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">Vue</span>.<span class="at">component</span>(<span class="op">{</span>
-  <span class="dt">template</span><span class="op">:</span> <span class="vs">`&lt;div&gt;</span>
-<span class="vs">              &lt;h1&gt;&lt;/h1&gt;</span>
-<span class="vs">              &lt;p&gt;&lt;/p&gt;</span>
-<span class="vs">            &lt;/div&gt;`</span>
-  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span>
-    <span class="dt">time</span><span class="op">:</span> <span class="vs">`time: </span><span class="sc">${</span><span class="va">Date</span>.<span class="at">now</span>()<span class="sc">}</span><span class="vs">`</span>
+<h1 id="element">Element</h1>
+<p><a href="https://github.com/ElemeFE/element" class="uri">https://github.com/ElemeFE/element</a></p>
+<h2 id="组件使用">组件使用</h2>
+<h3 id="自定义表单校验">自定义表单校验</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">export</span> <span class="im">default</span> <span class="op">{</span>
+  <span class="dt">data</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span>
+    <span class="kw">var</span> checkVars <span class="op">=</span> <span class="kw">function</span> (rule<span class="op">,</span> value<span class="op">,</span> callback) <span class="op">{</span>
+      <span class="cf">if</span> (<span class="op">!</span>value) <span class="op">{</span>
+        <span class="at">callback</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="st">&#39;不能为空&#39;</span>))<span class="op">;</span>
+      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
+        <span class="at">callback</span>()<span class="op">;</span>
+      <span class="op">}</span>
+    <span class="op">};</span>
+    <span class="cf">return</span> <span class="op">{</span>
+      <span class="dt">rules</span><span class="op">:</span> <span class="op">{</span>
+        <span class="dt">vars</span><span class="op">:</span> [<span class="op">{</span>
+          <span class="dt">required</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>
+          <span class="dt">trigger</span><span class="op">:</span> <span class="st">&#39;change&#39;</span><span class="op">,</span>
+          <span class="dt">validator</span><span class="op">:</span> checkVars
+        <span class="op">}</span>]
+      <span class="op">}</span>
+    <span class="op">}</span>
   <span class="op">}</span>
-<span class="op">}</span>)<span class="op">;</span></code></pre></div></li>
-<li><p>模块(Modules): 应用于声明式的组件 <code>Vue.component</code>, 甚至不需要 webpack 的支持.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">import</span> component1 <span class="im">from</span> <span class="st">&#39;./component1.js&#39;</span><span class="op">;</span>
-<span class="va">Vue</span>.<span class="at">component</span>(<span class="st">&#39;component1&#39;</span><span class="op">,</span> component1)<span class="op">;</span></code></pre></div></li>
-<li><p>解构赋值: 可应用于只获取需要的值, 减少不必要的赋值, 比如只获取 Vuex 中的 commit 而不需要 store.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">actions<span class="op">:</span> <span class="op">{</span>
-  <span class="at">increment</span> (<span class="op">{</span> commit <span class="op">}</span>) <span class="op">{</span>
-    <span class="at">commit</span>(...)<span class="op">;</span>
-  <span class="op">}</span>
-<span class="op">}</span></code></pre></div></li>
-<li><p>扩展运算符: 数组和对象等批量导出, 而不需要用循环语句. 比如, 将路由根据功能划分为多个文件, 再用扩展展运算符在 index 中合在一起.</p></li>
-</ol>
-<h3 id="组件重新渲染">组件重新渲染</h3>
-<p>通过设置 <code>v-if</code> 实现, 从 Dom 中剔除再加入.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;demo-component</span><span class="ot"> v-if=</span><span class="st">&quot;ifShow&quot;</span><span class="kw">&gt;&lt;/demo-component&gt;</span></code></pre></div>
-<h3 id="绑定数据后添加属性视图未重新渲染">绑定数据后添加属性视图未重新渲染</h3>
-<p>如果存在异步请求, 在数据上添加属性的情况, 需要先预处理好获取的数据, 然后在将其赋值到 data 中变量. 数据绑定后, 再添加属性, 不会触发界面渲染.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">API</span>.<span class="at">getSomething</span>().<span class="at">then</span>(res <span class="op">=&gt;</span> <span class="op">{</span>
-  <span class="co">// 1. 先添加属性</span>
-  <span class="co">// handle 表示对数据的处理, 包括对象中属性的添加</span>
-  <span class="kw">const</span> handledRes <span class="op">=</span> <span class="at">handle</span>(res)<span class="op">;</span>
-  <span class="co">// 2. 然后绑定到 data 中的变量</span>
-  <span class="kw">this</span>.<span class="at">varInDate</span> <span class="op">=</span> handledRes<span class="op">;</span>
-<span class="op">}</span>)<span class="op">;</span></code></pre></div>
-<h3 id="全局引入-scss-变量文件vueglobalimportvariablesfile">全局引入 SCSS 变量文件<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></h3>
-<p>场景: 将常用的变量存储到 <code>vars.scss</code>, 应用变量时需要在每个需要的地方 <code>import</code>.</p>
-<ol style="list-style-type: decimal">
-<li><code>npm install sass-resources-loader --save-dev</code></li>
-<li>更改 <code>build/webpack.base.conf.js</code>, 适用于 vue-cli.</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-    <span class="er">test</span><span class="fu">:</span> <span class="er">/\.vue$/</span><span class="fu">,</span>
-    <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;vue-loader&#39;</span><span class="fu">,</span>
-    <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="er">loaders</span><span class="fu">:</span> <span class="fu">{</span>
-            <span class="er">sass</span><span class="fu">:</span> <span class="ot">[</span><span class="er">&#39;vue-style-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;css-loader&#39;</span><span class="ot">,</span> <span class="fu">{</span>
-                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-loader&#39;</span><span class="fu">,</span>
-                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
-                    <span class="er">indentedSyntax</span><span class="fu">:</span> <span class="kw">true</span>
-                <span class="fu">}</span>
-            <span class="fu">}</span><span class="ot">,</span> <span class="fu">{</span>
-                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-resources-loader&#39;</span><span class="fu">,</span>
-                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
-                    <span class="er">resources</span><span class="fu">:</span> <span class="er">path.resolve(__dirname</span><span class="fu">,</span> <span class="dt">&quot;./styles/vars.scss&quot;</span><span class="er">)</span>
-                <span class="fu">}</span>
-            <span class="fu">}</span><span class="ot">]</span><span class="fu">,</span>
-            <span class="er">scss</span><span class="fu">:</span> <span class="ot">[</span><span class="er">&#39;vue-style-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;css-loader&#39;</span><span class="ot">,</span> <span class="er">&#39;sass-loader&#39;</span><span class="ot">,</span> <span class="fu">{</span>
-                <span class="er">loader</span><span class="fu">:</span> <span class="er">&#39;sass-resources-loader&#39;</span><span class="fu">,</span>
-                <span class="er">options</span><span class="fu">:</span> <span class="fu">{</span>
-                    <span class="er">resources</span><span class="fu">:</span> <span class="er">path.resolve(__dirname</span><span class="fu">,</span> <span class="dt">&quot;./styles/vars.scss&quot;</span><span class="er">)</span>
-                <span class="fu">}</span>
-            <span class="fu">}</span><span class="ot">]</span>
-        <span class="fu">}</span>
-        <span class="er">//</span> <span class="er">other</span> <span class="er">vue-loader</span> <span class="er">options</span> <span class="er">go</span> <span class="er">here</span>
-    <span class="fu">}</span>
-<span class="fu">}</span></code></pre></div>
-<h2 id="compatible">Compatible</h2>
-<h3 id="ie-vuex-requires-a-promise-polyfill-in-this-browser">IE <code>vuex requires a promise polyfill in this browser</code></h3>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> install --save-dev babel-polyfill</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// build/webpack.base.conf.js</span>
-entry<span class="op">:</span> <span class="op">{</span>
-  <span class="dt">app</span><span class="op">:</span> [
-    <span class="st">&#39;babel-polyfill&#39;</span><span class="op">,</span>
-    <span class="st">&#39;./src/main.js&#39;</span>
-  ]
 <span class="op">}</span></code></pre></div>
-<p><a href="https://github.com/vuejs-templates/webpack/issues/474">vuex requires a promise polyfill in this browser</a></p>
-<h1 id="weex">Weex</h1>
-<ol style="list-style-type: decimal">
-<li>主页: <a href="http://weex.apache.org" class="uri">http://weex.apache.org</a></li>
-<li>GitHub: <a href="https://github.com/apache/incubator-weex/" class="uri">https://github.com/apache/incubator-weex/</a></li>
-</ol>
-<p>问题: 入口在哪儿?</p>
-<p><strong>案例</strong></p>
-<ol style="list-style-type: decimal">
-<li><a href="https://github.com/zwwill/yanxuan-weex-demo">网易严选</a></li>
-<li><a href="https://mp.weixin.qq.com/s/dowOE_QpZrtV5GH9EAgyHg">点我达骑手Weex最佳实践</a></li>
-<li><a href="https://github.com/weexteam/weex-hackernews">weexteam/weex-hackernews</a></li>
-</ol>
-<h2 id="搭建开发环境">搭建开发环境</h2>
-<pre><code>npm install -g weex-toolkit</code></pre>
-<h2 id="demo">Demo</h2>
-<p><strong>web</strong></p>
-<pre><code>weex create weex
-cd weex
-npm install
-npm run dev &amp; npm run serve</code></pre>
-<p><strong>命令</strong></p>
-<blockquote>
-<p>https://github.com/weexteam/weex-pack</p>
-</blockquote>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># debug</span>
-<span class="ex">weex</span> debug
-
-<span class="co"># add platform</span>
-<span class="ex">weex</span> platform add android
-<span class="ex">weex</span> platform add ios
-
-<span class="co"># run</span>
-<span class="ex">weex</span> run web
-<span class="ex">weex</span> run android
-<span class="ex">weex</span> run ios
-
-<span class="co"># build</span>
-<span class="ex">weex</span> build web</code></pre></div>
-<h2 id="问题及解决-1">问题及解决</h2>
-<ol style="list-style-type: decimal">
-<li><code>https://maven.google.com/</code> 链接不上, 更改<code>\platforms\android\build.gradle</code>文件, 换成 <code>https://dl.google.com/dl/android/maven2/</code>。</li>
-<li><code>adb: failed to stat app/build/outputs/apk/playground.apk: No such file or directory</code>, 替换 <code>platforms/android/app/build.gradle</code> 文件中的 <code>weex-app.apk</code> 为 <code>playground.apk</code>.</li>
-<li><code>weex debug</code> 报错可先安装 <code>npm install -g weex-devtool</code>.</li>
-</ol>
+<h2 id="兼容性">兼容性</h2>
+<h3 id="ie-图标不显示">IE 图标不显示</h3>
+<p>可用文字替代伪元素中的内容.</p>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a><a href="#fnref2">↩</a></p></li>
+<li id="fn1"><p><a href="https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/">ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d" class="uri">https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d</a><a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/">ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development, 2018-01-22</a><a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p><a href="https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d" class="uri">https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB&amp;sh=4f87ec9d</a><a href="#fnref5">↩</a></p></li>
+<li id="fn4"><p><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md">ReactNative源码篇：渲染原理</a><a href="#fnref5">↩</a></p></li>
 </ol>
 </div>
 </body>
