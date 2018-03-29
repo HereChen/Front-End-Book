@@ -174,20 +174,21 @@ npm install -g create-react-app
 create-react-app my-app
 \end{lstlisting}
 
-\subsection{依赖}\label{ux4f9dux8d56}
+\href{https://reactjs.org/}{React} 与 Vue
+类似，主要专注于视图层，结合其他的库实现扩展，比如路由、数据状态维护等。
+
+\subsection{常用依赖}\label{ux5e38ux7528ux4f9dux8d56}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  react
-\item
-  路由:
-  \href{https://github.com/ReactTraining/react-router}{react-router}
+  路由: \href{https://github.com/ReactTraining/react-router}{React
+  Router}
 \item
   类型检查: \href{https://github.com/facebook/prop-types}{prop-types}
 \item
-  数据管理: \href{https://github.com/reactjs/react-redux}{react-redux}
+  数据管理: \href{https://github.com/reactjs/react-redux}{React Redux}
 \end{enumerate}
 
 \subsubsection{UI}\label{ui}
@@ -197,7 +198,7 @@ create-react-app my-app
 \item
   \href{https://eleme.github.io/element-react/}{element-react}
 \item
-  \href{https://ant.design/}{ant.design}
+  \href{https://ant.design/}{ant-design}
 \end{itemize}
 
 \subsubsection{优化}\label{ux4f18ux5316}
@@ -213,6 +214,15 @@ create-react-app my-app
 \end{itemize}
 
 \subsection{文件组织}\label{ux6587ux4ef6ux7ec4ux7ec7}
+
+\subsection{React 与 Redux}\label{react-ux4e0e-redux}
+
+reducer 和 action 分文件夹放置，reducer 通过 combineReducers
+合并，然后再通过 createStore 创建 store。store 通过 Provider 放置在 App
+的顶层元素，并分发给所有子组件。对每个具体的功能，分别按需引入需要的
+state （reducer 中定义）和 action，并用 connect 将此两项和视图层（react
+实现）连接起来，实现完整的组件。由此，实现了数据、视图、事件之间的分离，通过
+connect 实现连接。
 
 \subsection{扩展}\label{ux6269ux5c55}
 
