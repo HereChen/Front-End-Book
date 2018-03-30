@@ -1,147 +1,3 @@
-代码规范
-========
-
-编辑器文本规范
---------------
-
-规范文件采用的换行符、缩进方式以及编码等等.
-
-1.  EditorConfig: <http://editorconfig.org/>
-2.  VSCode 插件: [EditorConfig for VS
-    Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig),
-    可生成配置样本.
-
-`.editorconfig`配置样例
-
-    root = true
-
-    [*]
-    indent_style = space
-    indent_size = 2
-    charset = utf-8
-    end_of_line = lf
-    insert_final_newline = true
-    trim_trailing_whitespace = true
-    max_line_length = 80
-
-命名规范
---------
-
-### CSS 命名
-
-BEM, SMACSS, OOCSS
-
-代码检查
---------
-
-### CSS 格式化
-
-1.  CSScomb: <http://csscomb.com>
-2.  配置文件`.csscomb.json`
-    示例:<https://github.com/htmlacademy/codeguide/blob/master/csscomb.json>
-3.  VSCode 插件:
-    [CSScomb](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-csscomb)
-
-### JS 静态代码检查工具
-
-1.  ESLint: <https://github.com/eslint/eslint>
-2.  JSLint: <https://github.com/jshint/jshint/>
-
-### JS 语法规范
-
-1.  airbnb: <https://github.com/airbnb/javascript>
-2.  standard: <https://github.com/standard/standard>
-
-兼容性问题解决
-==============
-
-IE: 盒模型
-----------
-
-IE 默认情况下长宽包含 `padding` 和 `border`, 和其他浏览器的长宽存在区别,
-建议添加 `border-sizing` 属性. 保持多个浏览器的一致性.
-
-``` {.css}
-box-sizing: border-box;
-```
-
-IE 8: map
----------
-
-IE8 不支持 JavaScript 原生 map 函数, 可在任意地方加入如下的代码片段[^1].
-
-``` {.javascript}
-(function (fn) {
-    if (!fn.map) fn.map = function (f) {
-        var r = [];
-        for (var i = 0; i < this.length; i++)
-            if (this[i] !== undefined) r[i] = f(this[i]);
-        return r
-    }
-    if (!fn.filter) fn.filter = function (f) {
-        var r = [];
-        for (var i = 0; i < this.length; i++)
-            if (this[i] !== undefined && f(this[i])) r[i] = this[i];
-        return r
-    }
-})(Array.prototype);
-```
-
-或者用 jQuery 的 map 函数.
-
-``` {.javascript}
-// array.map(function( ) { });
-jQuery.map(array, function( ) {
-}
-```
-
-IE 8: fontawesome 图标显示为方块
---------------------------------
-
-对于修饰性不影响功能的图标, 可以做降级处理, 仅在非 IE 或者 IE9+
-(条件注释[^2])情况下引入 fontawesome 图标库. (谷歌搜索了一堆方案都没用,
-最后应用这种方式来解决).
-
-``` {.html}
-<!--[if (gt IE 8) | !IE]><!-->
-<link rel="stylesheet" href="font-awesome.min.css">
-<!--<![endif]-->
-```
-
-IE 10+ 浏览器定位
------------------
-
-IE 10+ 不支持条件注释, 因此需要其他方式定位这些浏览器. 如果只增加 CSS,
-可采用以下方式定位[^3].
-
-``` {.css}
-/*IE 9+, 以及 Chrome*/
-@media screen and (min-width:0\0) {
-}
-
-/*IE 10*/
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-}
-
-/*Edge*/
-@supports (-ms-accelerator:true) {
-}
-```
-
-另一种方式是 JavaScript 检测浏览器版本, 在 `body` 标签为特定浏览器添加
-`class` 属性标识.
-
-IE 6-8 CSS3 媒体查询(Media Query)
----------------------------------
-
-引入 [Respond.js](https://github.com/scottjehl/Respond).
-
-``` {.html}
-<!--[if lt IE 9]>
-<script src="respond.min.js"></script>
-<![endif]-->
-```
-
 跨域资源共享/CORS (Cross-origin resource sharing)
 =================================================
 
@@ -152,51 +8,6 @@ IE 6-8 CSS3 媒体查询(Media Query)
 
 跨站请求伪造/CSRF (Cross-site request forgery)
 ==============================================
-
-HTML
-====
-
-参数(input)在 form 之外
------------------------
-
-input 在 form 之外时, 在 input 元素内添加 form 属性值为 form 的 ID[^4].
-这样 input 仍然可以看做隶属于此表单, jQuery `$('#formid').serialize();`
-能够获取 form 之外的输入框值. 或者在提交 (`submit`) 表单时会同样提交
-`outside` 这个值.
-
-``` {.html}
-<form id="formid" method="get">
-
-    <label>Name:</label>
-    <input type="text" id="name" name="name">
-
-    <label>Email:</label>
-    <input type="email" id="email" name="email">
-    <input type="submit" form="contact_form" value="send form" />
-</form>
-<input type="text" name="outside" form="formid">
-```
-
-注意: IE8 `$('#formid').serialize();` 无法获取 `outside` 值.
-
-模块化与组件化
-==============
-
-> 内嵌框架图(embedded)
-
-模块化, 强调内聚, 包含完整的业务逻辑, 可以方便业务的复用. 组件化,
-强调复用, 重点在于接口的暴露, 和构件的概念类似.
-
-实现模块化
-----------
-
-业务相关的特殊性都应包含在同一个模块内, 具体到前端,
-这些特性包括与业务相关的接口、状态、路由等.
-
-实现组件化
-----------
-
-关键是如何暴露接口, 方便外部复用.
 
 权限管理
 ========
@@ -231,8 +42,8 @@ $stateProvider.state('Registration.Instructors', {
 
 2.  登录用户权限/角色信息可记录到 `rootScope` 中, 比如
     `rootScope.adminType = "Admin"`.
-3.  菜单保留与移除. `ng-if="adminType==='Admin'"`[^5].
-4.  路由和登录角色/权限匹配[^6].
+3.  菜单保留与移除. `ng-if="adminType==='Admin'"`[^1].
+4.  路由和登录角色/权限匹配[^2].
 
 ``` {.javascript}
 app.run(function($rootScope){
@@ -256,6 +67,162 @@ Vue.js 权限管理
     后台管理控制用户权限的解决方案？](https://www.zhihu.com/question/58991978)
 -   [自定义指令](https://cn.vuejs.org/v2/guide/custom-directive.html)
 -   <https://codepen.io/diemah77/pen/GZGxPK>
+
+代码规范
+========
+
+编辑器文本规范
+--------------
+
+规范文件采用的换行符、缩进方式以及编码等等.
+
+1.  EditorConfig: <http://editorconfig.org/>
+2.  VSCode 插件: [EditorConfig for VS
+    Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig),
+    可生成配置样本.
+
+`.editorconfig`配置样例
+
+    root = true
+
+    [*]
+    indent_style = space
+    indent_size = 2
+    charset = utf-8
+    end_of_line = lf
+    insert_final_newline = true
+    trim_trailing_whitespace = true
+    max_line_length = 80
+
+命名规范
+--------
+
+### CSS 命名
+
+1.  [BEM](http://getbem.com/), Block Element Modifier.
+2.  [SMACSS](https://smacss.com/), Scalable and Modular Architecture for
+    CSS.
+3.  [OOCSS](http://oocss.org/), Object-Oriented CSS.
+4.  [Atomic CSS](https://acss.io/).
+
+代码检查
+--------
+
+### CSS 格式化
+
+1.  CSScomb: <http://csscomb.com>
+2.  配置文件`.csscomb.json`
+    示例:<https://github.com/htmlacademy/codeguide/blob/master/csscomb.json>
+3.  VSCode 插件:
+    [CSScomb](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-csscomb)
+
+### JS 静态代码检查工具
+
+1.  ESLint: <https://github.com/eslint/eslint>
+2.  JSLint: <https://github.com/jshint/jshint/>
+
+### JS 语法规范
+
+1.  airbnb: <https://github.com/airbnb/javascript>
+2.  standard: <https://github.com/standard/standard>
+
+扩展
+----
+
+1.  [贺师俊, Myths of CSS Frameworks,
+    2015](http://johnhax.net/2015/myth-of-css-frameworks/)
+2.  [白牙, \[译\]结合智能选择器的语义化的CSS,
+    2013-10-06](https://www.w3cplus.com/css/semantic-css-with-intelligent-selectors.html)
+
+兼容性问题解决
+==============
+
+IE: 盒模型
+----------
+
+IE 默认情况下长宽包含 `padding` 和 `border`, 和其他浏览器的长宽存在区别,
+建议添加 `border-sizing` 属性. 保持多个浏览器的一致性.
+
+``` {.css}
+box-sizing: border-box;
+```
+
+IE 8: map
+---------
+
+IE8 不支持 JavaScript 原生 map 函数, 可在任意地方加入如下的代码片段[^3].
+
+``` {.javascript}
+(function (fn) {
+    if (!fn.map) fn.map = function (f) {
+        var r = [];
+        for (var i = 0; i < this.length; i++)
+            if (this[i] !== undefined) r[i] = f(this[i]);
+        return r
+    }
+    if (!fn.filter) fn.filter = function (f) {
+        var r = [];
+        for (var i = 0; i < this.length; i++)
+            if (this[i] !== undefined && f(this[i])) r[i] = this[i];
+        return r
+    }
+})(Array.prototype);
+```
+
+或者用 jQuery 的 map 函数.
+
+``` {.javascript}
+// array.map(function( ) { });
+jQuery.map(array, function( ) {
+}
+```
+
+IE 8: fontawesome 图标显示为方块
+--------------------------------
+
+对于修饰性不影响功能的图标, 可以做降级处理, 仅在非 IE 或者 IE9+
+(条件注释[^4])情况下引入 fontawesome 图标库. (谷歌搜索了一堆方案都没用,
+最后应用这种方式来解决).
+
+``` {.html}
+<!--[if (gt IE 8) | !IE]><!-->
+<link rel="stylesheet" href="font-awesome.min.css">
+<!--<![endif]-->
+```
+
+IE 10+ 浏览器定位
+-----------------
+
+IE 10+ 不支持条件注释, 因此需要其他方式定位这些浏览器. 如果只增加 CSS,
+可采用以下方式定位[^5].
+
+``` {.css}
+/*IE 9+, 以及 Chrome*/
+@media screen and (min-width:0\0) {
+}
+
+/*IE 10*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+}
+
+/*Edge*/
+@supports (-ms-accelerator:true) {
+}
+```
+
+另一种方式是 JavaScript 检测浏览器版本, 在 `body` 标签为特定浏览器添加
+`class` 属性标识.
+
+IE 6-8 CSS3 媒体查询(Media Query)
+---------------------------------
+
+引入 [Respond.js](https://github.com/scottjehl/Respond).
+
+``` {.html}
+<!--[if lt IE 9]>
+<script src="respond.min.js"></script>
+<![endif]-->
+```
 
 npm包及私有库
 =============
@@ -311,6 +278,47 @@ npm 的包都是公开的,
   存储                 mysql                        文件格式，直观
   服务托管             默认后台运行                 pm2, doker, forever
   文档资料             较多                         较少
+
+HTML
+====
+
+参数(input)在 form 之外
+-----------------------
+
+input 在 form 之外时, 在 input 元素内添加 form 属性值为 form 的 ID[^6].
+这样 input 仍然可以看做隶属于此表单, jQuery `$('#formid').serialize();`
+能够获取 form 之外的输入框值. 或者在提交 (`submit`) 表单时会同样提交
+`outside` 这个值.
+
+``` {.html}
+<form id="formid" method="get">
+
+    <label>Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label>Email:</label>
+    <input type="email" id="email" name="email">
+    <input type="submit" form="contact_form" value="send form" />
+</form>
+<input type="text" name="outside" form="formid">
+```
+
+注意: IE8 `$('#formid').serialize();` 无法获取 `outside` 值.
+
+模块化与组件化
+==============
+
+模块化，强调内聚，包含完整的业务逻辑，可以方便业务的复用。组件化，强调复用，重点在于接口的暴露，和构件的概念类似。
+
+实现模块化
+----------
+
+业务相关的特殊性都应包含在同一个模块内，具体到前端，这些特性包括与业务相关的接口、状态、路由等。
+
+实现组件化
+----------
+
+关键是如何暴露接口，方便外部复用。
 
 前后端分离
 ==========
@@ -380,25 +388,35 @@ npm 的包都是公开的,
 3.  [Nicholas C. Zakas, Node.js and the new web front-end,
     2013-10-07](https://www.nczonline.net/blog/2013/10/07/node-js-and-the-new-web-front-end/)
 
-[^1]: [Is the javascript .map() function supported in
+JavaScript 同构
+===============
+
+承接前后端分离的主题，详述同构相关内容。
+
+同构相关依赖
+------------
+
+1.  [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch)：异步数据访问。
+
+[^1]: [what is the difference between ng-if and
+    ng-show/ng-hide](http://stackoverflow.com/questions/19177732/what-is-the-difference-between-ng-if-and-ng-show-ng-hide)
+
+[^2]: [angularjs: conditional routing in
+    app.config](http://stackoverflow.com/questions/20978248/angularjs-conditional-routing-in-app-config)
+
+[^3]: [Is the javascript .map() function supported in
     IE8?](http://stackoverflow.com/questions/7350912/is-the-javascript-map-function-supported-in-ie8)
 
-[^2]: [About conditional
+[^4]: [About conditional
     comments](https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx)
 
-[^3]: [How do I target only Internet Explorer 10 for certain situations
+[^5]: [How do I target only Internet Explorer 10 for certain situations
     like Internet Explorer-specific CSS or Internet Explorer-specific
     JavaScript
     code?](http://stackoverflow.com/questions/9900311/how-do-i-target-only-internet-explorer-10-for-certain-situations-like-internet-e/14916454#14916454)
 
-[^4]: [PLACING FORM FIELDS OUTSIDE THE FORM
+[^6]: [PLACING FORM FIELDS OUTSIDE THE FORM
     TAG](http://www.dreamdealer.nl/articles/form_fields_outside_a_form.html)
-
-[^5]: [what is the difference between ng-if and
-    ng-show/ng-hide](http://stackoverflow.com/questions/19177732/what-is-the-difference-between-ng-if-and-ng-show-ng-hide)
-
-[^6]: [angularjs: conditional routing in
-    app.config](http://stackoverflow.com/questions/20978248/angularjs-conditional-routing-in-app-config)
 
 [^7]: [Balint Sera, On the separation of front-end and backend,
     2016-06-15](https://medium.com/@balint_sera/on-the-separation-of-front-end-and-backend-7a0809b42820)

@@ -8,6 +8,7 @@
 2. VSCode 插件: [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig), 可生成配置样本.
 
 `.editorconfig`配置样例
+
 ```
 root = true
 
@@ -25,7 +26,10 @@ max_line_length = 80
 
 ### CSS 命名
 
-BEM, SMACSS, OOCSS
+1. [BEM](http://getbem.com/), Block Element Modifier.
+2. [SMACSS](https://smacss.com/), Scalable and Modular Architecture for CSS.
+3. [OOCSS](http://oocss.org/), Object-Oriented CSS.
+4. [Atomic CSS](https://acss.io/).
 
 ## 代码检查
 
@@ -44,3 +48,8 @@ BEM, SMACSS, OOCSS
 
 1. airbnb: <https://github.com/airbnb/javascript>
 2. standard: <https://github.com/standard/standard>
+
+## 扩展
+
+1. [贺师俊, Myths of CSS Frameworks, 2015](http://johnhax.net/2015/myth-of-css-frameworks/)
+2. [白牙, [译]结合智能选择器的语义化的CSS, 2013-10-06](https://www.w3cplus.com/css/semantic-css-with-intelligent-selectors.html)

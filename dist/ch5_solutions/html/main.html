@@ -45,121 +45,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </style>
 </head>
 <body>
-<h1 id="代码规范">代码规范</h1>
-<h2 id="编辑器文本规范">编辑器文本规范</h2>
-<p>规范文件采用的换行符、缩进方式以及编码等等.</p>
-<ol style="list-style-type: decimal">
-<li>EditorConfig: <a href="http://editorconfig.org/" class="uri">http://editorconfig.org/</a></li>
-<li>VSCode 插件: <a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a>, 可生成配置样本.</li>
-</ol>
-<p><code>.editorconfig</code>配置样例</p>
-<pre><code>root = true
-
-[*]
-indent_style = space
-indent_size = 2
-charset = utf-8
-end_of_line = lf
-insert_final_newline = true
-trim_trailing_whitespace = true
-max_line_length = 80</code></pre>
-<h2 id="命名规范">命名规范</h2>
-<h3 id="css-命名">CSS 命名</h3>
-<p>BEM, SMACSS, OOCSS</p>
-<h2 id="代码检查">代码检查</h2>
-<h3 id="css-格式化">CSS 格式化</h3>
-<ol style="list-style-type: decimal">
-<li>CSScomb: <a href="http://csscomb.com" class="uri">http://csscomb.com</a></li>
-<li>配置文件<code>.csscomb.json</code> 示例:<a href="https://github.com/htmlacademy/codeguide/blob/master/csscomb.json" class="uri">https://github.com/htmlacademy/codeguide/blob/master/csscomb.json</a></li>
-<li>VSCode 插件: <a href="https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-csscomb">CSScomb</a></li>
-</ol>
-<h3 id="js-静态代码检查工具">JS 静态代码检查工具</h3>
-<ol style="list-style-type: decimal">
-<li>ESLint: <a href="https://github.com/eslint/eslint" class="uri">https://github.com/eslint/eslint</a></li>
-<li>JSLint: <a href="https://github.com/jshint/jshint/" class="uri">https://github.com/jshint/jshint/</a></li>
-</ol>
-<h3 id="js-语法规范">JS 语法规范</h3>
-<ol style="list-style-type: decimal">
-<li>airbnb: <a href="https://github.com/airbnb/javascript" class="uri">https://github.com/airbnb/javascript</a></li>
-<li>standard: <a href="https://github.com/standard/standard" class="uri">https://github.com/standard/standard</a></li>
-</ol>
-<h1 id="兼容性问题解决">兼容性问题解决</h1>
-<h2 id="ie-盒模型">IE: 盒模型</h2>
-<p>IE 默认情况下长宽包含 <code>padding</code> 和 <code>border</code>, 和其他浏览器的长宽存在区别, 建议添加 <code>border-sizing</code> 属性. 保持多个浏览器的一致性.</p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">box-sizing<span class="dv">:</span> border-box;</code></pre></div>
-<h2 id="ie-8-map">IE 8: map</h2>
-<p>IE8 不支持 JavaScript 原生 map 函数, 可在任意地方加入如下的代码片段<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">(<span class="kw">function</span> (fn) <span class="op">{</span>
-    <span class="cf">if</span> (<span class="op">!</span><span class="va">fn</span>.<span class="at">map</span>) <span class="va">fn</span>.<span class="at">map</span> <span class="op">=</span> <span class="kw">function</span> (f) <span class="op">{</span>
-        <span class="kw">var</span> r <span class="op">=</span> []<span class="op">;</span>
-        <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)
-            <span class="cf">if</span> (<span class="kw">this</span>[i] <span class="op">!==</span> <span class="kw">undefined</span>) r[i] <span class="op">=</span> <span class="at">f</span>(<span class="kw">this</span>[i])<span class="op">;</span>
-        <span class="cf">return</span> r
-    <span class="op">}</span>
-    <span class="cf">if</span> (<span class="op">!</span><span class="va">fn</span>.<span class="at">filter</span>) <span class="va">fn</span>.<span class="at">filter</span> <span class="op">=</span> <span class="kw">function</span> (f) <span class="op">{</span>
-        <span class="kw">var</span> r <span class="op">=</span> []<span class="op">;</span>
-        <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)
-            <span class="cf">if</span> (<span class="kw">this</span>[i] <span class="op">!==</span> <span class="kw">undefined</span> <span class="op">&amp;&amp;</span> <span class="at">f</span>(<span class="kw">this</span>[i])) r[i] <span class="op">=</span> <span class="kw">this</span>[i]<span class="op">;</span>
-        <span class="cf">return</span> r
-    <span class="op">}</span>
-<span class="op">}</span>)(<span class="va">Array</span>.<span class="at">prototype</span>)<span class="op">;</span></code></pre></div>
-<p>或者用 jQuery 的 map 函数.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// array.map(function( ) { });</span>
-<span class="va">jQuery</span>.<span class="at">map</span>(array<span class="op">,</span> <span class="kw">function</span>( ) <span class="op">{</span>
-<span class="op">}</span></code></pre></div>
-<h2 id="ie-8-fontawesome-图标显示为方块">IE 8: fontawesome 图标显示为方块</h2>
-<p>对于修饰性不影响功能的图标, 可以做降级处理, 仅在非 IE 或者 IE9+ (条件注释<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>)情况下引入 fontawesome 图标库. (谷歌搜索了一堆方案都没用, 最后应用这种方式来解决).</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="co">&lt;!--[if (gt IE 8) | !IE]&gt;&lt;!--&gt;</span>
-<span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;font-awesome.min.css&quot;</span><span class="kw">&gt;</span>
-<span class="co">&lt;!--&lt;![endif]--&gt;</span></code></pre></div>
-<h2 id="ie-10-浏览器定位">IE 10+ 浏览器定位</h2>
-<p>IE 10+ 不支持条件注释, 因此需要其他方式定位这些浏览器. 如果只增加 CSS, 可采用以下方式定位<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/*IE 9+, 以及 Chrome*/</span>
-<span class="dv">@media</span> <span class="dv">screen and (min-width:</span><span class="dt">0</span><span class="er">\0)</span><span class="dv"> </span><span class="er">{</span>
-<span class="er">}</span>
-
-<span class="co">/*IE 10*/</span>
-<span class="er">@media</span><span class="dv"> </span><span class="er">all</span><span class="dv"> </span><span class="er">and</span><span class="dv"> </span><span class="er">(-ms-high-contrast:</span><span class="dv"> </span><span class="er">none),</span><span class="dv"> </span><span class="er">(-ms-high-contrast:</span><span class="dv"> </span><span class="er">active)</span><span class="dv"> </span><span class="er">{</span>
-<span class="er">}</span>
-
-<span class="co">/*Edge*/</span>
-<span class="er">@supports</span><span class="dv"> </span><span class="er">(-ms-accelerator:true)</span><span class="dv"> </span><span class="er">{</span>
-<span class="er">}</span></code></pre></div>
-<p>另一种方式是 JavaScript 检测浏览器版本, 在 <code>body</code> 标签为特定浏览器添加 <code>class</code> 属性标识.</p>
-<h2 id="ie-6-8-css3-媒体查询media-query">IE 6-8 CSS3 媒体查询(Media Query)</h2>
-<p>引入 <a href="https://github.com/scottjehl/Respond">Respond.js</a>.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="co">&lt;!--[if lt IE 9]&gt;</span>
-<span class="co">&lt;script src=&quot;respond.min.js&quot;&gt;&lt;/script&gt;</span>
-<span class="co">&lt;![endif]--&gt;</span></code></pre></div>
 <h1 id="跨域资源共享cors-cross-origin-resource-sharing">跨域资源共享/CORS (Cross-origin resource sharing)</h1>
 <ul>
 <li><a href="http://www.alloyteam.com/2013/11/the-second-version-universal-solution-iframe-cross-domain-communication/">TAT.Johnny, iframe跨域通信的通用解决方案, alloyteam</a></li>
 <li><a href="http://segmentfault.com/a/1190000003642057">JasonKidd,「JavaScript」四种跨域方式详解, segmentfault</a></li>
 </ul>
 <h1 id="跨站请求伪造csrf-cross-site-request-forgery">跨站请求伪造/CSRF (Cross-site request forgery)</h1>
-<h1 id="html">HTML</h1>
-<h2 id="参数input在-form-之外">参数(input)在 form 之外</h2>
-<p>input 在 form 之外时, 在 input 元素内添加 form 属性值为 form 的 ID<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. 这样 input 仍然可以看做隶属于此表单, jQuery <code>$('#formid').serialize();</code> 能够获取 form 之外的输入框值. 或者在提交 (<code>submit</code>) 表单时会同样提交 <code>outside</code> 这个值.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;form</span><span class="ot"> id=</span><span class="st">&quot;formid&quot;</span><span class="ot"> method=</span><span class="st">&quot;get&quot;</span><span class="kw">&gt;</span>
-
-    <span class="kw">&lt;label&gt;</span>Name:<span class="kw">&lt;/label&gt;</span>
-    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;name&quot;</span><span class="ot"> name=</span><span class="st">&quot;name&quot;</span><span class="kw">&gt;</span>
-
-    <span class="kw">&lt;label&gt;</span>Email:<span class="kw">&lt;/label&gt;</span>
-    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;email&quot;</span><span class="ot"> id=</span><span class="st">&quot;email&quot;</span><span class="ot"> name=</span><span class="st">&quot;email&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;submit&quot;</span><span class="ot"> form=</span><span class="st">&quot;contact_form&quot;</span><span class="ot"> value=</span><span class="st">&quot;send form&quot;</span> <span class="kw">/&gt;</span>
-<span class="kw">&lt;/form&gt;</span>
-<span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> name=</span><span class="st">&quot;outside&quot;</span><span class="ot"> form=</span><span class="st">&quot;formid&quot;</span><span class="kw">&gt;</span></code></pre></div>
-<p>注意: IE8 <code>$('#formid').serialize();</code> 无法获取 <code>outside</code> 值.</p>
-<h1 id="模块化与组件化">模块化与组件化</h1>
-<blockquote>
-<p>内嵌框架图(embedded)</p>
-</blockquote>
-<p>模块化, 强调内聚, 包含完整的业务逻辑, 可以方便业务的复用. 组件化, 强调复用, 重点在于接口的暴露, 和构件的概念类似.</p>
-<h2 id="实现模块化">实现模块化</h2>
-<p>业务相关的特殊性都应包含在同一个模块内, 具体到前端, 这些特性包括与业务相关的接口、状态、路由等.</p>
-<h2 id="实现组件化">实现组件化</h2>
-<p>关键是如何暴露接口, 方便外部复用.</p>
 <h1 id="权限管理">权限管理</h1>
 <h2 id="angularjs-分角色登录">AngularJS 分角色登录</h2>
 <p>不同角色/权限登录后所见菜单不一样. 方案如下:</p>
@@ -181,8 +72,8 @@ max_line_length = 80</code></pre>
 <span class="op">}</span>)</code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>登录用户权限/角色信息可记录到 <code>rootScope</code> 中, 比如 <code>rootScope.adminType = &quot;Admin&quot;</code>.</li>
-<li>菜单保留与移除. <code>ng-if=&quot;adminType==='Admin'&quot;</code><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</li>
-<li>路由和登录角色/权限匹配<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>.</li>
+<li>菜单保留与移除. <code>ng-if=&quot;adminType==='Admin'&quot;</code><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</li>
+<li>路由和登录角色/权限匹配<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">app</span>.<span class="at">run</span>(<span class="kw">function</span>($rootScope)<span class="op">{</span>
   <span class="va">$rootScope</span>.<span class="at">$on</span>(<span class="st">&#39;$stateChangeStart&#39;</span><span class="op">,</span> <span class="kw">function</span>(event<span class="op">,</span> toState<span class="op">,</span> toParams<span class="op">,</span> fromState<span class="op">,</span> fromParams)<span class="op">{</span>
@@ -201,6 +92,102 @@ max_line_length = 80</code></pre>
 <li><a href="https://cn.vuejs.org/v2/guide/custom-directive.html">自定义指令</a></li>
 <li><a href="https://codepen.io/diemah77/pen/GZGxPK" class="uri">https://codepen.io/diemah77/pen/GZGxPK</a></li>
 </ul>
+<h1 id="代码规范">代码规范</h1>
+<h2 id="编辑器文本规范">编辑器文本规范</h2>
+<p>规范文件采用的换行符、缩进方式以及编码等等.</p>
+<ol style="list-style-type: decimal">
+<li>EditorConfig: <a href="http://editorconfig.org/" class="uri">http://editorconfig.org/</a></li>
+<li>VSCode 插件: <a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a>, 可生成配置样本.</li>
+</ol>
+<p><code>.editorconfig</code>配置样例</p>
+<pre><code>root = true
+
+[*]
+indent_style = space
+indent_size = 2
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+max_line_length = 80</code></pre>
+<h2 id="命名规范">命名规范</h2>
+<h3 id="css-命名">CSS 命名</h3>
+<ol style="list-style-type: decimal">
+<li><a href="http://getbem.com/">BEM</a>, Block Element Modifier.</li>
+<li><a href="https://smacss.com/">SMACSS</a>, Scalable and Modular Architecture for CSS.</li>
+<li><a href="http://oocss.org/">OOCSS</a>, Object-Oriented CSS.</li>
+<li><a href="https://acss.io/">Atomic CSS</a>.</li>
+</ol>
+<h2 id="代码检查">代码检查</h2>
+<h3 id="css-格式化">CSS 格式化</h3>
+<ol style="list-style-type: decimal">
+<li>CSScomb: <a href="http://csscomb.com" class="uri">http://csscomb.com</a></li>
+<li>配置文件<code>.csscomb.json</code> 示例:<a href="https://github.com/htmlacademy/codeguide/blob/master/csscomb.json" class="uri">https://github.com/htmlacademy/codeguide/blob/master/csscomb.json</a></li>
+<li>VSCode 插件: <a href="https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-csscomb">CSScomb</a></li>
+</ol>
+<h3 id="js-静态代码检查工具">JS 静态代码检查工具</h3>
+<ol style="list-style-type: decimal">
+<li>ESLint: <a href="https://github.com/eslint/eslint" class="uri">https://github.com/eslint/eslint</a></li>
+<li>JSLint: <a href="https://github.com/jshint/jshint/" class="uri">https://github.com/jshint/jshint/</a></li>
+</ol>
+<h3 id="js-语法规范">JS 语法规范</h3>
+<ol style="list-style-type: decimal">
+<li>airbnb: <a href="https://github.com/airbnb/javascript" class="uri">https://github.com/airbnb/javascript</a></li>
+<li>standard: <a href="https://github.com/standard/standard" class="uri">https://github.com/standard/standard</a></li>
+</ol>
+<h2 id="扩展">扩展</h2>
+<ol style="list-style-type: decimal">
+<li><a href="http://johnhax.net/2015/myth-of-css-frameworks/">贺师俊, Myths of CSS Frameworks, 2015</a></li>
+<li><a href="https://www.w3cplus.com/css/semantic-css-with-intelligent-selectors.html">白牙, [译]结合智能选择器的语义化的CSS, 2013-10-06</a></li>
+</ol>
+<h1 id="兼容性问题解决">兼容性问题解决</h1>
+<h2 id="ie-盒模型">IE: 盒模型</h2>
+<p>IE 默认情况下长宽包含 <code>padding</code> 和 <code>border</code>, 和其他浏览器的长宽存在区别, 建议添加 <code>border-sizing</code> 属性. 保持多个浏览器的一致性.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">box-sizing<span class="dv">:</span> border-box;</code></pre></div>
+<h2 id="ie-8-map">IE 8: map</h2>
+<p>IE8 不支持 JavaScript 原生 map 函数, 可在任意地方加入如下的代码片段<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">(<span class="kw">function</span> (fn) <span class="op">{</span>
+    <span class="cf">if</span> (<span class="op">!</span><span class="va">fn</span>.<span class="at">map</span>) <span class="va">fn</span>.<span class="at">map</span> <span class="op">=</span> <span class="kw">function</span> (f) <span class="op">{</span>
+        <span class="kw">var</span> r <span class="op">=</span> []<span class="op">;</span>
+        <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)
+            <span class="cf">if</span> (<span class="kw">this</span>[i] <span class="op">!==</span> <span class="kw">undefined</span>) r[i] <span class="op">=</span> <span class="at">f</span>(<span class="kw">this</span>[i])<span class="op">;</span>
+        <span class="cf">return</span> r
+    <span class="op">}</span>
+    <span class="cf">if</span> (<span class="op">!</span><span class="va">fn</span>.<span class="at">filter</span>) <span class="va">fn</span>.<span class="at">filter</span> <span class="op">=</span> <span class="kw">function</span> (f) <span class="op">{</span>
+        <span class="kw">var</span> r <span class="op">=</span> []<span class="op">;</span>
+        <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="kw">this</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)
+            <span class="cf">if</span> (<span class="kw">this</span>[i] <span class="op">!==</span> <span class="kw">undefined</span> <span class="op">&amp;&amp;</span> <span class="at">f</span>(<span class="kw">this</span>[i])) r[i] <span class="op">=</span> <span class="kw">this</span>[i]<span class="op">;</span>
+        <span class="cf">return</span> r
+    <span class="op">}</span>
+<span class="op">}</span>)(<span class="va">Array</span>.<span class="at">prototype</span>)<span class="op">;</span></code></pre></div>
+<p>或者用 jQuery 的 map 函数.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// array.map(function( ) { });</span>
+<span class="va">jQuery</span>.<span class="at">map</span>(array<span class="op">,</span> <span class="kw">function</span>( ) <span class="op">{</span>
+<span class="op">}</span></code></pre></div>
+<h2 id="ie-8-fontawesome-图标显示为方块">IE 8: fontawesome 图标显示为方块</h2>
+<p>对于修饰性不影响功能的图标, 可以做降级处理, 仅在非 IE 或者 IE9+ (条件注释<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>)情况下引入 fontawesome 图标库. (谷歌搜索了一堆方案都没用, 最后应用这种方式来解决).</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="co">&lt;!--[if (gt IE 8) | !IE]&gt;&lt;!--&gt;</span>
+<span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;font-awesome.min.css&quot;</span><span class="kw">&gt;</span>
+<span class="co">&lt;!--&lt;![endif]--&gt;</span></code></pre></div>
+<h2 id="ie-10-浏览器定位">IE 10+ 浏览器定位</h2>
+<p>IE 10+ 不支持条件注释, 因此需要其他方式定位这些浏览器. 如果只增加 CSS, 可采用以下方式定位<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="co">/*IE 9+, 以及 Chrome*/</span>
+<span class="dv">@media</span> <span class="dv">screen and (min-width:</span><span class="dt">0</span><span class="er">\0)</span><span class="dv"> </span><span class="er">{</span>
+<span class="er">}</span>
+
+<span class="co">/*IE 10*/</span>
+<span class="er">@media</span><span class="dv"> </span><span class="er">all</span><span class="dv"> </span><span class="er">and</span><span class="dv"> </span><span class="er">(-ms-high-contrast:</span><span class="dv"> </span><span class="er">none),</span><span class="dv"> </span><span class="er">(-ms-high-contrast:</span><span class="dv"> </span><span class="er">active)</span><span class="dv"> </span><span class="er">{</span>
+<span class="er">}</span>
+
+<span class="co">/*Edge*/</span>
+<span class="er">@supports</span><span class="dv"> </span><span class="er">(-ms-accelerator:true)</span><span class="dv"> </span><span class="er">{</span>
+<span class="er">}</span></code></pre></div>
+<p>另一种方式是 JavaScript 检测浏览器版本, 在 <code>body</code> 标签为特定浏览器添加 <code>class</code> 属性标识.</p>
+<h2 id="ie-6-8-css3-媒体查询media-query">IE 6-8 CSS3 媒体查询(Media Query)</h2>
+<p>引入 <a href="https://github.com/scottjehl/Respond">Respond.js</a>.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="co">&lt;!--[if lt IE 9]&gt;</span>
+<span class="co">&lt;script src=&quot;respond.min.js&quot;&gt;&lt;/script&gt;</span>
+<span class="co">&lt;![endif]--&gt;</span></code></pre></div>
 <h1 id="npm包及私有库">npm包及私有库</h1>
 <h2 id="npm-包编写">npm 包编写</h2>
 <p>npm 包通常会兼容不同的应用场景: nodejs、require.js 和浏览器. 所以会包含一段用于判断运行环境的代码, 如下.</p>
@@ -272,6 +259,26 @@ max_line_length = 80</code></pre>
 </tr>
 </tbody>
 </table>
+<h1 id="html">HTML</h1>
+<h2 id="参数input在-form-之外">参数(input)在 form 之外</h2>
+<p>input 在 form 之外时, 在 input 元素内添加 form 属性值为 form 的 ID<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>. 这样 input 仍然可以看做隶属于此表单, jQuery <code>$('#formid').serialize();</code> 能够获取 form 之外的输入框值. 或者在提交 (<code>submit</code>) 表单时会同样提交 <code>outside</code> 这个值.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;form</span><span class="ot"> id=</span><span class="st">&quot;formid&quot;</span><span class="ot"> method=</span><span class="st">&quot;get&quot;</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;label&gt;</span>Name:<span class="kw">&lt;/label&gt;</span>
+    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> id=</span><span class="st">&quot;name&quot;</span><span class="ot"> name=</span><span class="st">&quot;name&quot;</span><span class="kw">&gt;</span>
+
+    <span class="kw">&lt;label&gt;</span>Email:<span class="kw">&lt;/label&gt;</span>
+    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;email&quot;</span><span class="ot"> id=</span><span class="st">&quot;email&quot;</span><span class="ot"> name=</span><span class="st">&quot;email&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;submit&quot;</span><span class="ot"> form=</span><span class="st">&quot;contact_form&quot;</span><span class="ot"> value=</span><span class="st">&quot;send form&quot;</span> <span class="kw">/&gt;</span>
+<span class="kw">&lt;/form&gt;</span>
+<span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span><span class="ot"> name=</span><span class="st">&quot;outside&quot;</span><span class="ot"> form=</span><span class="st">&quot;formid&quot;</span><span class="kw">&gt;</span></code></pre></div>
+<p>注意: IE8 <code>$('#formid').serialize();</code> 无法获取 <code>outside</code> 值.</p>
+<h1 id="模块化与组件化">模块化与组件化</h1>
+<p>模块化，强调内聚，包含完整的业务逻辑，可以方便业务的复用。组件化，强调复用，重点在于接口的暴露，和构件的概念类似。</p>
+<h2 id="实现模块化">实现模块化</h2>
+<p>业务相关的特殊性都应包含在同一个模块内，具体到前端，这些特性包括与业务相关的接口、状态、路由等。</p>
+<h2 id="实现组件化">实现组件化</h2>
+<p>关键是如何暴露接口，方便外部复用。</p>
 <h1 id="前后端分离">前后端分离</h1>
 <p>内容简述: 简单描述前后端分离的历史状况, 明确前后端划分的原则: 后端面向数据, 前端面向用户, 在服务端引入 nodejs 可以解决的问题(应用的场景).</p>
 <h2 id="历史">历史</h2>
@@ -303,21 +310,27 @@ max_line_length = 80</code></pre>
 <h2 id="引入-nodejs-层的应用场景">引入 nodejs 层的应用场景</h2>
 <p>除了上面所述的性能和SEO等问题, 还可以作为中间件, 抹平同类型系统的差异, 构建统一的平台.</p>
 <p>比如, 对于多个定制化的产品, 每个产品都对应有运营平台, 用于观测用户使用情况. 由于历史上造成的差异, 每个运营平台都需要重新构建一套运行于浏览器端的前端工程. 对于这种业务相似度较高的情况, 就可以在服务端引入 nodejs, 构建统一的平台, 抹平已有系统之前的差异(比如接口有不同的风格), 只需要实现一套 Web APP. 同时也方便了后期其他定制产品的扩展.</p>
-<h2 id="扩展">扩展</h2>
+<h2 id="扩展-1">扩展</h2>
 <ol style="list-style-type: decimal">
 <li><a href="https://juejin.im/post/598aabe96fb9a03c335a8dde">美团点评点餐, 美团点评点餐 Nuxt.js 实战, 2017-08-09</a></li>
 <li><a href="https://book.douban.com/subject/27183584/">Jason Strimpel, Maxime Najim, 同构JavaScript应用开发, 2017</a></li>
 <li><a href="https://www.nczonline.net/blog/2013/10/07/node-js-and-the-new-web-front-end/">Nicholas C. Zakas, Node.js and the new web front-end, 2013-10-07</a></li>
 </ol>
+<h1 id="javascript-同构">JavaScript 同构</h1>
+<p>承接前后端分离的主题，详述同构相关内容。</p>
+<h2 id="同构相关依赖">同构相关依赖</h2>
+<ol style="list-style-type: decimal">
+<li><a href="https://github.com/matthew-andrews/isomorphic-fetch">isomorphic-fetch</a>：异步数据访问。</li>
+</ol>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://stackoverflow.com/questions/7350912/is-the-javascript-map-function-supported-in-ie8">Is the javascript .map() function supported in IE8?</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx">About conditional comments</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="http://stackoverflow.com/questions/9900311/how-do-i-target-only-internet-explorer-10-for-certain-situations-like-internet-e/14916454#14916454">How do I target only Internet Explorer 10 for certain situations like Internet Explorer-specific CSS or Internet Explorer-specific JavaScript code?</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="http://www.dreamdealer.nl/articles/form_fields_outside_a_form.html">PLACING FORM FIELDS OUTSIDE THE FORM TAG</a><a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p><a href="http://stackoverflow.com/questions/19177732/what-is-the-difference-between-ng-if-and-ng-show-ng-hide">what is the difference between ng-if and ng-show/ng-hide</a><a href="#fnref5">↩</a></p></li>
-<li id="fn6"><p><a href="http://stackoverflow.com/questions/20978248/angularjs-conditional-routing-in-app-config">angularjs: conditional routing in app.config</a><a href="#fnref6">↩</a></p></li>
+<li id="fn1"><p><a href="http://stackoverflow.com/questions/19177732/what-is-the-difference-between-ng-if-and-ng-show-ng-hide">what is the difference between ng-if and ng-show/ng-hide</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://stackoverflow.com/questions/20978248/angularjs-conditional-routing-in-app-config">angularjs: conditional routing in app.config</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="http://stackoverflow.com/questions/7350912/is-the-javascript-map-function-supported-in-ie8">Is the javascript .map() function supported in IE8?</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx">About conditional comments</a><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="http://stackoverflow.com/questions/9900311/how-do-i-target-only-internet-explorer-10-for-certain-situations-like-internet-e/14916454#14916454">How do I target only Internet Explorer 10 for certain situations like Internet Explorer-specific CSS or Internet Explorer-specific JavaScript code?</a><a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p><a href="http://www.dreamdealer.nl/articles/form_fields_outside_a_form.html">PLACING FORM FIELDS OUTSIDE THE FORM TAG</a><a href="#fnref6">↩</a></p></li>
 <li id="fn7"><p><a href="https://medium.com/@balint_sera/on-the-separation-of-front-end-and-backend-7a0809b42820">Balint Sera, On the separation of front-end and backend, 2016-06-15</a><a href="#fnref7">↩</a></p></li>
 <li id="fn8"><p><a href="http://2014.jsconf.cn/slides/herman-taobaoweb/#/">赫门, 淘宝前后端分离实践, 2014</a><a href="#fnref8">↩</a></p></li>
 </ol>
