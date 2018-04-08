@@ -36,4 +36,5 @@ reducer 是什么呢？reducer 按照 Redux 的输入书写。每次输入确定
 
 ## 扩展
 
-1. [GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
+1. 关于 actionTypes, actions, reducer 文件分割的提议:[GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
+2. React 生命周期及方法图:[wojtekmaj/react-lifecycle-methods-diagram](https://github.com/wojtekmaj/react-lifecycle-methods-diagram)
