@@ -664,10 +664,10 @@ localStorage.clear()                // 清空 localStorage
 
 1. 使用 `jQuery.noConflict()`
 
-```javascript
-jQuery.noConflict();
-// 之后使用 jQuery 调用, jQuery("#id").methodname()
-```
+    ```javascript
+    jQuery.noConflict();
+    // 之后使用 jQuery 调用, jQuery("#id").methodname()
+    ```
 
 2. 自定义别名
 
@@ -676,7 +676,7 @@ jQuery.noConflict();
     // $j("#id").methodname();
     ```
 
-4. 传入参数，继续使用 `$`
+3. 传入参数，继续使用 `$`
 
     ```javascript
     jQuery.noConflict();
