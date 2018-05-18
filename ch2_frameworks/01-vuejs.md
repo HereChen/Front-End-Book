@@ -9,6 +9,33 @@
 
 ## Tips
 
+### 本地服务通过 IP 无法访问
+
+1. 方案1，更改 package.json 中的命令：`webpack-dev-server --port 3000 --hot --host 0.0.0.0`。
+2. 方案2，更改 `config/index.js` 中 `host: 'localhost'` 为 `host: '0.0.0.0'`。
+
+### 动态组件加载
+
+场景：根须不同的条件加载不同的组件，效果类似 React 中，根据条件 Return 不同的视图。
+
+```html
+<component :is='ComponentName'></component>
+```
+
+如果需要异步加载组件，则采用
+
+```javascript
+data () {
+  return {
+    // 无法异步加载
+    // ComponentName: MyComponent,
+    ComponentName: () => import('@/components/dynamic/MyComponent')
+  }
+}
+```
+
+参考[vuejs-dynamic-async-components-demo](https://github.com/lobo-tuerto/vuejs-dynamic-async-components-demo)
+
 ### ES6
 
 以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^vueES6], 特别是对于无需构建工具的情况.
