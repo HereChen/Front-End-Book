@@ -36,6 +36,41 @@ data () {
 
 参考[vuejs-dynamic-async-components-demo](https://github.com/lobo-tuerto/vuejs-dynamic-async-components-demo)
 
+### 组件内事件添加额外的参数
+
+封装的组件提供的事件已经有返回的数据，需要添加额外的参数作预处理。
+
+```javascript
+// myComponent 组件内定义的事件
+this.$emit('on-change', val);
+```
+
+```html
+<!-- 使用组件，关键在于添加 $event -->
+<myComponent @on-change="myChangeEvent($event, myParams)" />
+```
+
+```javascript
+// 第一个参数为 myComponent 组件内的返回数据，第二个参数为自定义参数
+myChangeEvent(val, myParams) {
+
+}
+```
+
+### watch 对象变化
+
+```javascript
+watch: {
+  form: {
+    handler(val) {
+      this.$emit('data-change', val);
+    },
+    // here
+    deep: true,
+  },
+},
+```
+
 ### ES6
 
 以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^vueES6], 特别是对于无需构建工具的情况.
