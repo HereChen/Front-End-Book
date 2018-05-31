@@ -20,6 +20,9 @@
 
 ```html
 <component :is='ComponentName'></component>
+
+<!-- 组件需要传参的场景 -->
+<component :is='ComponentName' :yourPropName="binddingIt"></component>
 ```
 
 如果需要异步加载组件，则采用
