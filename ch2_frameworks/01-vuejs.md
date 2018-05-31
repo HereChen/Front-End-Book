@@ -74,6 +74,47 @@ watch: {
 },
 ```
 
+### extend 实现 JS 调用的组件封装
+
+```javascript
+// MyComponent/index.js
+import Vue from 'vue';
+// MyComponent/main.vue 用一般的组件写法编写
+import mainVue from './main';
+const ConfirmBoxConstructor = Vue.extend(mainVue);
+const MyComponent = (options) => {
+  const instance = new ConfirmBoxConstructor({
+    el: document.createElement('div'),
+    // 参数将赋值到 main.vue 中的 data 中，实现配置
+    data: options,
+  });
+
+  document.body.appendChild(instance.$el);
+};
+
+MyComponent.myMethod = () => {
+  // define here
+}
+
+export default MyComponent;
+```
+
+调用组件
+
+```javascript
+import MyComponent from 'MyComponent'
+export default {
+  mounted() {
+    const options = {
+      // custom here
+    };
+    MyComponent(options);
+    // 方法调用
+    // MyComponent.myMethod();
+  }
+}
+```
+
 ### ES6
 
 以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^vueES6], 特别是对于无需构建工具的情况.
