@@ -33,14 +33,16 @@ reference: [HTML noscript 标签, w3school](http://www.w3school.com.cn/tags/tag_
 
 以 IE 为例，展示几个 CSS hack 方法，更多的见参考链接。
 
-**IE6**
+#### IE6
 
 ```css
 .selector { _property: value; }
 .selector { -property: value; }
 ```
 
-**IE <= 7** ( ``! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : < > |`` )
+#### IE <= 7
+
+``! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : < > |``
 
 ```css
 .selector { !property: value; }
@@ -64,7 +66,7 @@ reference: [HTML noscript 标签, w3school](http://www.w3school.com.cn/tags/tag_
 .selector { |property: value; }
 ```
 
-**IE 6-8**
+#### IE 6-8
 
 ```css
 .selector { property: value\9; }
@@ -103,9 +105,9 @@ reference: [About conditional comments, msdn](https://msdn.microsoft.com/en-us/l
 
 #### userAgent
 
-**userAgent 示例**
+##### userAgent 示例
 
-```
+```text
 Chrome 60
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
 
@@ -122,7 +124,7 @@ Edge 40
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063
 ```
 
-**userAgent 判别浏览器**
+##### userAgent 判别浏览器
 
 可直接查看此插件的 js 代码：[jquery-browser-plugin](https://github.com/gabceb/jquery-browser-plugin)。实测了 IE、Firefox、Opera、Chrome，输出结果都是对的。
 
@@ -144,7 +146,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 </html>
 ```
 
-**userAgent 判别设备**
+##### userAgent 判别设备
 
 通过检测设备, 可以针对不同设备提供不同功能, 并处理不同设备的兼容需求.
 
@@ -177,6 +179,18 @@ if (ifIE) {
   // 依赖 loadjs
   loadjs('/static/css/iefix.css')
 }
+```
+
+## 一些兼容性解决方法
+
+### scrollTop
+
+在应用滚动加载时，发现 `document.documentElement.scrollTop` 在 Chrome 老版本（比如 56）存在 bug，值为 0，可参见 [document.documentElement.scrollTop/Left is always zero (body is the scrollingElement even in strict mode)](https://bugs.chromium.org/p/chromium/issues/detail?id=157855)。
+
+```javascript
+// [关于scrolltop 兼容 IE6/7/8, Safari,FF的方法](http://www.cnblogs.com/ckmouse/archive/2012/01/30/2332076.html)
+const dE = document.documentElement;
+const scrollTop = dE.scrollTop || window.pageYOffset || document.body.scrollTop;
 ```
 
 ## 本地缓存
