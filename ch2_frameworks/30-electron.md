@@ -19,7 +19,7 @@ create-react-app my-app --scripts-version=react-scripts-ts
     ```json
     {
         "compilerOptions": {
-            "module": "commonjs"
+            "module": "commonjs",
             "strictNullChecks": false
         }
     }
