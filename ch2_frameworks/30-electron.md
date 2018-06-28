@@ -14,7 +14,7 @@ Electron 构建应用，主要包括两部分：一是构建 Web App；二是 El
 create-react-app my-app --scripts-version=react-scripts-ts
 ```
 
-1. 更改 tsconfig
+1. 更改 tsconfig：解决 main.ts 编译问题
 
     ```json
     {
@@ -26,6 +26,9 @@ create-react-app my-app --scripts-version=react-scripts-ts
     ```
 
 2. 静态资源路径需要改为相对路径。
+3. 将 electron-quick-start-typescript 中的 main.ts 移到当前工程 `src` 下。
+
+注意 main.ts 编译后 index.html 以及静态资源路径问题。
 
 ## 资源
 
