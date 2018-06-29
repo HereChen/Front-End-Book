@@ -1466,19 +1466,13 @@ var $v = $(v); //jQuery对象
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   使用 \lstinline!jQuery.noConflict()!
-\end{enumerate}
 
 \begin{lstlisting}
 jQuery.noConflict();
 // 之后使用 jQuery 调用, jQuery("#id").methodname()
 \end{lstlisting}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
 \item
   自定义别名
 
@@ -1520,6 +1514,97 @@ jQuery.noConflict();
 \item
   函数会首先被提升，然后才是变量。
 \end{enumerate}
+
+\subsection{进阶}\label{ux8fdbux9636}
+
+\subsubsection{深拷贝和浅拷贝}\label{ux6df1ux62f7ux8d1dux548cux6d45ux62f7ux8d1d}
+
+浅拷贝只拷贝一层对象的属性，深拷贝则递归拷贝了所有层级。而 JavaScript
+存储对象都是存地址的，这就导致如果拷贝的是一个对象，而不是值，原来的对象和拷贝到的目标变量会指向同一个地址，更改其中任一一个，另一个也会更改。或者可以说，浅拷贝是拷贝存值的地址，深拷贝是拷贝值。一下是浅拷贝的示例。
+
+\begin{lstlisting}
+// 例1: 数值数组
+var a = [1, 2, 3];
+var b = a;
+b[1] = 12344;
+console.log(a);
+// [1, 12344, 3]
+
+// 例2: 对象
+var obj = {a: 1, b: {p: 2}};
+var newObj = {};
+for (var i in obj) {
+  newObj[i] = obj[i];
+}
+newObj.b.p = 3;
+console.log(obj.b.p);
+// 3
+\end{lstlisting}
+
+对象数组，比如
+\lstinline![{a: 1}, {b: 2}]!，由于数组内部的值为引用对象，用
+\lstinline!slice! 拷贝仍然是浅拷贝。
+
+实现深拷贝的方法，对于只有数值的数组可以直接用 \lstinline!slice! 和
+\lstinline!concat!
+方法实现，通用的方法是循环加递归。外层为循环，内层判断属性对应值是否为对象（\lstinline!typeof obj === 'object'!），如果是则递归，如果不是则直接赋值。
+
+\begin{lstlisting}
+var obj = {a: 1, b: {p: 2}};
+function deepClone(obj) {
+  var result = obj.constructor === Array ? [] : {};
+  for (var key in obj) {
+    result[key] = typeof obj[key] !== 'object' ? obj[key] : deepClone(obj[key]);
+  }
+  return result;
+}
+\end{lstlisting}
+
+总结：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  数组浅拷贝：\lstinline!=!
+\item
+  对象浅拷贝：\lstinline!=! 或 \lstinline!Object.assign({}, obj)!
+\item
+  含值数组深拷贝：\lstinline![1,2,3].slice()! 或
+  \lstinline![].concat([1,2,3])!
+\item
+  对象或数组深拷贝：\lstinline!JSON.parse(JSON.stringify(obj))!
+  或者循环加递归。
+\end{enumerate}
+
+备注：
+
+\lstinline!JSON.parse(JSON.stringify(obj))! 对于嵌套的对象或数组只包含
+Primitive （只含值），但对于属性值有 function 或者 Date 等不应采用此法。
+
+\begin{lstlisting}
+var a = {a: 1, b: () => {}, c: new Date()}
+// {a: 1, b: ƒ, c: Fri Jun 15 2018 11:10:49 GMT+0800 (China Standard Time)}
+var o = JSON.parse(JSON.stringify(a))
+// {a: 1, c: "2018-06-15T03:10:49.965Z"}
+\end{lstlisting}
+
+深拷贝辅助工具
+
+\begin{lstlisting}
+import * as cloneDeep from 'lodash/cloneDeep';
+var obj = {a: 1, b: 2};
+var clone = cloneDeep(obj);
+\end{lstlisting}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.zhihu.com/question/23031215}{javascript中的深拷贝和浅拷贝？}
+\item
+  \href{http://blog.bogdancarpean.com/deepcopy-of-javascript-objects-and-arrays-using-lodashs-clonedeep-method/}{Deepcopy
+  of JavaScript Objects and Arrays using lodash's cloneDeep method}
+\end{itemize}
 
 \section{浏览器}\label{ux6d4fux89c8ux5668}
 
@@ -1575,15 +1660,16 @@ noscript 标签, w3school}
 
 以 IE 为例，展示几个 CSS hack 方法，更多的见参考链接。
 
-\textbf{IE6}
+\paragraph{IE6}\label{ie6}
 
 \begin{lstlisting}
 .selector { _property: value; }
 .selector { -property: value; }
 \end{lstlisting}
 
-\textbf{IE \textless{}= 7} (
-\lstinline"! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : < > |" )
+\paragraph{IE \textless{}= 7}\label{ie-7}
+
+\lstinline"! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : < > |"
 
 \begin{lstlisting}
 .selector { !property: value; }
@@ -1607,7 +1693,7 @@ noscript 标签, w3school}
 .selector { |property: value; }
 \end{lstlisting}
 
-\textbf{IE 6-8}
+\paragraph{IE 6-8}\label{ie-6-8}
 
 \begin{lstlisting}
 .selector { property: value\9; }
@@ -1660,7 +1746,7 @@ conditional comments, msdn}
 
 \paragraph{userAgent}\label{useragent}
 
-\textbf{userAgent 示例}
+\subparagraph{userAgent 示例}\label{useragent-ux793aux4f8b}
 
 \begin{lstlisting}
 Chrome 60
@@ -1679,7 +1765,8 @@ Edge 40
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063
 \end{lstlisting}
 
-\textbf{userAgent 判别浏览器}
+\subparagraph{userAgent
+判别浏览器}\label{useragent-ux5224ux522bux6d4fux89c8ux5668}
 
 可直接查看此插件的 js
 代码：\href{https://github.com/gabceb/jquery-browser-plugin}{jquery-browser-plugin}。实测了
@@ -1703,7 +1790,8 @@ IE、Firefox、Opera、Chrome，输出结果都是对的。
 </html>
 \end{lstlisting}
 
-\textbf{userAgent 判别设备}
+\subparagraph{userAgent
+判别设备}\label{useragent-ux5224ux522bux8bbeux5907}
 
 通过检测设备, 可以针对不同设备提供不同功能, 并处理不同设备的兼容需求.
 
@@ -1742,6 +1830,21 @@ if (ifIE) {
   // 依赖 loadjs
   loadjs('/static/css/iefix.css')
 }
+\end{lstlisting}
+
+\subsection{一些兼容性解决方法}\label{ux4e00ux4e9bux517cux5bb9ux6027ux89e3ux51b3ux65b9ux6cd5}
+
+\subsubsection{scrollTop}\label{scrolltop}
+
+在应用滚动加载时，发现 \lstinline!document.documentElement.scrollTop! 在
+Chrome 老版本（比如 56）存在 bug，值为 0，可参见
+\href{https://bugs.chromium.org/p/chromium/issues/detail?id=157855}{document.documentElement.scrollTop/Left
+is always zero (body is the scrollingElement even in strict mode)}。
+
+\begin{lstlisting}
+// [关于scrolltop 兼容 IE6/7/8, Safari,FF的方法](http://www.cnblogs.com/ckmouse/archive/2012/01/30/2332076.html)
+const dE = document.documentElement;
+const scrollTop = dE.scrollTop || window.pageYOffset || document.body.scrollTop;
 \end{lstlisting}
 
 \subsection{本地缓存}\label{ux672cux5730ux7f13ux5b58}

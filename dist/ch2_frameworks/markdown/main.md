@@ -21,6 +21,115 @@ Vue.js
 Tips
 ----
 
+### 本地服务通过 IP 无法访问
+
+1.  方案1，更改 package.json
+    中的命令：`webpack-dev-server --port 3000 --hot --host 0.0.0.0`。
+2.  方案2，更改 `config/index.js` 中 `host: 'localhost'` 为
+    `host: '0.0.0.0'`。
+
+### 动态组件加载
+
+场景：根须不同的条件加载不同的组件，效果类似 React 中，根据条件 Return
+不同的视图。
+
+``` {.html}
+<component :is='ComponentName'></component>
+
+<!-- 组件需要传参的场景 -->
+<component :is='ComponentName' :yourPropName="binddingIt"></component>
+```
+
+如果需要异步加载组件，则采用
+
+``` {.javascript}
+data () {
+  return {
+    // 无法异步加载
+    // ComponentName: MyComponent,
+    ComponentName: () => import('@/components/dynamic/MyComponent')
+  }
+}
+```
+
+参考[vuejs-dynamic-async-components-demo](https://github.com/lobo-tuerto/vuejs-dynamic-async-components-demo)
+
+### 组件内事件添加额外的参数
+
+封装的组件提供的事件已经有返回的数据，需要添加额外的参数作预处理。
+
+``` {.javascript}
+// myComponent 组件内定义的事件
+this.$emit('on-change', val);
+```
+
+``` {.html}
+<!-- 使用组件，关键在于添加 $event -->
+<myComponent @on-change="myChangeEvent($event, myParams)" />
+```
+
+``` {.javascript}
+// 第一个参数为 myComponent 组件内的返回数据，第二个参数为自定义参数
+myChangeEvent(val, myParams) {
+
+}
+```
+
+### watch 对象变化
+
+``` {.javascript}
+watch: {
+  form: {
+    handler(val) {
+      this.$emit('data-change', val);
+    },
+    // here
+    deep: true,
+  },
+},
+```
+
+### extend 实现 JS 调用的组件封装
+
+``` {.javascript}
+// MyComponent/index.js
+import Vue from 'vue';
+// MyComponent/main.vue 用一般的组件写法编写
+import mainVue from './main';
+const ConfirmBoxConstructor = Vue.extend(mainVue);
+const MyComponent = (options) => {
+  const instance = new ConfirmBoxConstructor({
+    el: document.createElement('div'),
+    // 参数将赋值到 main.vue 中的 data 中，实现配置
+    data: options,
+  });
+
+  document.body.appendChild(instance.$el);
+};
+
+MyComponent.myMethod = () => {
+  // define here
+}
+
+export default MyComponent;
+```
+
+调用组件
+
+``` {.javascript}
+import MyComponent from 'MyComponent'
+export default {
+  mounted() {
+    const options = {
+      // custom here
+    };
+    MyComponent(options);
+    // 方法调用
+    // MyComponent.myMethod();
+  }
+}
+```
+
 ### ES6
 
 以下几个 ES6 功能应用于 Vue.js 将获得不错的收益[^1],
@@ -678,6 +787,70 @@ export default {
 ### IE 图标不显示
 
 可用文字替代伪元素中的内容.
+
+Electron
+========
+
+Electron 构建应用，主要包括两部分：一是构建 Web App；二是 Electron
+提供扩展能力（内置了 Node，可用 node 的模块），Web App
+实现本地交互能力。构建 Electron 应用工程，可首先构建 Web App
+工程，稍作修改适应客户端最后打包的需求。
+
+技术栈
+------
+
+应用(TypeScript + React) + 打包(electron-builder)。
+
+### 准备
+
+1.  Electron 支持 TypeScript，[Announcing TypeScript support in
+    Electron](https://electronjs.org/blog/typescript)，模板工程参考
+    [electron-quick-start-typescript](https://github.com/electron/electron-quick-start-typescript)。
+2.  React TypeScript 模板工程参考
+    [TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter)。
+3.  打包工具
+    [electron-builder](https://github.com/electron-userland/electron-builder)。
+
+思路，首先建立一个 Web
+应用工程（通常为单页应用，无需管理多窗口），然后建一个桌面应用入口文件，入口文件加载
+Web App 应用，最后用工具将 electron 和 Web
+应用打包在一起。结合以上的两个模板工程，优先构建 Web 应用，然后加入
+Electron 相关依赖的脚本。
+
+### 工程搭建
+
+创建工程流程，可先用 create-react-app 创建 React
+应用工程，然后作调整，并加入 Electron 相关依赖的脚本。
+
+1.  创建 React 工程
+
+    ``` {.bash}
+    create-react-app my-app --scripts-version=react-scripts-ts
+    ```
+
+2.  更改 tsconfig：解决 main.ts 编译问题
+
+    ``` {.json}
+    {
+        "compilerOptions": {
+            "module": "commonjs",
+            // 关闭窗口时设置为 null 禁用 null 检查
+            "strictNullChecks": false
+        }
+    }
+    ```
+
+3.  静态资源路径需要改为相对路径。
+4.  将 electron-quick-start-typescript 中的 main.ts 移到当前工程 `src`
+    下。
+
+注意 main.ts 编译后 index.html 以及静态资源路径问题。
+
+资源及扩展阅读
+--------------
+
+1.  [Technical Differences Between Electron and NW.js(formerly
+    node-webkit)](https://electronjs.org/docs/development/atom-shell-vs-node-webkit)
 
 [^1]: [ANTHONY GORE, 4 Essential ES2015 Features For Vue.js Development,
     2018-01-22](https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/)

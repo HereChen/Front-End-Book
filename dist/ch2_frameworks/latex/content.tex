@@ -29,6 +29,123 @@
 
 \subsection{Tips}\label{tips}
 
+\subsubsection{本地服务通过 IP
+无法访问}\label{ux672cux5730ux670dux52a1ux901aux8fc7-ip-ux65e0ux6cd5ux8bbfux95ee}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  方案1，更改 package.json
+  中的命令：\lstinline!webpack-dev-server --port 3000 --hot --host 0.0.0.0!。
+\item
+  方案2，更改 \lstinline!config/index.js! 中
+  \lstinline!host: 'localhost'! 为 \lstinline!host: '0.0.0.0'!。
+\end{enumerate}
+
+\subsubsection{动态组件加载}\label{ux52a8ux6001ux7ec4ux4ef6ux52a0ux8f7d}
+
+场景：根须不同的条件加载不同的组件，效果类似 React 中，根据条件 Return
+不同的视图。
+
+\begin{lstlisting}[language=HTML]
+<component :is='ComponentName'></component>
+
+<!-- 组件需要传参的场景 -->
+<component :is='ComponentName' :yourPropName="binddingIt"></component>
+\end{lstlisting}
+
+如果需要异步加载组件，则采用
+
+\begin{lstlisting}
+data () {
+  return {
+    // 无法异步加载
+    // ComponentName: MyComponent,
+    ComponentName: () => import('@/components/dynamic/MyComponent')
+  }
+}
+\end{lstlisting}
+
+参考\href{https://github.com/lobo-tuerto/vuejs-dynamic-async-components-demo}{vuejs-dynamic-async-components-demo}
+
+\subsubsection{组件内事件添加额外的参数}\label{ux7ec4ux4ef6ux5185ux4e8bux4ef6ux6dfbux52a0ux989dux5916ux7684ux53c2ux6570}
+
+封装的组件提供的事件已经有返回的数据，需要添加额外的参数作预处理。
+
+\begin{lstlisting}
+// myComponent 组件内定义的事件
+this.$emit('on-change', val);
+\end{lstlisting}
+
+\begin{lstlisting}[language=HTML]
+<!-- 使用组件，关键在于添加 $event -->
+<myComponent @on-change="myChangeEvent($event, myParams)" />
+\end{lstlisting}
+
+\begin{lstlisting}
+// 第一个参数为 myComponent 组件内的返回数据，第二个参数为自定义参数
+myChangeEvent(val, myParams) {
+
+}
+\end{lstlisting}
+
+\subsubsection{watch 对象变化}\label{watch-ux5bf9ux8c61ux53d8ux5316}
+
+\begin{lstlisting}
+watch: {
+  form: {
+    handler(val) {
+      this.$emit('data-change', val);
+    },
+    // here
+    deep: true,
+  },
+},
+\end{lstlisting}
+
+\subsubsection{extend 实现 JS
+调用的组件封装}\label{extend-ux5b9eux73b0-js-ux8c03ux7528ux7684ux7ec4ux4ef6ux5c01ux88c5}
+
+\begin{lstlisting}
+// MyComponent/index.js
+import Vue from 'vue';
+// MyComponent/main.vue 用一般的组件写法编写
+import mainVue from './main';
+const ConfirmBoxConstructor = Vue.extend(mainVue);
+const MyComponent = (options) => {
+  const instance = new ConfirmBoxConstructor({
+    el: document.createElement('div'),
+    // 参数将赋值到 main.vue 中的 data 中，实现配置
+    data: options,
+  });
+
+  document.body.appendChild(instance.$el);
+};
+
+MyComponent.myMethod = () => {
+  // define here
+}
+
+export default MyComponent;
+\end{lstlisting}
+
+调用组件
+
+\begin{lstlisting}
+import MyComponent from 'MyComponent'
+export default {
+  mounted() {
+    const options = {
+      // custom here
+    };
+    MyComponent(options);
+    // 方法调用
+    // MyComponent.myMethod();
+  }
+}
+\end{lstlisting}
+
 \subsubsection{ES6}\label{es6}
 
 以下几个 ES6 功能应用于 Vue.js 将获得不错的收益\footnote{\href{https://vuejsdevelopers.com/2018/01/22/vue-js-javascript-es6/}{ANTHONY
@@ -962,3 +1079,82 @@ export default {
 \subsubsection{IE 图标不显示}\label{ie-ux56feux6807ux4e0dux663eux793a}
 
 可用文字替代伪元素中的内容.
+
+\section{Electron}\label{electron}
+
+Electron 构建应用，主要包括两部分：一是构建 Web App；二是 Electron
+提供扩展能力（内置了 Node，可用 node 的模块），Web App
+实现本地交互能力。构建 Electron 应用工程，可首先构建 Web App
+工程，稍作修改适应客户端最后打包的需求。
+
+\subsection{技术栈}\label{ux6280ux672fux6808}
+
+应用(TypeScript + React) + 打包(electron-builder)。
+
+\subsubsection{准备}\label{ux51c6ux5907}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Electron 支持
+  TypeScript，\href{https://electronjs.org/blog/typescript}{Announcing
+  TypeScript support in Electron}，模板工程参考
+  \href{https://github.com/electron/electron-quick-start-typescript}{electron-quick-start-typescript}。
+\item
+  React TypeScript 模板工程参考
+  \href{https://github.com/Microsoft/TypeScript-React-Starter}{TypeScript-React-Starter}。
+\item
+  打包工具
+  \href{https://github.com/electron-userland/electron-builder}{electron-builder}。
+\end{enumerate}
+
+思路，首先建立一个 Web
+应用工程（通常为单页应用，无需管理多窗口），然后建一个桌面应用入口文件，入口文件加载
+Web App 应用，最后用工具将 electron 和 Web
+应用打包在一起。结合以上的两个模板工程，优先构建 Web 应用，然后加入
+Electron 相关依赖的脚本。
+
+\subsubsection{工程搭建}\label{ux5de5ux7a0bux642dux5efa}
+
+创建工程流程，可先用 create-react-app 创建 React
+应用工程，然后作调整，并加入 Electron 相关依赖的脚本。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  创建 React 工程
+
+\begin{lstlisting}[language=bash]
+create-react-app my-app --scripts-version=react-scripts-ts
+\end{lstlisting}
+\item
+  更改 tsconfig：解决 main.ts 编译问题
+
+\begin{lstlisting}
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        // 关闭窗口时设置为 null 禁用 null 检查
+        "strictNullChecks": false
+    }
+}
+\end{lstlisting}
+\item
+  静态资源路径需要改为相对路径。
+\item
+  将 electron-quick-start-typescript 中的 main.ts 移到当前工程
+  \lstinline!src! 下。
+\end{enumerate}
+
+注意 main.ts 编译后 index.html 以及静态资源路径问题。
+
+\subsection{资源及扩展阅读}\label{ux8d44ux6e90ux53caux6269ux5c55ux9605ux8bfb}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://electronjs.org/docs/development/atom-shell-vs-node-webkit}{Technical
+  Differences Between Electron and NW.js(formerly node-webkit)}
+\end{enumerate}

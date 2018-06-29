@@ -18,3 +18,9 @@
     javascript test framework for node.js & the browser。
 3.  [karma](https://github.com/karma-runner/karma)：Spectacular Test
     Runner for JavaScript。
+
+扩展
+----
+
+1.  [Getting Started with Headless
+    Chrome](https://developers.google.cn/web/updates/2017/04/headless-chrome)

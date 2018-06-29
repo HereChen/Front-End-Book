@@ -1118,10 +1118,10 @@ jQuery
 
 1.  使用 `jQuery.noConflict()`
 
-``` {.javascript}
-jQuery.noConflict();
-// 之后使用 jQuery 调用, jQuery("#id").methodname()
-```
+    ``` {.javascript}
+    jQuery.noConflict();
+    // 之后使用 jQuery 调用, jQuery("#id").methodname()
+    ```
 
 2.  自定义别名
 
@@ -1151,6 +1151,81 @@ jQuery.noConflict();
 
 1.  switch 以 `===` 匹配。
 2.  函数会首先被提升，然后才是变量。
+
+进阶
+----
+
+### 深拷贝和浅拷贝
+
+浅拷贝只拷贝一层对象的属性，深拷贝则递归拷贝了所有层级。而 JavaScript
+存储对象都是存地址的，这就导致如果拷贝的是一个对象，而不是值，原来的对象和拷贝到的目标变量会指向同一个地址，更改其中任一一个，另一个也会更改。或者可以说，浅拷贝是拷贝存值的地址，深拷贝是拷贝值。一下是浅拷贝的示例。
+
+``` {.javascript}
+// 例1: 数值数组
+var a = [1, 2, 3];
+var b = a;
+b[1] = 12344;
+console.log(a);
+// [1, 12344, 3]
+
+// 例2: 对象
+var obj = {a: 1, b: {p: 2}};
+var newObj = {};
+for (var i in obj) {
+  newObj[i] = obj[i];
+}
+newObj.b.p = 3;
+console.log(obj.b.p);
+// 3
+```
+
+对象数组，比如 `[{a: 1}, {b: 2}]`，由于数组内部的值为引用对象，用
+`slice` 拷贝仍然是浅拷贝。
+
+实现深拷贝的方法，对于只有数值的数组可以直接用 `slice` 和 `concat`
+方法实现，通用的方法是循环加递归。外层为循环，内层判断属性对应值是否为对象（`typeof obj === 'object'`），如果是则递归，如果不是则直接赋值。
+
+``` {.javascript}
+var obj = {a: 1, b: {p: 2}};
+function deepClone(obj) {
+  var result = obj.constructor === Array ? [] : {};
+  for (var key in obj) {
+    result[key] = typeof obj[key] !== 'object' ? obj[key] : deepClone(obj[key]);
+  }
+  return result;
+}
+```
+
+总结：
+
+1.  数组浅拷贝：`=`
+2.  对象浅拷贝：`=` 或 `Object.assign({}, obj)`
+3.  含值数组深拷贝：`[1,2,3].slice()` 或 `[].concat([1,2,3])`
+4.  对象或数组深拷贝：`JSON.parse(JSON.stringify(obj))` 或者循环加递归。
+
+备注：
+
+`JSON.parse(JSON.stringify(obj))` 对于嵌套的对象或数组只包含 Primitive
+（只含值），但对于属性值有 function 或者 Date 等不应采用此法。
+
+``` {.javascript}
+var a = {a: 1, b: () => {}, c: new Date()}
+// {a: 1, b: ƒ, c: Fri Jun 15 2018 11:10:49 GMT+0800 (China Standard Time)}
+var o = JSON.parse(JSON.stringify(a))
+// {a: 1, c: "2018-06-15T03:10:49.965Z"}
+```
+
+深拷贝辅助工具
+
+``` {.javascript}
+import * as cloneDeep from 'lodash/cloneDeep';
+var obj = {a: 1, b: 2};
+var clone = cloneDeep(obj);
+```
+
+-   [javascript中的深拷贝和浅拷贝？](https://www.zhihu.com/question/23031215)
+-   [Deepcopy of JavaScript Objects and Arrays using lodash’s cloneDeep
+    method](http://blog.bogdancarpean.com/deepcopy-of-javascript-objects-and-arrays-using-lodashs-clonedeep-method/)
 
 浏览器
 ======
@@ -1199,14 +1274,16 @@ w3school](http://www.w3school.com.cn/tags/tag_noscript.asp)
 
 以 IE 为例，展示几个 CSS hack 方法，更多的见参考链接。
 
-**IE6**
+#### IE6
 
 ``` {.css}
 .selector { _property: value; }
 .selector { -property: value; }
 ```
 
-**IE &lt;= 7** ( `` ! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : < > | `` )
+#### IE &lt;= 7
+
+`` ! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : < > | ``
 
 ``` {.css}
 .selector { !property: value; }
@@ -1230,7 +1307,7 @@ w3school](http://www.w3school.com.cn/tags/tag_noscript.asp)
 .selector { |property: value; }
 ```
 
-**IE 6-8**
+#### IE 6-8
 
 ``` {.css}
 .selector { property: value\9; }
@@ -1275,24 +1352,26 @@ msdn](https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx)
 
 #### userAgent
 
-**userAgent 示例**
+##### userAgent 示例
 
-    Chrome 60
-    Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+``` {.text}
+Chrome 60
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
 
-    360 安全浏览器/极速模式
-    Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36 QIHU 360SE
+360 安全浏览器/极速模式
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36 QIHU 360SE
 
-    360 安全浏览器/IE 兼容模式
-    Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
+360 安全浏览器/IE 兼容模式
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
 
-    IE 11
-    Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
+IE 11
+Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; rv:11.0) like Gecko
 
-    Edge 40
-    Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063
+Edge 40
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063
+```
 
-**userAgent 判别浏览器**
+##### userAgent 判别浏览器
 
 可直接查看此插件的 js
 代码：[jquery-browser-plugin](https://github.com/gabceb/jquery-browser-plugin)。实测了
@@ -1316,7 +1395,7 @@ IE、Firefox、Opera、Chrome，输出结果都是对的。
 </html>
 ```
 
-**userAgent 判别设备**
+##### userAgent 判别设备
 
 通过检测设备, 可以针对不同设备提供不同功能, 并处理不同设备的兼容需求.
 
@@ -1353,6 +1432,23 @@ if (ifIE) {
   // 依赖 loadjs
   loadjs('/static/css/iefix.css')
 }
+```
+
+一些兼容性解决方法
+------------------
+
+### scrollTop
+
+在应用滚动加载时，发现 `document.documentElement.scrollTop` 在 Chrome
+老版本（比如 56）存在 bug，值为 0，可参见
+[document.documentElement.scrollTop/Left is always zero (body is the
+scrollingElement even in strict
+mode)](https://bugs.chromium.org/p/chromium/issues/detail?id=157855)。
+
+``` {.javascript}
+// [关于scrolltop 兼容 IE6/7/8, Safari,FF的方法](http://www.cnblogs.com/ckmouse/archive/2012/01/30/2332076.html)
+const dE = document.documentElement;
+const scrollTop = dE.scrollTop || window.pageYOffset || document.body.scrollTop;
 ```
 
 本地缓存

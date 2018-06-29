@@ -950,11 +950,9 @@ a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at"
 </ul>
 <h3 id="jquery-命名冲突解决">jQuery 命名冲突解决</h3>
 <ol style="list-style-type: decimal">
-<li>使用 <code>jQuery.noConflict()</code></li>
-</ol>
+<li><p>使用 <code>jQuery.noConflict()</code></p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="at">noConflict</span>()<span class="op">;</span>
-<span class="co">// 之后使用 jQuery 调用, jQuery(&quot;#id&quot;).methodname()</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
+<span class="co">// 之后使用 jQuery 调用, jQuery(&quot;#id&quot;).methodname()</span></code></pre></div></li>
 <li><p>自定义别名</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> $j <span class="op">=</span> <span class="va">jQuery</span>.<span class="at">noConflict</span>()<span class="op">;</span>
 <span class="co">// $j(&quot;#id&quot;).methodname();</span></code></pre></div></li>
@@ -974,6 +972,56 @@ a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at"
 <li>switch 以 <code>===</code> 匹配。</li>
 <li>函数会首先被提升，然后才是变量。</li>
 </ol>
+<h2 id="进阶">进阶</h2>
+<h3 id="深拷贝和浅拷贝">深拷贝和浅拷贝</h3>
+<p>浅拷贝只拷贝一层对象的属性，深拷贝则递归拷贝了所有层级。而 JavaScript 存储对象都是存地址的，这就导致如果拷贝的是一个对象，而不是值，原来的对象和拷贝到的目标变量会指向同一个地址，更改其中任一一个，另一个也会更改。或者可以说，浅拷贝是拷贝存值的地址，深拷贝是拷贝值。一下是浅拷贝的示例。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// 例1: 数值数组</span>
+<span class="kw">var</span> a <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span>
+<span class="kw">var</span> b <span class="op">=</span> a<span class="op">;</span>
+b[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">12344</span><span class="op">;</span>
+<span class="va">console</span>.<span class="at">log</span>(a)<span class="op">;</span>
+<span class="co">// [1, 12344, 3]</span>
+
+<span class="co">// 例2: 对象</span>
+<span class="kw">var</span> obj <span class="op">=</span> <span class="op">{</span><span class="dt">a</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> <span class="op">{</span><span class="dt">p</span><span class="op">:</span> <span class="dv">2</span><span class="op">}};</span>
+<span class="kw">var</span> newObj <span class="op">=</span> <span class="op">{};</span>
+<span class="cf">for</span> (<span class="kw">var</span> i <span class="kw">in</span> obj) <span class="op">{</span>
+  newObj[i] <span class="op">=</span> obj[i]<span class="op">;</span>
+<span class="op">}</span>
+<span class="va">newObj</span>.<span class="va">b</span>.<span class="at">p</span> <span class="op">=</span> <span class="dv">3</span><span class="op">;</span>
+<span class="va">console</span>.<span class="at">log</span>(<span class="va">obj</span>.<span class="va">b</span>.<span class="at">p</span>)<span class="op">;</span>
+<span class="co">// 3</span></code></pre></div>
+<p>对象数组，比如 <code>[{a: 1}, {b: 2}]</code>，由于数组内部的值为引用对象，用 <code>slice</code> 拷贝仍然是浅拷贝。</p>
+<p>实现深拷贝的方法，对于只有数值的数组可以直接用 <code>slice</code> 和 <code>concat</code> 方法实现，通用的方法是循环加递归。外层为循环，内层判断属性对应值是否为对象（<code>typeof obj === 'object'</code>），如果是则递归，如果不是则直接赋值。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> obj <span class="op">=</span> <span class="op">{</span><span class="dt">a</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> <span class="op">{</span><span class="dt">p</span><span class="op">:</span> <span class="dv">2</span><span class="op">}};</span>
+<span class="kw">function</span> <span class="at">deepClone</span>(obj) <span class="op">{</span>
+  <span class="kw">var</span> result <span class="op">=</span> <span class="va">obj</span>.<span class="at">constructor</span> <span class="op">===</span> Array <span class="op">?</span> [] : <span class="op">{};</span>
+  <span class="cf">for</span> (<span class="kw">var</span> key <span class="kw">in</span> obj) <span class="op">{</span>
+    result[key] <span class="op">=</span> <span class="kw">typeof</span> obj[key] <span class="op">!==</span> <span class="st">&#39;object&#39;</span> <span class="op">?</span> obj[key] : <span class="at">deepClone</span>(obj[key])<span class="op">;</span>
+  <span class="op">}</span>
+  <span class="cf">return</span> result<span class="op">;</span>
+<span class="op">}</span></code></pre></div>
+<p>总结：</p>
+<ol style="list-style-type: decimal">
+<li>数组浅拷贝：<code>=</code></li>
+<li>对象浅拷贝：<code>=</code> 或 <code>Object.assign({}, obj)</code></li>
+<li>含值数组深拷贝：<code>[1,2,3].slice()</code> 或 <code>[].concat([1,2,3])</code></li>
+<li>对象或数组深拷贝：<code>JSON.parse(JSON.stringify(obj))</code> 或者循环加递归。</li>
+</ol>
+<p>备注：</p>
+<p><code>JSON.parse(JSON.stringify(obj))</code> 对于嵌套的对象或数组只包含 Primitive （只含值），但对于属性值有 function 或者 Date 等不应采用此法。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> a <span class="op">=</span> <span class="op">{</span><span class="dt">a</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> () <span class="op">=&gt;</span> <span class="op">{},</span> <span class="dt">c</span><span class="op">:</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">}</span>
+<span class="co">// {a: 1, b: ƒ, c: Fri Jun 15 2018 11:10:49 GMT+0800 (China Standard Time)}</span>
+<span class="kw">var</span> o <span class="op">=</span> <span class="va">JSON</span>.<span class="at">parse</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(a))
+<span class="co">// {a: 1, c: &quot;2018-06-15T03:10:49.965Z&quot;}</span></code></pre></div>
+<p>深拷贝辅助工具</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> cloneDeep <span class="im">from</span> <span class="st">&#39;lodash/cloneDeep&#39;</span><span class="op">;</span>
+<span class="kw">var</span> obj <span class="op">=</span> <span class="op">{</span><span class="dt">a</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> <span class="dv">2</span><span class="op">};</span>
+<span class="kw">var</span> clone <span class="op">=</span> <span class="at">cloneDeep</span>(obj)<span class="op">;</span></code></pre></div>
+<ul>
+<li><a href="https://www.zhihu.com/question/23031215">javascript中的深拷贝和浅拷贝？</a></li>
+<li><a href="http://blog.bogdancarpean.com/deepcopy-of-javascript-objects-and-arrays-using-lodashs-clonedeep-method/">Deepcopy of JavaScript Objects and Arrays using lodash’s cloneDeep method</a></li>
+</ul>
 <h1 id="浏览器">浏览器</h1>
 <h2 id="浏览器兼容性">浏览器兼容性</h2>
 <h3 id="ie6ie7ie8-支持-html5-新标签">IE6/IE7/IE8 支持 html5 新标签</h3>
@@ -992,10 +1040,11 @@ a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at"
 <p>reference: <a href="http://www.w3school.com.cn/tags/tag_noscript.asp">HTML noscript 标签, w3school</a></p>
 <h3 id="浏览器-hack">浏览器 hack</h3>
 <p>以 IE 为例，展示几个 CSS hack 方法，更多的见参考链接。</p>
-<p><strong>IE6</strong></p>
+<h4 id="ie6">IE6</h4>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.selector</span> <span class="kw">{</span> <span class="kw">_property:</span> value<span class="kw">;</span> <span class="kw">}</span>
 <span class="fl">.selector</span> <span class="kw">{</span> <span class="kw">-property:</span> value<span class="kw">;</span> <span class="kw">}</span></code></pre></div>
-<p><strong>IE &lt;= 7</strong> ( <code>! $ &amp; * ( ) = % + @ , . / ` [ ] # ~ ? : &lt; &gt; |</code> )</p>
+<h4 id="ie-7">IE &lt;= 7</h4>
+<p><code>! $ &amp; * ( ) = % + @ , . / ` [ ] # ~ ? : &lt; &gt; |</code></p>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.selector</span> <span class="kw">{</span> <span class="er">!</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
 <span class="fl">.selector</span> <span class="kw">{</span> <span class="er">$</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
 <span class="fl">.selector</span> <span class="kw">{</span> <span class="er">&amp;</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
@@ -1015,7 +1064,7 @@ a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at"
 <span class="fl">.selector</span> <span class="kw">{</span> <span class="er">?</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
 <span class="fl">.selector</span> <span class="kw">{</span> <span class="er">:</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span>
 <span class="fl">.selector</span> <span class="kw">{</span> <span class="er">|</span><span class="kw">property:</span> value<span class="kw">;</span> <span class="kw">}</span></code></pre></div>
-<p><strong>IE 6-8</strong></p>
+<h4 id="ie-6-8">IE 6-8</h4>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.selector</span> <span class="kw">{</span> <span class="kw">property:</span> value\<span class="dt">9</span><span class="kw">;</span> <span class="kw">}</span>
 <span class="fl">.selector</span> <span class="kw">{</span> <span class="er">property</span><span class="co">/*\**/</span><span class="er">:</span> <span class="er">value\9;</span> <span class="kw">}</span></code></pre></div>
 <p>reference: <a href="http://browserhacks.com/" class="uri">http://browserhacks.com/</a></p>
@@ -1039,8 +1088,8 @@ a <span class="op">=&gt;</span> <span class="va">console</span>.<span class="at"
 <span class="co">&lt;![endif]--&gt;</span></code></pre></div>
 <p>reference: <a href="https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx">About conditional comments, msdn</a></p>
 <h4 id="useragent">userAgent</h4>
-<p><strong>userAgent 示例</strong></p>
-<pre><code>Chrome 60
+<h5 id="useragent-示例">userAgent 示例</h5>
+<pre class="text"><code>Chrome 60
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
 
 360 安全浏览器/极速模式
@@ -1054,7 +1103,7 @@ Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2
 
 Edge 40
 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36 Edge/15.15063</code></pre>
-<p><strong>userAgent 判别浏览器</strong></p>
+<h5 id="useragent-判别浏览器">userAgent 判别浏览器</h5>
 <p>可直接查看此插件的 js 代码：<a href="https://github.com/gabceb/jquery-browser-plugin">jquery-browser-plugin</a>。实测了 IE、Firefox、Opera、Chrome，输出结果都是对的。</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
 <span class="kw">&lt;head&gt;</span>
@@ -1071,7 +1120,7 @@ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 <span class="kw">&lt;/script&gt;</span>
 <span class="kw">&lt;/body&gt;</span>
 <span class="kw">&lt;/html&gt;</span></code></pre></div>
-<p><strong>userAgent 判别设备</strong></p>
+<h5 id="useragent-判别设备">userAgent 判别设备</h5>
 <p>通过检测设备, 可以针对不同设备提供不同功能, 并处理不同设备的兼容需求.</p>
 <div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// 检测 IOS</span>
 ios <span class="op">=</span> <span class="ss">/iphone</span><span class="sc">|</span><span class="ss">ipod</span><span class="sc">|</span><span class="ss">ipad/i</span>.<span class="at">test</span>(<span class="va">window</span>.<span class="va">navigator</span>.<span class="at">userAgent</span>)<span class="op">;</span>
@@ -1091,6 +1140,12 @@ android <span class="op">=</span> <span class="ss">/android/i</span>.<span class
   <span class="co">// 依赖 loadjs</span>
   <span class="at">loadjs</span>(<span class="st">&#39;/static/css/iefix.css&#39;</span>)
 <span class="op">}</span></code></pre></div>
+<h2 id="一些兼容性解决方法">一些兼容性解决方法</h2>
+<h3 id="scrolltop">scrollTop</h3>
+<p>在应用滚动加载时，发现 <code>document.documentElement.scrollTop</code> 在 Chrome 老版本（比如 56）存在 bug，值为 0，可参见 <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=157855">document.documentElement.scrollTop/Left is always zero (body is the scrollingElement even in strict mode)</a>。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// [关于scrolltop 兼容 IE6/7/8, Safari,FF的方法](http://www.cnblogs.com/ckmouse/archive/2012/01/30/2332076.html)</span>
+<span class="kw">const</span> dE <span class="op">=</span> <span class="va">document</span>.<span class="at">documentElement</span><span class="op">;</span>
+<span class="kw">const</span> scrollTop <span class="op">=</span> <span class="va">dE</span>.<span class="at">scrollTop</span> <span class="op">||</span> <span class="va">window</span>.<span class="at">pageYOffset</span> <span class="op">||</span> <span class="va">document</span>.<span class="va">body</span>.<span class="at">scrollTop</span><span class="op">;</span></code></pre></div>
 <h2 id="本地缓存">本地缓存</h2>
 <ul>
 <li><a href="http://jerryzou.com/posts/cookie-and-web-storage/">详说 Cookie, LocalStorage 与 SessionStorage</a></li>

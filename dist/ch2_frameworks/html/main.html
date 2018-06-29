@@ -58,6 +58,79 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>开发原生APP: <a href="https://weex.apache.org/">weex</a></li>
 </ol>
 <h2 id="tips">Tips</h2>
+<h3 id="本地服务通过-ip-无法访问">本地服务通过 IP 无法访问</h3>
+<ol style="list-style-type: decimal">
+<li>方案1，更改 package.json 中的命令：<code>webpack-dev-server --port 3000 --hot --host 0.0.0.0</code>。</li>
+<li>方案2，更改 <code>config/index.js</code> 中 <code>host: 'localhost'</code> 为 <code>host: '0.0.0.0'</code>。</li>
+</ol>
+<h3 id="动态组件加载">动态组件加载</h3>
+<p>场景：根须不同的条件加载不同的组件，效果类似 React 中，根据条件 Return 不同的视图。</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;component</span><span class="ot"> :is=</span><span class="st">&#39;ComponentName&#39;</span><span class="kw">&gt;&lt;/component&gt;</span>
+
+<span class="co">&lt;!-- 组件需要传参的场景 --&gt;</span>
+<span class="kw">&lt;component</span><span class="ot"> :is=</span><span class="st">&#39;ComponentName&#39;</span><span class="ot"> :yourPropName=</span><span class="st">&quot;binddingIt&quot;</span><span class="kw">&gt;&lt;/component&gt;</span></code></pre></div>
+<p>如果需要异步加载组件，则采用</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="at">data</span> () <span class="op">{</span>
+  <span class="cf">return</span> <span class="op">{</span>
+    <span class="co">// 无法异步加载</span>
+    <span class="co">// ComponentName: MyComponent,</span>
+    <span class="dt">ComponentName</span><span class="op">:</span> () <span class="op">=&gt;</span> <span class="im">import</span>(<span class="st">&#39;@/components/dynamic/MyComponent&#39;</span>)
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<p>参考<a href="https://github.com/lobo-tuerto/vuejs-dynamic-async-components-demo">vuejs-dynamic-async-components-demo</a></p>
+<h3 id="组件内事件添加额外的参数">组件内事件添加额外的参数</h3>
+<p>封装的组件提供的事件已经有返回的数据，需要添加额外的参数作预处理。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// myComponent 组件内定义的事件</span>
+<span class="kw">this</span>.<span class="at">$emit</span>(<span class="st">&#39;on-change&#39;</span><span class="op">,</span> val)<span class="op">;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="co">&lt;!-- 使用组件，关键在于添加 $event --&gt;</span>
+<span class="kw">&lt;myComponent</span> <span class="er">@on-change</span><span class="ot">=</span><span class="st">&quot;myChangeEvent($event, myParams)&quot;</span> <span class="kw">/&gt;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// 第一个参数为 myComponent 组件内的返回数据，第二个参数为自定义参数</span>
+<span class="at">myChangeEvent</span>(val<span class="op">,</span> myParams) <span class="op">{</span>
+
+<span class="op">}</span></code></pre></div>
+<h3 id="watch-对象变化">watch 对象变化</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript">watch<span class="op">:</span> <span class="op">{</span>
+  <span class="dt">form</span><span class="op">:</span> <span class="op">{</span>
+    <span class="at">handler</span>(val) <span class="op">{</span>
+      <span class="kw">this</span>.<span class="at">$emit</span>(<span class="st">&#39;data-change&#39;</span><span class="op">,</span> val)<span class="op">;</span>
+    <span class="op">},</span>
+    <span class="co">// here</span>
+    <span class="dt">deep</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>
+  <span class="op">},</span>
+<span class="op">},</span></code></pre></div>
+<h3 id="extend-实现-js-调用的组件封装">extend 实现 JS 调用的组件封装</h3>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// MyComponent/index.js</span>
+<span class="im">import</span> Vue <span class="im">from</span> <span class="st">&#39;vue&#39;</span><span class="op">;</span>
+<span class="co">// MyComponent/main.vue 用一般的组件写法编写</span>
+<span class="im">import</span> mainVue <span class="im">from</span> <span class="st">&#39;./main&#39;</span><span class="op">;</span>
+<span class="kw">const</span> ConfirmBoxConstructor <span class="op">=</span> <span class="va">Vue</span>.<span class="at">extend</span>(mainVue)<span class="op">;</span>
+<span class="kw">const</span> MyComponent <span class="op">=</span> (options) <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="kw">const</span> instance <span class="op">=</span> <span class="kw">new</span> <span class="at">ConfirmBoxConstructor</span>(<span class="op">{</span>
+    <span class="dt">el</span><span class="op">:</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">,</span>
+    <span class="co">// 参数将赋值到 main.vue 中的 data 中，实现配置</span>
+    <span class="dt">data</span><span class="op">:</span> options<span class="op">,</span>
+  <span class="op">}</span>)<span class="op">;</span>
+
+  <span class="va">document</span>.<span class="va">body</span>.<span class="at">appendChild</span>(<span class="va">instance</span>.<span class="at">$el</span>)<span class="op">;</span>
+<span class="op">};</span>
+
+<span class="va">MyComponent</span>.<span class="at">myMethod</span> <span class="op">=</span> () <span class="op">=&gt;</span> <span class="op">{</span>
+  <span class="co">// define here</span>
+<span class="op">}</span>
+
+<span class="im">export</span> <span class="im">default</span> MyComponent<span class="op">;</span></code></pre></div>
+<p>调用组件</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="im">import</span> MyComponent <span class="im">from</span> <span class="st">&#39;MyComponent&#39;</span>
+<span class="im">export</span> <span class="im">default</span> <span class="op">{</span>
+  <span class="at">mounted</span>() <span class="op">{</span>
+    <span class="kw">const</span> options <span class="op">=</span> <span class="op">{</span>
+      <span class="co">// custom here</span>
+    <span class="op">};</span>
+    <span class="at">MyComponent</span>(options)<span class="op">;</span>
+    <span class="co">// 方法调用</span>
+    <span class="co">// MyComponent.myMethod();</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
 <h3 id="es6">ES6</h3>
 <p>以下几个 ES6 功能应用于 Vue.js 将获得不错的收益<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, 特别是对于无需构建工具的情况.</p>
 <ol style="list-style-type: decimal">
@@ -565,6 +638,38 @@ npm run dev &amp; npm run serve</code></pre>
 <h2 id="兼容性">兼容性</h2>
 <h3 id="ie-图标不显示">IE 图标不显示</h3>
 <p>可用文字替代伪元素中的内容.</p>
+<h1 id="electron">Electron</h1>
+<p>Electron 构建应用，主要包括两部分：一是构建 Web App；二是 Electron 提供扩展能力（内置了 Node，可用 node 的模块），Web App 实现本地交互能力。构建 Electron 应用工程，可首先构建 Web App 工程，稍作修改适应客户端最后打包的需求。</p>
+<h2 id="技术栈">技术栈</h2>
+<p>应用(TypeScript + React) + 打包(electron-builder)。</p>
+<h3 id="准备">准备</h3>
+<ol style="list-style-type: decimal">
+<li>Electron 支持 TypeScript，<a href="https://electronjs.org/blog/typescript">Announcing TypeScript support in Electron</a>，模板工程参考 <a href="https://github.com/electron/electron-quick-start-typescript">electron-quick-start-typescript</a>。</li>
+<li>React TypeScript 模板工程参考 <a href="https://github.com/Microsoft/TypeScript-React-Starter">TypeScript-React-Starter</a>。</li>
+<li>打包工具 <a href="https://github.com/electron-userland/electron-builder">electron-builder</a>。</li>
+</ol>
+<p>思路，首先建立一个 Web 应用工程（通常为单页应用，无需管理多窗口），然后建一个桌面应用入口文件，入口文件加载 Web App 应用，最后用工具将 electron 和 Web 应用打包在一起。结合以上的两个模板工程，优先构建 Web 应用，然后加入 Electron 相关依赖的脚本。</p>
+<h3 id="工程搭建">工程搭建</h3>
+<p>创建工程流程，可先用 create-react-app 创建 React 应用工程，然后作调整，并加入 Electron 相关依赖的脚本。</p>
+<ol style="list-style-type: decimal">
+<li><p>创建 React 工程</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">create-react-app</span> my-app --scripts-version=react-scripts-ts</code></pre></div></li>
+<li><p>更改 tsconfig：解决 main.ts 编译问题</p>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="dt">&quot;compilerOptions&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;module&quot;</span><span class="fu">:</span> <span class="st">&quot;commonjs&quot;</span><span class="fu">,</span>
+        <span class="er">//</span> <span class="er">关闭窗口时设置为</span> <span class="er">null</span> <span class="er">禁用</span> <span class="er">null</span> <span class="er">检查</span>
+        <span class="dt">&quot;strictNullChecks&quot;</span><span class="fu">:</span> <span class="kw">false</span>
+    <span class="fu">}</span>
+<span class="fu">}</span></code></pre></div></li>
+<li>静态资源路径需要改为相对路径。</li>
+<li><p>将 electron-quick-start-typescript 中的 main.ts 移到当前工程 <code>src</code> 下。</p></li>
+</ol>
+<p>注意 main.ts 编译后 index.html 以及静态资源路径问题。</p>
+<h2 id="资源及扩展阅读">资源及扩展阅读</h2>
+<ol style="list-style-type: decimal">
+<li><a href="https://electronjs.org/docs/development/atom-shell-vs-node-webkit">Technical Differences Between Electron and NW.js(formerly node-webkit)</a></li>
+</ol>
 <div class="footnotes">
 <hr />
 <ol>
