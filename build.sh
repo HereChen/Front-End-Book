@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # global
 markdown_section_folders=("ch1_fundamental" "ch2_frameworks" "ch3_tools" "ch4_performance" "ch5_solutions" "ch6_test")
 ignore_files=("README.md")
