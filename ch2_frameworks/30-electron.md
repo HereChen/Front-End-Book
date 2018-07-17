@@ -26,11 +26,11 @@ Electron 构建应用，主要包括两部分：一是构建 Web App；二是 El
 
 2. 更改 tsconfig：解决 main.ts 编译问题
 
-    ```json
+    ```javascript
     {
         "compilerOptions": {
             "module": "commonjs",
-            // 关闭窗口时设置为 null 禁用 null 检查
+            /* 关闭窗口时设置为 null 禁用 null 检查 */
             "strictNullChecks": false
         }
     }
