@@ -20,7 +20,7 @@ npm run serve
 
 ```javascript
 <script lang="ts">
-import { Vue, Component Prop} from 'vue-property-decorator';
+import { Vue, Component Prop, Watch } from 'vue-property-decorator';
 import Hello from '@/components/Hello.vue';
 
 @Component({
@@ -46,6 +46,12 @@ export default class Demo extends Vue {
   // mounted
   private mounted(): void {
     // excute something
+  }
+
+  // watch
+  @Watch('var1')
+  private onVar1Change(): void {
+    this.var2 = this.var1;
   }
 
   // computed
