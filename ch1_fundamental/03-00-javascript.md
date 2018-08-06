@@ -1,5 +1,7 @@
 # JavaScript
 
+大数处理，Cookie 写入。
+
 ## JavaScript 组成
 
 一个完整的 JavaScript 实现是由以下 3 个不同部分组成的：
