@@ -1,6 +1,6 @@
 # JavaScript
 
-大数处理，Cookie 写入。
+Cookie 写入。
 
 ## JavaScript 组成
 
@@ -508,6 +508,21 @@ localStorage.clear()                // 清空 localStorage
 - [邦彦, 谈谈 jQuery 中的防冲突（noConflict）机制, TaoBaoUED](http://ued.taobao.org/blog/2013/03/jquery-noconflict/)
 - [RascallySnake, Jquery的$命名冲突, cnblogs](http://www.cnblogs.com/RascallySnake/archive/2010/05/07/1729417.html)
 - [TerryChen, Jquery命名冲突解决的五种方案, cnblogs](http://www.cnblogs.com/ForEvErNoME/archive/2012/03/15/2398659.html)
+
+## 大数
+
+JS 正常处理的最大的数字为 53 位。
+
+```javascript
+console.log(Math.pow(2, 53));
+// 9007199254740992
+console.log(Math.pow(2, 53) + 1)
+// 9007199254740992
+```
+
+### 场景
+
+有时候后端返回来字段的不是字符串（通常是 ID），而是数字，然后后面又要用到这个字段，那么需要提前转换成字符串 `String(1152921504606847000)`，避免数字变更成其他值。
 
 ## 其他
 
