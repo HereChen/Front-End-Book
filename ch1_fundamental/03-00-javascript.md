@@ -13,45 +13,6 @@
 - [JavaScript 实现](http://www.w3school.com.cn/js/pro_js_implement.asp)
 - [JavaScript学习总结（三）BOM和DOM详解](http://segmentfault.com/a/1190000000654274)
 
-## 类型、值和变量
-
-### 数据类型
-
-- 基本数据类型：String 字符串；Number 数字；Boolean 布尔。
-- 复合数据类型：Object 对象；Array 数组。
-- 特殊数据类型：Null 空对象；Undefined 未定义。
-
-- [数据类型 (JavaScript), msdn](https://msdn.microsoft.com/zh-cn/library/7wkd9z69(v=vs.94).aspx)
-
-### null, NaN, undefined
-
-JavaScript中有 6 个值为“假”: `false`, `null`, `undefined`, `0`, `''`(空字符串), `NaN`. 其中 `NaN` 是 JavaScript 中唯一不等于自身的值, 即 `NaN == NaN` 为 `false`.
-
-```javascript
-console.log( false == null )      // false
-console.log( false == undefined ) // false
-console.log( false == 0 )         // true
-console.log( false == '' )        // true
-console.log( false == NaN )       // false
-
-console.log( null == undefined ) // true
-console.log( null == 0 )         // false
-console.log( null == '' )        // false
-console.log( null == NaN )       // false
-
-console.log( undefined == 0 )    // false
-console.log( undefined == '' )   // false
-console.log( undefined == NaN )  // false
-
-console.log( 0 == '' )           // true
-console.log( 0 == NaN )          // false
-```
-
-对于 `===` 以上全为 `false`。对于 `==`，以下几组为 `true`：`null` 和 `undefined`；`false`、`0`、`''`。
-
-- [JavaScript中奇葩的假值](http://www.cnblogs.com/snandy/p/3589517.html)
-- [阮一峰, undefined与null的区别, 2014](http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html)
-
 ## 函数
 
 ### 常用函数
@@ -369,41 +330,6 @@ bar(); // 2
 - 拷贝继承
 
 - [继承与原型链, mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain), [RayChase, JavaScript实现继承的几种方式](http://raychase.iteye.com/blog/1337415)
-
-## 正则表达式
-
-**参数**
-
-- `i`, 忽略大小写.
-- `g`, 全局匹配, 找到所有匹配，而不是在第一个匹配后停止.
-
-```javascript
-// 替换所有 a 字符, 不区分大小写
-"aAopa".replace(/a/gi, '')
-```
-
-**特殊字符**
-
-- `\d` 任意一个数字，等价于 `[0-9]`
-- `\D` 任意一个非数字，等价于 `[^0-9]`
-- `\w` 任意一个字母、数字或下划线字符，等价于 `[a-zA-Z_]`
-- `\W` 任意一个非字母、数字和下划线字符，等价于 `[^a-zA-Z_]`
-- `\s` 任意一个空白字符，包括换页符、换行符、回车符、制表符和垂直制表符，等价于 `[\f\n\r\t\v]`
-- `\S` 任意一个非空白符，等价于 `[^\f\n\r\t\v]`
-- `.` 换行和回车以外的任意一个字符，等价于 `[^\n\r]`
-
-**次数匹配**
-
-- `?` 最多一次 (零次或一次)
-- `+` 至少一次
-- `*` 任意次
-- `{n}` 只能出现 n 次
-- `{n,m}` 至少 n 次，最多 m 次
-
-**reference**
-
-- [mozilla, RegExp](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-- [正则总结：JavaScript中的正则表达式](http://www.nowamagic.net/librarys/veda/detail/1283)
 
 ## ES5
 
