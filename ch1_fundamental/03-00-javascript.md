@@ -514,10 +514,17 @@ localStorage.clear()                // 清空 localStorage
 JS 正常处理的最大的数字为 53 位。
 
 ```javascript
-console.log(Math.pow(2, 53));
+var maxNumber = Math.pow(2, 53) - 1; // 9007199254740991
+var isTrue = maxNumber === Number.MAX_SAFE_INTEGER;
+console.log(isTrue);
+// true
+
+console.log(maxNumber + 1)
 // 9007199254740992
-console.log(Math.pow(2, 53) + 1)
-// 9007199254740992
+
+// 判断是否在 Number.MIN_SAFE_INTEGER 到 Number.MAX_SAFE_INTEGER 范围内
+console.log(Number.isSafeInteger(maxNumber + 1));
+// false
 ```
 
 ### 场景
