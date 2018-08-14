@@ -20,7 +20,7 @@
 1. `ch1_fundamental` 基础.
 2. `ch2_frameworks` 框架.
 3. `ch3_tools` 工具.
-3. `ch4_optimization` 优化.
+4. `ch4_optimization` 优化.
 5. `ch5_solutions` 方案.
 
 ## 编译结果说明
@@ -41,4 +41,3 @@
 1. [OpenSourceBook](https://github.com/Xuanwo/OpenSourceBook)
 2. [Wandmalfarbe/pandoc-latex-template](https://github.com/Wandmalfarbe/pandoc-latex-template)
 3. [pandoc-starter](https://github.com/jez/pandoc-starter)
-

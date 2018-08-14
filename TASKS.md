@@ -1,5 +1,6 @@
 # MARKDOWN 编译
 
+- [ ] pandoc(2.2.3.2) 行内代码 LaTeX 编译通不过
 - [ ] 并行编译[parallel](http://www.gnu.org/software/parallel/)
 - [ ] 根据目录 git 状态确定是否需要编译
 - [ ] HTML 格式添加 CSS (类似 LaTeX 的 format.cls)
