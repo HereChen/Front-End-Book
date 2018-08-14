@@ -184,7 +184,7 @@ API.getSomething().then(res => {
 1. `npm install sass-resources-loader --save-dev`
 2. 更改 `build/webpack.base.conf.js`, 适用于 vue-cli.
 
-```json
+```javascript
 {
     test: /\.vue$/,
     loader: 'vue-loader',

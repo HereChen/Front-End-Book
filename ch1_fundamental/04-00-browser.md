@@ -27,53 +27,10 @@ noscript 元素用来定义在脚本未被执行时的替代内容（文本）�
 <noscript>Your browser does not support JavaScript!</noscript>
 ```
 
-reference: [HTML noscript 标签, w3school](http://www.w3school.com.cn/tags/tag_noscript.asp)
+reference
 
-### 浏览器 hack
-
-以 IE 为例，展示几个 CSS hack 方法，更多的见参考链接。
-
-#### IE6
-
-```css
-.selector { _property: value; }
-.selector { -property: value; }
-```
-
-#### IE <= 7
-
-``! $ & * ( ) = % + @ , . / ` [ ] # ~ ? : < > |``
-
-```css
-.selector { !property: value; }
-.selector { $property: value; }
-.selector { &property: value; }
-.selector { *property: value; }
-.selector { )property: value; }
-.selector { =property: value; }
-.selector { %property: value; }
-.selector { +property: value; }
-.selector { @property: value; }
-.selector { ,property: value; }
-.selector { .property: value; }
-.selector { /property: value; }
-.selector { `property: value; }
-.selector { ]property: value; }
-.selector { #property: value; }
-.selector { ~property: value; }
-.selector { ?property: value; }
-.selector { :property: value; }
-.selector { |property: value; }
-```
-
-#### IE 6-8
-
-```css
-.selector { property: value\9; }
-.selector { property/*\**/: value\9; }
-```
-
-reference: <http://browserhacks.com/>
+1. [HTML noscript 标签, w3school](http://www.w3school.com.cn/tags/tag_noscript.asp)
+2. reference: <http://browserhacks.com/>
 
 ### CSS3 前缀
 

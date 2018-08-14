@@ -90,7 +90,6 @@
 % bibliography
 \bibliographystyle{plain}
 
-
 % markdown to latex fix
 % \tightlist error
 \providecommand{\tightlist}{%
@@ -98,3 +97,8 @@
 % longtable error
 % refer: http://tex.stackexchange.com/questions/228755/undefined-control-sequence-on-left-parenthesis-after-midrule-in-longtable
 \usepackage{longtable,booktabs}
+
+% fix: pandoc 2.1.x
+% inline code compile
+% https://github.com/laboon/ebook/issues/139
+\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}

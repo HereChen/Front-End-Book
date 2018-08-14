@@ -41,3 +41,8 @@
 1. [OpenSourceBook](https://github.com/Xuanwo/OpenSourceBook)
 2. [Wandmalfarbe/pandoc-latex-template](https://github.com/Wandmalfarbe/pandoc-latex-template)
 3. [pandoc-starter](https://github.com/jez/pandoc-starter)
+
+## 问题
+
+1. `You can't use macro parameter character #' in math mode.`
+2. `! Missing { inserted.`
