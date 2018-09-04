@@ -34,6 +34,144 @@ reducer 和 action 分文件夹放置，reducer 通过 combineReducers 合并，
 
 reducer 是什么呢？reducer 按照 Redux 的输入书写。每次输入确定的数据，通过 reducer 处理，能够得到固定的输出。也就是说 reducer 中不包含随机因素或者环境因素，因此称之为纯函数。
 
+## create-react-app 工程构建
+
+需求：
+
+1. 不暴露 create-react-app 配置项（并支持 Sass、支持热加载）
+2. 区分环境变量
+
+### 不暴露 create-react-app 配置项
+
+Sass 支持需安装 `node-sass` 和 `sass-loader`。
+
+```javascript
+// config-overrides.js
+const { injectBabelPlugin, getLoader } = require('react-app-rewired');
+const rewireReactHotLoader = require('react-app-rewire-hot-loader');
+
+
+// load sass file
+const autoprefixer = require('autoprefixer');
+const fileLoaderMatcher = function (rule) {
+  return rule.loader && rule.loader.indexOf(`file-loader`) != -1;
+};
+const rewireSass = (config, env) => {
+
+  // customize theme
+  config.module.rules[1].oneOf.unshift(
+    {
+      test: /\.scss$/,
+      use: [
+        require.resolve('style-loader'),
+        require.resolve('css-loader'),
+        {
+          loader: require.resolve('postcss-loader'),
+          options: {
+            // Necessary for external CSS imports to work
+            // https://github.com/facebookincubator/create-react-app/issues/2677
+            ident: 'postcss',
+            plugins: () => [
+              require('postcss-flexbugs-fixes'),
+              autoprefixer({
+                browsers: [
+                  '>1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie < 9', // React doesn't support IE8 anyway
+                ],
+                flexbox: 'no-2009',
+              }),
+            ],
+          },
+        },
+        {
+          loader: require.resolve('sass-loader'),
+          options: {
+            // theme vars, also can use theme.js instead of this.
+            modifyVars: { "@brand-primary": "#1DA57A" },
+          },
+        },
+      ]
+    }
+  );
+
+  // css-modules
+  config.module.rules[1].oneOf.unshift(
+    {
+      test: /\.css$/,
+      exclude: /node_modules|antd-mobile\.css/,
+      use: [
+        require.resolve('style-loader'),
+        {
+          loader: require.resolve('css-loader'),
+          options: {
+            modules: true,
+            importLoaders: 1,
+            localIdentName: '[local]___[hash:base64:5]'
+          },
+        },
+        {
+          loader: require.resolve('postcss-loader'),
+          options: {
+            // Necessary for external CSS imports to work
+            // https://github.com/facebookincubator/create-react-app/issues/2677
+            ident: 'postcss',
+            plugins: () => [
+              require('postcss-flexbugs-fixes'),
+              autoprefixer({
+                browsers: [
+                  '>1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie < 9', // React doesn't support IE8 anyway
+                ],
+                flexbox: 'no-2009',
+              }),
+            ],
+          },
+        },
+      ]
+    }
+  );
+
+  // file-loader exclude
+  let l = getLoader(config.module.rules, fileLoaderMatcher);
+  l.exclude.push(/\.scss$/);
+
+  return config;
+};
+
+module.exports = function override(config, env) {
+  // do stuff with the webpack config...
+  config = injectBabelPlugin(['import', { libraryName: 'antd-mobile', style: 'css' }], config);
+  config = rewireSass(config, env);
+  config = rewireReactHotLoader(config, env);
+  return config;
+};
+```
+
+1. 覆盖配置：<https://mobile.ant.design/docs/react/use-with-create-react-app-cn>
+2. 热加载：[react-app-rewire-hot-loader](https://github.com/cdharris/react-app-rewire-hot-loader)
+3. Sass: [antd-mobile-samples](https://github.com/ant-design/antd-mobile-samples/blob/master/create-react-app/config-overrides.js)
+
+### 环境变量
+
+配置变量以 `REACT_APP_` 开头，例如 `REACT_APP_ENVIRONMENT=PRODUCTION`。
+
+```bash
+# 默认配置
+.env
+
+# 开发配置
+.env.development
+
+# 生产配置
+.env.production
+```
+
+1. 环境变量配置：[Adding Development Environment Variables In .env](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-development-environment-variables-in-env)
+
 ## 扩展
 
 1. 关于 actionTypes, actions, reducer 文件分割的提议:[GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
