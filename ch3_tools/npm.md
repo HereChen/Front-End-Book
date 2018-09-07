@@ -24,7 +24,7 @@ npm install module_name --global
 
 ```bash
 # 工程里面配置淘宝镜像
-mkdir .npmrc
+touch .npmrc
 
 # .npmrc 文件内添加
 # registry = https://registry.npm.taobao.org
