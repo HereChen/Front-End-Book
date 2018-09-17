@@ -196,43 +196,6 @@ API.getSomething().then(res => {
 });
 ```
 
-### 全局引入 SCSS 变量文件[^2] {#全局引入-scss-变量文件vueglobalimportvariablesfile}
-
-场景: 将常用的变量存储到 `vars.scss`, 应用变量时需要在每个需要的地方
-`import`.
-
-1.  `npm install sass-resources-loader --save-dev`
-2.  更改 `build/webpack.base.conf.js`, 适用于 vue-cli.
-
-``` {.javascript}
-{
-    test: /\.vue$/,
-    loader: 'vue-loader',
-    options: {
-        loaders: {
-            sass: ['vue-style-loader', 'css-loader', {
-                loader: 'sass-loader',
-                options: {
-                    indentedSyntax: true
-                }
-            }, {
-                loader: 'sass-resources-loader',
-                options: {
-                    resources: path.resolve(__dirname, "./styles/vars.scss")
-                }
-            }],
-            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
-                loader: 'sass-resources-loader',
-                options: {
-                    resources: path.resolve(__dirname, "./styles/vars.scss")
-                }
-            }]
-        }
-        // other vue-loader options go here
-    }
-}
-```
-
 Compatible
 ----------
 
@@ -447,6 +410,85 @@ class 书写。比如，同一个项目的请求配置通常是一样的，这�
 的拦截、请求都依赖同一套配置，通过 class
 可在构造器输入配置，屏蔽内部复杂性，并实现可配置。反之，类似接口层，各个
 api 之间并无关联，则无需采用 class。
+
+Vue-CLI
+-------
+
+1.  GitHub: <https://github.com/vuejs/vue-cli>
+
+### 代理
+
+配置代理可解决跨域问题, 需要服务端配置跨域.
+
+``` {.javascript}
+// config/index.js
+proxyTable: {
+  '/api': {
+      target: 'http://stage.xxxx.com',
+      changeOrigin: true,
+      pathRewrite: {
+      '^/api': '/api'
+      }
+  }
+}
+```
+
+### 全局引入 SCSS 变量文件[^2] {#全局引入-scss-变量文件vueglobalimportvariablesfile}
+
+#### 问题
+
+将常用的变量存储到 `vars.scss`, 应用变量时需要在每个需要的地方 `import`,
+比较麻烦.
+
+#### 方法1: sass-resources-loader
+
+1.  `npm install sass-resources-loader --save-dev`
+2.  更改 `build/webpack.base.conf.js`, 适用于 vue-cli.
+
+``` {.javascript}
+{
+    test: /\.vue$/,
+    loader: 'vue-loader',
+    options: {
+        loaders: {
+            sass: ['vue-style-loader', 'css-loader', {
+                loader: 'sass-loader',
+                options: {
+                    indentedSyntax: true
+                }
+            }, {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }],
+            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }]
+        }
+        // other vue-loader options go here
+    }
+}
+```
+
+#### 方法2: vue-cli 3
+
+``` {.javascript}
+// https://cli.vuejs.org/guide/css.html#passing-options-to-pre-processor-loaders
+// vue.config.js
+module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "@/variables.scss";`
+      }
+    }
+  }
+}
+```
 
 React
 =====

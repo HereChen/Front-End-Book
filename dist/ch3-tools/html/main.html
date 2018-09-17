@@ -145,22 +145,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h1 id="vue-cli">Vue-CLI</h1>
-<ol style="list-style-type: decimal">
-<li>GitHub: <a href="https://github.com/vuejs/vue-cli" class="uri">https://github.com/vuejs/vue-cli</a></li>
-</ol>
-<h2 id="代理">代理</h2>
-<p>配置代理可解决跨域问题, 需要服务端配置跨域.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// config/index.js</span>
-proxyTable<span class="op">:</span> <span class="op">{</span>
-  <span class="st">&#39;/api&#39;</span><span class="op">:</span> <span class="op">{</span>
-      <span class="dt">target</span><span class="op">:</span> <span class="st">&#39;http://stage.xxxx.com&#39;</span><span class="op">,</span>
-      <span class="dt">changeOrigin</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>
-      <span class="dt">pathRewrite</span><span class="op">:</span> <span class="op">{</span>
-      <span class="st">&#39;^/api&#39;</span><span class="op">:</span> <span class="st">&#39;/api&#39;</span>
-      <span class="op">}</span>
-  <span class="op">}</span>
-<span class="op">}</span></code></pre></div>
 <h1 id="webpack">Webpack</h1>
 <blockquote>
 <p><a href="https://github.com/webpack/webpack">webpack/webpack</a></p>

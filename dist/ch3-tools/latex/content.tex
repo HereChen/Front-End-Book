@@ -163,32 +163,6 @@ ReactDOM.render(<App />, document.getElementById("root"));
 }
 \end{lstlisting}
 
-\section{Vue-CLI}\label{vue-cli}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  GitHub: \url{https://github.com/vuejs/vue-cli}
-\end{enumerate}
-
-\subsection{代理}\label{ux4ee3ux7406}
-
-配置代理可解决跨域问题, 需要服务端配置跨域.
-
-\begin{lstlisting}
-// config/index.js
-proxyTable: {
-  '/api': {
-      target: 'http://stage.xxxx.com',
-      changeOrigin: true,
-      pathRewrite: {
-      '^/api': '/api'
-      }
-  }
-}
-\end{lstlisting}
-
 \section{Webpack}\label{webpack}
 
 \begin{quote}

@@ -168,38 +168,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="co">// 2. 然后绑定到 data 中的变量</span>
   <span class="kw">this</span>.<span class="at">varInDate</span> <span class="op">=</span> handledRes<span class="op">;</span>
 <span class="op">}</span>)<span class="op">;</span></code></pre></div>
-<h3 id="全局引入-scss-变量文件vueglobalimportvariablesfile">全局引入 SCSS 变量文件<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h3>
-<p>场景: 将常用的变量存储到 <code>vars.scss</code>, 应用变量时需要在每个需要的地方 <code>import</code>.</p>
-<ol style="list-style-type: decimal">
-<li><code>npm install sass-resources-loader --save-dev</code></li>
-<li>更改 <code>build/webpack.base.conf.js</code>, 适用于 vue-cli.</li>
-</ol>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">{</span>
-    <span class="dt">test</span><span class="op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">vue</span><span class="sc">$</span><span class="ss">/</span><span class="op">,</span>
-    <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;vue-loader&#39;</span><span class="op">,</span>
-    <span class="dt">options</span><span class="op">:</span> <span class="op">{</span>
-        <span class="dt">loaders</span><span class="op">:</span> <span class="op">{</span>
-            <span class="dt">sass</span><span class="op">:</span> [<span class="st">&#39;vue-style-loader&#39;</span><span class="op">,</span> <span class="st">&#39;css-loader&#39;</span><span class="op">,</span> <span class="op">{</span>
-                <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;sass-loader&#39;</span><span class="op">,</span>
-                <span class="dt">options</span><span class="op">:</span> <span class="op">{</span>
-                    <span class="dt">indentedSyntax</span><span class="op">:</span> <span class="kw">true</span>
-                <span class="op">}</span>
-            <span class="op">},</span> <span class="op">{</span>
-                <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;sass-resources-loader&#39;</span><span class="op">,</span>
-                <span class="dt">options</span><span class="op">:</span> <span class="op">{</span>
-                    <span class="dt">resources</span><span class="op">:</span> <span class="va">path</span>.<span class="at">resolve</span>(__dirname<span class="op">,</span> <span class="st">&quot;./styles/vars.scss&quot;</span>)
-                <span class="op">}</span>
-            <span class="op">}</span>]<span class="op">,</span>
-            <span class="dt">scss</span><span class="op">:</span> [<span class="st">&#39;vue-style-loader&#39;</span><span class="op">,</span> <span class="st">&#39;css-loader&#39;</span><span class="op">,</span> <span class="st">&#39;sass-loader&#39;</span><span class="op">,</span> <span class="op">{</span>
-                <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;sass-resources-loader&#39;</span><span class="op">,</span>
-                <span class="dt">options</span><span class="op">:</span> <span class="op">{</span>
-                    <span class="dt">resources</span><span class="op">:</span> <span class="va">path</span>.<span class="at">resolve</span>(__dirname<span class="op">,</span> <span class="st">&quot;./styles/vars.scss&quot;</span>)
-                <span class="op">}</span>
-            <span class="op">}</span>]
-        <span class="op">}</span>
-        <span class="co">// other vue-loader options go here</span>
-    <span class="op">}</span>
-<span class="op">}</span></code></pre></div>
 <h2 id="compatible">Compatible</h2>
 <h3 id="ie-vuex-requires-a-promise-polyfill-in-this-browser">IE <code>vuex requires a promise polyfill in this browser</code></h3>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> install --save-dev babel-polyfill</code></pre></div>
@@ -369,6 +337,68 @@ export default class Demo extends Vue {
 &lt;/script&gt;</code></pre>
 <h3 id="什么时候应用-class">什么时候应用 class</h3>
 <p>有一些工具，需要单独封装，如果这个工具是一个工具集合，并且内部存在一些逻辑依赖，可采用 class 书写。比如，同一个项目的请求配置通常是一样的，这个时候可以将 axios 封装成 class，内部设置默认的配置，并提供可外部配置的方式。axios 的拦截、请求都依赖同一套配置，通过 class 可在构造器输入配置，屏蔽内部复杂性，并实现可配置。反之，类似接口层，各个 api 之间并无关联，则无需采用 class。</p>
+<h2 id="vue-cli">Vue-CLI</h2>
+<ol style="list-style-type: decimal">
+<li>GitHub: <a href="https://github.com/vuejs/vue-cli" class="uri">https://github.com/vuejs/vue-cli</a></li>
+</ol>
+<h3 id="代理">代理</h3>
+<p>配置代理可解决跨域问题, 需要服务端配置跨域.</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// config/index.js</span>
+proxyTable<span class="op">:</span> <span class="op">{</span>
+  <span class="st">&#39;/api&#39;</span><span class="op">:</span> <span class="op">{</span>
+      <span class="dt">target</span><span class="op">:</span> <span class="st">&#39;http://stage.xxxx.com&#39;</span><span class="op">,</span>
+      <span class="dt">changeOrigin</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span>
+      <span class="dt">pathRewrite</span><span class="op">:</span> <span class="op">{</span>
+      <span class="st">&#39;^/api&#39;</span><span class="op">:</span> <span class="st">&#39;/api&#39;</span>
+      <span class="op">}</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<h3 id="全局引入-scss-变量文件vueglobalimportvariablesfile">全局引入 SCSS 变量文件<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></h3>
+<h4 id="问题">问题</h4>
+<p>将常用的变量存储到 <code>vars.scss</code>, 应用变量时需要在每个需要的地方 <code>import</code>, 比较麻烦.</p>
+<h4 id="方法1-sass-resources-loader">方法1: sass-resources-loader</h4>
+<ol style="list-style-type: decimal">
+<li><code>npm install sass-resources-loader --save-dev</code></li>
+<li>更改 <code>build/webpack.base.conf.js</code>, 适用于 vue-cli.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">{</span>
+    <span class="dt">test</span><span class="op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">vue</span><span class="sc">$</span><span class="ss">/</span><span class="op">,</span>
+    <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;vue-loader&#39;</span><span class="op">,</span>
+    <span class="dt">options</span><span class="op">:</span> <span class="op">{</span>
+        <span class="dt">loaders</span><span class="op">:</span> <span class="op">{</span>
+            <span class="dt">sass</span><span class="op">:</span> [<span class="st">&#39;vue-style-loader&#39;</span><span class="op">,</span> <span class="st">&#39;css-loader&#39;</span><span class="op">,</span> <span class="op">{</span>
+                <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;sass-loader&#39;</span><span class="op">,</span>
+                <span class="dt">options</span><span class="op">:</span> <span class="op">{</span>
+                    <span class="dt">indentedSyntax</span><span class="op">:</span> <span class="kw">true</span>
+                <span class="op">}</span>
+            <span class="op">},</span> <span class="op">{</span>
+                <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;sass-resources-loader&#39;</span><span class="op">,</span>
+                <span class="dt">options</span><span class="op">:</span> <span class="op">{</span>
+                    <span class="dt">resources</span><span class="op">:</span> <span class="va">path</span>.<span class="at">resolve</span>(__dirname<span class="op">,</span> <span class="st">&quot;./styles/vars.scss&quot;</span>)
+                <span class="op">}</span>
+            <span class="op">}</span>]<span class="op">,</span>
+            <span class="dt">scss</span><span class="op">:</span> [<span class="st">&#39;vue-style-loader&#39;</span><span class="op">,</span> <span class="st">&#39;css-loader&#39;</span><span class="op">,</span> <span class="st">&#39;sass-loader&#39;</span><span class="op">,</span> <span class="op">{</span>
+                <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;sass-resources-loader&#39;</span><span class="op">,</span>
+                <span class="dt">options</span><span class="op">:</span> <span class="op">{</span>
+                    <span class="dt">resources</span><span class="op">:</span> <span class="va">path</span>.<span class="at">resolve</span>(__dirname<span class="op">,</span> <span class="st">&quot;./styles/vars.scss&quot;</span>)
+                <span class="op">}</span>
+            <span class="op">}</span>]
+        <span class="op">}</span>
+        <span class="co">// other vue-loader options go here</span>
+    <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<h4 id="方法2-vue-cli-3">方法2: vue-cli 3</h4>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// https://cli.vuejs.org/guide/css.html#passing-options-to-pre-processor-loaders</span>
+<span class="co">// vue.config.js</span>
+<span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span>
+  <span class="dt">css</span><span class="op">:</span> <span class="op">{</span>
+    <span class="dt">loaderOptions</span><span class="op">:</span> <span class="op">{</span>
+      <span class="dt">sass</span><span class="op">:</span> <span class="op">{</span>
+        <span class="dt">data</span><span class="op">:</span> <span class="vs">`@import &quot;@/variables.scss&quot;;`</span>
+      <span class="op">}</span>
+    <span class="op">}</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
 <h1 id="react">React</h1>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">npm</span> install -g create-react-app
 <span class="ex">create-react-app</span> my-app</code></pre></div>

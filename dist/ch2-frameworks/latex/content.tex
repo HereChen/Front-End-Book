@@ -218,50 +218,6 @@ API.getSomething().then(res => {
 });
 \end{lstlisting}
 
-\subsubsection[全局引入 SCSS 变量文件]{\texorpdfstring{全局引入 SCSS
-变量文件\footnote{\url{https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB\&sh=4f87ec9d}}}{全局引入 SCSS 变量文件}}\label{ux5168ux5c40ux5f15ux5165-scss-ux53d8ux91cfux6587ux4ef6vueglobalimportvariablesfile}
-
-场景: 将常用的变量存储到 \lstinline!vars.scss!,
-应用变量时需要在每个需要的地方 \lstinline!import!.
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \lstinline!npm install sass-resources-loader --save-dev!
-\item
-  更改 \lstinline!build/webpack.base.conf.js!, 适用于 vue-cli.
-\end{enumerate}
-
-\begin{lstlisting}
-{
-    test: /\.vue$/,
-    loader: 'vue-loader',
-    options: {
-        loaders: {
-            sass: ['vue-style-loader', 'css-loader', {
-                loader: 'sass-loader',
-                options: {
-                    indentedSyntax: true
-                }
-            }, {
-                loader: 'sass-resources-loader',
-                options: {
-                    resources: path.resolve(__dirname, "./styles/vars.scss")
-                }
-            }],
-            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
-                loader: 'sass-resources-loader',
-                options: {
-                    resources: path.resolve(__dirname, "./styles/vars.scss")
-                }
-            }]
-        }
-        // other vue-loader options go here
-    }
-}
-\end{lstlisting}
-
 \subsection{Compatible}\label{compatible}
 
 \subsubsection{\texorpdfstring{IE
@@ -482,6 +438,97 @@ class 书写。比如，同一个项目的请求配置通常是一样的，这�
 的拦截、请求都依赖同一套配置，通过 class
 可在构造器输入配置，屏蔽内部复杂性，并实现可配置。反之，类似接口层，各个
 api 之间并无关联，则无需采用 class。
+
+\subsection{Vue-CLI}\label{vue-cli}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  GitHub: \url{https://github.com/vuejs/vue-cli}
+\end{enumerate}
+
+\subsubsection{代理}\label{ux4ee3ux7406}
+
+配置代理可解决跨域问题, 需要服务端配置跨域.
+
+\begin{lstlisting}
+// config/index.js
+proxyTable: {
+  '/api': {
+      target: 'http://stage.xxxx.com',
+      changeOrigin: true,
+      pathRewrite: {
+      '^/api': '/api'
+      }
+  }
+}
+\end{lstlisting}
+
+\subsubsection[全局引入 SCSS 变量文件]{\texorpdfstring{全局引入 SCSS
+变量文件\footnote{\url{https://www.reddit.com/r/vuejs/comments/7o663j/sassscss_in_vue_where_to_store_variables/?st=JC9T45PB\&sh=4f87ec9d}}}{全局引入 SCSS 变量文件}}\label{ux5168ux5c40ux5f15ux5165-scss-ux53d8ux91cfux6587ux4ef6vueglobalimportvariablesfile}
+
+\paragraph{问题}\label{ux95eeux9898}
+
+将常用的变量存储到 \lstinline!vars.scss!, 应用变量时需要在每个需要的地方
+\lstinline!import!, 比较麻烦.
+
+\paragraph{方法1:
+sass-resources-loader}\label{ux65b9ux6cd51-sass-resources-loader}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \lstinline!npm install sass-resources-loader --save-dev!
+\item
+  更改 \lstinline!build/webpack.base.conf.js!, 适用于 vue-cli.
+\end{enumerate}
+
+\begin{lstlisting}
+{
+    test: /\.vue$/,
+    loader: 'vue-loader',
+    options: {
+        loaders: {
+            sass: ['vue-style-loader', 'css-loader', {
+                loader: 'sass-loader',
+                options: {
+                    indentedSyntax: true
+                }
+            }, {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }],
+            scss: ['vue-style-loader', 'css-loader', 'sass-loader', {
+                loader: 'sass-resources-loader',
+                options: {
+                    resources: path.resolve(__dirname, "./styles/vars.scss")
+                }
+            }]
+        }
+        // other vue-loader options go here
+    }
+}
+\end{lstlisting}
+
+\paragraph{方法2: vue-cli 3}\label{ux65b9ux6cd52-vue-cli-3}
+
+\begin{lstlisting}
+// https://cli.vuejs.org/guide/css.html#passing-options-to-pre-processor-loaders
+// vue.config.js
+module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "@/variables.scss";`
+      }
+    }
+  }
+}
+\end{lstlisting}
 
 \section{React}\label{react}
 
