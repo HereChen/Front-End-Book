@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 # global
-markdown_section_folders=("ch1_fundamental" "ch2_frameworks" "ch3_tools" "ch4_performance" "ch5_solutions" "ch6_test")
+markdown_section_folders=("ch1-fundamental" "ch2-frameworks" "ch3-tools" "ch4-performance" "ch5-solutions" "ch6-test")
 ignore_files=("README.md")
 temp_folder=.tmp
 source_folder=src

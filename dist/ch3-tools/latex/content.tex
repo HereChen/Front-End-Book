@@ -1,0 +1,203 @@
+\section{npm}\label{npm}
+
+\subsection{命令}\label{ux547dux4ee4}
+
+\begin{lstlisting}[language=bash]
+# 以下相邻的两条命令作用一样
+
+# 安装依赖到 dependencies （通常是业务依赖）
+npm i module_name -S
+npm install module_name --save
+
+# 安装依赖到 devDependencies （通常是开发工具类的依赖）
+npm i module_name -D
+npm install module_name --save-dev
+
+# 安装全局包（比如 vue-cli，creare-react-app）
+npm i module_name -g
+npm install module_name --global
+\end{lstlisting}
+
+\subsection{.npmrc}\label{npmrc}
+
+\subsubsection{配置镜像}\label{ux914dux7f6eux955cux50cf}
+
+\begin{lstlisting}[language=bash]
+# 工程里面配置淘宝镜像
+touch .npmrc
+
+# .npmrc 文件内添加
+# registry = https://registry.npm.taobao.org
+# # 或者 registry = https://registry.npm.org
+\end{lstlisting}
+
+\section{parcel 与 React
+搭建项目}\label{parcel-ux4e0e-react-ux642dux5efaux9879ux76ee}
+
+\href{https://github.com/parcel-bundler/parcel}{parcel}
+支持热加载、source map、code split (需要按既定格式书写代码).
+
+\subsection{基础}\label{ux57faux7840}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  初始化项目
+
+\begin{lstlisting}[language=bash]
+npm init -y
+\end{lstlisting}
+\item
+  安装资源依赖: react 相关依赖
+
+\begin{lstlisting}[language=bash]
+npm i --save react react-dom
+\end{lstlisting}
+\item
+  安装工具依赖: parcel
+
+\begin{lstlisting}[language=bash]
+npm i --save-dev parcel-bundler
+\end{lstlisting}
+\item
+  启动命令: \lstinline!npm run start!
+
+\begin{lstlisting}
+"scripts": {
+  "start": "parcel src/index.html"
+}
+\end{lstlisting}
+\end{enumerate}
+
+\lstinline!src/index.js!
+
+\begin{lstlisting}
+import React from "react";
+import ReactDOM from "react-dom";
+
+const App = () => {
+  return <h1>Hello World! HOT</h1>;
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
+\end{lstlisting}
+
+\lstinline!src/index.html!
+
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>APP</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="./index.js"></script>
+</body>
+</html>
+\end{lstlisting}
+
+\section{Visual Studio Code}\label{visual-studio-code}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  主页: \url{https://code.visualstudio.com/}
+\item
+  快捷键:
+  \url{https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf}
+\end{enumerate}
+
+\subsection{基本用法}\label{ux57faux672cux7528ux6cd5}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  命令搜索工具: \lstinline!F1!.
+\item
+  扩展安装: \lstinline!ext install extensionname!
+\end{enumerate}
+
+\subsection{Vue.js 配置}\label{vue.js-ux914dux7f6e}
+
+\subsubsection{代码高亮}\label{ux4ee3ux7801ux9ad8ux4eae}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  安装 Vetur 扩展.
+\end{enumerate}
+
+\subsubsection{ESLint
+问题自动修复}\label{eslint-ux95eeux9898ux81eaux52a8ux4feeux590d}
+
+\begin{lstlisting}
+{
+  "eslint.enable": true,
+  "eslint.options": {
+    "extensions": [
+      ".html",
+      ".js",
+      ".vue"
+    ]
+  },
+  "eslint.validate": [{
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    }
+  ]
+}
+\end{lstlisting}
+
+\section{Vue-CLI}\label{vue-cli}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  GitHub: \url{https://github.com/vuejs/vue-cli}
+\end{enumerate}
+
+\subsection{代理}\label{ux4ee3ux7406}
+
+配置代理可解决跨域问题, 需要服务端配置跨域.
+
+\begin{lstlisting}
+// config/index.js
+proxyTable: {
+  '/api': {
+      target: 'http://stage.xxxx.com',
+      changeOrigin: true,
+      pathRewrite: {
+      '^/api': '/api'
+      }
+  }
+}
+\end{lstlisting}
+
+\section{Webpack}\label{webpack}
+
+\begin{quote}
+\href{https://github.com/webpack/webpack}{webpack/webpack}
+\end{quote}
+
+\subsection{公共文件/组件抽离（CommonsChunkPlugin）}\label{ux516cux5171ux6587ux4ef6ux7ec4ux4ef6ux62bdux79bbcommonschunkplugin}
+
+\begin{quote}
+\href{https://github.com/webpack/docs/wiki/list-of-plugins\#commonschunkplugin}{list
+of plugins}
+\end{quote}

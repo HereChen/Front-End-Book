@@ -8,7 +8,7 @@
 - [ ] cover
 - [ ] 图片添加(svg, png)
 - [ ] 代码 title 或文件名添加
-- [ ] pandoc 2.1.1 编译出错.
+- [ ] Makefile <https://github.com/davecap/markdown-latex-boilerplate>
 - [x] 增加合成 pdf 标题需要显示层级
 - [x] 合成(book)一起编译(公用 latex 需分离部分参数)
 - [x] pdf 复制代码时去除行号. 只支持 Adobe.
