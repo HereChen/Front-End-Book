@@ -2,7 +2,7 @@
 
 内容主要是整理, 存在引用不规范的地方.
 
-TODO: 迁移到 gitbook, 保留当前 tex 格式
+TODO: 迁移到 gitbook, 保留当前 tex 格式. create book repo, 存放所有 book
 
 ## requirements
 
