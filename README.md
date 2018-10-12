@@ -2,6 +2,8 @@
 
 内容主要是整理, 存在引用不规范的地方.
 
+TODO: 迁移到 gitbook, 保留当前 tex 格式
+
 ## requirements
 
 1. [pandoc](http://www.pandoc.org/): pandoc 1.19.2.1 (2.1.1编译通不过).
