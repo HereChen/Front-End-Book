@@ -4,7 +4,7 @@
 gitbook serve
 
 # build html
-gitbook build
+gitbook build ./ ./docs
 
 # depend
 # ebook-convert https://calibre-ebook.com
