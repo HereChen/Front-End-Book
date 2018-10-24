@@ -1,0 +1,930 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Vue.js TypeScript · Fron-End-Book</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="陈磊">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="vue-cli.html" />
+    
+    
+    <link rel="prev" href="vuejs.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../ch1-fundamental/">
+            
+                <a href="../../ch1-fundamental/">
+            
+                    
+                    Fundamental
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../ch1-fundamental/html/">
+            
+                <a href="../../ch1-fundamental/html/">
+            
+                    
+                    HTML
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../ch1-fundamental/css/">
+            
+                <a href="../../ch1-fundamental/css/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../ch1-fundamental/css/css-priority.html">
+            
+                <a href="../../ch1-fundamental/css/css-priority.html">
+            
+                    
+                    优先级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../ch1-fundamental/css/css-inherited.html">
+            
+                <a href="../../ch1-fundamental/css/css-inherited.html">
+            
+                    
+                    继承
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.3" data-path="../../ch1-fundamental/css/css-layout.html">
+            
+                <a href="../../ch1-fundamental/css/css-layout.html">
+            
+                    
+                    布局
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.4" data-path="../../ch1-fundamental/css/css-layout-center.html">
+            
+                <a href="../../ch1-fundamental/css/css-layout-center.html">
+            
+                    
+                    垂直居中和水平居中
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.5" data-path="../../ch1-fundamental/css/css-unit.html">
+            
+                <a href="../../ch1-fundamental/css/css-unit.html">
+            
+                    
+                    长度单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.6" data-path="../../ch1-fundamental/css/css-animation.html">
+            
+                <a href="../../ch1-fundamental/css/css-animation.html">
+            
+                    
+                    动画
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../ch1-fundamental/javascript/">
+            
+                <a href="../../ch1-fundamental/javascript/">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../ch1-fundamental/javascript/js-data-type.html">
+            
+                <a href="../../ch1-fundamental/javascript/js-data-type.html">
+            
+                    
+                    类型、值和变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../ch1-fundamental/javascript/js-float-number.html">
+            
+                <a href="../../ch1-fundamental/javascript/js-float-number.html">
+            
+                    
+                    数字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../ch1-fundamental/javascript/js-copy.html">
+            
+                <a href="../../ch1-fundamental/javascript/js-copy.html">
+            
+                    
+                    深拷贝和浅拷贝
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../ch1-fundamental/javascript/js-this.html">
+            
+                <a href="../../ch1-fundamental/javascript/js-this.html">
+            
+                    
+                    this
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../ch1-fundamental/javascript/js-closure.html">
+            
+                <a href="../../ch1-fundamental/javascript/js-closure.html">
+            
+                    
+                    闭包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../ch1-fundamental/javascript/js-asynchronous.html">
+            
+                <a href="../../ch1-fundamental/javascript/js-asynchronous.html">
+            
+                    
+                    异步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.7" data-path="../../ch1-fundamental/javascript/js-asynchronous-request.html">
+            
+                <a href="../../ch1-fundamental/javascript/js-asynchronous-request.html">
+            
+                    
+                    异步请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../ch1-fundamental/http.html">
+            
+                <a href="../../ch1-fundamental/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Framworks
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="vuejs.html">
+            
+                <a href="vuejs.html">
+            
+                    
+                    Vue.js
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="vuejs-typescript.html">
+            
+                <a href="vuejs-typescript.html">
+            
+                    
+                    Vue.js TypeScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="vue-cli.html">
+            
+                <a href="vue-cli.html">
+            
+                    
+                    Vue CLI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../react/reactjs.html">
+            
+                <a href="../react/reactjs.html">
+            
+                    
+                    React
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../react/react-native.html">
+            
+                <a href="../react/react-native.html">
+            
+                    
+                    React Native
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../weex.html">
+            
+                <a href="../weex.html">
+            
+                    
+                    Weex
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../ch3-tools/">
+            
+                <a href="../../ch3-tools/">
+            
+                    
+                    Tools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../ch3-tools/debugger.html">
+            
+                <a href="../../ch3-tools/debugger.html">
+            
+                    
+                    调试方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../ch3-tools/npm.html">
+            
+                <a href="../../ch3-tools/npm.html">
+            
+                    
+                    npm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../ch3-tools/webpack.html">
+            
+                <a href="../../ch3-tools/webpack.html">
+            
+                    
+                    Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../ch3-tools/vscode.html">
+            
+                <a href="../../ch3-tools/vscode.html">
+            
+                    
+                    Visual Studio Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../ch4-performance/">
+            
+                <a href="../../ch4-performance/">
+            
+                    
+                    Performance
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../ch4-performance/files.html">
+            
+                <a href="../../ch4-performance/files.html">
+            
+                    
+                    文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../ch4-performance/user-experience/">
+            
+                <a href="../../ch4-performance/user-experience/">
+            
+                    
+                    体验优化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../../ch4-performance/user-experience/skeleton-screen.html">
+            
+                <a href="../../ch4-performance/user-experience/skeleton-screen.html">
+            
+                    
+                    骨架屏
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../ch5-solutions/">
+            
+                <a href="../../ch5-solutions/">
+            
+                    
+                    Solutions
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../../ch5-solutions/separation-of-front-end-and-backend.html">
+            
+                <a href="../../ch5-solutions/separation-of-front-end-and-backend.html">
+            
+                    
+                    前后端分离
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../ch6-test/">
+            
+                <a href="../../ch6-test/">
+            
+                    
+                    Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../ch7-security/">
+            
+                <a href="../../ch7-security/">
+            
+                    
+                    Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Vue.js TypeScript</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vuejs-typescript">Vue.js TypeScript</h1>
+<p>&#x672C;&#x8282;&#x5185;&#x5BB9;&#x57FA;&#x4E8E; @vue/cli v3.0.0-rc.4 &#x5B8C;&#x6210;&#x3002;</p>
+<h2 id="&#x9879;&#x76EE;&#x521B;&#x5EFA;">&#x9879;&#x76EE;&#x521B;&#x5EFA;</h2>
+<pre><code class="lang-bash">npm i -g @vue/cli
+vue create typescript-demo
+<span class="hljs-comment"># &#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;</span>
+<span class="hljs-comment"># babel, Router, Vuex, TypeScript, TSLint</span>
+
+<span class="hljs-comment"># &#x672C;&#x5730;&#x542F;&#x52A8;</span>
+npm run serve
+</code></pre>
+<p><a href="https://github.com/Microsoft/TypeScript-Vue-Starter" target="_blank">TypeScript-Vue-Starter</a> &#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x6A21;&#x7248;&#x5DE5;&#x7A0B;&#xFF0C;&#x6BD4;&#x8F83;&#x57FA;&#x7840;&#xFF0C;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x8FC7;&#x7A0B;&#x90FD;&#x4F1A;&#x6709;&#x9047;&#x5230;&#x5F88;&#x591A;&#x5176;&#x4ED6;&#x95EE;&#x9898;&#x3002;</p>
+<h3 id="&#x5B9E;&#x4F8B;&#x5BF9;&#x5E94;&#x5199;&#x6CD5;">&#x5B9E;&#x4F8B;&#x5BF9;&#x5E94;&#x5199;&#x6CD5;</h3>
+<pre><code class="lang-javascript">&lt;script lang=&quot;ts&quot;&gt;
+import { Vue, Component Prop, Watch } from &apos;vue-property-decorator&apos;;
+import Hello from &apos;@/components/Hello.vue&apos;;
+
+@Component({
+  components: {
+    &apos;com-hello&apos;: Hello,
+  }
+})
+export default class Demo extends Vue {
+  // props
+  @Prop() inVar1!: string;
+
+  // data
+  private var1!: string;
+  private var2: string = &apos;var2&apos;;
+  private var3!: boolean;
+  private var4!: number[];
+
+  // created
+  private created(): void {
+    // excute something
+  }
+
+  // mounted
+  private mounted(): void {
+    // excute something
+  }
+
+  // watch
+  @Watch(&apos;var1&apos;)
+  private onVar1Change(): void {
+    this.var2 = this.var1;
+  }
+
+  // computed
+  get somthing(): string {
+    return this.var2;
+  }
+
+  // methods
+  private func1(): void {
+    // excute something
+  }
+}
+&lt;/script&gt;
+</code></pre>
+<h2 id="vuex-&#x5B9A;&#x4E49;">Vuex &#x5B9A;&#x4E49;</h2>
+<p>Vuex &#x7684;&#x4F7F;&#x7528;&#x601D;&#x8DEF;&#xFF1A;</p>
+<ol>
+<li>&#x4E0D;&#x540C;&#x529F;&#x80FD;&#x653E;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x5E76;&#x5F00;&#x542F;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x3002;</li>
+<li>&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x548C;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x540D;&#x79F0;&#x4F5C;&#x4E3A;&#x53D8;&#x91CF;&#x5B58;&#x50A8;&#x5728;&#x4E00;&#x4E2A; types &#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x3002;</li>
+<li>&#x6BCF;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x5305;&#x542B;&#x4E00;&#x4E2A; clear &#x7684;&#x6E05;&#x9664;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x5728;&#x6839;&#x6A21;&#x5757;&#x4E0B;&#x52A0;&#x4E00;&#x4E2A;&#x6E05;&#x9664;&#x64CD;&#x4F5C;&#xFF0C;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#x72B6;&#x6001;&#x3002;</li>
+</ol>
+<p>&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// store/modules/moduleA.ts</span>
+<span class="hljs-keyword">import</span> { Commit, Dispatch } from <span class="hljs-string">&apos;vuex&apos;</span>;
+<span class="hljs-keyword">import</span> * as TYPES from <span class="hljs-string">&apos;@/store/types&apos;</span>;
+
+<span class="hljs-comment">// state &#x7C7B;&#x578B;&#x5B9A;&#x4E49;</span>
+<span class="hljs-keyword">interface</span> State {
+  var1: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-comment">// state</span>
+<span class="hljs-keyword">const</span> initState: State = {
+  var1: <span class="hljs-string">&apos;&apos;</span>,
+}
+
+<span class="hljs-comment">// getters</span>
+<span class="hljs-keyword">const</span> getters = {};
+
+<span class="hljs-comment">// mutations</span>
+<span class="hljs-keyword">const</span> mutations = {
+  [TYPES.SET_VAR1](state: State, payload: <span class="hljs-built_in">string</span>) {
+    state.var1 = payload;
+  },
+
+  [TYPES.MODULEA_CLEAR](state: State) {
+    state.var1 = <span class="hljs-string">&apos;&apos;</span>;
+  }
+}
+
+<span class="hljs-keyword">const</span> actions = {
+  [TYPES.SET_VAR1](context: {commit: Commit, dispatch: Dispatch}, var1: <span class="hljs-built_in">string</span>) {
+    context.commit(TYPES.SET_VAR1, var1);
+  },
+
+  [TYPES.MODULEA_CLEAR](context: {commit: Commit, dispatch: Dispatch}) {
+    context.commit(TYPES.MODULEA_CLEAR);
+  },
+}
+
+<span class="hljs-keyword">export</span> {
+  State,
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+  <span class="hljs-keyword">namespace</span>: <span class="hljs-literal">true</span>,
+  state: initState,
+  getters,
+  actions,
+  mutations,
+}
+</code></pre>
+<p>&#x6839;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-typescript"><span class="hljs-comment">// store/index.ts</span>
+<span class="hljs-keyword">import</span> Vue from <span class="hljs-string">&apos;vue&apos;</span>;
+<span class="hljs-keyword">import</span> Vuex, { Dispatch, Store } from <span class="hljs-string">&apos;vuex&apos;</span>;
+
+<span class="hljs-keyword">import</span> moduleA, { State as moduleAState } from <span class="hljs-string">&apos;@/store/modules/moduleA&apos;</span>;
+
+Vue.use(Vuex);
+
+<span class="hljs-comment">// &#x6839;&#x6A21;&#x5757;&#x5B9A;&#x4E49;&#x6240;&#x6709;&#x72B6;&#x6001;&#x7C7B;&#x578B;</span>
+<span class="hljs-keyword">interface</span> RootState {
+  [TYPES.NAMESPACE_MODULEA]: moduleAState,
+}
+
+<span class="hljs-keyword">const</span> actions = {
+  clear(context: {dispatch: Dispatch}) {
+    context.dispatch(<span class="hljs-string">`<span class="hljs-subst">${TYPES.NAMESPACE_MODULEA}</span>/<span class="hljs-subst">${TYPES.MODULEA_CLEAR}</span>`</span>, {}, { root: <span class="hljs-literal">true</span> });
+  }
+}
+
+<span class="hljs-keyword">const</span> store: Store&lt;RootState&gt; = <span class="hljs-keyword">new</span> Vuex.Store({
+  moudles: {
+    [TYPES.NAMESPACE_MODULEA]: moduleA,
+  }
+  actions,
+});
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> store;
+</code></pre>
+<h1 id="vuex-&#x8C03;&#x7528;">Vuex &#x8C03;&#x7528;</h1>
+<pre><code class="lang-typescript">&lt;script lang=&quot;ts&quot;&gt;
+import { Vue, Component Prop} from &apos;vue-property-decorator&apos;;
+import { Action, State } from &apos;vuex-class&apos;
+
+@Component
+export default class Demo extends Vue {
+  // state &#x6620;&#x5C04;
+  @State(&apos;&#x8FD9;&#x91CC;&#x662F;state&#x540D;&apos;, {namespace: &apos;&#x8FD9;&#x91CC;&#x662F;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x540D;&#x79F0;&apos;}) private stateIsLogin!: boolean;
+  // action &#x6620;&#x5C04;
+  @Action(&apos;&#x8FD9;&#x91CC;&#x662F;action&#x540D;&#x79F0;&apos;, {namespace: &apos;&#x8FD9;&#x91CC;&#x662F;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x540D;&#x79F0;&apos;}) private actionLogin!: () =&gt; Promise&lt;any&gt;;
+}
+&lt;/script&gt;
+</code></pre>
+<h2 id="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5E94;&#x7528;-class">&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5E94;&#x7528; class</h2>
+<p>&#x6709;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#xFF0C;&#x9700;&#x8981;&#x5355;&#x72EC;&#x5C01;&#x88C5;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x96C6;&#x5408;&#xFF0C;&#x5E76;&#x4E14;&#x5185;&#x90E8;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x903B;&#x8F91;&#x4F9D;&#x8D56;&#xFF0C;&#x53EF;&#x91C7;&#x7528; class &#x4E66;&#x5199;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x7684;&#x8BF7;&#x6C42;&#x914D;&#x7F6E;&#x901A;&#x5E38;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x5C06; axios &#x5C01;&#x88C5;&#x6210; class&#xFF0C;&#x5185;&#x90E8;&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x53EF;&#x5916;&#x90E8;&#x914D;&#x7F6E;&#x7684;&#x65B9;&#x5F0F;&#x3002;axios &#x7684;&#x62E6;&#x622A;&#x3001;&#x8BF7;&#x6C42;&#x90FD;&#x4F9D;&#x8D56;&#x540C;&#x4E00;&#x5957;&#x914D;&#x7F6E;&#xFF0C;&#x901A;&#x8FC7; class &#x53EF;&#x5728;&#x6784;&#x9020;&#x5668;&#x8F93;&#x5165;&#x914D;&#x7F6E;&#xFF0C;&#x5C4F;&#x853D;&#x5185;&#x90E8;&#x590D;&#x6742;&#x6027;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;&#x53EF;&#x914D;&#x7F6E;&#x3002;&#x53CD;&#x4E4B;&#xFF0C;&#x7C7B;&#x4F3C;&#x63A5;&#x53E3;&#x5C42;&#xFF0C;&#x5404;&#x4E2A; api &#x4E4B;&#x95F4;&#x5E76;&#x65E0;&#x5173;&#x8054;&#xFF0C;&#x5219;&#x65E0;&#x9700;&#x91C7;&#x7528; class&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="vuejs.html" class="navigation navigation-prev " aria-label="Previous page: Vue.js">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="vue-cli.html" class="navigation navigation-next " aria-label="Next page: Vue CLI">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Vue.js TypeScript","level":"1.3.2","depth":2,"next":{"title":"Vue CLI","level":"1.3.3","depth":2,"path":"ch2-frameworks/vuejs/vue-cli.md","ref":"./ch2-frameworks/vuejs/vue-cli.md","articles":[]},"previous":{"title":"Vue.js","level":"1.3.1","depth":2,"path":"ch2-frameworks/vuejs/vuejs.md","ref":"./ch2-frameworks/vuejs/vuejs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing"],"root":"./","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"陈磊","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fron-End-Book","gitbook":"*"},"file":{"path":"ch2-frameworks/vuejs/vuejs-typescript.md","mtime":"2018-10-24T09:28:21.312Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T09:49:02.579Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
