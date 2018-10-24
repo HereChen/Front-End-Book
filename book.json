@@ -4,5 +4,10 @@
   "author": "陈磊",
   "plugins": [
     "-sharing"
-  ]
+  ],
+  "pluginsConfig": {
+    "theme-default": {
+      "showLevel": true
+    }
+  }
 }
