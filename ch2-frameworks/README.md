@@ -1,5 +1,4 @@
 # FREAMWORKS/框架
 
-1. 0X - 框架
-2. 1X - 原生支持
-3. 2X - UI
+1. [jQuery](https://github.com/jquery/jquery): Dom 工具.
+2. [lodash](https://github.com/lodash/lodash): A modern JavaScript utility library delivering modularity, performance, & extras.

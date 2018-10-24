@@ -1,6 +1,6 @@
-## 布局
+# 布局
 
-### 定位
+## 定位
 
 CSS 有三种基本的定位机制：普通流、浮动和绝对定位。任何元素都可以定位，不过绝对或固定元素会生成一个块级框，而不论该元素本身是什么类型。
 
@@ -22,12 +22,12 @@ CSS 有三种基本的定位机制：普通流、浮动和绝对定位。任何�
 
 reference: <http://www.w3school.com.cn/cssref/pr_class_position.asp>，[CSS实战手册（第2版）](http://book.douban.com/subject/4861462/)
 
-### table
+## table
 
-### 浮动
+## 浮动
 
 浮动和文档流
 
-### flex
+## flex
 
-### grid
+## grid

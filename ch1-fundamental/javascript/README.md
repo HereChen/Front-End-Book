@@ -1,5 +1,7 @@
 # JavaScript
 
+> [Standard ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+
 Cookie 写入。
 
 ## JavaScript 组成
@@ -243,85 +245,6 @@ console.log(tt); // 2015年10月30日 22时6分21秒
 
 - [《JavaScript语言精粹(修订版)》，第4章 函数](http://book.douban.com/subject/3590768/)
 
-### this
-
-this 在运行时绑定，它的上下文取决于函数调用时的各种条件。this 的绑定和函数声明的位置没有任何关系，只取决于函数的调用方式。
-
-判断 this 的优先级，可以按照下面的顺序进行判断：
-
-1. 函数是否在 new 中调用 (new 绑定)？如果是的话 this 绑定的是新创建的对象。
-
-    ```javascript
-    var bar = new foo(); // 绑定 bar
-    ```
-
-2. 函数是否通过 call、apply (显示绑定) 或者硬绑定调用？如果是的话，this 绑定的是指定的对象。
-
-    ```javascript
-    var bar = foo.call(obj2); // 绑定 obj2
-    ```
-
-3. 函数是否在某个上下文对象中调用 (隐式调用)？如果是的话，this 绑定的是那个上下文对象。(调用时是否被某个对象拥有或包含，对象属性引用链中只有最顶层或者最后一层会影响调用位置 `obj1.obj2.foo(); // 绑定 obj2`)
-
-    ```javascript
-    var bar = obj1.foo(); // 绑定 obj1
-    ```
-
-4. 如果都不是的话，使用默认绑定。如果在严格模式下，就绑定到 undefined，否则绑定到全局对象 (window)。
-
-    ```javascript
-    var bar = foo(); // 绑定 undefined 或 window
-    ```
-
-可总结为:
-
-1. 作为方法调用, 上下文为方法的拥有者.
-2. 作为全局函数调用, 上下文为 window.
-3. 作为构造函数调用, 上下文为新创建的实例对象.
-4. call 和 apply 可以自定义上下文.
-5. 箭头函数的上下文为其所在作用域的上下文.
-
-- [你不知道的JavaScript（上卷）](http://book.douban.com/subject/26351021/)
-- [JavaScript忍者秘籍, p52](https://book.douban.com/subject/26638316/)
-
-### 闭包
-
-当函数可以记住并访问所在的词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行[^jsYouDonotKnowJs]。(闭包是发生在定义时的。)
-
-```javascript
-// foo() 定义的中括号内就是 bar 的词法作用域
-function foo() {
-  var a = 2;
-  function bar() {
-    console.log( a );
-  }
-  return bar;
-}
-var baz = foo();
-baz(); // 2, 这就是闭包, 用到变量 a
-```
-
-```javascript
-var fn;
-function foo() {
-  var a = 2;
-  function baz() {
-    console.log( a ); // 2
-  }
-  fn = baz; // 将 baz 赋值给全局变量
-  // 调用 fn 相当于执行的 baz, 而其词法作用域在 foo() 定义函数内.
-}
-
-function bar(fn) {
-  fn(); // 这就是闭包, 用到变量 a
-}
-
-foo();
-bar(); // 2
-```
-
-[^jsYouDonotKnowJs]: [你不知道的JavaScript（上卷）](http://book.douban.com/subject/26351021/)
-
 ## 继承方法
 
 - 原型链继承
@@ -447,28 +370,6 @@ localStorage.clear()                // 清空 localStorage
 - [JavaScript 的同源策略, MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
 - [localStorage, MDN](https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage)
 - [杜若, localStorage 介绍](http://wikieswan.github.io/javascript/2015/04/03/html5-api-localstorage/)
-
-## 大数
-
-JS 正常处理的最大的数字为 53 位。
-
-```javascript
-var maxNumber = Math.pow(2, 53) - 1; // 9007199254740991
-var isTrue = maxNumber === Number.MAX_SAFE_INTEGER;
-console.log(isTrue);
-// true
-
-console.log(maxNumber + 1)
-// 9007199254740992
-
-// 判断是否在 Number.MIN_SAFE_INTEGER 到 Number.MAX_SAFE_INTEGER 范围内
-console.log(Number.isSafeInteger(maxNumber + 1));
-// false
-```
-
-### 场景
-
-有时候后端返回来字段的不是字符串（通常是 ID），而是数字，然后后面又要用到这个字段，那么需要提前转换成字符串 `String(1152921504606847000)`，避免数字变更成其他值。
 
 ## 其他
 

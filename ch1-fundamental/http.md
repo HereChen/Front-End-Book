@@ -81,3 +81,5 @@ reference: [从输入URL到页面加载完成的过程中都发生了什么事�
 | 503 | Service Unavailable | 用来说明服务器现在无法为请求提供服务，当将来可以。如果服务器知道什么时候资源会变为可使用的，可以在响应中包含一个Retry-After首部。|
 | 504 | Gateway Timeout | 与状态码408类似，只是这里的响应来自一个网关或代理，他们在等待另一个服务器对其请求进行相应是超时了 |
 | 505 | http Version Not Supported | 服务器收到的请求使用了它无法或不愿支持的协议版本时，使用此状态码。有些服务器应用程序会选择不支持协议的早期版本 |
+
+refer: [《HTTP权威指南》](https://book.douban.com/subject/10746113/)

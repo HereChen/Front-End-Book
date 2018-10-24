@@ -5,7 +5,7 @@
 
 问题: 入口在哪儿?
 
-**案例**
+## 案例
 
 1. [网易严选](https://github.com/zwwill/yanxuan-weex-demo)
 2. [点我达骑手Weex最佳实践](https://mp.weixin.qq.com/s/dowOE_QpZrtV5GH9EAgyHg)
@@ -13,21 +13,22 @@
 
 ## 搭建开发环境
 
-```
+```bash
 npm install -g weex-toolkit
 ```
+
 ## Demo
 
-**web**
+### web
 
-```
+```bash
 weex create weex
 cd weex
 npm install
 npm run dev & npm run serve
 ```
 
-**命令**
+### 命令
 
 > https://github.com/weexteam/weex-pack
 

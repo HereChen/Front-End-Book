@@ -1,8 +1,8 @@
-## 异步请求
+# 异步请求
 
-### Ajax (Asynchronous Javascript And XML)
+## Ajax (Asynchronous Javascript And XML)
 
-**Ajax 实现**
+### XMLHttpRequest
 
 1. 原生 Ajax 实现: GET
 
@@ -29,7 +29,7 @@
 - [原生JS与jQuery对AJAX的实现](http://segmentfault.com/a/1190000003096293)
 - [AJAX - 向服务器发送请求](http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp)
 
-**Ajax 的 5 个状态**
+### XMLHttpRequest 的5个状态
 
 新建对象 -> 建立连接 -> 接收响应原始数据 -> 解析原始数据 -> 响应就绪(待后续处理)
 
@@ -55,7 +55,7 @@
 
 - [Panda, Ajax readyState的五种状态, LOFTER](http://blog.163.com/freestyle_le/blog/static/183279448201269112527311/)
 
-### Fetch
+## Fetch
 
 **fetch 和 Ajax (`jQuery.ajax()`)的区别**
 
