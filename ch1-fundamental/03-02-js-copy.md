@@ -1,6 +1,6 @@
 ## 深拷贝和浅拷贝
 
-> TODO: 结构化克隆算法, 共享内存, Atomics
+> TODO: [结构化克隆算法](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), 共享内存, Atomics
 
 浅拷贝只拷贝一层对象的属性，深拷贝则递归拷贝了所有层级。而 JavaScript 存储对象都是存地址的，这就导致如果拷贝的是一个对象，而不是值，原来的对象和拷贝到的目标变量会指向同一个地址，更改其中任一一个，另一个也会更改。或者可以说，浅拷贝是拷贝存值的地址，深拷贝是拷贝值。一下是浅拷贝的示例。
 
