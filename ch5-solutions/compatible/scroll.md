@@ -1,8 +1,9 @@
 # 移动端滚动卡顿
 
-怎么复现, 下面两个什么关系?
+TODO: 原因, 怎么复现, 下面两个什么关系?
 
-1. CSS: `-webkit-overflow-scrolling : touch`
+1. CSS: `-webkit-overflow-scrolling : touch`. (非标准属性 [-webkit-overflow-scrolling
+](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling))
 2. JS: `passive`
 
 如果添加了 `touchstart` 监听, 移动端会把监听的事件执行完之后, 再执行浏览器默认的事件(滚动). 用户触发后和滚动之间, 需要先执行监听的事件, 从而导致滚动页面出现 "卡顿" 的表现.
@@ -10,6 +11,8 @@
 ```javascript
 document.addEventListener('touchstart', onTouchStartEvent, {passive: true});
 ```
+
+框架支持情况: Vue.js 支持 [Event & Key Modifiers](https://vuejs.org/v2/guide/render-function.html#Event-amp-Key-Modifiers), React 暂不支持 [](https://github.com/facebook/react/issues/6436)
 
 refer:
 
