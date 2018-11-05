@@ -4,8 +4,15 @@
 
 TODO: 原因, 怎么复现, 下面两个什么关系?
 
-1. CSS: `-webkit-overflow-scrolling : touch`. (非标准属性 [-webkit-overflow-scrolling
+1. CSS: `-webkit-overflow-scrolling`. (非标准属性 [-webkit-overflow-scrolling
 ](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling))
+
+    ```css
+    * {
+      -webkit-overflow-scrolling : touch
+    }
+    ```
+
 2. JS: `passive`
 
 如果添加了 `touchstart` 监听, 移动端会把监听的事件执行完之后, 再执行浏览器默认的事件(滚动). 用户触发后和滚动之间, 需要先执行监听的事件, 从而导致滚动页面出现 "卡顿" 的表现.
