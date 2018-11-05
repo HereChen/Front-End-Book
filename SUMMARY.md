@@ -41,7 +41,7 @@
     * [骨架屏](./ch4-performance/user-experience/skeleton-screen.md)
 * [Solutions](./ch5-solutions/README.md)
   * [兼容性问题](./ch5-solutions/compatible/scroll.md)
-    * [移动端滚动卡顿](./ch5-solutions/compatible/scroll.md)
+    * [滚动问题/scroll](./ch5-solutions/compatible/scroll.md)
   * [前后端分离](./ch5-solutions/separation-of-front-end-and-backend.md)
 * [Test](./ch6-test/README.md)
 * [Security](./ch7-security/README.md)
