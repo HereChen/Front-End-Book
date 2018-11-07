@@ -18,6 +18,7 @@
     * [闭包](./ch1-fundamental/javascript/js-closure.md)
     * [异步](./ch1-fundamental/javascript/js-asynchronous.md)
     * [异步请求](./ch1-fundamental/javascript/js-asynchronous-request.md)
+    * [继承](./ch1-fundamental/javascript/js-inheritance.md)
   * [HTTP](./ch1-fundamental/http.md)
   * [存储](./ch1-fundamental/storage/README.md)
     * [Cookie](./ch1-fundamental/storage/cookie.md)
