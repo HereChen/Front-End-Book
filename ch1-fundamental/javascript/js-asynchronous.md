@@ -23,17 +23,16 @@
     });
     ```
 
-3. async 和 await, 同步的方式写异步, 可适用于异步处理之间存在依赖的情况.
+3. `async` 和 `await`, 同步的方式写异步, 可适用于异步处理之间存在依赖的情况.
 
     ```javascript
-    const promiseFunc = async () => {
-      const result1 = await getSomething();
-      const result2 = await dependOnResult1(result1);
-      return result2;
+    const asyncFunc = async () => {
+        const result = await 'async'
+        return result;
     };
-    promiseFunc().then(result => {
-      console.log(result);
-    })
+    asyncFunc().then(result => {
+        console.log(result);
+    });
     ```
 
 ## async 和 await
