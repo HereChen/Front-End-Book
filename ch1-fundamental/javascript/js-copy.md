@@ -2,7 +2,7 @@
 
 > TODO: [结构化克隆算法](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm), 共享内存, Atomics
 
-浅拷贝只拷贝一层对象的属性，深拷贝则递归拷贝了所有层级。而 JavaScript 存储对象都是存地址的，这就导致如果拷贝的是一个对象，而不是值，原来的对象和拷贝到的目标变量会指向同一个地址，更改其中任一一个，另一个也会更改。或者可以说，浅拷贝是拷贝存值的地址，深拷贝是拷贝值。
+浅拷贝只拷贝一层对象的属性, 深拷贝则递归拷贝了所有层级。而 JavaScript 存储对象都是存地址的, 这就导致如果拷贝的是一个对象, 而不是值, 原来的对象和拷贝到的目标变量会指向同一个地址, 更改其中任一一个, 另一个也会更改。或者可以说, 浅拷贝是拷贝存值的地址，深拷贝是拷贝值。
 
 ## 浅拷贝
 
@@ -25,11 +25,11 @@ console.log(obj.b.p);
 // 3
 ```
 
-对象数组，比如 `[{a: 1}, {b: 2}]`，由于数组内部的值为引用对象，用 `slice` 拷贝仍然是浅拷贝。
+对象数组，比如 `[{a: 1}, {b: 2}]`, 由于数组内部的值为引用对象, 用 `slice` 拷贝仍然是浅拷贝.
 
 ## 深拷贝
 
-实现深拷贝的方法，对于只有数值的数组可以直接用 `slice` 和 `concat` 方法实现，通用的方法是循环加递归。外层为循环，内层判断属性对应值是否为对象（`typeof obj === 'object'`），如果是则递归，如果不是则直接赋值。
+实现深拷贝的方法, 对于只有数值的数组可以直接用 `slice` 和 `concat` 方法实现, 通用的方法是循环加递归。外层为循环, 内层判断属性对应值是否为对象（`typeof obj === 'object'`）, 如果是则递归, 如果不是则直接赋值。
 
 ```javascript
 var obj = {a: 1, b: {p: 2}};
@@ -45,13 +45,13 @@ function deepClone(obj) {
 小结：
 
 1. 数组浅拷贝：`=`
-2. 对象浅拷贝：`=` 或 `Object.assign({}, obj)`
+2. 对象浅拷贝：`=`
 3. 含值数组深拷贝：`[1,2,3].slice()` 或 `[].concat([1,2,3])`
 4. 对象或数组(只含有原始类型)深拷贝：`JSON.parse(JSON.stringify(obj))` 或者循环加递归。
 
 ### `JSON.parse` 深拷贝问题
 
-`JSON.parse(JSON.stringify(obj))` 对于嵌套的对象或数组只包含 Primitive （只含值），但对于属性值有 function 或者 Date 等不应采用此法。
+`JSON.parse(JSON.stringify(obj))` 对于嵌套的对象或数组只包含 Primitive （只含值）, 但对于属性值有 function 或者 Date 等不应采用此法。
 
 ```javascript
 var a = {a: 1, b: () => {}, c: new Date()}
@@ -60,9 +60,29 @@ var o = JSON.parse(JSON.stringify(a))
 // {a: 1, c: "2018-06-15T03:10:49.965Z"}
 ```
 
+### `Object.assign`
+
+`Object.assign` 只会拷贝对第一层值进行拷贝, 如果有嵌套, 内层仍然是引用. 扩展运算符也是如此.
+
+```javascript
+// Example 1
+var a = {a: 1, b: 2};
+var b = Object.assign({}, a);
+b.a = 3;
+console.log(a.a);
+// 1
+
+// Example 2
+var a = {a: 1, b: {o: 3}};
+var b = Object.assign({}, a);
+b.b.o = 4;
+console.log(a.b.o);
+// 4
+```
+
 ### `lodash/cloneDeep`
 
-要实现所有类型全覆盖，比如 ArrayBuffer、DataView、Symbol、Map 等等，可参看 [lodash/.internal/baseClone.js](https://github.com/lodash/lodash/blob/master/.internal/baseClone.js)
+要实现所有类型全覆盖, 比如 ArrayBuffer、DataView、Symbol、Map 等等, 可参看 [lodash/.internal/baseClone.js](https://github.com/lodash/lodash/blob/master/.internal/baseClone.js)
 
 ```javascript
 import * as cloneDeep from 'lodash/cloneDeep';
