@@ -2,16 +2,25 @@
 
 异步的方法
 
-1. 回调, 适应于异步处理较少的情况
+1. setTimeout
 
     ```javascript
-    get(url, callback);
+    setTimeout(() => {
+      console.log('settimeout')
+    })
     ```
 
-2. Promise, 链式方式写异步处理
+2. `Promise`, 链式方式写异步处理
 
     ```javascript
-    promise(somthing).then(res => handle)
+    new Promise(resolve => {
+      var data = 'promise';
+      resolve(data);
+    }, reject => {
+        reject('error');
+    }).then(res => {
+        console.log(res);
+    });
     ```
 
 3. async 和 await, 同步的方式写异步, 可适用于异步处理之间存在依赖的情况.
