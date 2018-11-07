@@ -11,3 +11,7 @@
 1. [PageSpeed Insights](https://developers.google.cn/speed/pagespeed/insights/)，Google 出的，输入网址在线测试 Web 应用的性能问题，并给出修改建议。
 2. 浏览器开发工具，通常会有性能相关的工具，比如 Chrome Devtools 有检查 JavaScript 执行的 Performance，Audits 可以检查整个应用的运行，Network 可以查看资源请求相应情况。
 3. [Lighthouse](https://github.com/GoogleChrome/lighthouse)，Chrome 的 Audits 集成的是 Lighthouse，这个工具也可以通过脚本的方式运行生成报告。
+
+## 扩展阅读
+
+1. [Web Performance 101, Ivan Akulov, 3perf, 2018](https://3perf.com/talks/web-perf-101)
