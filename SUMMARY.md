@@ -11,7 +11,7 @@
     * [长度单位](./ch1-fundamental/css/css-unit.md)
     * [动画](./ch1-fundamental/css/css-animation.md)
   * [JavaScript](./ch1-fundamental/javascript/README.md)
-    * [类型、值和变量](./ch1-fundamental/javascript/js-data-type.md)
+    * [数据类型](./ch1-fundamental/javascript/js-data-type.md)
     * [数字](./ch1-fundamental/javascript/js-float-number.md)
     * [深拷贝和浅拷贝](./ch1-fundamental/javascript/js-copy.md)
     * [this](./ch1-fundamental/javascript/js-this.md)
