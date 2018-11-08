@@ -38,6 +38,7 @@
   * [Visual Studio Code](./ch3-tools/vscode.md)
 * [Performance](./ch4-performance/README.md)
   * [文件](./ch4-performance/files.md)
+  * [字体](./ch4-performance/fonts.md)
   * [体验优化](./ch4-performance/user-experience/README.md)
     * [骨架屏](./ch4-performance/user-experience/skeleton-screen.md)
 * [Solutions](./ch5-solutions/README.md)
