@@ -43,109 +43,16 @@ reducer 是什么呢？reducer 按照 Redux 的输入书写。每次输入确定
 
 ### 不暴露 create-react-app 配置项
 
-Sass 支持需安装 `node-sass` 和 `sass-loader`。
+create-react-app 2.0 无需配置即可支持 Sass, Sass 支持需安装 `node-sass` 和 `sass-loader`。
 
 ```javascript
 // config-overrides.js
 const { injectBabelPlugin, getLoader } = require('react-app-rewired');
 const rewireReactHotLoader = require('react-app-rewire-hot-loader');
 
-
-// load sass file
-const autoprefixer = require('autoprefixer');
-const fileLoaderMatcher = function (rule) {
-  return rule.loader && rule.loader.indexOf(`file-loader`) != -1;
-};
-const rewireSass = (config, env) => {
-
-  // customize theme
-  config.module.rules[1].oneOf.unshift(
-    {
-      test: /\.scss$/,
-      use: [
-        require.resolve('style-loader'),
-        require.resolve('css-loader'),
-        {
-          loader: require.resolve('postcss-loader'),
-          options: {
-            // Necessary for external CSS imports to work
-            // https://github.com/facebookincubator/create-react-app/issues/2677
-            ident: 'postcss',
-            plugins: () => [
-              require('postcss-flexbugs-fixes'),
-              autoprefixer({
-                browsers: [
-                  '>1%',
-                  'last 4 versions',
-                  'Firefox ESR',
-                  'not ie < 9', // React doesn't support IE8 anyway
-                ],
-                flexbox: 'no-2009',
-              }),
-            ],
-          },
-        },
-        {
-          loader: require.resolve('sass-loader'),
-          options: {
-            // theme vars, also can use theme.js instead of this.
-            modifyVars: { "@brand-primary": "#1DA57A" },
-          },
-        },
-      ]
-    }
-  );
-
-  // css-modules
-  config.module.rules[1].oneOf.unshift(
-    {
-      test: /\.css$/,
-      exclude: /node_modules|antd-mobile\.css/,
-      use: [
-        require.resolve('style-loader'),
-        {
-          loader: require.resolve('css-loader'),
-          options: {
-            modules: true,
-            importLoaders: 1,
-            localIdentName: '[local]___[hash:base64:5]'
-          },
-        },
-        {
-          loader: require.resolve('postcss-loader'),
-          options: {
-            // Necessary for external CSS imports to work
-            // https://github.com/facebookincubator/create-react-app/issues/2677
-            ident: 'postcss',
-            plugins: () => [
-              require('postcss-flexbugs-fixes'),
-              autoprefixer({
-                browsers: [
-                  '>1%',
-                  'last 4 versions',
-                  'Firefox ESR',
-                  'not ie < 9', // React doesn't support IE8 anyway
-                ],
-                flexbox: 'no-2009',
-              }),
-            ],
-          },
-        },
-      ]
-    }
-  );
-
-  // file-loader exclude
-  let l = getLoader(config.module.rules, fileLoaderMatcher);
-  l.exclude.push(/\.scss$/);
-
-  return config;
-};
-
 module.exports = function override(config, env) {
   // do stuff with the webpack config...
   config = injectBabelPlugin(['import', { libraryName: 'antd-mobile', style: 'css' }], config);
-  config = rewireSass(config, env);
   config = rewireReactHotLoader(config, env);
   return config;
 };
@@ -171,6 +78,67 @@ module.exports = function override(config, env) {
 ```
 
 1. 环境变量配置：[Adding Development Environment Variables In .env](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-development-environment-variables-in-env)
+
+## 性能优化
+
+### 文件大小分析
+
+通过对打包的文件大小的分析, 针对性的做优化, 比如用 CDN 资源替换部分第三方的库.
+
+```javascript
+// ./config-overrides.js
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const injectBundleAnalyzerPlugin = (config) => {
+  config.plugins.push(
+    new BundleAnalyzerPlugin()
+  )
+  return config;
+}
+
+module.exports = function override(config, env) {
+  // do stuff with the webpack config...
+  // ...
+  if (process.env.REACT_APP_ENVIRONMENT === 'production') {
+    config = injectBundleAnalyzerPlugin(config);
+  }
+  // ...
+  return config;
+};
+```
+
+### 生产环境下 CDN 替换
+
+通过 CDN 替换可以减小打包的大小, 同时提高资源的访问速度.
+
+```html
+<!-- ./public/index.html -->
+<% if (process.env.REACT_APP_ENVIRONMENT === 'production') { %>
+  <script crossorigin src="https://cdn.jsdelivr.net/npm/react@16.6.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@16.6.1/umd/react-dom.production.min.js"></script>
+<% } %>
+```
+
+```javascript
+// ./config-overrides.js
+const externalLibrarys = (config) => {
+  config.externals = {
+    "react": "React",
+    "react-dom": "ReactDOM"
+  };
+  return config;
+}
+
+module.exports = function override(config, env) {
+  // do stuff with the webpack config...
+  // ...
+  if (process.env.REACT_APP_ENVIRONMENT === 'production') {
+    config = externalLibrarys(config);
+    config = injectBundleAnalyzerPlugin(config);
+  }
+  return config;
+};
+```
 
 ## 扩展
 
