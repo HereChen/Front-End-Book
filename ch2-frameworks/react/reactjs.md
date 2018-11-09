@@ -99,6 +99,7 @@ const injectBundleAnalyzerPlugin = (config) => {
 module.exports = function override(config, env) {
   // do stuff with the webpack config...
   // ...
+  // 打包的情况下才需要分析
   if (process.env.REACT_APP_ENVIRONMENT === 'production') {
     config = injectBundleAnalyzerPlugin(config);
   }
@@ -134,8 +135,8 @@ module.exports = function override(config, env) {
   // ...
   if (process.env.REACT_APP_ENVIRONMENT === 'production') {
     config = externalLibrarys(config);
-    config = injectBundleAnalyzerPlugin(config);
   }
+  // ...
   return config;
 };
 ```
