@@ -141,6 +141,30 @@ module.exports = function override(config, env) {
 };
 ```
 
+### 生产环境移除 propTypes
+
+> [babel-plugin-transform-react-remove-prop-types](https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types)
+
+生产环境下打包并不需要用于类型校验的 `propTypes`, 可以配置移除.
+
+1. 安装依赖
+
+    ```bash
+    npm install --save-dev babel-plugin-transform-react-remove-prop-types
+    ```
+
+2. 更改 `.babelrc`
+
+    ```json
+    {
+      "env": {
+        "production": {
+          "plugins": ["transform-react-remove-prop-types"]
+        }
+      }
+    }
+    ```
+
 ## 扩展
 
 1. 关于 actionTypes, actions, reducer 文件分割的提议:[GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
