@@ -177,6 +177,38 @@ API.getSomething().then(res => {
 });
 ```
 
+## 性能优化
+
+### `v-once`
+
+> [vue.js#L10174, github.com](https://github.com/vuejs/vue/blob/3d220a65de8740fbc7d354bbda1563f67ad0034f/dist/vue.js#L10174)
+
+对于只需要渲染一次的元素, 可以应用 [v-once](https://vuejs.org/v2/api/#v-once) 避免重复渲染.
+
+```html
+<div v-once>
+  this element render once.
+</div>
+```
+
+### `Object.freeze`
+
+> [`property.configurable === false`, github.com](https://github.com/vuejs/vue/blob/3d220a65de8740fbc7d354bbda1563f67ad0034f/dist/vue.js#L977)
+
+当一个数据对象确认不需要后续的修改, 通过 `Object.freeze(var1)` 可以避免 Vue.js 对数据对象应用 `getter`、`setter` 做数据的监听.
+
+```javascript
+export default {
+  data() {
+    return {
+      notChangeData: Object.freeze({
+        o: 'something here'
+      })
+    }
+  }
+}
+```
+
 ## Compatible
 
 ### IE `vuex requires a promise polyfill in this browser`
