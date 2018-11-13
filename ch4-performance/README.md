@@ -16,3 +16,5 @@
 
 1. [Web Performance 101, Ivan Akulov, 3perf, 2018](https://3perf.com/talks/web-perf-101)
 2. [Why Performance Matters,  Jeremy Wagner, developers.google.cn](https://developers.google.cn/web/fundamentals/performance)
+3. [The Cost Of JavaScript In 2018, Addy Osmani, medium.com, 2018](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4)
+4. [精读 The Cost of JavaScript In 2018, Tao Jiang, hijiangtao.github.io, 2018](https://hijiangtao.github.io/2018/08/04/the-cost-of-javascript-in-2018/?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com)
