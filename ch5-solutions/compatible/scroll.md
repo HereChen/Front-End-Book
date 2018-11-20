@@ -4,8 +4,7 @@
 
 TODO: 原因, 怎么复现, 下面两个什么关系?
 
-1. CSS: `-webkit-overflow-scrolling`. (非标准属性 [-webkit-overflow-scrolling
-](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling))
+1. CSS: `-webkit-overflow-scrolling`. (非标准属性 [-webkit-overflow-scrolling](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-overflow-scrolling))
 
     ```css
     * {
