@@ -39,6 +39,7 @@
   * [puppeteer](./ch3-tools/puppeteer.md)
 * [Performance](./ch4-performance/README.md)
   * [文件](./ch4-performance/files.md)
+  * [图片](./ch4-performance/images.md)
   * [字体](./ch4-performance/fonts.md)
   * [体验优化](./ch4-performance/user-experience/README.md)
     * [骨架屏](./ch4-performance/user-experience/skeleton-screen.md)
