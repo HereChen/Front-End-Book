@@ -76,7 +76,7 @@ const launchChrome = async ({
 
 
 launchChrome(config, (page) => {
-  const folder = config.folder || "./images";
+  const folder = config.folder || filenamify(new URL(config.website).hostname);
 
   // 如果放图片的文件夹不存在
   if (!fs.existsSync(folder)) {
