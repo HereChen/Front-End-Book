@@ -36,6 +36,7 @@
   * [npm](./ch3-tools/npm.md)
   * [Webpack](./ch3-tools/webpack.md)
   * [Visual Studio Code](./ch3-tools/vscode.md)
+  * [puppeteer](./ch3-tools/puppeteer.md)
 * [Performance](./ch4-performance/README.md)
   * [文件](./ch4-performance/files.md)
   * [字体](./ch4-performance/fonts.md)
