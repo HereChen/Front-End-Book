@@ -93,7 +93,7 @@ launchChrome(config, (page) => {
       if (type.indexOf("image") > -1) {
         // 下载文件
         const buffer = await resp.buffer();
-        const saveFileName = `${folder}/${filenamify(url.href)}`;
+        const saveFileName = `${folder}/${filenamify(`${url.origin}${url.pathname}`)}`;
         fs.writeFileSync(saveFileName, buffer);
         log(`${chalk.green('success')}: ${url}, ${saveFileName}`);
       }
