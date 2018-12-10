@@ -103,6 +103,8 @@ function isInView(obj) {
 }
 ```
 
+上面这种方法需要监听元素是否在可视范围, 利用 [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) 可以直接判断元素是否在可视区域, 并执行响应操作, 使得实现延迟加载更加简单.
+
 ## 参考扩展
 
 1. [stackoverflow, How to tell if a DOM element is visible in the current viewport?](https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport#7557433)
