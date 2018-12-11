@@ -107,7 +107,8 @@ function isInView(obj) {
 
 ## 参考扩展
 
-1. [stackoverflow, How to tell if a DOM element is visible in the current viewport?](https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport#7557433)
+1. [How to tell if a DOM element is visible in the current viewport?, stackoverflow.com](https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport#7557433)
 2. [mozilla, Element.getBoundingClientRect()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect)
-3. [Image Optimization, Ilya Grigorik, https://developers.google.cn](https://developers.google.cn/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)
-4. [Using WebP Images, JEREMY WAGNER, https://css-tricks.com, 2016-08-26](https://css-tricks.com/using-webp-images/)
+3. [Image Optimization, Ilya Grigorik, developers.google.cn](https://developers.google.cn/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)
+4. [Using WebP Images, JEREMY WAGNER, css-tricks.com, 2016-08-26](https://css-tricks.com/using-webp-images/)
+5. [Why and how to use WebP images today, bitsofco.de, 2018-11-21](https://bitsofco.de/why-and-how-to-use-webp-images-today/)
