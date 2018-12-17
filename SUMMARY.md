@@ -24,6 +24,7 @@
     * [Cookie](./ch1-fundamental/storage/cookie.md)
     * [localStorage](./ch1-fundamental/storage/localStorage.md)
     * [indexedDB](./ch1-fundamental/storage/indexedDB.md)
+  * [TypeScript](./ch1-fundamental/typescript.md)
 * [Framworks](./ch2-frameworks/README.md)
   * [Vue.js](./ch2-frameworks/vuejs/vuejs.md)
   * [Vue.js TypeScript](./ch2-frameworks/vuejs/vuejs-typescript.md)
