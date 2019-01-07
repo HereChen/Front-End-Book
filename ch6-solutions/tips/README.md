@@ -66,3 +66,13 @@ window.scrollTo({
   behavior: "smooth"
 });
 ```
+
+## 数组去重
+
+此方法针对纯值类型的数组.
+
+```javascript
+const a = ["1", "2", "1"];
+const uniqueA = [...new Set(a)];
+// ["1", "2"]
+```
