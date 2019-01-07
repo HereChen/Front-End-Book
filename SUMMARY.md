@@ -55,4 +55,5 @@
 * [Test](./ch7-test/README.md)
 * [Security](./ch8-security/README.md)
   * [CSRF](./ch8-security/CSRF.md)
+* [Browser](./ch9-browser/README.md)
 * [Appendix](./appendix/README.md)
