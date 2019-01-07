@@ -25,6 +25,8 @@ const val1 = param || '';
 
 > [Full Width Containers in Limited Width Parents](https://css-tricks.com/full-width-containers-limited-width-parents/)
 
+思路: 用相对定位, 将图片定位到屏幕右半边的最左侧(此时左侧剩余宽度为 50vw); 再通过 `margin-left: -50vw` 将图片定位到屏幕最左侧; `width: 100vw` 保证图片的全屏宽度.
+
 ```html
 <style>
 .limitied-width {
@@ -45,4 +47,22 @@ const val1 = param || '';
 </div>
 ```
 
-思路: 用相对定位, 将图片定位到屏幕右半边的最左侧(此时左侧剩余宽度为 50vw); 再通过 `margin-left: -50vw` 将图片定位到屏幕最左侧; `width: 100vw` 保证图片的全屏宽度.
+## 平滑滚动到顶部
+
+> [Smooth Scrolling](https://css-tricks.com/snippets/jquery/smooth-scrolling/)
+
+在定位到指定滚动位置时, 直接使用 `window.scrollTo(0, 0)` 这样的方法, 滚动会比较生硬, 通过下面的方法可以实现平滑滚动.
+
+```css
+html {
+  scroll-behavior: smooth;
+}
+```
+
+```javascript
+window.scrollTo({
+  top: 0,
+  left: 0,
+  behavior: "smooth"
+});
+```
