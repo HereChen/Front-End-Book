@@ -76,3 +76,11 @@ const a = ["1", "2", "1"];
 const uniqueA = [...new Set(a)];
 // ["1", "2"]
 ```
+
+比下面这种方法简短
+
+```javascript
+const a = ["1", "2", "1"];
+const uniqueA = a.filter((v, i) => a.indexOf(v) === i);
+// ["1", "2"]
+```
