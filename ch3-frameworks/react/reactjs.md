@@ -9,9 +9,10 @@ create-react-app my-app
 
 ## 常用依赖
 
-1. 路由: [React Router](https://github.com/ReactTraining/react-router)
-2. 类型检查: [prop-types](https://github.com/facebook/prop-types)
-3. 数据管理: [React Redux](https://github.com/reactjs/react-redux)
+1. [React Router](https://github.com/ReactTraining/react-router): 路由
+2. [prop-types](https://github.com/facebook/prop-types): 类型检查
+3. [React Redux](https://github.com/reactjs/react-redux): 数据管理
+4. [facebookincubator/fbt](https://github.com/facebookincubator/fbt): 国际化
 
 ### UI
 
