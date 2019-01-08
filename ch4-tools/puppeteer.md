@@ -104,3 +104,12 @@ launchChrome(config, (page) => {
   });
 });
 ```
+
+## 应用截图 diff
+
+> [Automatic visual diffing with Puppeteer, Monica Dinculescu, 2018, meowni.ca](https://meowni.ca/posts/2017-puppeteer-tests/)
+
+用于检查不同屏幕尺寸下是否展示一致。分两个大步骤:
+
+1. 获取截图: 用 Puppeteer 获取屏幕尺寸下、不同路由的屏幕截图.
+2. diff 图片: 用 [mapbox/pixelmatch](https://github.com/mapbox/pixelmatch#nodejs) 将宽屏和窄屏下截图和标准尺寸的截图 diff.
