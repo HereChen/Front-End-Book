@@ -166,6 +166,11 @@ module.exports = function override(config, env) {
     }
     ```
 
+## Tips
+
+1. [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo) 可以使函数组件获得和 `React.PureComponent` 相同的效果.
+1. `useMemo`
+
 ## 扩展
 
 1. 关于 actionTypes, actions, reducer 文件分割的提议:[GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
