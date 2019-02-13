@@ -22,3 +22,4 @@
 
 1. [nearform/node-clinic](https://github.com/nearform/node-clinic): 性能调试
 2. [https://github.com/Tencent/TSW](Tencent/TSW): 日志、监控
+3. [Node.js debugging in VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
