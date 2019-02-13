@@ -169,7 +169,7 @@ module.exports = function override(config, env) {
 ## Tips
 
 1. [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo) 可以使函数组件获得和 `React.PureComponent` 相同的效果.
-1. `useMemo`
+1. [`React.useMemo`](https://reactjs.org/docs/hooks-reference.html#usememo) 可以用于数据映射和处理中的记忆化, 只有当输入参数变更时才重新计算, 而不是每次 render 都重新计算.
 
 ## 扩展
 
