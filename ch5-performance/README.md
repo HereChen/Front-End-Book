@@ -19,3 +19,4 @@
 3. [The Cost Of JavaScript In 2018, Addy Osmani, medium.com, 2018](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4)
 4. [精读 The Cost of JavaScript In 2018, Tao Jiang, hijiangtao.github.io, 2018](https://hijiangtao.github.io/2018/08/04/the-cost-of-javascript-in-2018/?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com)
 5. [Accurately measuring layout on the web, Nolan Lawson, nolanlawson.com, 2018](https://nolanlawson.com/2018/09/25/accurately-measuring-layout-on-the-web/)
+6. [Speed Matters](https://speedcurve.com/blog/)
