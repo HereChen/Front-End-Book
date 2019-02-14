@@ -6,6 +6,10 @@
 
 性能可以分为文件级和代码级两种。文件级的比如文件的加载速度，是和代码无关的；代码级的比如 HTML 嵌套太深会影响渲染，由代码编写影响性能。那么，可以从文件级和代码级两个方面优化性能，最终目的是：如果是处理数据的应用，就应该尽量快；如果是交互类的应用，就应该尽量流畅。
 
+## 性能检查清单
+
+1. [Front-End Performance Checklist 2019](https://www.smashingmagazine.com/2019/01/front-end-performance-checklist-2019-pdf-pages/)
+
 ## 发现性能问题
 
 1. [PageSpeed Insights](https://developers.google.cn/speed/pagespeed/insights/)，Google 出的，输入网址在线测试 Web 应用的性能问题，并给出修改建议。
