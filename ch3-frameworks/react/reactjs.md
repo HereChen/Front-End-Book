@@ -7,24 +7,6 @@ create-react-app my-app
 
 [React](https://reactjs.org/) 与 Vue 类似，主要专注于视图层，结合其他的库实现扩展，比如路由、数据状态维护等。
 
-## 常用依赖
-
-1. [React Router](https://github.com/ReactTraining/react-router): 路由
-2. [prop-types](https://github.com/facebook/prop-types): 类型检查
-3. [React Redux](https://github.com/reactjs/react-redux): 数据管理
-4. [facebookincubator/fbt](https://github.com/facebookincubator/fbt): 国际化
-
-### UI
-
-- [element-react](https://eleme.github.io/element-react/)
-- [ant-design](https://ant.design/)
-
-### 优化
-
-- [reselector](https://github.com/reactjs/reselect)
-- [immutable.js](https://github.com/facebook/immutable-js)
-- [seamless-immutable.js](https://github.com/rtfeldman/seamless-immutable)
-
 ## 文件组织
 
 ## React 与 Redux
@@ -171,7 +153,30 @@ module.exports = function override(config, env) {
 1. [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo) 可以使函数组件获得和 `React.PureComponent` 相同的效果.
 1. [`React.useMemo`](https://reactjs.org/docs/hooks-reference.html#usememo) 可以用于数据映射和处理中的记忆化, 只有当输入参数变更时才重新计算, 而不是每次 render 都重新计算.
 
-## 扩展
+## 资源
+
+### 开源项目
+
+1. [devhubapp/devhub](https://github.com/devhubapp/devhub) React Native + React Native Web 写的跨平台及终端应用 (iOS, Android, Web, Desktop), 95%+ 代码复用率.
+
+### 常用依赖
+
+1. [React Router](https://github.com/ReactTraining/react-router): 路由
+2. [prop-types](https://github.com/facebook/prop-types): 类型检查
+3. [React Redux](https://github.com/reactjs/react-redux): 数据管理
+4. [facebookincubator/fbt](https://github.com/facebookincubator/fbt): 国际化
+5. UI
+
+    * [element-react](https://eleme.github.io/element-react/)
+    * [ant-design](https://ant.design/)
+
+6. 优化
+
+    * [reselector](https://github.com/reactjs/reselect)
+    * [immutable.js](https://github.com/facebook/immutable-js)
+    * [seamless-immutable.js](https://github.com/rtfeldman/seamless-immutable)
+
+### 扩展阅读
 
 1. 关于 actionTypes, actions, reducer 文件分割的提议:[GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
 2. React 生命周期及方法图:[wojtekmaj/react-lifecycle-methods-diagram](https://github.com/wojtekmaj/react-lifecycle-methods-diagram)
