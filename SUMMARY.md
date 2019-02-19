@@ -34,7 +34,7 @@
   * [React Native](./ch3-frameworks/react/react-native.md)
   * [Weex](./ch3-frameworks/weex.md)
 * [Tools](./ch4-tools/README.md)
-  * [调试方法](./ch4-tools/debugger.md)
+  * [调试](./ch4-tools/debug.md)
   * [npm](./ch4-tools/npm.md)
   * [Webpack](./ch4-tools/webpack.md)
   * [Visual Studio Code](./ch4-tools/vscode.md)
