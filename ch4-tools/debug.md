@@ -13,9 +13,9 @@
 ## HTTP 调试
 
 1. [HTTPie](https://github.com/jakubroztocil/httpie), HTTP 命令行请求工具.
-2. [Postman](https://www.getpostman.com/), HTTP 客户端请求工具, 可保存请求记录、可导出、可保存环境参数, 有浏览器扩展应用.
-3. [Fiddler](https://www.telerik.com/fiddler), HTTP 调试.
-4. [Charles](https://www.charlesproxy.com), HTTP 调试.
+2. [Postman](https://www.getpostman.com/), HTTP 客户端请求工具, 可保存请求记录、可导出、可保存环境参数, 有浏览器扩展应用. 也可设置代理, 记录 HTTP 的请求, 需要保存和提取参数时比较方便, 可以参阅[Capturing HTTP requests](https://learning.getpostman.com/docs/postman/sending_api_requests/capturing_http_requests/).
+3. [Fiddler](https://www.telerik.com/fiddler), HTTP 调试. HTTP 断点调试,修改请求和响应等.
+4. [Charles](https://www.charlesproxy.com), HTTP 调试. 和 Fiddler 类似, 但收费, 请求自动根据域名分类.
 
 ## JS 断点
 
