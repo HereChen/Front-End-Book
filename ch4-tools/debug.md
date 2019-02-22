@@ -4,6 +4,12 @@
 2. [WebReplay](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/WebReplay), Time Travel 调试方法, 可以用于重放 bug. 目前没有比较成熟的工具, 已有的工具比如: [mozilla/rr](https://github.com/mozilla/rr)
 3. [Righting Web Development, John Vilk, 2018](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=2507&context=dissertations_2), 这篇论文描述了 Web 调试的难点, 并针对这些难点提出了对应的工具. 比如: 自动检查内存泄漏的[BLeak](https://github.com/plasma-umass/BLeak), Time Travel 调试[MCFLY](https://arxiv.org/pdf/1810.11865.pdf), 通过 JavaScript 解析其他语言[doppio](https://github.com/plasma-umass/doppio), [Browsix](https://browsix.org), BCause.
 
+## UI 调试
+
+1. [VisBug](https://github.com/GoogleChromeLabs/ProjectVisBug), 一个可视化的 UI 调试工具, 可进行元素移动、变色、查看元素属性等, 提供浏览器扩展, 直接在浏览器里面调试.
+2. Chrome 开发工具(Devtools), 可直接编辑 CSS 的源文件(Devtools -> Sources -> Page), 改好了复制到本地.
+3. Firefox 开发工具, 后期可能提供 CSS 修改后复制 diff 代码.
+
 ## HTTP 调试
 
 1. [HTTPie](https://github.com/jakubroztocil/httpie), HTTP 命令行请求工具.
