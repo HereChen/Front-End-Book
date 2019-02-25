@@ -180,3 +180,4 @@ module.exports = function override(config, env) {
 
 1. 关于 actionTypes, actions, reducer 文件分割的提议:[GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
 2. React 生命周期及方法图:[wojtekmaj/react-lifecycle-methods-diagram](https://github.com/wojtekmaj/react-lifecycle-methods-diagram)
+3. [progressive react, 2019](https://houssein.me/progressive-react): 综合描述了 React 性能优化.
