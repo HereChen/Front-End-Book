@@ -26,6 +26,7 @@
     * [indexedDB](./ch1-fundamental/storage/indexedDB.md)
   * [TypeScript](./ch1-fundamental/typescript.md)
 * [Advanced](./ch2-advanced/README.md)
+  * [Workers](./ch2-advanced/workers.md)
 * [Framworks](./ch3-frameworks/README.md)
   * [Vue.js](./ch3-frameworks/vuejs/vuejs.md)
   * [Vue.js TypeScript](./ch3-frameworks/vuejs/vuejs-typescript.md)
