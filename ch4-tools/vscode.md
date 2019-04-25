@@ -19,13 +19,9 @@
 ```json
 {
   "eslint.enable": true,
-  "eslint.options": {
-    "extensions": [
-      ".html",
-      ".js",
-      ".vue"
-    ]
-  },
+  "eslint.run": "onType",
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
   "eslint.validate": [{
       "language": "html",
       "autoFix": true
@@ -36,6 +32,10 @@
     },
     {
       "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
       "autoFix": true
     }
   ]
