@@ -5,20 +5,36 @@
 3. 示例项目: [amazing-react-projects](https://github.com/jiwonbest/amazing-react-projects)
 4. Demo Project: [react-native](https://github.com/HereChen/template/tree/master/react-native)
 
-## 环境配置
+```bash
+# 本地调试启动
+react-native run-android
+react-native run-ios
 
-### 系统环境
+# 打印调试 log
+react-native log-android
+react-native log-ios
+
+# 启动本地服务, 使得 bundle 可访问 (react-native run-* 未起服务时可使用)
+react-native start
+
+# 打开 RN 菜单 (不用摇手机)
+adb shell input keyevent KEYCODE_MENU
+```
+
+## 环境配置
 
 1. 安装 [nodejs](https://nodejs.org).
 2. `npm install -g react-native-cli`.
 
-#### Android
+按系统环境选择安装.
+
+### Android (Windows)
 
 1. JDK (并配置环境变量)
 2. 安装 Android Studio <http://www.android-studio.org>
 3. 通过 SDK Manager 下载 SDK, 并配置环境变量.
 
-```bash
+```bat
 REM set var
 set ANDROID_HOME=C:\Users\chenl\AppData\Local\Android\Sdk
 
@@ -29,7 +45,48 @@ REM set path
 setx /m path "%path%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools;"
 ```
 
-#### iOS
+### Android (Ubuntu)
+
+```bash
+# step 1: openjdk
+# 1. https://jdk.java.net/archive/
+# 2. http://openjdk.java.net/install/index.html
+# 3. https://stackoverflow.com/questions/49507160/how-to-install-jdk-10-under-ubuntu
+wget https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_linux-x64_bin.tar.gz
+tar xzvf openjdk-10.0.2_linux-x64_bin.tar.gz
+sudo mv jdk-10.0.2 /usr/lib/jvm/java-10-openjdk-amd64/
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-10-openjdk-amd64/bin/java 1
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/java-10-openjdk-amd64/bin/javac 1
+sudo update-alternatives --config java
+
+# step 2: Android SDK 安装
+sudo apt install android-sdk
+
+# step 2: Android SDK 环境配置
+vim ~/.bashrc
+# export ANDROID_HOME=/usr/lib/android-sdk
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools/bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
+
+### Android (macOS)
+
+```bash
+# step 1: java
+brew cask install java
+
+# step 2: 安装 Android Studio, 并下载 SDK, 创建虚拟机
+
+# step 3: 配置 sdk 环境变量
+vim ~/.bashrc
+# export ANDROID_HOME=~/Library/Android/sdk
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/tools\bin
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
+
+### iOS (macOS)
 
 1. App Store 安装 XCode.
 2. 其他工具安装
@@ -96,7 +153,7 @@ Enter key password for <my-key-alias>
 1. `my-release-key.keystore` 文件放到工程 `android/app` 文件夹下.
 2. 编辑 `android/app/gradle.properties`, 添加如下信息.
 
-    ```
+    ```text
     MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
     MYAPP_RELEASE_KEY_ALIAS=my-key-alias
     MYAPP_RELEASE_STORE_PASSWORD=chenlei
@@ -105,7 +162,7 @@ Enter key password for <my-key-alias>
 
 3. 编辑 `android/app/build.gradle`, 添加如下信息.
 
-    ```
+    ```groovy
     ...
     android {
         ...
@@ -245,7 +302,7 @@ protected String getJSMainModuleName() {
 
 ### 结构
 
-```
+```text
 android/         # Android 工程
 ios/             # IOS 工程
 src/             # 开发前端资源
