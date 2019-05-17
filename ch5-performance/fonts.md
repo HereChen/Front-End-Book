@@ -24,6 +24,12 @@ body {
 }
 ```
 
+**Google Fonts `font-display: swap`** [Suggestion: Implement font-display](https://github.com/google/fonts/issues/358)
+
+```text
+https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,700|Noto+Sans:400,700&display=swap
+```
+
 ## 扩展阅读
 
 1. [Web safe fonts, developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Web_safe_fonts)
