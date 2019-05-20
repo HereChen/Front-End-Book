@@ -2,11 +2,13 @@
 
 > [webpack/webpack](https://github.com/webpack/webpack)
 
+Webpack 是打包工具, 以 JavaScript 作为入口文件开始解析.
+
 **公共文件/组件抽离 (CommonsChunkPlugin)**
 
 > [list of plugins](https://github.com/webpack/docs/wiki/list-of-plugins#commonschunkplugin)
 
-## Readings
+## 扩展阅读
 
 * [Loading css, css-modules, and Sass with webpack, 2019-05-13](https://adamrackis.dev/css-modules/)
 
