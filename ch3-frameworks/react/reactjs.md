@@ -148,6 +148,12 @@ module.exports = function override(config, env) {
     }
     ```
 
+### 更多
+
+* 利用 React.lazy 和 Suspense 分割代码.
+* 利用 [react-window](https://github.com/bvaughn/react-window) 实现 Virtual Scroller, 解决列表数据太多, 滑动卡顿问题.
+* 利用 [Workbox](https://github.com/googlechrome/workbox) (Web Worker 工具) 缓存资源.
+
 ## Tips
 
 1. [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo) 可以使函数组件获得和 `React.PureComponent` 相同的效果.
@@ -178,6 +184,8 @@ module.exports = function override(config, env) {
 
 ### 扩展阅读
 
-1. 关于 actionTypes, actions, reducer 文件分割的提议:[GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
-2. React 生命周期及方法图:[wojtekmaj/react-lifecycle-methods-diagram](https://github.com/wojtekmaj/react-lifecycle-methods-diagram)
-3. [progressive react, 2019](https://houssein.me/progressive-react): 综合描述了 React 性能优化.
+* 关于 actionTypes, actions, reducer 文件分割的提议:[GitHub, erikras/ducks-modular-redux](https://github.com/erikras/ducks-modular-redux)
+* React 生命周期及方法图:[wojtekmaj/react-lifecycle-methods-diagram](https://github.com/wojtekmaj/react-lifecycle-methods-diagram)
+* [progressive react, 2019](https://houssein.me/progressive-react): 综合描述了 React 性能优化.
+* [React, https://web.dev](https://web.dev/react)
+* [Houssein Djirdeh, Get Started: Optimize your React app, https://web.dev, 2019-04-29](https://web.dev/get-started-optimize-react)
