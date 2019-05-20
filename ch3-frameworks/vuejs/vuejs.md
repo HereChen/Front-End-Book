@@ -76,10 +76,13 @@ watch: {
 
 ### extend 实现 JS 调用的组件封装
 
+```html
+<!-- MyComponent/main.vue 用一般的组件写法编写 -->
+```
+
 ```javascript
 // MyComponent/index.js
 import Vue from 'vue';
-// MyComponent/main.vue 用一般的组件写法编写
 import mainVue from './main';
 const ConfirmBoxConstructor = Vue.extend(mainVue);
 const MyComponent = (options) => {
@@ -92,6 +95,7 @@ const MyComponent = (options) => {
   document.body.appendChild(instance.$el);
 };
 
+// JS 调用方法
 MyComponent.myMethod = () => {
   // define here
 }
@@ -99,9 +103,10 @@ MyComponent.myMethod = () => {
 export default MyComponent;
 ```
 
-调用组件
+**调用组件**
 
 ```javascript
+// 通过 ref 可调用 MyComponent/main.vue 内的 methods
 import MyComponent from 'MyComponent'
 export default {
   mounted() {
