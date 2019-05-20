@@ -20,7 +20,11 @@ npm install module_name --global
 
 ## .npmrc
 
-### 配置镜像
+> npm gets its config settings from the command line, environment variables, and npmrc files. [npmrc](https://docs.npmjs.com/files/npmrc)
+
+具体的可配置条目参考 [npm-config](https://docs.npmjs.com/misc/config).
+
+**配置镜像**
 
 ```bash
 # 工程里面配置淘宝镜像
