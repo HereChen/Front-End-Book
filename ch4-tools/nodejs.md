@@ -12,7 +12,7 @@ console.log("func1.mjs");
 
 // func2.mjs
 import "./func1.mjs";
-console.log("func1.mjs")
+console.log("func2.mjs")
 
 // app.mjs
 import "./func1.mjs";
