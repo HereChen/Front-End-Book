@@ -76,6 +76,8 @@ watch: {
 
 ### extend 实现 JS 调用的组件封装
 
+**组件封装** 分为两步, 先写 Vue 组件, 再用 JS 封装. 可参考 [Element](https://github.com/ElemeFE/element) 的组件实现.
+
 ```html
 <!-- MyComponent/main.vue 用一般的组件写法编写 -->
 ```
