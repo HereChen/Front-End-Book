@@ -352,3 +352,7 @@ localStorage.clear()                // 清空 localStorage
 
 1. switch 以 `===` 匹配。
 2. 函数会首先被提升，然后才是变量。
+
+## 扩展阅读
+
+1. [Benjamin Johnson, Using trampolines to manage large recursive loops in JavaScript, 2018-05-14](https://blog.logrocket.com/using-trampolines-to-manage-large-recursive-loops-in-javascript-d8c9db095ae3)
