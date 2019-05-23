@@ -7,3 +7,4 @@
 ## 读物
 
 1. [basarat/typescript-book](https://github.com/basarat/typescript-book), TypeScript, 有 Kindle 格式.
+2. [Functional-Light JavaScript, Kyle Simpson](https://github.com/getify/Functional-Light-JS)
