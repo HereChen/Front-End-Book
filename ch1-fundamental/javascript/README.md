@@ -96,7 +96,7 @@ console.log(tt); // 2015年10月30日 22时6分21秒
 ### setInterval 和 setTimeout
 
 - `setTimeout` 只执行一次
-- `setInterval` 连续执行多次
+- `setInterval` 连续执行多次. setInterval 有问题 (JS 单线程, 事件队列的原因, 导致时间间隔并不准确), 采用 setTimeout 来模拟.
 
 ### call 和 apply
 
