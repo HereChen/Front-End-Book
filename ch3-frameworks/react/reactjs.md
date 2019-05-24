@@ -190,3 +190,4 @@ module.exports = function override(config, env) {
 * [React, https://web.dev](https://web.dev/react)
 * [Houssein Djirdeh, Get Started: Optimize your React app, https://web.dev, 2019-04-29](https://web.dev/get-started-optimize-react)
 * [Kent C. Dodds, Authentication in React Applications, 2019-05-20](https://kentcdodds.com/blog/authentication-in-react-applications)
+* [Dan Abramov, Writing Resilient Components, https://overreacted.io, 2019-03-16](https://overreacted.io/writing-resilient-components/)
