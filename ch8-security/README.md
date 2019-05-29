@@ -10,7 +10,7 @@
 
 点击劫持可以理解为, 以欺骗的方式诱导用户在某网站上进行操作. 欺骗的方式, 例如: 高仿网站; 将目标网站用 iframe 嵌入, 并置为透明. 欺骗的目的, 例如: 诱导用户登录获取授权.
 
-**X-Frame-Options** 页面嵌套(被 `<frame>`、`<iframe>`、`<embed>`、`<object>` 嵌套) header 配置. 可以配置 3 个值:
+**解决方法** 页面嵌套(被 `<frame>`、`<iframe>`、`<embed>`、`<object>` 嵌套) 方式, 可以通过设置响应头字段 `X-Frame-Options` 来配置. 可以配置 3 个值:
 
 * `DENY`: 不允许页面被嵌套.
 * `SAMEORIGIN`: 只允许同源嵌套(嵌套页面与被嵌套的页面同源).
@@ -26,5 +26,5 @@
 
 **解决方法** 前端只能通过文件类型 (`File.type`) 初步限制, 限制不合法的文件类型上传. 实际解决需要在服务端判断文件是否包含病毒, 或者将上传的文件夹设置为不可执行.
 
-1. <https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Protect_FileUpload_Against_Malicious_File.md>
-2. <https://www.owasp.org/index.php/Unrestricted_File_Upload>
+* <https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Protect_FileUpload_Against_Malicious_File.md>
+* <https://www.owasp.org/index.php/Unrestricted_File_Upload>
