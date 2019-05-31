@@ -27,7 +27,7 @@ reducer 是什么呢？reducer 按照 Redux 的输入书写。每次输入确定
 1. 不暴露 create-react-app 配置项（并支持 Sass、支持热加载）
 2. 区分环境变量
 
-### 不暴露 create-react-app 配置项
+### 改写 create-react-app 配置项
 
 create-react-app 2.0 无需配置即可支持 Sass, Sass 支持需安装 `node-sass` 和 `sass-loader`。
 
