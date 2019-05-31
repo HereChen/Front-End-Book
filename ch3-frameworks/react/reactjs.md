@@ -9,6 +9,9 @@ create-react-app my-app
 
 ## 文件组织
 
+* Presentation 组件仅用于展示.
+* Container 组件用于准备数据、处理副作用.
+
 ## React 与 Redux
 
 引入 Redux 用于应用状态维护，为了方便与 React 结合，因此会同时引入 React Redux。用户在视图层（React）操作，触发事件（action），事件触发 reducer，在 reducer 中决定如何返回新的状态，状态的更新触发视图的更新。从而实现了单向的数据流。
@@ -191,3 +194,4 @@ module.exports = function override(config, env) {
 * [Houssein Djirdeh, Get Started: Optimize your React app, https://web.dev, 2019-04-29](https://web.dev/get-started-optimize-react)
 * [Kent C. Dodds, Authentication in React Applications, 2019-05-20](https://kentcdodds.com/blog/authentication-in-react-applications)
 * [Dan Abramov, Writing Resilient Components, https://overreacted.io, 2019-03-16](https://overreacted.io/writing-resilient-components/)
+* [Dan Abramov, Presentational and Container Components, https://medium.com, 2015-05-23](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
