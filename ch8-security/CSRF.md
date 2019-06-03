@@ -1,4 +1,9 @@
-# 跨站请求伪造/CSRF (Cross-site request forgery)
+# 跨站请求伪造/CSRF/XSRF (Cross-site request forgery)
+
+> Cross-Site Request Forgery (CSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated.
+> [Cross-Site Request Forgery (CSRF)](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))
+
+“冒用”用户的授权信息发起请求, 防守手段有: 同源检测、请求加 token.
 
 ## 扩展阅读
 
