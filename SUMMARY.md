@@ -60,5 +60,6 @@
 * [Security](./ch8-security/README.md)
   * [CSRF](./ch8-security/csrf.md)
   * [XSS](./ch8-security/xss.md)
+  * [Clickjacking](./ch8-security/clickjacking.md)
 * [Browser](./ch9-browser/README.md)
 * [Appendix](./appendix/README.md)
