@@ -58,6 +58,7 @@
   * [Tips](./ch6-solutions/tips/README.md)
 * [Test](./ch7-test/README.md)
 * [Security](./ch8-security/README.md)
-  * [CSRF](./ch8-security/CSRF.md)
+  * [CSRF](./ch8-security/csrf.md)
+  * [XSS](./ch8-security/xss.md)
 * [Browser](./ch9-browser/README.md)
 * [Appendix](./appendix/README.md)
