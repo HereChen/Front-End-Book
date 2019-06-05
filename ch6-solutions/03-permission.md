@@ -13,14 +13,14 @@
 
 1. 路由属性.
 
-```javascript
-$stateProvider.state('Registration.Instructors', {
-     url: "/Instructors",
-     templateUrl: '/Scripts/App/Instructors/Templates/instructors.html',
-     controller: 'InstructorController',
-     data: { auth: "Admin"}
-})
-```
+    ```javascript
+    $stateProvider.state('Registration.Instructors', {
+        url: "/Instructors",
+        templateUrl: '/Scripts/App/Instructors/Templates/instructors.html',
+        controller: 'InstructorController',
+        data: { auth: "Admin"}
+    })
+    ```
 
 2. 登录用户权限/角色信息可记录到 `rootScope` 中, 比如 `rootScope.adminType = "Admin"`.
 3. 菜单保留与移除. `ng-if="adminType==='Admin'"`[^AngularJSDifferenceNgifNgshow].
