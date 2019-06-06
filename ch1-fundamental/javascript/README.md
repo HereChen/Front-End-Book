@@ -8,9 +8,9 @@ Cookie 写入。
 
 一个完整的 JavaScript 实现是由以下 3 个不同部分组成的：
 
-* 核心（ECMAScipt）
-* 文档对象模型（DOM）
-* 浏览器对象模型（BOM）
+* 核心 [ECMAScipt](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+* 文档对象模型 [DOM (Document Object Model)](https://www.w3.org/DOM/)
+* 浏览器对象模型 BOM (Browser Object Model), 主要内容在 HTML 规范中定义.
 
 * [JavaScript 实现](http://www.w3school.com.cn/js/pro_js_implement.asp)
 * [JavaScript学习总结（三）BOM和DOM详解](http://segmentfault.com/a/1190000000654274)
