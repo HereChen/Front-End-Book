@@ -8,20 +8,20 @@ Cookie 写入。
 
 一个完整的 JavaScript 实现是由以下 3 个不同部分组成的：
 
-- 核心（ECMAScipt）
-- 文档对象模型（DOM）
-- 浏览器对象模型（BOM）
+* 核心（ECMAScipt）
+* 文档对象模型（DOM）
+* 浏览器对象模型（BOM）
 
-- [JavaScript 实现](http://www.w3school.com.cn/js/pro_js_implement.asp)
-- [JavaScript学习总结（三）BOM和DOM详解](http://segmentfault.com/a/1190000000654274)
+* [JavaScript 实现](http://www.w3school.com.cn/js/pro_js_implement.asp)
+* [JavaScript学习总结（三）BOM和DOM详解](http://segmentfault.com/a/1190000000654274)
 
 ## 函数
 
 ### 常用函数
 
-- `string.slice(start,end)` 复制 string 中的一部分。
-- `string.indexOf(searchString, position)` 在 string 中查找 searchString。如果被找到，返回第一个匹配字符的位置，否则返回 -1。可选参数 position 可设置从 string 的某个指定的位置开始查找。
-- `object.hasOwnProperty(name)`
+* `string.slice(start,end)` 复制 string 中的一部分。
+* `string.indexOf(searchString, position)` 在 string 中查找 searchString。如果被找到，返回第一个匹配字符的位置，否则返回 -1。可选参数 position 可设置从 string 的某个指定的位置开始查找。
+* `object.hasOwnProperty(name)`
 
 ### Date
 
@@ -40,7 +40,7 @@ console.log(tt); // 2015年10月30日 22时6分21秒
 
 注意 `getMonth()` 和 `getDay()` 都是从 0 开始的，需要加 1。
 
-- [Date, mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
+* [Date, mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 
 ### typeof 和 instanceof
 
@@ -89,14 +89,14 @@ console.log(tt); // 2015年10月30日 22时6分21秒
     o3 instanceof C; // true
     ```
 
-- [typeof 和 instanceOf的区别](http://segmentfault.com/a/1190000000730982)
-- [instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
-- [typeof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)
+* [typeof 和 instanceOf的区别](http://segmentfault.com/a/1190000000730982)
+* [instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
+* [typeof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)
 
 ### setInterval 和 setTimeout
 
-- `setTimeout` 只执行一次
-- `setInterval` 连续执行多次. setInterval 有问题 (JS 单线程, 事件队列的原因, 导致时间间隔并不准确), 采用 setTimeout 来模拟.
+* `setTimeout` 只执行一次
+* `setInterval` 连续执行多次. setInterval 有问题 (JS 单线程, 事件队列的原因, 导致时间间隔并不准确), 采用 setTimeout 来模拟.
 
 ### call 和 apply
 
@@ -156,8 +156,8 @@ console.log(tt); // 2015年10月30日 22时6分21秒
     Array.prototype.push.apply(arr1,arr2);
     ```
 
-- [Function.prototype.apply()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
-- [apply 和call的用法](http://segmentfault.com/a/1190000000725712)
+* [Function.prototype.apply()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+* [apply 和call的用法](http://segmentfault.com/a/1190000000725712)
 
 ### new/构造函数
 
@@ -220,22 +220,22 @@ console.log(tt); // 2015年10月30日 22时6分21秒
 
     apply 方法让我们构建一个参数数组传递给调用函数。它允许我们选择 this 的值。apply 方法接收两个参数，第 1 个是要绑定给 this 的值，第 2 个就是一个参数数组.
 
-- [《JavaScript语言精粹(修订版)》，第4章 函数](http://book.douban.com/subject/3590768/)
+* [《JavaScript语言精粹(修订版)》，第4章 函数](http://book.douban.com/subject/3590768/)
 
 ## 继承方法
 
-- 原型链继承
-- 构造继承
-- 实例继承
-- 拷贝继承
+* 原型链继承
+* 构造继承
+* 实例继承
+* 拷贝继承
 
-- [继承与原型链, mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain), [RayChase, JavaScript实现继承的几种方式](http://raychase.iteye.com/blog/1337415)
+* [继承与原型链, mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain), [RayChase, JavaScript实现继承的几种方式](http://raychase.iteye.com/blog/1337415)
 
 ## ES5
 
 > 新功能包括：原生 JSON 对象、继承的方法、高级属性的定义以及引入严格模式。
 
-- [梦禅, ECMAScript各版本简介及特性, segmentfault](http://segmentfault.com/a/1190000003493604)
+* [梦禅, ECMAScript各版本简介及特性, segmentfault](http://segmentfault.com/a/1190000003493604)
 
 ## ES6
 
@@ -294,7 +294,7 @@ console.log(tt); // 2015年10月30日 22时6分21秒
     });
     ```
 
-- [Arrow Functions in JavaScript](https://tylermcginnis.com/arrow-functions/)
+* [Arrow Functions in JavaScript](https://tylermcginnis.com/arrow-functions/)
 
 ## 文档对象 DOM
 
@@ -302,9 +302,9 @@ console.log(tt); // 2015年10月30日 22时6分21秒
 
 事件分为三个阶段:
 
-- 捕获阶段
-- 目标阶段
-- 冒泡阶段
+* 捕获阶段
+* 目标阶段
+* 冒泡阶段
 
 TODO：IE 和 w3c 标准的区别；阻止事件传播(捕获，冒泡) `e.stopPropagation()`；阻止事件默认行为 `e.preventDefault()`。
 
@@ -319,17 +319,17 @@ function registerEventHandler(node, event, handler) {
 registerEventHandler(button, "click", function(){print("Click (2)");});
 ```
 
-- [本期节目, 浏览器事件模型中捕获阶段、目标阶段、冒泡阶段实例详解, segmentfault, 2015.8](http://segmentfault.com/a/1190000003482372)
+* [本期节目, 浏览器事件模型中捕获阶段、目标阶段、冒泡阶段实例详解, segmentfault, 2015.8](http://segmentfault.com/a/1190000003482372)
 
 ## 浏览器对象 BOM
 
 ### 弹框
 
-- `prompt(text,defaultText)` 提示用户输入的对话框。`text` 对话框中显示的纯文本，`defaultText` 默认的输入文本。返回值为输入文本。
-- `alert(message)` 警告框。`message` 对话框中要实现的纯文本。
-- `confirm(message)` 显示一个带有指定消息和 OK 及取消按钮的对话框。`message` 对话框中显示的纯文本。点击确认返回 true，点击取消返回 false。
+* `prompt(text,defaultText)` 提示用户输入的对话框。`text` 对话框中显示的纯文本，`defaultText` 默认的输入文本。返回值为输入文本。
+* `alert(message)` 警告框。`message` 对话框中要实现的纯文本。
+* `confirm(message)` 显示一个带有指定消息和 OK 及取消按钮的对话框。`message` 对话框中显示的纯文本。点击确认返回 true，点击取消返回 false。
 
-- <http://www.w3school.com.cn/jsref/met_win_prompt.asp>
+* <http://www.w3school.com.cn/jsref/met_win_prompt.asp>
 
 ### localStorage
 
@@ -344,9 +344,9 @@ localStorage.removeItem('key')      // 删除值
 localStorage.clear()                // 清空 localStorage
 ```
 
-- [JavaScript 的同源策略, MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
-- [localStorage, MDN](https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage)
-- [杜若, localStorage 介绍](http://wikieswan.github.io/javascript/2015/04/03/html5-api-localstorage/)
+* [JavaScript 的同源策略, MDN](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
+* [localStorage, MDN](https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage)
+* [杜若, localStorage 介绍](http://wikieswan.github.io/javascript/2015/04/03/html5-api-localstorage/)
 
 ## 其他
 
