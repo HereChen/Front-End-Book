@@ -17,8 +17,8 @@ CSS 有三种基本的定位机制：普通流、浮动和绝对定位。任何�
 | static   |    默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。|
 | inherit  |    规定应该从父元素继承 position 属性的值。|
 
-- 如果一个标签的位置是绝对的，它又不在其他任何设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于浏览器窗口进行定位。
-- 如果一个标签处在另一个设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于另一个元素的边沿进行定位。
+* 如果一个标签的位置是绝对的，它又不在其他任何设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于浏览器窗口进行定位。
+* 如果一个标签处在另一个设定了 absolute、relative 或 fixed 定位的标签里面，那它就是相对于另一个元素的边沿进行定位。
 
 reference: <http://www.w3school.com.cn/cssref/pr_class_position.asp>，[CSS实战手册（第2版）](http://book.douban.com/subject/4861462/)
 
@@ -31,3 +31,7 @@ reference: <http://www.w3school.com.cn/cssref/pr_class_position.asp>，[CSS实�
 ## flex
 
 ## grid
+
+**可视化布局代码生成**
+
+* [CSS Grid Generator](https://cssgrid-generator.netlify.com)
