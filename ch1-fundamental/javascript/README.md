@@ -350,8 +350,9 @@ localStorage.clear()                // 清空 localStorage
 
 ## 其他
 
-1. switch 以 `===` 匹配。
-2. 函数会首先被提升，然后才是变量。
+1. switch 以 `===` 匹配.
+2. 函数会首先被提升，然后才是变量.
+3. `1.toString()` 会报错, 是因为语法解析错误, `1.` 被认为后面紧接着应是数字. 同理 `1. toString()` 仍然是错误的. 正确的思路是, 让数字被完整解析, 然后调用 `toString`. 比如: `1..toString()`、`1 .toString()`. [夜未央_M, 关于 1toString()、1.toString()、1..toString()、1.0.toString()、(1.).toString()、1 .toString()、1+2.toStri..., jianshu.com, 2018-11-29](https://www.jianshu.com/p/71d8d56f60b0)
 
 ## 扩展阅读
 
