@@ -11,9 +11,7 @@
 <a href="第三方网站地址" rel="noopener noreferrer">地址</a>
 ```
 
+## 参考及扩展阅读
 
-
-refer:
-
-1. [Link types, MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)
-2. [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
+* [Link types, MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types)
+* [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
