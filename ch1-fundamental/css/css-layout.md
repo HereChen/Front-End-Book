@@ -26,7 +26,9 @@ reference: <http://www.w3school.com.cn/cssref/pr_class_position.asp>，[CSS实�
 
 ## 浮动
 
-浮动和文档流
+> <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flow_Layout>
+
+正常的 Flow Layout (流式布局/文档流) 元素之间是相互依赖的, 当元素设置为浮动时, 此元素就脱离了文档流.
 
 ## flex
 
