@@ -13,6 +13,7 @@
   * [JavaScript](./chapter-fundamental/javascript/README.md)
     * [数据类型](./chapter-fundamental/javascript/js-data-type.md)
     * [数字](./chapter-fundamental/javascript/js-float-number.md)
+    * [数组](./chapter-fundamental/javascript/js-array.md)
     * [深拷贝和浅拷贝](./chapter-fundamental/javascript/js-copy.md)
     * [this](./chapter-fundamental/javascript/js-this.md)
     * [闭包](./chapter-fundamental/javascript/js-closure.md)
