@@ -1,12 +1,12 @@
 # HTTP
 
-- http 中 get 和 post；
-- HTTP 格式: 方案://服务器位置/路径, `<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>`
+* http 中 get 和 post；
+* HTTP 格式: 方案://服务器位置/路径, `<scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>`
 
 ## 同源
 
 > 如果两个页面拥有相同的**协议**（protocol），**端口**（如果指定），和**主机**，那么这两个页面就属于同一个源（origin）。
-
+>
 > 来自about:blank，javascript:和data:URLs中的内容，继承了将其载入的文档所指定的源，因为它们的URL本身未指定任何关于自身源的信息。
 
 注意 IE 的区别（比如：IE未将端口号加入到同源策略的组成部分之中）。
@@ -17,14 +17,14 @@ reference: [JavaScript 的同源策略, MDN](https://developer.mozilla.org/zh-CN
 
 1. 输入地址
 2. 浏览器查找域名的 IP 地址。这一步包括 DNS 具体的查找过程，包括：浏览器缓存->系统缓存->路由器缓存...
-4. 浏览器向 web 服务器发送一个 HTTP 请求
-5. 服务器的永久重定向响应（从 http://example.com 到 http://www.example.com）
-6. 浏览器跟踪重定向地址
-7. 服务器处理请求
-8. 服务器返回一个 HTTP 响应
-9. 浏览器显示 HTML
-10. 浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）
-11. 浏览器发送异步请求
+3. 浏览器向 web 服务器发送一个 HTTP 请求
+4. 服务器的永久重定向响应（从 `http://example.com` 到 `http://www.example.com`）
+5. 浏览器跟踪重定向地址
+6. 服务器处理请求
+7. 服务器返回一个 HTTP 响应
+8. 浏览器显示 HTML
+9. 浏览器发送请求获取嵌入在 HTML 中的资源（如图片、音频、视频、CSS、JS等等）
+10. 浏览器发送异步请求
 
 reference: [从输入URL到页面加载完成的过程中都发生了什么事情？, segmentfault](http://segmentfault.com/q/1010000000489803/a-1020000000489830)
 
@@ -83,3 +83,10 @@ reference: [从输入URL到页面加载完成的过程中都发生了什么事�
 | 505 | http Version Not Supported | 服务器收到的请求使用了它无法或不愿支持的协议版本时，使用此状态码。有些服务器应用程序会选择不支持协议的早期版本 |
 
 refer: [《HTTP权威指南》](https://book.douban.com/subject/10746113/)
+
+## MIME types (`Content-Type`)
+
+* [MIME types (IANA media types)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
+* [Media Type Specifications and Registration Procedures](https://tools.ietf.org/html/rfc6838)
+
+响应头中的 `Content-Type` 决定表示响应内容的格式 (MIME types), 规范查看 [RFC6838](https://tools.ietf.org/html/rfc6838). HTTP 请求响应本身 (不是内容) 的文本格式可查看 [RFC822](https://tools.ietf.org/html/rfc822)
