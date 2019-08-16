@@ -3,7 +3,8 @@
 1. 主页: <https://facebook.github.io/react-native>
 2. GitHub: <https://github.com/facebook/react-native>
 3. 示例项目: [amazing-react-projects](https://github.com/jiwonbest/amazing-react-projects)
-4. Demo Project: [react-native](https://github.com/HereChen/template/tree/master/react-native)
+
+采用 [react-native-config](https://github.com/luggit/react-native-config) 可分环境打包参数；开发可单独打包 debug apk，然后执行 `react-native start`，`adb reverse tcp:8081 tcp:8081` 实现端口映射；AndroidX 迁移用 [jetifier](https://github.com/mikehardy/jetifier) 解决。0.60 以后安装 Native 依赖无需更改 Native 工程。
 
 ```bash
 # 本地调试启动
@@ -24,7 +25,7 @@ adb shell input keyevent KEYCODE_MENU
 ## 环境配置
 
 1. 安装 [nodejs](https://nodejs.org).
-2. `npm install -g react-native-cli`.
+2. `npm install -g r@react-native-community/cli`.
 
 按系统环境选择安装.
 
@@ -223,7 +224,6 @@ TODO: 命令行打包
 
 1. [Generating Signed APK, Facebook Open Source](https://facebook.github.io/react-native/docs/signed-apk-android.html)
 2. [打包APK, React Native中文网](https://reactnative.cn/docs/0.51/signed-apk-android.html)
-3. [ReactNative之Android打包APK方法（趟坑过程）, ZPengs, 2017.02.09, 简书](https://www.jianshu.com/p/1380d4c8b596)
 
 ## 入口文件更改
 
