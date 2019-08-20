@@ -336,7 +336,7 @@ global.ErrorUtils.setGlobalHandler(e => {
 ## Tips
 
 * Android 虚拟机: <kbd>Ctrl</kbd> + <kbd>M</kbd> 打开菜单 (Android Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单)。
-* iPhone 虚拟机啊重新加载资源: <kbd>command</kbd> + <kbd>R</kbd>。
+* iPhone 虚拟机重新加载资源: <kbd>command</kbd> + <kbd>R</kbd>。
 * Android 安装新的应用前需要卸载之前的。
 * Android Studio 模拟器如果启动有问题，可尝试 Wipe Data 后再启动。
 * Android 多个设备，命令需要加上设备标识，比如 `adb -s de9de04 reverse tcp:8081 tcp:8081`。
