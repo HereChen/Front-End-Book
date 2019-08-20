@@ -31,6 +31,10 @@ adb logcat
 
 # 安装应用
 adb install app-release.apk
+
+# 重启 adb
+adb kill-server
+adb start-server
 ```
 
 ## quickstart
@@ -243,11 +247,12 @@ iOS 版本编译需要在 Mac 上进行.
 ## 常用依赖
 
 * 导航：[react-navigation](https://github.com/react-navigation/react-navigation) 提供了常用的导航方式(Stack, Tab, Drawer)。
-* UI：[ant-design-mobile](https://github.com/ant-design/ant-design-mobile) 每个组件是否支持 Native 有说明。
+* UI：[ant-design-mobile](https://github.com/ant-design/ant-design-mobile)。
 * UI：[react-native-elements](https://github.com/react-native-training/react-native-elements)
 * UI：[NativeBase](https://github.com/GeekyAnts/NativeBase)
 * 异步请求：[fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 为内建接口。
 * 异步请求：[axios](https://github.com/axios/axios)。
+* <https://github.com/react-native-community> 有一些常用依赖。另外，[Webview](https://github.com/react-native-community/react-native-webview)、[AsyncStorage](https://github.com/react-native-community/async-storage)、[Geolocation](https://github.com/react-native-community/react-native-geolocation) 已经从 React Native 中分离出来。
 
 ## 调试
 
