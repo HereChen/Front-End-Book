@@ -2,9 +2,8 @@
 
 1. 主页: <https://facebook.github.io/react-native>
 2. GitHub: <https://github.com/facebook/react-native>
-3. 示例项目: [amazing-react-projects](https://github.com/jiwonbest/amazing-react-projects)
 
-采用 [react-native-config](https://github.com/luggit/react-native-config) 可分环境打包参数；开发可单独打包 debug apk，然后执行 `react-native start`，`adb reverse tcp:8081 tcp:8081` 实现端口映射；AndroidX 迁移用 [jetifier](https://github.com/mikehardy/jetifier) 解决。0.60 以后安装 Native 依赖无需更改 Native 工程。
+开发可单独打包 debug apk，然后执行 `react-native start`，`adb reverse tcp:8081 tcp:8081` 实现端口映射；AndroidX 迁移用 [jetifier](https://github.com/mikehardy/jetifier) 解决。0.60 以后安装 Native 依赖无需更改 Native 工程。
 
 ```bash
 # 本地调试启动
@@ -15,19 +14,67 @@ react-native run-ios
 react-native log-android
 react-native log-ios
 
-# 启动本地服务, 使得 bundle 可访问 (react-native run-* 未起服务时可使用)
+# 启动本地服务, 使得 bundle 可访问
 react-native start
+```
 
+```bash
+# ## Android
 # 打开 RN 菜单 (不用摇手机)
 adb shell input keyevent KEYCODE_MENU
+
+# 查看当前连接的 Android 设备
+adb devices
+
+# 查看日志
+adb logcat
+
+# 安装应用
+adb install app-release.apk
+```
+
+## quickstart
+
+工程及Android 调试、打包流程。
+
+```bash
+# requirments: nodejs, @react-native-community/cli，Java，Android SDK
+
+# 1. 工程及依赖
+# 新建工程
+react-native init MyApp
+
+# 安装 jetifier （如果安装了涉及 Native 的依赖就需要）
+npm install --save-dev jetifier
+
+# 安装 Native 依赖后执行
+npx jetify
+
+# 2. 开发调试
+# Android Debug 打包
+cd android && ./gradlew assembleDebug
+
+# 安装 debug apk
+
+# 端口映射
+adb reverse tcp:8081 tcp:8081
+
+# 启动 js bundle
+react-native start
+
+# 查看日志进行调试
+adb logcat
+
+# 3. 打包（打包前配置签名）
+cd android && ./gradlew assembleRelease
 ```
 
 ## 环境配置
 
 1. 安装 [nodejs](https://nodejs.org).
-2. `npm install -g r@react-native-community/cli`.
+2. `npm install -g @react-native-community/cli`.
 
-按系统环境选择安装.
+按系统环境选择安装。
 
 ### Android (Windows)
 
@@ -95,64 +142,44 @@ vim ~/.bashrc
     ```bash
     brew install node
     brew install watchman
-    npm install -g react-native-cli
     ```
-
-### 编辑器
-
-1. Visual Studio Code. 安装扩展 `React Native Tools` 用于调试.
-2. Atom. 安装[nuclide](https://atom.io/packages/nuclide).
-
-### 参考
-
-1. <https://facebook.github.io/react-native/docs/getting-started.html>
-
-## 基本命令
-
-1. 新建工程: `react-native init demo-project`.
-2. Android 运行: `react-native run-android`.
-3. iOS 运行: `react-native run-ios`.
-
-新建工程后首先 `npm install` 安装依赖. 示例项目 python 和 node-gyp-bin 相关错误可以尝试先执行 `yarn add node-sass` 或者 `npm install -f node-sass` (<https://github.com/sass/node-sass/issues/1980>).
 
 ## 打包
 
-### Android 打包
+### Android 签名打包
 
-#### 生成签名密钥
+1. 签名生成
 
-```bash
-$ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
-Enter keystore password:
-Keystore password is too short - must be at least 6 characters
-Enter keystore password: chenlei
-Re-enter new password: chenlei
-What is your first and last name?
-  [Unknown]:  HereChen
-What is the name of your organizational unit?
-  [Unknown]:  HereChen
-What is the name of your organization?
-  [Unknown]:  HereChen
-What is the name of your City or Locality?
-  [Unknown]:  Chengdu
-What is the name of your State or Province?
-  [Unknown]:  Sichuan
-What is the two-letter country code for this unit?
-  [Unknown]:  51
-Is CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51 correct?
-  [no]:  yes
+    ```bash
+    $ cd android/app/
+    $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+    Enter keystore password:
+    Keystore password is too short - must be at least 6 characters
+    Enter keystore password: chenlei
+    Re-enter new password: chenlei
+    What is your first and last name?
+      [Unknown]:  HereChen
+    What is the name of your organizational unit?
+      [Unknown]:  HereChen
+    What is the name of your organization?
+      [Unknown]:  HereChen
+    What is the name of your City or Locality?
+      [Unknown]:  Chengdu
+    What is the name of your State or Province?
+      [Unknown]:  Sichuan
+    What is the two-letter country code for this unit?
+      [Unknown]:  51
+    Is CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51 correct?
+      [no]:  yes
 
-Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
-        for: CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51
-Enter key password for <my-key-alias>
-        (RETURN if same as keystore password):
-[Storing my-release-key.keystore]
-```
+    Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
+            for: CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51
+    Enter key password for <my-key-alias>
+            (RETURN if same as keystore password):
+    [Storing my-release-key.keystore]
+    ```
 
-#### gradle设置
-
-1. `my-release-key.keystore` 文件放到工程 `android/app` 文件夹下.
-2. 编辑 `android/app/gradle.properties`, 添加如下信息.
+2. **签名变量配置** `./android/gradle.properties` 或 `~/.gradle/gradle.properties` 新增内容。
 
     ```text
     MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
@@ -161,13 +188,15 @@ Enter key password for <my-key-alias>
     MYAPP_RELEASE_KEY_PASSWORD=chenlei
     ```
 
-3. 编辑 `android/app/build.gradle`, 添加如下信息.
+3. **gradle 签名配置** `android/app/build.gradle` 新增内容.
 
     ```groovy
     ...
     android {
-        ...
-        defaultConfig { ... }
+        defaultConfig {
+          ...
+        }
+
         signingConfigs {
             release {
                 storeFile file(MYAPP_RELEASE_STORE_FILE)
@@ -176,30 +205,23 @@ Enter key password for <my-key-alias>
                 keyPassword MYAPP_RELEASE_KEY_PASSWORD
             }
         }
+
         buildTypes {
+            ...
             release {
-                ...
                 signingConfig signingConfigs.release
+                ...
             }
         }
+        ...
     }
-    ...
     ```
 
-#### 生成 apk
+4. **打包** 打包后在 `android/app/build/outputs/apk/app-release.apk`.
 
-```bash
-cd android && ./gradlew assembleRelease
-```
-
-打包后在 `android/app/build/outputs/apk/app-release.apk`.
-
-#### 安装 apk 方式
-
-1. Genymotion 可以拖拽 apk 进行安装.
-2. `adb install app-release.apk` 安装.
-
-如果报签名错误, 可先卸载之前的 debug 版本.
+    ```bash
+    cd android && ./gradlew clean assembleRelease
+    ```
 
 ### iOS 打包
 
@@ -218,70 +240,30 @@ iOS 版本编译需要在 Mac 上进行.
 3. 编译设置: Xcode -> Product -> Scheme -> Edit Scheme -> Run -> Info -> Build Configuration 选择 Rlease
 4. JS 改为离线(打包进APP)???
 
-TODO: 命令行打包
+## 常用依赖
 
-### 参考
-
-1. [Generating Signed APK, Facebook Open Source](https://facebook.github.io/react-native/docs/signed-apk-android.html)
-2. [打包APK, React Native中文网](https://reactnative.cn/docs/0.51/signed-apk-android.html)
-
-## 入口文件更改
-
-> 从0.49开始, 只有一个入口, 不区分 ios 和 android. <https://github.com/facebook/react-native/releases/tag/v0.49.0>
-
-React Native CLI 新建的工程, 默认入口是 `index.js`. 在 `android\app\build.gradle` 中更改入口.
-
-```javascript
-project.ext.react = [
-    entryFile: "index.android.js"
-]
-```
-
-对应更改 `android\app\src\main\java\com\**\MainApplication.java`.
-
-```java
-protected String getJSMainModuleName() {
-  return "index.android";
-}
-```
-
-## 工具/依赖(dependencies)
-
-### 导航
-
-> <https://facebook.github.io/react-native/docs/navigation.html>
-
-1. [react-navigation](https://github.com/react-navigation/react-navigation) 提供了常用的导航方式(Stack, Tab, Drawer), 推荐.
-2. [NavigatorIOS](https://facebook.github.io/react-native/docs/navigatorios.html) 为内建的导航, 仅在 IOS 上可用.
-
-### UI
-
-尚未找到两端(Web, Native)完整好用的 UI, 若后端采用 ant-design 可用 ant-design-mobile.
-
-1. [ant-design-mobile](https://github.com/ant-design/ant-design-mobile) 每个组件是否支持 Native 有说明.
-2. [react-native-elements](https://github.com/react-native-training/react-native-elements)
-3. [NativeBase](https://github.com/GeekyAnts/NativeBase)
-
-### HTTP 请求
-
-> <https://facebook.github.io/react-native/docs/network.html>
-
-1. [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 为内建接口.
-2. [**axios**](https://github.com/axios/axios) 为使用校广泛的第三方请求库, 推荐使用.
+* 导航：[react-navigation](https://github.com/react-navigation/react-navigation) 提供了常用的导航方式(Stack, Tab, Drawer)。
+* UI：[ant-design-mobile](https://github.com/ant-design/ant-design-mobile) 每个组件是否支持 Native 有说明。
+* UI：[react-native-elements](https://github.com/react-native-training/react-native-elements)
+* UI：[NativeBase](https://github.com/GeekyAnts/NativeBase)
+* 异步请求：[fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) 为内建接口。
+* 异步请求：[axios](https://github.com/axios/axios)。
 
 ## 调试
 
 > <https://facebook.github.io/react-native/docs/debugging.html>
 
-根据提示, 可以菜单按钮选择重新加载或热加载. Android 可摇晃手机显示菜单.
+根据提示, 可以在菜单按钮选择 Live Reload（有变更时重新加载）。Android 可摇晃手机显示菜单。
 
-### 虚拟机
+### 模拟器
 
-1. [Genymotion](https://www.genymotion.com/download/), 需要先注册, 然后选择 for personal 使用. 如果系统开启了 Hyper-V, 需要先关闭.
-2. Android Studio 内建虚拟机, 同样需要关闭 Hyper-V.
-3. [Visual Studio Emulator for Android](https://www.visualstudio.com/vs/msft-android-emulator/) 需要开启 Hyper-V.
+1. [Genymotion](https://www.genymotion.com/download/), 需要先注册, 然后选择 for personal 使用. 如果系统开启了 Hyper-V, 需要先关闭。
+2. Android Studio 内建虚拟机, 同样需要关闭 Hyper-V。
+3. [Visual Studio Emulator for Android](https://www.visualstudio.com/vs/msft-android-emulator/) 需要开启 Hyper-V。
 
 ### 调试工具: Chrome
+
+在不涉及 Native 依赖时可采用此方法。
 
 1. `Remote JS Debugging` 开启JS调试.
 2. 浏览器端进去 `http://localhost:8081/debugger-ui/`, 并开启开发工具.
@@ -294,51 +276,98 @@ protected String getJSMainModuleName() {
 3. 进入调试菜单(Ctrl + Shift + D), 选择 Debug Android.
 4. 设置断点或者写入 `debugger` 开始调试, 在 output 栏输出.
 
-### HTTP 调试问题备注
+### 调试工具：日志查看
 
-应用 Fiddler 调试 HTTP, 模拟器设置了代理后, APP 无法热加载 JS bundle. 目前只有用 Chrome 或者断点的方式来调试.
+* `adb logcat` 查看日志。
+* Android Studio 的 Logcat Tab 查看日志。
+* 独立的日志查看工具 [pikey8706/LogCatch](https://github.com/pikey8706/LogCatch)，方便筛选日志又不占太多内存。
+
+### 调试工具：请求查看
+
+* Fiddler：和在手机上调试 Web 应用一样，配置 Fiddler 代理，查看请求响应。
+* 如果用 Chrome 调试，可进行配置，在 Chrome 的 Network Tab 中查看。
+
+  ```javascript
+  // https://github.com/facebook/react-native/issues/934
+  GLOBAL.XMLHttpRequest = GLOBAL.originalXMLHttpRequest || GLOBAL.XMLHttpRequest;
+  ```
 
 ## 工程结构
 
-### 结构
+> 1. [Organizing a React Native Project](https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0)
+> 2. [React native project setup — a better folder structure](https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792)
 
-```text
-android/         # Android 工程
-ios/             # IOS 工程
-src/             # 开发前端资源
-  -- assets/     # 静态资源
-  -- components/ # 组件
-  -- api/        # 接口
-  -- route/      # 导航(路由)
-  -- config/     # 常量配置
-  -- pages/      # 页面/功能
-  -- utils/      # 常用工具
-  -- reducers 相关
-  -- index.js    # APP 入口
-index.js         # 入口文件
+```bash
+├── android/         # Android 工程
+├── ios/             # iOS 工程
+├── src/             # 开发前端资源
+│   ├── assets/      # 静态资源
+│   ├── components/  # 组件
+│   ├── api/         # 接口
+│   ├── route/       # 导航(路由)
+│   ├── config/      # 常量配置
+│   ├── pages/       # 页面/功能
+│   ├── utils/       # 常用工具
+│   ├── reducers 相关
+│   └── index.js     # APP 入口
+└── index.js         # 入口文件
 ```
 
-### 参考
+## 环境切换
 
-1. [Organizing a React Native Project](https://medium.com/the-react-native-log/organizing-a-react-native-project-9514dfadaa0)
-2. [React native project setup — a better folder structure](https://hackernoon.com/manage-react-native-project-folder-structure-and-simplify-the-code-c98da77ef792)
+采用 [react-native-config](https://github.com/luggit/react-native-config) 可分环境打包参数。
+
+1. 依赖安装
+
+    ```bash
+    npm install react-native-config
+    ```
+
+2. 新建环境变量文件 .env.dev
+
+    ```bash
+    API_URL=https://myapi.com
+    GOOGLE_MAPS_API_KEY=abcdefgh
+    ```
+
+3. 变量使用
+
+    ```javascript
+    import Config from "react-native-config";
+
+    Config.API_URL; // 'https://myapi.com'
+    Config.GOOGLE_MAPS_API_KEY; // 'abcdefgh'
+    ```
+
+4. 打包时配置变量定义文件
+
+    ```bash
+    SET ENVFILE=.env.dev && gradlew.bat clean assembleRelease       # cmd
+    env:ENVFILE=".env.dev"; ./gradlew clean assembleRelease         # powershell
+    ENVFILE=.env.dev ./gradlew clean assembleRelease                # bash
+    ```
+
+## 全局异常捕获
+
+异常如果不处理，APP 会崩溃。
+
+```javascript
+// 全局异常捕获
+global.ErrorUtils.setGlobalHandler(e => {
+    // 异常处理
+    // Modal.alert("异常", `Error: ${e.message}, stack:\n ${e.stack}`);
+});
+```
 
 ## Tips
 
-1. Android 查看当前的 Android 设备 `adb devices`.
-2. Android 虚拟机: <kbd>Ctrl</kbd> + <kbd>M</kbd> 打开菜单 (Android Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单).
-3. iPhone 虚拟机啊重新加载资源: <kbd>command</kbd> + <kbd>R</kbd>.
+* Android 虚拟机: <kbd>Ctrl</kbd> + <kbd>M</kbd> 打开菜单 (Android Studio自带虚拟机没有菜单和摇晃手机, 可以这种方式打开菜单)。
+* iPhone 虚拟机啊重新加载资源: <kbd>command</kbd> + <kbd>R</kbd>。
+* Android 安装新的应用前需要卸载之前的。
+* Android Studio 模拟器如果启动有问题，可尝试 Wipe Data 后再启动。
+* Android 多个设备，命令需要加上设备标识，比如 `adb -s de9de04 reverse tcp:8081 tcp:8081`。
+* Android Sutdio 打开 Android 工程，会自动生成 `android/local.properties`，如果是多个环境开发（WSL 和 Windows），会导致 WSL 中配置信息（SDK 路径）不对。
 
-## 问题及解决
+## 资源
 
-1. VSCode Debug 无法加载的情况, 首先重启 VSCode 再启动项目.
-2. 添加`antd-mobile`后报错, 无法解析 `react-dom`, 依赖中加入`react-dom`并安装即可.
-3. 集成`react-native-navigation`需要注意Android SDK版本, 版本过低可能出现编译错误(`Error:Error retrieving parent for item: No resource found`).
-
-## 原理
-
-1. React Native将代码由JSX转化为JS组件，启动过程中利用instantiateReactComponent将ReactElement转化为复合组件ReactCompositeComponent与元组件ReactNativeBaseComponent，利用 ReactReconciler对他们进行渲染[^rnSourceRender]。
-2. UIManager.js利用C++层的Instance.cpp将UI信息传递给UIManagerModule.java，并利用UIManagerModule.java构建UI[^rnSourceRender]。
-3. UIManagerModule.java接收到UI信息后，将UI的操作封装成对应的Action，放在队列中等待执行。各种UI的操作，例如创建、销毁、更新等便在队列里完成，UI最终 得以渲染在屏幕上[^rnSourceRender]。
-
-[^rnSourceRender]: [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/4ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E6%B8%B2%E6%9F%93%E5%8E%9F%E7%90%86.md)
+* [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative源码篇/4ReactNative源码篇：渲染原理.md)
