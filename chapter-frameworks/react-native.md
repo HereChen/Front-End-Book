@@ -1,45 +1,13 @@
 # React Native
 
-1. 主页: <https://facebook.github.io/react-native>
-2. GitHub: <https://github.com/facebook/react-native>
+* 主页: <https://facebook.github.io/react-native>
+* GitHub: <https://github.com/facebook/react-native>
 
 开发可单独打包 debug apk，然后执行 `react-native start`，`adb reverse tcp:8081 tcp:8081` 实现端口映射；AndroidX 迁移用 [jetifier](https://github.com/mikehardy/jetifier) 解决。0.60 以后安装 Native 依赖无需更改 Native 工程。
 
-```bash
-# 本地调试启动
-react-native run-android
-react-native run-ios
-
-# 打印调试 log
-react-native log-android
-react-native log-ios
-
-# 启动本地服务, 使得 bundle 可访问
-react-native start
-```
-
-```bash
-# ## Android
-# 打开 RN 菜单 (不用摇手机)
-adb shell input keyevent KEYCODE_MENU
-
-# 查看当前连接的 Android 设备
-adb devices
-
-# 查看日志
-adb logcat
-
-# 安装应用
-adb install app-release.apk
-
-# 重启 adb
-adb kill-server
-adb start-server
-```
-
 ## quickstart
 
-工程及Android 调试、打包流程。
+Android 工程及调试、打包流程。
 
 ```bash
 # requirments: nodejs, @react-native-community/cli，Java，Android SDK
@@ -59,6 +27,7 @@ npx jetify
 cd android && ./gradlew assembleDebug
 
 # 安装 debug apk
+adb install app-debug.apk
 
 # 端口映射
 adb reverse tcp:8081 tcp:8081
@@ -114,7 +83,7 @@ sudo update-alternatives --config java
 # step 2: Android SDK 安装
 sudo apt install android-sdk
 
-# step 2: Android SDK 环境配置
+# step 3: Android SDK 环境配置
 vim ~/.bashrc
 # export ANDROID_HOME=/usr/lib/android-sdk
 # export PATH=$PATH:$ANDROID_HOME/tools
@@ -328,7 +297,7 @@ iOS 版本编译需要在 Mac 上进行.
     npm install react-native-config
     ```
 
-2. 新建环境变量文件 .env.dev
+2. 新建环境变量文件 `.env.dev`
 
     ```bash
     API_URL=https://myapi.com
@@ -372,6 +341,37 @@ global.ErrorUtils.setGlobalHandler(e => {
 * Android Studio 模拟器如果启动有问题，可尝试 Wipe Data 后再启动。
 * Android 多个设备，命令需要加上设备标识，比如 `adb -s de9de04 reverse tcp:8081 tcp:8081`。
 * Android Sutdio 打开 Android 工程，会自动生成 `android/local.properties`，如果是多个环境开发（WSL 和 Windows），会导致 WSL 中配置信息（SDK 路径）不对。
+* 常用命令
+
+    ```bash
+    # 本地调试启动
+    react-native run-android
+    react-native run-ios
+
+    # 打印调试 log
+    react-native log-android
+    react-native log-ios
+
+    # 启动本地服务, 使得 bundle 可访问
+    react-native start
+
+    # ## Android
+    # 打开 RN 菜单 (不用摇手机)
+    adb shell input keyevent KEYCODE_MENU
+
+    # 查看当前连接的 Android 设备
+    adb devices
+
+    # 查看日志
+    adb logcat
+
+    # 安装应用
+    adb install app-release.apk
+
+    # 重启 adb
+    adb kill-server
+    adb start-server
+    ```
 
 ## 资源
 
