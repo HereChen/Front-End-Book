@@ -24,6 +24,8 @@
 * [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every), 是否全部元素满足条件。
 * `array.slice([begin[, end]])` 复制数组的部分元素, 通过 begin 和 end 标识开始和结束下标.
 
-## 扩展阅读
+## 阅读
 
 * [Stable Array.prototype.sort, https://v8.dev, 2019-07-02](https://v8.dev/features/stable-sort)
+
+    问题：对象数组，根据其中一个字段排序后，可能得到不同的排序结果。问题解决：[[Normative] Make Array.prototype.sort stable](https://github.com/tc39/ecma262/pull/1340)
