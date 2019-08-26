@@ -14,9 +14,11 @@
 ## 读物
 
 * <https://exploringjs.com/> Dr. Axel Rauschmayer 的各种 JS 电子书。
+* [Understanding ECMAScript 6, Nicholas C. Zakas](https://github.com/nzakas/understandinges6)
 * [basarat/typescript-book](https://github.com/basarat/typescript-book), TypeScript, 有 Kindle 格式.
 * [Functional-Light JavaScript, Kyle Simpson](https://github.com/getify/Functional-Light-JS)
 * [Speaking JavaScript: An In-Depth Guide for Programmers, Dr. Axel Rauschmayer](http://speakingjs.com)
+* [ruanyf/free-books](https://github.com/ruanyf/free-books) 一份免费书籍清单，包含 JavaScript。
 
 ## 阅读
 
