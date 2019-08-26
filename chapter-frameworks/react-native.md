@@ -376,3 +376,4 @@ global.ErrorUtils.setGlobalHandler(e => {
 ## 资源
 
 * [ReactNative源码篇：渲染原理](https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative源码篇/4ReactNative源码篇：渲染原理.md)
+* [基于 React Native 的跨三端应用架构实践, 陈子涵, 2018-12-29](https://www.infoq.cn/article/vXkNh*HVrW7HUeiNdlsk)
