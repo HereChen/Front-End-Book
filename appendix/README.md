@@ -1,8 +1,9 @@
 # Appendix
 
-1. [10 Things I Regret About Node.js, Ryan Dahl, JSConf, 2018](http://tinyclouds.org/jsconf2018.pdf), [video](https://www.youtube.com/watch?v=M3BM9TB-8yA)
-2. [web.dev](https://web.dev): Web 开发指导.
-3. [squoosh.app](https://squoosh.app/): 图片压缩.
+* [10 Things I Regret About Node.js, Ryan Dahl, JSConf, 2018](http://tinyclouds.org/jsconf2018.pdf), [video](https://www.youtube.com/watch?v=M3BM9TB-8yA)
+* [web.dev](https://web.dev): Web 开发指导。
+* [squoosh.app](https://squoosh.app/): 图片压缩。
+* [coodict/javascript-in-one-pic](https://github.com/coodict/javascript-in-one-pic)
 
 ## 读物
 
@@ -24,6 +25,7 @@
     <script src="/bundle.js"></script>
     ```
 
+* [2019-03-20, Learning to Learn , Sarah Drasner, https://css-tricks.com](https://css-tricks.com/learning-to-learn/)
 * [2018-10-15, Smart Bundling: How To Serve Legacy Code Only To Legacy Browsers, https://www.smashingmagazine.com](https://www.smashingmagazine.com/2018/10/smart-bundling-legacy-code-browsers/)
 
     基本思路是划分两个环境, 分别打包, 在服务端区分响应. Browserslist 定义两个环境的浏览器配置(现代浏览器 modern和一般浏览器 legacy )现代浏览器 (Firefox 53+, Edge 15+, Chrome 58+, Safari 10.1+) , 再用 autoprefixer 处理 CSS.
@@ -44,3 +46,5 @@
 * [2016-06-16, DNS 原理入门, 阮一峰](http://www.ruanyifeng.com/blog/2016/06/dns.html)。
 
     有工具介绍，`dig`、`host`、`whois`。
+
+* [2010-06, An Eye Tracking Study on camelCase and under_score Identifier Styles, Sharif, Bonita, and Jonathan I. Maletic](http://www.cs.kent.edu/~jmaletic/papers/ICPC2010-CamelCaseUnderScoreClouds.pdf)
