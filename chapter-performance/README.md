@@ -17,11 +17,12 @@
 2. 浏览器开发工具，通常会有性能相关的工具，比如 Chrome Devtools 有检查 JavaScript 执行的 Performance，Audits 可以检查整个应用的运行，Network 可以查看资源请求相应情况。
 3. [Lighthouse](https://github.com/GoogleChrome/lighthouse)，Chrome 的 Audits 集成的是 Lighthouse，这个工具也可以通过脚本的方式运行生成报告。
 
-## 扩展阅读
+## 阅读
 
-1. [Web Performance 101, Ivan Akulov, 3perf, 2018](https://3perf.com/talks/web-perf-101)
-2. [Why Performance Matters,  Jeremy Wagner, developers.google.cn](https://developers.google.cn/web/fundamentals/performance)
-3. [The Cost Of JavaScript In 2018, Addy Osmani, medium.com, 2018](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4)
-4. [精读 The Cost of JavaScript In 2018, Tao Jiang, hijiangtao.github.io, 2018](https://hijiangtao.github.io/2018/08/04/the-cost-of-javascript-in-2018/?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com)
-5. [Accurately measuring layout on the web, Nolan Lawson, nolanlawson.com, 2018](https://nolanlawson.com/2018/09/25/accurately-measuring-layout-on-the-web/)
-6. [Speed Matters](https://speedcurve.com/blog/)
+* [Netflix 网页性能优化实践, Addy Osmani, 谢丽(译), 2018-11-12](https://www.infoq.cn/article/ssbG-cvU87NlXKqKdPTy)
+* [Web Performance 101, Ivan Akulov, 3perf, 2018](https://3perf.com/talks/web-perf-101)
+* [Why Performance Matters,  Jeremy Wagner, developers.google.cn](https://developers.google.cn/web/fundamentals/performance)
+* [The Cost Of JavaScript In 2018, Addy Osmani, medium.com, 2018](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4)
+* [精读 The Cost of JavaScript In 2018, Tao Jiang, hijiangtao.github.io, 2018](https://hijiangtao.github.io/2018/08/04/the-cost-of-javascript-in-2018/?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com)
+* [Accurately measuring layout on the web, Nolan Lawson, nolanlawson.com, 2018](https://nolanlawson.com/2018/09/25/accurately-measuring-layout-on-the-web/)
+* [Speed Matters](https://speedcurve.com/blog/)

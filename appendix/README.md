@@ -13,6 +13,7 @@
 
 ## 读物
 
+* <https://exploringjs.com/> Dr. Axel Rauschmayer 的各种 JS 电子书。
 * [basarat/typescript-book](https://github.com/basarat/typescript-book), TypeScript, 有 Kindle 格式.
 * [Functional-Light JavaScript, Kyle Simpson](https://github.com/getify/Functional-Light-JS)
 * [Speaking JavaScript: An In-Depth Guide for Programmers, Dr. Axel Rauschmayer](http://speakingjs.com)
@@ -32,6 +33,7 @@
     ```
 
 * [2019-03-20, Learning to Learn , Sarah Drasner, https://css-tricks.com](https://css-tricks.com/learning-to-learn/)
+* [2019-12-19, Handling broken images with the service worker](https://bitsofco.de/handling-broken-images-with-service-worker/)
 * [2018-10-15, Smart Bundling: How To Serve Legacy Code Only To Legacy Browsers, https://www.smashingmagazine.com](https://www.smashingmagazine.com/2018/10/smart-bundling-legacy-code-browsers/)
 
     基本思路是划分两个环境, 分别打包, 在服务端区分响应. Browserslist 定义两个环境的浏览器配置(现代浏览器 modern和一般浏览器 legacy )现代浏览器 (Firefox 53+, Edge 15+, Chrome 58+, Safari 10.1+) , 再用 autoprefixer 处理 CSS.

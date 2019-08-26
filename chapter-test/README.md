@@ -12,6 +12,7 @@
 * [mocha](https://github.com/mochajs/mocha)：simple, flexible, fun javascript test framework for node.js & the browser。
 * [karma](https://github.com/karma-runner/karma)：Spectacular Test Runner for JavaScript。
 
-## 扩展阅读
+## 阅读
 
-1. [Getting Started with Headless Chrome](https://developers.google.cn/web/updates/2017/04/headless-chrome)
+* [tank0317/unit-test-demo](https://github.com/tank0317/unit-test-demo)
+* [Getting Started with Headless Chrome](https://developers.google.cn/web/updates/2017/04/headless-chrome)

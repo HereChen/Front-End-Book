@@ -30,6 +30,8 @@
 
 ## Node.js
 
-1. [nearform/node-clinic](https://github.com/nearform/node-clinic): 性能调试
-2. [https://github.com/Tencent/TSW](Tencent/TSW): 日志、监控
-3. [Node.js debugging in VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
+* [nearform/node-clinic](https://github.com/nearform/node-clinic): 性能调试
+* [https://github.com/Tencent/TSW](Tencent/TSW): 日志、监控
+* [Node.js debugging in VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
+* [How to debug Node.js in a Docker container, Alex Barashkov, 2019-01-07](https://dev.to/alex_barashkov/how-to-debug-nodejs-in-a-docker-container-bhi)
+* [Ops Debug ～ 分析和处理 Node Server 问题, 2018-12-13](https://mp.weixin.qq.com/s/r_oDm_tXoJCrBLen5kCMbw)
