@@ -195,3 +195,4 @@ module.exports = function override(config, env) {
 * [Kent C. Dodds, Authentication in React Applications, 2019-05-20](https://kentcdodds.com/blog/authentication-in-react-applications)
 * [Dan Abramov, Writing Resilient Components, https://overreacted.io, 2019-03-16](https://overreacted.io/writing-resilient-components/)
 * [Dan Abramov, Presentational and Container Components, https://medium.com, 2015-05-23](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+* [One simple trick to optimize React re-renders, Kent C. Dodds](https://kentcdodds.com/blog/optimize-react-re-renders)。在不使用 React.memo、 PureComponent、shouldComponentUpdate 的情况下，提取组件并作为 props 传递，避免重复渲染。
