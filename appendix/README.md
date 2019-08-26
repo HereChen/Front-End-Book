@@ -6,11 +6,11 @@
 
 ## 读物
 
-1. [basarat/typescript-book](https://github.com/basarat/typescript-book), TypeScript, 有 Kindle 格式.
-2. [Functional-Light JavaScript, Kyle Simpson](https://github.com/getify/Functional-Light-JS)
-3. [Speaking JavaScript: An In-Depth Guide for Programmers, Dr. Axel Rauschmayer](http://speakingjs.com)
+* [basarat/typescript-book](https://github.com/basarat/typescript-book), TypeScript, 有 Kindle 格式.
+* [Functional-Light JavaScript, Kyle Simpson](https://github.com/getify/Functional-Light-JS)
+* [Speaking JavaScript: An In-Depth Guide for Programmers, Dr. Axel Rauschmayer](http://speakingjs.com)
 
-## 阅读摘要
+## 阅读
 
 * [2019-07-09, Modern Script Loading, https://jasonformat.com](https://jasonformat.com/modern-script-loading/)
 
