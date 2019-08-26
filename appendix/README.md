@@ -40,3 +40,7 @@
     ```
 
     对于 JS, 有 3 个入口文件: modern 和 legacy 的 polyfill, 以及正常的业务逻辑文件 main.js. Webpack 根据环境配置分别打包. 现代浏览器也需要 polyfill 是因为浏览器实现不同, 对部分功能也需要抹平处理, 比如 `intersection-observer`.
+
+* [2016-06-16, DNS 原理入门, 阮一峰](http://www.ruanyifeng.com/blog/2016/06/dns.html)。
+
+    有工具介绍，`dig`、`host`、`whois`。
