@@ -29,6 +29,7 @@
 * [Advanced](./chapter-advanced/README.md)
   * [Workers](./chapter-advanced/workers.md)
   * [Thread](./chapter-advanced/thread.md)
+  * [Base64](./chapter-advanced/base64.md)
 * [Performance](./chapter-performance/README.md)
   * [文件](./chapter-performance/files.md)
   * [CSS](./chapter-performance/css.md)
