@@ -68,6 +68,6 @@ console.log( 0 == NaN )          // false
 
 ## 扩展阅读
 
-1. [JavaScript中奇葩的假值](http://www.cnblogs.com/snandy/p/3589517.html)
-2. [阮一峰, undefined与null的区别, 2014](http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html)
-3. [Symbol.toStringTag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)
+* [JavaScript中奇葩的假值](http://www.cnblogs.com/snandy/p/3589517.html)
+* [阮一峰, undefined与null的区别, 2014](http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html)
+* [Symbol.toStringTag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)
