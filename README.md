@@ -1,7 +1,5 @@
 # Front-End-Book
 
-目录见 [SUMMARY.md](SUMMARY.md)。
-
 ```bash
 # npm install gitbook-cli -g
 
