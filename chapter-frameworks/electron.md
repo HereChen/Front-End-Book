@@ -1,5 +1,7 @@
 # Electron
 
+> <https://github.com/electron/electron>
+
 Electron 构建应用，主要包括两部分：一是构建 Web App；二是 Electron 提供扩展能力（内置了 Node，可用 node 的模块），Web App 实现本地交互能力。构建 Electron 应用工程，可首先构建 Web App 工程，稍作修改适应客户端最后打包的需求。
 
 ## 技术栈
