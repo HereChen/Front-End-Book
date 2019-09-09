@@ -4,32 +4,29 @@
 
 ### XMLHttpRequest
 
-1. 原生 Ajax 实现: GET
+> <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest>
 
-    ```javascript
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET","test1.txt",true);
-    xmlhttp.send();
-    ```
+```javascript
+// ajax get
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET","api/path",true);
+xmlhttp.send();
 
-2. 原生 Ajax 实现: POST
-
-    ```javascript
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function(){
-      if (xmlhttp.readyState==4 && xmlhttp.status==200){
-        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-      }
-    }
-    xmlhttp.open("POST","ajax_test.asp",true);
-    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xmlhttp.send("fname=Bill&lname=Gates");
-    ```
-
-- [原生JS与jQuery对AJAX的实现](http://segmentfault.com/a/1190000003096293)
-- [AJAX - 向服务器发送请求](http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp)
+// ajax post
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function(){
+  if (xmlhttp.readyState==4 && xmlhttp.status==200){
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+  }
+}
+xmlhttp.open("POST","api/path",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("param1=value1&param2=value2");
+```
 
 ### XMLHttpRequest 的5个状态
+
+> <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/readyState>
 
 新建对象 -> 建立连接 -> 接收响应原始数据 -> 解析原始数据 -> 响应就绪(待后续处理)
 
