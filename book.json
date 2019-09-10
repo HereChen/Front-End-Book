@@ -3,7 +3,8 @@
   "title": "Fron-End-Book",
   "author": "陈磊",
   "plugins": [
-    "-sharing"
+    "-sharing",
+    "anchors"
   ],
   "pluginsConfig": {
     "theme-default": {
