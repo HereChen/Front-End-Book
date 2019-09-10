@@ -11,3 +11,13 @@
 设置可参照 [X-Frame-Options, developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options). 需要注意, `X-Frame-Options` 只能在服务端设置, 通过 HTML `meta` 标签设置无效.
 
 > Furthermore, X-Frame-Options must be sent as an HTTP header field and is explicitly ignored by user agents when declared with a meta http-equiv tag. [HTTP Header Field X-Frame-Options, rfc7034](https://tools.ietf.org/html/rfc7034)
+
+**实例** [http-server](https://github.com/http-party/http-server) 没有 `X-Frame-Options` 配置项，需要更改源码自行添加。
+
+```diff
+// https://github.com/http-party/http-server/blob/e1f5d2399d/lib/http-server.js
++ this.headers['X-Frame-Options'] = 'SAMEORIGIN';
+  if (options.cors) {
+    this.headers['Access-Control-Allow-Origin'] = '*';
+    this.headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Range';
+```
