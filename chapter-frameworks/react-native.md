@@ -124,32 +124,8 @@ vim ~/.bashrc
 1. 签名生成
 
     ```bash
-    $ cd android/app/
-    $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
-    Enter keystore password:
-    Keystore password is too short - must be at least 6 characters
-    Enter keystore password: chenlei
-    Re-enter new password: chenlei
-    What is your first and last name?
-      [Unknown]:  HereChen
-    What is the name of your organizational unit?
-      [Unknown]:  HereChen
-    What is the name of your organization?
-      [Unknown]:  HereChen
-    What is the name of your City or Locality?
-      [Unknown]:  Chengdu
-    What is the name of your State or Province?
-      [Unknown]:  Sichuan
-    What is the two-letter country code for this unit?
-      [Unknown]:  51
-    Is CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51 correct?
-      [no]:  yes
-
-    Generating 2,048 bit RSA key pair and self-signed certificate (SHA256withRSA) with a validity of 10,000 days
-            for: CN=HereChen, OU=HereChen, O=HereChen, L=Chengdu, ST=Sichuan, C=51
-    Enter key password for <my-key-alias>
-            (RETURN if same as keystore password):
-    [Storing my-release-key.keystore]
+    cd android/app/
+    keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
     ```
 
 2. **签名变量配置** `./android/gradle.properties` 或 `~/.gradle/gradle.properties` 新增内容。
