@@ -8,7 +8,7 @@
 
 以上方法都是建立再 TCP 之上，WebRTC 还会涉及到 UDP。
 
-## 资源
+## 阅读
 
 * [Build Real-time Apps by Learning WebSockets, Ian Wilson, https://dev.to, 2018-05-22](https://dev.to/iwilsonq/build-real-time-apps-by-learning-websockets-3c9m)
 * [Building Real-time Apps with Websockets & Server-Sent Events, Mark Brown, https://www.sitepoint.com, 2016-06-06](https://www.sitepoint.com/real-time-apps-websockets-server-sent-events/)

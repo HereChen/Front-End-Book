@@ -34,11 +34,11 @@
 
 比如, 对于多个定制化的产品, 每个产品都对应有运营平台, 用于观测用户使用情况. 由于历史上造成的差异, 每个运营平台都需要重新构建一套运行于浏览器端的前端工程. 对于这种业务相似度较高的情况, 就可以在服务端引入 nodejs, 构建统一的平台, 抹平已有系统之前的差异(比如接口有不同的风格), 只需要实现一套 Web APP. 同时也方便了后期其他定制产品的扩展.
 
-## 扩展
+## 阅读
 
-1. [美团点评点餐, 美团点评点餐 Nuxt.js 实战, 2017-08-09](https://juejin.im/post/598aabe96fb9a03c335a8dde)
-2. [Jason Strimpel, Maxime Najim, 同构JavaScript应用开发, 2017](https://book.douban.com/subject/27183584/)
-3. [Nicholas C. Zakas, Node.js and the new web front-end, 2013-10-07](https://www.nczonline.net/blog/2013/10/07/node-js-and-the-new-web-front-end/)
+* [美团点评点餐, 美团点评点餐 Nuxt.js 实战, 2017-08-09](https://juejin.im/post/598aabe96fb9a03c335a8dde)
+* [Jason Strimpel, Maxime Najim, 同构JavaScript应用开发, 2017](https://book.douban.com/subject/27183584/)
+* [Nicholas C. Zakas, Node.js and the new web front-end, 2013-10-07](https://www.nczonline.net/blog/2013/10/07/node-js-and-the-new-web-front-end/)
 
 [^slBalint2016Separation]: [Balint Sera, On the separation of front-end and backend, 2016-06-15](https://medium.com/@balint_sera/on-the-separation-of-front-end-and-backend-7a0809b42820)
 [^slHerman2016Separation]: [赫门, 淘宝前后端分离实践, 2014](http://2014.jsconf.cn/slides/herman-taobaoweb/#/)

@@ -30,7 +30,7 @@ body {
 https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,700|Noto+Sans:400,700&display=swap
 ```
 
-## 扩展阅读
+## 阅读
 
-1. [Web safe fonts, developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Web_safe_fonts)
-2. [font-display, 3perf.com](https://3perf.com/talks/web-perf-101/#fonts-fallback-1)
+* [Web safe fonts, developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Web_safe_fonts)
+* [font-display, 3perf.com](https://3perf.com/talks/web-perf-101/#fonts-fallback-1)

@@ -43,6 +43,6 @@ Electron 构建应用，主要包括两部分：一是构建 Web App；二是 El
 
 注意 main.ts 编译后 index.html 以及静态资源路径问题。
 
-## 扩展
+## 阅读
 
-1. [Technical Differences Between Electron and NW.js(formerly node-webkit)](https://electronjs.org/docs/development/atom-shell-vs-node-webkit)
+* [Technical Differences Between Electron and NW.js(formerly node-webkit)](https://electronjs.org/docs/development/atom-shell-vs-node-webkit)

@@ -105,10 +105,10 @@ function isInView(obj) {
 
 上面这种方法需要监听元素是否在可视范围, 利用 [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) 可以直接判断元素是否在可视区域, 并执行响应操作, 使得实现延迟加载更加简单.
 
-## 参考扩展
+## 阅读
 
-1. [How to tell if a DOM element is visible in the current viewport?, stackoverflow.com](https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport#7557433)
-2. [mozilla, Element.getBoundingClientRect()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect)
-3. [Image Optimization, Ilya Grigorik, developers.google.cn](https://developers.google.cn/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)
-4. [Using WebP Images, JEREMY WAGNER, css-tricks.com, 2016-08-26](https://css-tricks.com/using-webp-images/)
-5. [Why and how to use WebP images today, bitsofco.de, 2018-11-21](https://bitsofco.de/why-and-how-to-use-webp-images-today/)
+* [How to tell if a DOM element is visible in the current viewport?, stackoverflow.com](https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport#7557433)
+* [mozilla, Element.getBoundingClientRect()](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect)
+* [Image Optimization, Ilya Grigorik, developers.google.cn](https://developers.google.cn/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)
+* [Using WebP Images, JEREMY WAGNER, css-tricks.com, 2016-08-26](https://css-tricks.com/using-webp-images/)
+* [Why and how to use WebP images today, bitsofco.de, 2018-11-21](https://bitsofco.de/why-and-how-to-use-webp-images-today/)

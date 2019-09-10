@@ -8,7 +8,7 @@ Webpack 是打包工具, 以 JavaScript 作为入口文件开始解析.
 
 > [list of plugins](https://github.com/webpack/docs/wiki/list-of-plugins#commonschunkplugin)
 
-## 扩展阅读
+## 阅读
 
 * [Loading css, css-modules, and Sass with webpack, 2019-05-13](https://adamrackis.dev/css-modules/)
 

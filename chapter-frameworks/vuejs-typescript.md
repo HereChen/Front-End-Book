@@ -161,7 +161,7 @@ const store: Store<RootState> = new Vuex.Store({
 export default store;
 ```
 
-# Vuex 调用
+## Vuex 调用
 
 ```typescript
 <script lang="ts">
@@ -177,7 +177,3 @@ export default class Demo extends Vue {
 }
 </script>
 ```
-
-## 什么时候应用 class
-
-有一些工具，需要单独封装，如果这个工具是一个工具集合，并且内部存在一些逻辑依赖，可采用 class 书写。比如，同一个项目的请求配置通常是一样的，这个时候可以将 axios 封装成 class，内部设置默认的配置，并提供可外部配置的方式。axios 的拦截、请求都依赖同一套配置，通过 class 可在构造器输入配置，屏蔽内部复杂性，并实现可配置。反之，类似接口层，各个 api 之间并无关联，则无需采用 class。

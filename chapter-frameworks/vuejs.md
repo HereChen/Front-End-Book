@@ -216,7 +216,7 @@ export default {
 }
 ```
 
-## Compatible
+## 兼容性
 
 ### IE `vuex requires a promise polyfill in this browser`
 

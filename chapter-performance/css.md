@@ -65,6 +65,6 @@
 </script>
 ```
 
-## 参考文献/扩展阅读
+## 阅读
 
-1. [CSS and Network Performance](https://csswizardry.com/2018/11/css-and-network-performance/)
+* [CSS and Network Performance](https://csswizardry.com/2018/11/css-and-network-performance/)

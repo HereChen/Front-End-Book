@@ -9,7 +9,7 @@
 
 `.editorconfig`配置样例
 
-```
+```properties
 root = true
 
 [*]
@@ -49,7 +49,7 @@ max_line_length = 80
 1. airbnb: <https://github.com/airbnb/javascript>
 2. standard: <https://github.com/standard/standard>
 
-## 扩展
+## 阅读
 
-1. [贺师俊, Myths of CSS Frameworks, 2015](http://johnhax.net/2015/myth-of-css-frameworks/)
-2. [白牙, [译]结合智能选择器的语义化的CSS, 2013-10-06](https://www.w3cplus.com/css/semantic-css-with-intelligent-selectors.html)
+* [贺师俊, Myths of CSS Frameworks, 2015](http://johnhax.net/2015/myth-of-css-frameworks/)
+* [白牙, [译]结合智能选择器的语义化的CSS, 2013-10-06](https://www.w3cplus.com/css/semantic-css-with-intelligent-selectors.html)

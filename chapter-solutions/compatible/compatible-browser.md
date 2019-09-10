@@ -136,9 +136,9 @@ if (ifIE) {
 }
 ```
 
-# 一些兼容性解决方法
+## 一些兼容性解决方法
 
-## scrollTop
+### scrollTop
 
 在应用滚动加载时，发现 `document.documentElement.scrollTop` 在 Chrome 老版本（比如 56）存在 bug，值为 0，可参见 [document.documentElement.scrollTop/Left is always zero (body is the scrollingElement even in strict mode)](https://bugs.chromium.org/p/chromium/issues/detail?id=157855)。
 
@@ -147,7 +147,3 @@ if (ifIE) {
 const dE = document.documentElement;
 const scrollTop = dE.scrollTop || window.pageYOffset || document.body.scrollTop;
 ```
-
-# 本地缓存
-
-- [详说 Cookie, LocalStorage 与 SessionStorage](http://jerryzou.com/posts/cookie-and-web-storage/)
