@@ -2,6 +2,11 @@
 dist/
 _book
 
+# dist
+*.pdf
+*.epub
+*.mobi
+
 *.aux
 *.bak
 *.log
