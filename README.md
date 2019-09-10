@@ -12,11 +12,11 @@ gitbook build ./ ./docs
 # PDF
 # 需要安装 calibre, https://calibre-ebook.com
 # Ubuntu 安装: sudo apt install calibre
-gitbook pdf ./ ./mybook.pdf
+gitbook pdf ./ ./Front-End-Book.pdf
 
 # epub
-gitbook epub ./ ./mybook.epub
+gitbook epub ./ ./Front-End-Book.epub
 
 # mobi
-gitbook mobi ./ ./mybook.mobi
+gitbook mobi ./ ./Front-End-Book.mobi
 ```
