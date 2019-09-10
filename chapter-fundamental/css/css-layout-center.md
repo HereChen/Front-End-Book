@@ -1,10 +1,18 @@
 # 垂直居中和水平居中
 
-> flex 也可用于垂直水平居中
+## flex 水平垂直居中
 
-## 块元素垂直居中(transform)
+```css
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+```
 
-此方案存在兼容性问题(Firefox 43 不支持, Chrome 46 支持)
+## 块元素垂直居中：transform
+
+此方案存在兼容性问题（Firefox 43 不支持, Chrome 46 支持）。另外，Chrome 应用 `transform` 出现字体模糊，建议使用 `flex`。
 
 ```css
 {
@@ -16,7 +24,7 @@
 }
 ```
 
-## 块元素垂直居中(绝对定位)
+## 块元素垂直居中：绝对定位
 
 ```css
 {
