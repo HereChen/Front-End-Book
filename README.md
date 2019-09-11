@@ -1,22 +1,7 @@
 # Front-End-Book
 
-```bash
-# npm install gitbook-cli -g
+期望在知道和感受的基础上，对前端有一个立体的理解。
 
-# 本地查看
-gitbook serve
+**起源** 该文档源于接触前端时的学习总结、校招应聘时的部分要点总结。现结合工作中实际应用，以及接触到的技术，渐进梳理，汇总于此。
 
-# HTML
-gitbook build ./ ./docs
-
-# PDF
-# 需要安装 calibre, https://calibre-ebook.com
-# Ubuntu 安装: sudo apt install calibre
-gitbook pdf ./ ./Front-End-Book.pdf
-
-# epub
-gitbook epub ./ ./Front-End-Book.epub
-
-# mobi
-gitbook mobi ./ ./Front-End-Book.mobi
-```
+**主要内容** 基础技术，技术要点，实际应用。换一个角度，内容有：语言基础，工具、性能、安全、测试。主要目标是：相似技术作汇总；结合场景阐述技术点。

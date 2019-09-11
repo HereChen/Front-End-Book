@@ -1,9 +1,8 @@
 # Summary
 
-## Preface
+## 介绍
 
-* [项目介绍](./README.md)
-* [前言](./preface/README.md)
+* [前言](./README.md)
 
 ## 基础
 
