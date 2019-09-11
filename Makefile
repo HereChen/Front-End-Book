@@ -1,8 +1,15 @@
+# gitbook
+# npm install gitbook-cli -g
+
+# calibre
+# https://calibre-ebook.com
+# sudo apt install calibre
+
 PROJNAME=Front-End-Book
 DIST_FOLDER=dist
 .PHONY: clean html pdf mobi epub
 
-all: html pdf mobi epub
+all: clean html pdf mobi epub
 
 html: _dist_dir
 	gitbook build . ./${DIST_FOLDER}/html
