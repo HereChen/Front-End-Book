@@ -12,6 +12,7 @@
 ## 书籍
 
 * [JavaScript高级程序设计, Nicholas C. Zakas](https://book.douban.com/subject/10546125/)。目前看过的最好的一本前端书籍，全面、深入、易懂。要出第4版了[Professional JavaScript for Web Developers, 4th Edition](https://www.wiley.com/en-us/Professional+JavaScript+for+Web+Developers%2C+4th+Edition-p-9781119366447)。
+* [You Don't Know JS, Kyle Simpson](https://github.com/getify/You-Dont-Know-JS) 一个系列的 JS 书籍，推荐。
 * <https://exploringjs.com/> Dr. Axel Rauschmayer 的各种 JS 电子书。
 * [Understanding ECMAScript 6, Nicholas C. Zakas](https://github.com/nzakas/understandinges6)
 * [basarat/typescript-book](https://github.com/basarat/typescript-book), TypeScript, 有 Kindle 格式.
