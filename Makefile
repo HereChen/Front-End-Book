@@ -25,6 +25,9 @@ epub: _dist_dir
 mobi: _dist_dir
 	gitbook mobi . ./${DIST_FOLDER}/${PROJNAME}.mobi
 
+dev:
+	gitbook serve
+
 clean:
 	rm -rf ${DIST_FOLDER}
 
