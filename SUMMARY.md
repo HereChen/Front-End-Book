@@ -39,6 +39,7 @@
 * [Workers](./chapter-advanced/workers.md)
 * [Thread](./chapter-advanced/thread.md)
 * [Base64](./chapter-advanced/base64.md)
+* [尾递归调用](./chapter-advanced/tail-call.md)
 * [WebRTC](./chapter-advanced/webrtc.md)
 
 ## 性能

@@ -356,5 +356,4 @@ localStorage.clear()                // 清空 localStorage
 
 ## 阅读
 
-* [Benjamin Johnson, Using trampolines to manage large recursive loops in JavaScript, 2018-05-14](https://blog.logrocket.com/using-trampolines-to-manage-large-recursive-loops-in-javascript-d8c9db095ae3)
 * [coodict/javascript-in-one-pic](https://github.com/coodict/javascript-in-one-pic)
