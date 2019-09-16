@@ -1,4 +1,6 @@
-# 框架及工具
+# 框架
+
+框架以及工具库。
 
 * [jQuery](https://github.com/jquery/jquery): Dom 工具.
 * [lodash](https://github.com/lodash/lodash): A modern JavaScript utility library delivering modularity, performance, & extras.

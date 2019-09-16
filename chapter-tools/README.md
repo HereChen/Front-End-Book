@@ -1,4 +1,4 @@
-# Tools
+# 工具
 
 **打包及脚本工具** Webpack、Parcel 属于打包工具，Webpack 以 JavaScript 为入口，Parcel 以 HTML 为入口；gulp、GruntJS、npm scripts 属于脚本工具, 或者任务工具. 适用多个包打包的工具 [Lerna](https://github.com/lerna/lerna)、[Rollup](https://github.com/rollup/rollup), 比如对于 UI 组件的打包就比较适合.
 

@@ -1,4 +1,4 @@
-# Advanced
+# 进阶
 
 TODO: 尾调用优化（Tail Call Optimization，TCO）。
 
