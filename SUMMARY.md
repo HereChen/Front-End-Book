@@ -70,6 +70,7 @@
   * [文件下载](./chapter-solutions/compatible/download-file.md)
 * [前后端分离](./chapter-solutions/separation-of-front-end-and-backend.md)
 * [SEO](./chapter-solutions/seo.md)
+* [工程间代码复用](./chapter-solutions/code-share-between-projects.md)
 * [Tips](./chapter-solutions/tips/README.md)
 
 ## 框架
