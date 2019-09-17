@@ -64,7 +64,7 @@ lerna add --scope=@demo/business-core @demo/util
 npm i eslint -D --registry https://registry.npm.taobao.org
 npm i husky -D --registry https://registry.npm.taobao.org
 
-# 依赖版本更新：lerna bootstrap
+# TODO: 依赖版本更新, 如何全部自动更新
 # 重新拉库后安装依赖：lerna bootstrap
 ```
 
