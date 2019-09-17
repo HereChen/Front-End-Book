@@ -68,7 +68,7 @@ npm i husky -D --registry https://registry.npm.taobao.org
 # 重新拉库后安装依赖：lerna bootstrap
 ```
 
-工程实例 [vuejs/vue-cli](https://github.com/vuejs/vue-cli)、[babel/babel](https://github.com/babel/babel)、[ScottLogic/StockFlux](https://github.com/ScottLogic/StockFlux)。
+工程实例 [vuejs/vue-cli](https://github.com/vuejs/vue-cli)、[babel/babel](https://github.com/babel/babel)、[ScottLogic/StockFlux](https://github.com/ScottLogic/StockFlux)、[wowlusitong/mono-stater-kit](https://github.com/wowlusitong/mono-stater-kit)。
 
 ## 阅读
 
