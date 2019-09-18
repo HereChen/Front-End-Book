@@ -71,6 +71,7 @@
 * [前后端分离](./chapter-solutions/separation-of-front-end-and-backend.md)
 * [SEO](./chapter-solutions/seo.md)
 * [工程间代码复用](./chapter-solutions/code-share-between-projects.md)
+* [响应式设计](./chapter-solutions/responsive-design.md)
 * [Tips](./chapter-solutions/tips/README.md)
 
 ## 框架
