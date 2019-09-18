@@ -72,6 +72,7 @@
 * [SEO](./chapter-solutions/seo.md)
 * [工程间代码复用](./chapter-solutions/code-share-between-projects.md)
 * [响应式设计](./chapter-solutions/responsive-design.md)
+* [代码规范](./chapter-solutions/code-standard.md)
 * [Tips](./chapter-solutions/tips/README.md)
 
 ## 框架
