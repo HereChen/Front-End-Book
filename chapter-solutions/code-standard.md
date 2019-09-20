@@ -35,7 +35,7 @@ max_line_length = 80
 
 ### CSS 格式化
 
-1. CSScomb: <http://csscomb.com>
+1. [CSScomb](https://github.com/csscomb/csscomb.js)
 2. 配置文件`.csscomb.json` 示例:<https://github.com/htmlacademy/codeguide/blob/master/csscomb.json>
 3. VSCode 插件: [CSScomb](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-csscomb)
 

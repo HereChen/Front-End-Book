@@ -65,14 +65,15 @@
 ## 方案
 
 * [简介](./chapter-solutions/README.md)
+* [前后端分离](./chapter-solutions/separation-of-front-end-and-backend.md)
+* [SEO](./chapter-solutions/seo.md)
+* [跨工程代码复用](./chapter-solutions/code-share-between-projects.md)
+* [响应式设计](./chapter-solutions/responsive-design.md)
+* [代码规范](./chapter-solutions/code-standard.md)
 * [兼容性问题](./chapter-solutions/compatible/scroll.md)
   * [滚动问题/scroll](./chapter-solutions/compatible/scroll.md)
   * [文件下载](./chapter-solutions/compatible/download-file.md)
-* [前后端分离](./chapter-solutions/separation-of-front-end-and-backend.md)
-* [SEO](./chapter-solutions/seo.md)
-* [工程间代码复用](./chapter-solutions/code-share-between-projects.md)
-* [响应式设计](./chapter-solutions/responsive-design.md)
-* [代码规范](./chapter-solutions/code-standard.md)
+* [编码时检测代码兼容性](./chapter-solutions/detection-compatibility-when-coding.md)
 * [Tips](./chapter-solutions/tips/README.md)
 
 ## 框架
