@@ -27,10 +27,6 @@
   * [异步请求](./chapter-fundamental/javascript/asynchronous-request.md)
   * [继承](./chapter-fundamental/javascript/inheritance.md)
 * [HTTP](./chapter-fundamental/http.md)
-* [存储](./chapter-fundamental/storage/README.md)
-  * [Cookie](./chapter-fundamental/storage/cookie.md)
-  * [localStorage](./chapter-fundamental/storage/localStorage.md)
-  * [indexedDB](./chapter-fundamental/storage/indexedDB.md)
 * [TypeScript](./chapter-fundamental/typescript.md)
 
 ## 进阶
@@ -39,6 +35,7 @@
 * [Workers](./chapter-advanced/workers.md)
 * [Thread](./chapter-advanced/thread.md)
 * [Base64](./chapter-advanced/base64.md)
+* [Web 存储](./chapter-advanced/webstorage.md)
 * [尾递归调用](./chapter-advanced/tail-call.md)
 * [WebRTC](./chapter-advanced/webrtc.md)
 

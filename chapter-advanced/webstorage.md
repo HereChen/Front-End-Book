@@ -1,4 +1,8 @@
-# cookie
+# Web 存储
+
+> <https://html.spec.whatwg.org/multipage/webstorage.html>
+
+## cookie
 
 ## 类型
 
@@ -16,3 +20,9 @@ Firefox 和 Chrome 的 Cookie 被存储为一个 SQLite 文件 (所有页面的 
 
 %APPDATA%\Mozilla\Firefox\Profiles\td8g4e5i.default-nightly\cookies.sqlite
 ```
+
+## indexedDB
+
+## localStorage
+
+## sessionStorage
