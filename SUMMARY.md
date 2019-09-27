@@ -71,6 +71,7 @@
   * [滚动问题/scroll](./chapter-solutions/compatible/scroll.md)
   * [文件下载](./chapter-solutions/compatible/download-file.md)
 * [编码时检测代码兼容性](./chapter-solutions/detection-compatibility-when-coding.md)
+* [Backend Driven UI](./chapter-solutions/backend-driven-ui.md)
 * [Tips](./chapter-solutions/tips/README.md)
 
 ## 框架
