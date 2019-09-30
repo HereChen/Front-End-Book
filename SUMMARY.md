@@ -26,6 +26,7 @@
   * [异步](./chapter-fundamental/javascript/asynchronous.md)
   * [异步请求](./chapter-fundamental/javascript/asynchronous-request.md)
   * [继承](./chapter-fundamental/javascript/inheritance.md)
+  * [setInterval 和 setTimeout](./chapter-fundamental/settimeout-setinterval.md)
 * [HTTP](./chapter-fundamental/http.md)
 * [TypeScript](./chapter-fundamental/typescript.md)
 

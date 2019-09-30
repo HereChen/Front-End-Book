@@ -93,11 +93,6 @@ console.log(tt); // 2015年10月30日 22时6分21秒
 * [instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
 * [typeof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/typeof)
 
-### setInterval 和 setTimeout
-
-* `setTimeout` 只执行一次
-* `setInterval` 连续执行多次. setInterval 有问题 (JS 单线程, 事件队列的原因, 导致时间间隔并不准确), 采用 setTimeout 来模拟.
-
 ### call 和 apply
 
 通过 call 和 apply, 可以实现自定义函数调用的上下文.
