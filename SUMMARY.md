@@ -99,6 +99,7 @@
 * [Visual Studio Code](./chapter-tools/vscode.md)
 * [puppeteer](./chapter-tools/puppeteer.md)
 * [代码质量](./chapter-tools/code-quality.md)
+* [Web Analytics](./chapter-tools/web-analytics.md)
 
 ## 附录
 
