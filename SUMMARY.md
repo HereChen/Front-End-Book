@@ -100,6 +100,7 @@
 * [puppeteer](./chapter-tools/puppeteer.md)
 * [代码质量](./chapter-tools/code-quality.md)
 * [Web Analytics](./chapter-tools/web-analytics.md)
+* [字体图标生成](./chapter-tools/icon-fonts.md)
 
 ## 附录
 
