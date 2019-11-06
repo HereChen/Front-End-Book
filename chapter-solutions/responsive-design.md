@@ -51,3 +51,29 @@ export default {
 
     1. 样式分为模块化的 SASS 文件、定义设备尺寸的文件。模块化的文件分为两部分：基本样式（与设备尺寸无关）、根据定义的设备尺寸进行媒体查询设置样式。
     2. 媒体查询需设置最小和最大的尺寸。只设置最小尺寸的话，会存在样式覆盖的问题，应该避免。
+
+    ```scss
+    // var.scss 定义尺寸
+    $--device-mobile: "(max-width: 767px)";
+    $--device-tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $--device-pc: "(min-width: 1024px)";
+    ```scss
+
+    ```scss
+    // font.scss
+    @import "./var.scss";
+    html {
+      // 基础样式
+
+      // 响应式样式
+      @media #{$--device-mobile} {
+          font-size: 12px;
+      }
+      @media #{$--device-tablet} {
+          font-size: 14px;
+      }
+      @media #{$--device-pc} {
+          font-size: 16px;
+      }
+    }
+    ```
