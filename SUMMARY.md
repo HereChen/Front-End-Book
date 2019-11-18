@@ -48,6 +48,7 @@
 * [图片](./chapter-performance/images.md)
 * [字体](./chapter-performance/fonts.md)
 * [骨架屏](./chapter-performance/skeleton-screen.md)
+* [Tips](./chapter-performance/tips.md)
 
 ## 测试
 
