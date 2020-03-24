@@ -68,3 +68,4 @@
 ## 阅读
 
 * [CSS and Network Performance](https://csswizardry.com/2018/11/css-and-network-performance/)
+* [Eliminate render-blocking resources, https://web.dev](https://web.dev/render-blocking-resources/)
