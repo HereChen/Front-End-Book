@@ -22,6 +22,10 @@
 
 ## 阅读
 
+* [2020-09-09, Rewriting Facebook's "Recoil" React library from scratch in 100 lines, https://bennetthardwick.com](https://bennetthardwick.com/blog/recoil-js-clone-from-scratch-in-100-lines/)
+
+    一个简化版 Recoil 状态管理工具；观察者模式实现。
+
 * [2019-07-09, Modern Script Loading, https://jasonformat.com](https://jasonformat.com/modern-script-loading/)
 
     文章描述了如何区分加载 JS 文件 (支持 module 的文件, 经过处理包含 polyfill 的文件). 方式有多种: 1、JS 或 HTML 标签判断是否包含 module 属性; 2、服务端判断 UserAgent (判断浏览器及版本). 基于方式 1, 可以将 polyfill 单独抽离出来, 只在需要的浏览器加载, 其余浏览器加载 module.
