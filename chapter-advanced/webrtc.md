@@ -106,7 +106,11 @@ a=rtcp-mu
 
 * [2019-07-29, WebRTC：会话描述协议SDP, chyingp](https://www.cnblogs.com/chyingp/p/sdp-in-webrtc.html)
 
-    解读 SDP 字段含义。
+  解读 SDP 字段含义。
+
+* [NAT详解：基本原理、穿越技术(P2P打洞)、端口老化等](http://www.52im.net/article-64-1.html)
+
+  IPv4 地址不够 -> NAT（公网和局域网之间地址转换） -> 影响通信 -> NAT 穿透技术（STUN/TURN）
 
 ## 资源
 
