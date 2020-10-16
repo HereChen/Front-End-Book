@@ -14,3 +14,21 @@
 
 * <https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Protect_FileUpload_Against_Malicious_File.md>
 * <https://www.owasp.org/index.php/Unrestricted_File_Upload>
+
+## 第三方库漏洞检查与修复
+
+在使用第三方库之前可在 [snyk.io](https://snyk.io/vuln?type=npm) 进行查询。
+
+```bash
+# 检查
+npm audit
+
+# 检查并修复（不会升级非兼容的库，只升级小版本）
+npm audit fix
+
+# 检查并强制修复
+npm audit fix --force
+
+# 如果配置了镜像库（如在 .npmrc 配置了淘宝镜像），无法检查和修复
+npm audit registry=https://registry.npmjs.org
+```
