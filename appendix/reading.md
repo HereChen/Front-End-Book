@@ -22,6 +22,24 @@
 
 ## 阅读
 
+* [Functional-Light JavaScript - Chapter 8: Recursion](https://github.com/getify/functional-light-js/blob/master/manuscript/ch8.md)
+
+  * 行文思路：递归 -> 栈溢出（`RangeError: Maximum call stack size exceeded`） -> 尾调用（Tail Call）来解决 -> ES6 新特性 Proper Tail Call (PTC) -> 实现尾调用的两种技术：Continuation Passing Style (CPS)、Trampolines
+  * 递归问题：常规的递归调用，每一步执行都会进行栈 push，并保留栈的信息，可能会引起 JS 引擎报错。解决方法是避免栈的逐层 push。
+  * 解决方法：Tail Call 指的是在最后一步调用函数，后续调用不再依赖当前的调用；PTC 指的是 ES6 规范中明确可以被检测到的尾调用，即函数调用的最后一步是返回函数调用。
+
+    ```js
+    // 不是，执行 foo 后还要加 1
+    return 1 + foo( .. );
+    // 是 PTC
+    return foo( .. )
+    // 是 PTC，先进行条件运算，最后执行函数调用
+    return x ? foo( .. ) : bar( .. );
+    ```
+
+  * 具体方法技术1：CPS 是通过在尾调用时传入回调，实现继续迭代调用。（通过回调保留信息）
+  * 具体方法技术2：Trampolines 通过闭包实现（引用递归函数、以及递归内部每一步会引用上一步信息），每一步迭代都返回函数引用，直到满足条件依次返回结果。好处是不依赖于环境的 PTC 支持。（通过闭包保留信息）
+
 * [2020-09-09, Rewriting Facebook's "Recoil" React library from scratch in 100 lines, https://bennetthardwick.com](https://bennetthardwick.com/blog/recoil-js-clone-from-scratch-in-100-lines/)
 
     一个简化版 Recoil 状态管理工具；观察者模式实现。
