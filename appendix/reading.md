@@ -22,6 +22,15 @@
 
 ## 阅读
 
+* [2018-01-09, A quick introduction to pipe() and compose() in JavaScript, https://www.freecodecamp.org](https://www.freecodecamp.org/news/pipe-and-compose-in-javascript-5b04004ac937/)
+
+  pipe 和 compose 可用于函数式编程合并多个映射。在应用多次 `map` 时可以合并未单次 `map`，减少循环次数。
+
+  ```js
+  pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+  compose = (...fns) => (x) => fns.reduceRight((v, f) => f(v), x);
+  ```
+
 * [Functional-Light JavaScript - Chapter 8: Recursion](https://github.com/getify/functional-light-js/blob/master/manuscript/ch8.md)
 
   * 行文思路：递归 -> 栈溢出（`RangeError: Maximum call stack size exceeded`） -> 尾调用（Tail Call）来解决 -> ES6 新特性 Proper Tail Call (PTC) -> 实现尾调用的两种技术：Continuation Passing Style (CPS)、Trampolines
