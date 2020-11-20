@@ -22,6 +22,10 @@
 
 ## 阅读
 
+* [2020-11-20, 从0开始快速上手WebAssembly：打造基于WASM的高性能安全沙盒](https://mp.weixin.qq.com/s/rxmrixEA5FanF9LJieDUzg)
+
+  这样？JS -> [C/C++] QuickJS 编译成 Opcode ByteStream -> [C/C++] QuickJS 执行 Opcode ByteStream -> WebAssembly 编译成 wsam -> JS 调用 wasm
+
 * [2018-01-09, A quick introduction to pipe() and compose() in JavaScript, https://www.freecodecamp.org](https://www.freecodecamp.org/news/pipe-and-compose-in-javascript-5b04004ac937/)
 
   pipe 和 compose 可用于函数式编程合并多个映射。在应用多次 `map` 时可以合并未单次 `map`，减少循环次数。
